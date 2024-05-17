@@ -13,8 +13,10 @@ public class MainMenu : Menu
     {
         SceneLoader.Instance.LoadScene(Level);
         MenuManager.Instance.HideMenu(menuClassifier);
-
         MenuManager.Instance.ShowMenu(hudClassifier);
+
+        // Disable the main camera
+        DisableMainCamera();
     }
 
     // Method to return to the main menu
@@ -43,5 +45,19 @@ public class MainMenu : Menu
     {
         MenuManager.Instance.ShowMenu(optionsMenuClassifier);
         MenuManager.Instance.HideMenu(menuClassifier);
+    }
+
+    // Method to disable the main camera
+    private void DisableMainCamera()
+    {
+        Camera mainCamera = Camera.main;
+        if (mainCamera != null)
+        {
+            mainCamera.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Main camera not found");
+        }
     }
 }
