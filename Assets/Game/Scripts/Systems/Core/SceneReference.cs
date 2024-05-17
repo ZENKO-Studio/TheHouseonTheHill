@@ -33,7 +33,7 @@ public class SceneReference : ISerializationCallbackReceiver
 {
 #if UNITY_EDITOR
     // What we use in editor to select the scene
-    [SerializeField] private Object sceneAsset = null;
+    [SerializeField] private UnityEngine.Object sceneAsset = null;
     bool IsValidSceneAsset
     {
         get
@@ -475,7 +475,7 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
         /// <summary>
         /// For a given Scene Asset object reference, extract its build settings data, including buildIndex.
         /// </summary>
-        static public BuildScene GetBuildScene(Object sceneObject)
+        static public BuildScene GetBuildScene(UnityEngine.Object sceneObject)
         {
             BuildScene entry = new BuildScene()
             {
