@@ -2,22 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SphereCollider))]
-[RequireComponent (typeof(Rigidbody))]
-public class Object : MonoBehaviour
+
+public abstract class Object : InventoryItem
 {
-    [SerializeField] int PickableRange = 3;
+ // Icon representing the object
 
-    protected void Start()
-    {
-        gameObject.tag = "Object";
-        GetComponent<SphereCollider>().isTrigger = true;
-        GetComponent<SphereCollider>().radius = PickableRange;
-        GetComponent <Rigidbody>().isKinematic = true;
-    }
 
-    public virtual void PickUp()
+    public override void Use()
     {
-        //Override and Do the necessary to store in Inventory
+        // Implement general use logic for object items
+        Debug.Log("Using object item: " + itemName);
     }
 }

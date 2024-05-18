@@ -22,7 +22,7 @@ public class Capture : MonoBehaviour
 
     [Header("Player Disable")]
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject objectToCheck; // Object to check if it's in view
+    [SerializeField] private List<Object> objectsToCheck; // List of ObjectItem instances to check if they are in view
 
     [Header("Capture Mode UI")]
     [SerializeField] private Canvas captureModeCanvas;
@@ -36,10 +36,10 @@ public class Capture : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
-
-        
+        if (captureModeCanvas != null)
+        {
             captureModeCanvas.enabled = false; // Ensure the canvas is initially disabled
-      
+        }
     }
 
     private void Update()
@@ -53,15 +53,18 @@ public class Capture : MonoBehaviour
         {
             if (!viewingPhoto)
             {
-                // Check if the object is in view and decide if it's a key item photo or a normal photo
-                if (objectToCheck != null && CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, objectToCheck))
+                // Check if any object in the list is in view
+                bool isKeyItem = false;
+                foreach (var obj in objectsToCheck)
                 {
-                    StartCoroutine(CapturePhoto(true)); // Capture key item photo
+                    if (CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj.gameObject))
+                    {
+                        isKeyItem = obj is KeyItem;
+                        break;
+                    }
                 }
-                else
-                {
-                    StartCoroutine(CapturePhoto(false)); // Capture normal photo
-                }
+
+                StartCoroutine(CapturePhoto(isKeyItem)); // Capture photo based on whether a key item is in view
             }
             else
             {
@@ -80,10 +83,10 @@ public class Capture : MonoBehaviour
         isCaptureMode = !isCaptureMode;
         player.SetActive(!isCaptureMode); // Disable player control when in capture mode
 
-       
+        if (captureModeCanvas != null)
+        {
             captureModeCanvas.enabled = isCaptureMode; // Enable or disable the capture mode canvas
-       
-
+        }
     }
 
     void TogglePlayer()
@@ -161,3 +164,4 @@ public class Capture : MonoBehaviour
         PhotoFrame.SetActive(false);
     }
 }
+

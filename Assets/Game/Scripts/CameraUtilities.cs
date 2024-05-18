@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraUtilities : MonoBehaviour
 {
-
     [Header("Raycast Settings")]
     [SerializeField] private static float raycastDistance = 100f;
     [SerializeField] private static Vector2 screenArea = new Vector2(0.4f, 0.4f); // Increased area to 40% for better capture

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Documents : Object
+public abstract class Documents : Object
 {
     Image img;
     Sprite image;
@@ -31,7 +31,7 @@ public class Documents : Object
         PickUp();
     }
 
-    public override void PickUp()
+    public  void PickUp()
     {
         if (bImage)
         {
