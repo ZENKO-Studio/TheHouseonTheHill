@@ -2,6 +2,7 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using static EventBus;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -101,6 +102,9 @@ namespace StarterAssets
         // Capture reference
         [SerializeField] private Capture captureScript;
 
+        // Inventory state
+        private bool isInventoryOpen = false;
+
         // Timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
@@ -178,6 +182,7 @@ namespace StarterAssets
             HandleCrouching();
             HandleZoom();
             HandleCapture();
+            HandleInventory();
         }
 
         private void HandleCapture()
@@ -203,6 +208,15 @@ namespace StarterAssets
                     float newFOV = mainCamera.fieldOfView - scrollInput * zoomSpeed;
                     mainCamera.fieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
                 }
+            }
+        }
+
+        private void HandleInventory()
+        {
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                isInventoryOpen = !isInventoryOpen;
+                EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
             }
         }
 

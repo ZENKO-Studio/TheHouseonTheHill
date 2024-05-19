@@ -22,7 +22,7 @@ public class Capture : MonoBehaviour
 
     [Header("Player Disable")]
     [SerializeField] private GameObject player;
-    [SerializeField] private List<Object> objectsToCheck; // List of ObjectItem instances to check if they are in view
+    [SerializeField] private List<GameObject> objectsToCheck; // List of objects to check if they are in view
 
     [Header("Capture Mode UI")]
     [SerializeField] private Canvas captureModeCanvas;
@@ -36,9 +36,17 @@ public class Capture : MonoBehaviour
     private void Start()
     {
         mainCamera = Camera.main;
+
+        // Ensure the canvas is initially disabled
         if (captureModeCanvas != null)
         {
-            captureModeCanvas.enabled = false; // Ensure the canvas is initially disabled
+            captureModeCanvas.enabled = false;
+        }
+
+        // Ensure objectsToCheck is initialized
+        if (objectsToCheck == null)
+        {
+            objectsToCheck = new List<GameObject>();
         }
     }
 
@@ -57,9 +65,9 @@ public class Capture : MonoBehaviour
                 bool isKeyItem = false;
                 foreach (var obj in objectsToCheck)
                 {
-                    if (CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj.gameObject))
+                    if (obj != null && mainCamera != null && CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj))
                     {
-                        isKeyItem = obj is KeyItem;
+                        isKeyItem = obj.GetComponent<KeyItem>() != null;
                         break;
                     }
                 }
@@ -100,7 +108,10 @@ public class Capture : MonoBehaviour
         viewingPhoto = true;
 
         // Disable the capture mode canvas before taking the screenshot
-        captureModeCanvas.enabled = false;
+        if (captureModeCanvas != null)
+        {
+            captureModeCanvas.enabled = false;
+        }
 
         yield return new WaitForEndOfFrame();
 
@@ -113,7 +124,10 @@ public class Capture : MonoBehaviour
         screenCapture.Apply();
 
         // Re-enable the capture mode canvas after taking the screenshot
-        captureModeCanvas.enabled = true;
+        if (captureModeCanvas != null)
+        {
+            captureModeCanvas.enabled = true;
+        }
 
         ShowPhoto(screenCapture, isKeyItem);
     }
@@ -148,14 +162,12 @@ public class Capture : MonoBehaviour
     {
         GameObject newPhoto = Instantiate(photoPrefab, normalPhotoContainer); // Instantiate new photo in the normal photo container
         newPhoto.GetComponent<Image>().sprite = photoSprite;
-        // Optionally set position and other properties of the new photo game object here
     }
 
     void SaveKeyItemAsGameObject(Sprite photoSprite)
     {
         GameObject newPhoto = Instantiate(photoPrefab, keyItemContainer); // Instantiate new key item photo in the key item container
         newPhoto.GetComponent<Image>().sprite = photoSprite;
-        // Optionally set position and other properties of the new key item game object here
     }
 
     void RemovePhoto()
