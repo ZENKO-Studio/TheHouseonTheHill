@@ -7,6 +7,7 @@ public class Startup : MonoBehaviour
 {
     public SceneReference UIScene;
     public SceneReference ActiveScene;
+    public MenuClassifier MainMenuClassifier;
 
     void Start()
     {

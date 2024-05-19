@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5.0070214, g: 7.9307375, b: 19.107927, a: 1}
+  m_IndirectSpecularColor: {r: 5.0046563, g: 7.927106, b: 19.094225, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9605,6 +9605,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1127024390}
+    - target: {fileID: 3227675818210117307, guid: c733d9cf63337844980667cf3d240c76,
+        type: 3}
+      propertyPath: captureScript
+      value: 
+      objectReference: {fileID: 704015019}
     - target: {fileID: 3280420088305200973, guid: c733d9cf63337844980667cf3d240c76,
         type: 3}
       propertyPath: m_Mesh
@@ -9875,6 +9880,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: 0.0017624472
       objectReference: {fileID: 0}
+    - target: {fileID: 4746418661588909989, guid: c733d9cf63337844980667cf3d240c76,
+        type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 4780449167420213875, guid: c733d9cf63337844980667cf3d240c76,
         type: 3}
       propertyPath: m_Mesh
@@ -9944,6 +9954,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.0017624472
+      objectReference: {fileID: 0}
+    - target: {fileID: 5090665238519655356, guid: c733d9cf63337844980667cf3d240c76,
+        type: 3}
+      propertyPath: field of view
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5130165396403008464, guid: c733d9cf63337844980667cf3d240c76,
         type: 3}
@@ -10516,11 +10531,7 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2134557987}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3227675818210117296, guid: c733d9cf63337844980667cf3d240c76,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1546093156}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c733d9cf63337844980667cf3d240c76, type: 3}
 --- !u!20 &1546093152 stripped
 Camera:
@@ -10546,30 +10557,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1546093151}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1546093156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1546093155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f853f8fd5798284985e4c9315d7ffea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  photoDisplay: {fileID: 0}
-  PhotoFrame: {fileID: 0}
-  photoPrefab: {fileID: 0}
-  normalPhotoContainer: {fileID: 0}
-  keyItemContainer: {fileID: 0}
-  cameraFlash: {fileID: 0}
-  flashTime: 0
-  fadingAnimation: {fileID: 0}
-  player: {fileID: 0}
-  objectsToCheck: []
-  captureModeCanvas: {fileID: 0}
-  mainCamera: {fileID: 0}
 --- !u!43 &1572397167
 Mesh:
   m_ObjectHideFlags: 0

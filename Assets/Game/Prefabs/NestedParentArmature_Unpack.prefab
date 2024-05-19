@@ -2224,6 +2224,12 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  zoomSpeed: 10
+  minFOV: 15
+  maxFOV: 90
+  mainCamera: {fileID: 4102571147040354752}
+  virtualCamera: {fileID: 4581362625198515673}
+  captureScript: {fileID: 0}
   IsCrouched: 0
 --- !u!114 &4495017930933433916
 MonoBehaviour:
