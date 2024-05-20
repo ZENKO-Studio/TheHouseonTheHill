@@ -31,4 +31,13 @@ public class GameManager : MonoBehaviour
         resourceItem.amount = amount;
         inventory.AddItem(resourceItem);
     }
+    public class ToggleInventoryEvent
+    {
+        public bool IsOpen;
+
+        public ToggleInventoryEvent(bool isOpen)
+        {
+            IsOpen = isOpen;
+        }
+    }
 }

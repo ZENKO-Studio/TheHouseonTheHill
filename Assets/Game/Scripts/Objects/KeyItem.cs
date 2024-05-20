@@ -10,5 +10,10 @@ public class KeyItem : Object
         // Implement specific use logic for key items
         Debug.Log("Using key item: " + itemName);
     }
+
+    public override string GetDescription()
+    {
+        return "This is a key item: " + itemName;
+    }
 }
 

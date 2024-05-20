@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static EventBus;
@@ -12,6 +13,11 @@ public class Inventory : MonoBehaviour
     public Transform contentTransform; // Reference to the ScrollView content
 
     public GameObject itemButtonPrefab; // Reference to the ItemButton prefab
+
+    // References to the inspection UI elements
+    public TMP_Text itemNameText;
+    public Image itemIconImage;
+    public TMP_Text itemDescriptionText;
 
     private void Start()
     {
@@ -28,11 +34,11 @@ public class Inventory : MonoBehaviour
         items.Add(item);
         if (item is KeyItem)
         {
-            item.transform.SetParent(keyItemContainer);
+            item.transform.SetParent(keyItemContainer, false);
         }
         else if (item is Resource)
         {
-            item.transform.SetParent(resourceItemContainer);
+            item.transform.SetParent(resourceItemContainer, false);
         }
         CreateItemButton(item);
 
@@ -68,11 +74,14 @@ public class Inventory : MonoBehaviour
     private void InspectItem(InventoryItem item)
     {
         EventBus.Publish(new ItemInspectedEvent(item));
+        // Display item details in the inspection panel
+        itemNameText.text = item.itemName;
+        itemIconImage.sprite = item.itemIcon;
+        itemDescriptionText.text = item.GetDescription(); // Assuming GetDescription() returns item details
     }
 
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)
     {
-        // Handle item inspection logic if needed
         Debug.Log("Item inspected: " + inspectedEvent.Item.itemName);
     }
 }
