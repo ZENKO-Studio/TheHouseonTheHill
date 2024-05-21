@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class Resource : Object
 {
- 
-
-    
-        public int amount;
+    public int amount;
 
     public override void Use()
     {
