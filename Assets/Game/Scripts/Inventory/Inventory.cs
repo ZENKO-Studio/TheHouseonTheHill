@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
     public TMP_Text itemNameText;
     public Image itemIconImage;
     public TMP_Text itemDescriptionText;
+    public Transform itemPreviewParent;
 
     private void Start()
     {
@@ -73,11 +74,19 @@ public class Inventory : MonoBehaviour
 
     private void InspectItem(InventoryItem item)
     {
+        //Remove previously previeved items from preview
+        for (int i = 0; i < itemPreviewParent.childCount; i++)
+        {
+            if(itemPreviewParent.GetChild(i) != itemPreviewParent)
+                Destroy(itemPreviewParent.GetChild(i));
+        }
+
         EventBus.Publish(new ItemInspectedEvent(item));
         // Display item details in the inspection panel
-        itemNameText.text = item.itemName;
+        //itemNameText.text = item.itemName;
         itemIconImage.sprite = item.itemIcon;
         itemDescriptionText.text = item.GetDescription(); // Assuming GetDescription() returns item details
+        GameObject previewOb = Instantiate(item.itemPreview, itemPreviewParent);
     }
 
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)
