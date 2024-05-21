@@ -12,33 +12,46 @@ public class StalkerPatrol : StalkerBaseState
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         currentDest = stalkerRef.GetNextWaypoint();
-        agent.SetDestination(currentDest.position);
+        if (currentDest != null)
+        {
+            agent.SetDestination(currentDest.position);
+        }
+        else
+        {
+            Debug.LogWarning("No next waypoint found");
+        }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(stalkerRef.bPlayerSensed)
+        if (stalkerRef.bPlayerSensed)
         {
             fsm.ChangeState(StalkerFSM.ChasePlayerState);
+            return;
         }
 
-        if(stalkerRef.bSoundHeard)
+        if (stalkerRef.bSoundHeard)
         {
             fsm.ChangeState(StalkerFSM.InvestigateSoundState);
+            return;
         }
 
-        //#TODO: Maybe move this movement thing into Enemy Controller and Just Handle Destination Changes from here?
-        //Actually Move the player
         if (agent.desiredVelocity != Vector3.zero)
         {
-
             float speed = Vector3.Project(agent.desiredVelocity, stalkerTransform.forward).magnitude * agent.speed;
 
             Vector3 nextPos = stalkerTransform.position + (stalkerTransform.forward * speed * Time.deltaTime);
 
-            //stalkerTransform.position = nextPos;
+            Vector3 displacement = nextPos - agent.transform.position;
 
-            agent.velocity = (nextPos - agent.transform.position) / Time.deltaTime;
+            if (displacement != Vector3.zero)
+            {
+                agent.velocity = displacement / Time.deltaTime;
+            }
+            else
+            {
+                agent.velocity = Vector3.zero;
+            }
 
             float angle = Vector3.Angle(stalkerTransform.forward, agent.desiredVelocity);
 
@@ -53,11 +66,22 @@ public class StalkerPatrol : StalkerBaseState
                                                      Time.deltaTime * AngularDampeningTime);
             }
         }
+        else
+        {
+            agent.velocity = Vector3.zero;
+        }
 
-        if (/*Vector3.Distance(stalkerTransform.position, agent.destination)*/agent.remainingDistance < agent.stoppingDistance)
+        if (agent.remainingDistance < agent.stoppingDistance)
         {
             currentDest = stalkerRef.GetNextWaypoint();
-            agent.SetDestination(currentDest.position);
+            if (currentDest != null)
+            {
+                agent.SetDestination(currentDest.position);
+            }
+            else
+            {
+                Debug.LogWarning("No next waypoint found");
+            }
         }
     }
 }
