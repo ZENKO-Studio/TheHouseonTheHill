@@ -213,7 +213,7 @@ namespace StarterAssets
 
         private void HandleInventory()
         {
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.I))
             {
                 isInventoryOpen = !isInventoryOpen;
                 EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
