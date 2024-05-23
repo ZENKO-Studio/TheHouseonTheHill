@@ -47,6 +47,14 @@ public class MainMenu : Menu
         MenuManager.Instance.HideMenu(menuClassifier);
     }
 
+    public void OnApplicationQuit()
+    {
+
+        Application.Quit();
+        
+
+    }
+
     // Method to disable the main camera
     private void DisableMainCamera()
     {
