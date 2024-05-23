@@ -15242,6 +15242,7 @@ PrefabInstance:
       objectReference: {fileID: 965819817}
     m_RemovedComponents:
     - {fileID: 1173834905314883255, guid: c733d9cf63337844980667cf3d240c76, type: 3}
+    - {fileID: 4448219892271262159, guid: c733d9cf63337844980667cf3d240c76, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4746418661588909988, guid: c733d9cf63337844980667cf3d240c76,
@@ -23588,6 +23589,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: InventorySystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889027580945381727, guid: edddd90acc57b8c48987d14a14175922,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 41.9629
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889027580945381727, guid: edddd90acc57b8c48987d14a14175922,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 39.547
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889027580945381727, guid: edddd90acc57b8c48987d14a14175922,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.0124
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889027580945381727, guid: edddd90acc57b8c48987d14a14175922,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.2781
       objectReference: {fileID: 0}
     - target: {fileID: 7507367582976389140, guid: edddd90acc57b8c48987d14a14175922,
         type: 3}
