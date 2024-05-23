@@ -29,6 +29,8 @@ public class Capture : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
 
+    [SerializeField] Inventory inventory;
+
     private bool viewingPhoto;
     private bool isPlayerActive = true;
     private bool isCaptureMode = false;
@@ -89,7 +91,7 @@ public class Capture : MonoBehaviour
     public void ToggleCapture()
     {
         isCaptureMode = !isCaptureMode;
-        player.SetActive(!isCaptureMode); // Disable player control when in capture mode
+       // Disable player control when in capture mode
 
         if (captureModeCanvas != null)
         {
@@ -161,13 +163,18 @@ public class Capture : MonoBehaviour
     void SavePhotoAsGameObject(Sprite photoSprite)
     {
         GameObject newPhoto = Instantiate(photoPrefab, normalPhotoContainer); // Instantiate new photo in the normal photo container
-        newPhoto.GetComponent<Image>().sprite = photoSprite;
+        newPhoto.GetComponentInChildren<Image>().sprite = photoSprite;
+        
     }
 
     void SaveKeyItemAsGameObject(Sprite photoSprite)
     {
         GameObject newPhoto = Instantiate(photoPrefab, keyItemContainer); // Instantiate new key item photo in the key item container
-        newPhoto.GetComponent<Image>().sprite = photoSprite;
+        newPhoto.GetComponentInChildren<Image>().sprite = photoSprite;
+        KeyItem k = newPhoto.GetComponent<KeyItem>();
+        k.itemName = "KeyPhoto";
+        k.itemPreview = k.gameObject;
+        inventory.AddItem(k);
     }
 
     void RemovePhoto()

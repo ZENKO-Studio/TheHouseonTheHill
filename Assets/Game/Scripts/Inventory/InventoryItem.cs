@@ -6,6 +6,14 @@ public abstract class InventoryItem : MonoBehaviour
 {
     public string itemName;
     public Sprite itemIcon;
+    public int btnIndex;
+    public GameObject itemPreview;
 
     public abstract void Use();
+
+    // Method to get the item description
+    public virtual string GetDescription()
+    {
+        return "No description available.";
+    }
 }

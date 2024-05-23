@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     {
         // Add some items to the inventory for testing
         AddKeyItem("Golden Key");
-        AddResourceItem("Salt", 10);
+        //AddResourceItem("Salt", 10);
     }
 
     public void AddKeyItem(string name)
@@ -30,5 +30,14 @@ public class GameManager : MonoBehaviour
         resourceItem.itemName = name;
         resourceItem.amount = amount;
         inventory.AddItem(resourceItem);
+    }
+    public class ToggleInventoryEvent
+    {
+        public bool IsOpen;
+
+        public ToggleInventoryEvent(bool isOpen)
+        {
+            IsOpen = isOpen;
+        }
     }
 }
