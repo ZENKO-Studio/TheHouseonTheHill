@@ -91,7 +91,7 @@ public class Capture : MonoBehaviour
     public void ToggleCapture()
     {
         isCaptureMode = !isCaptureMode;
-        player.SetActive(!isCaptureMode); // Disable player control when in capture mode
+       // Disable player control when in capture mode
 
         if (captureModeCanvas != null)
         {

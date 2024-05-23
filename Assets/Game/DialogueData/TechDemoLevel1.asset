@@ -705,7 +705,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState("What Happened to Alexander Cliffton")
-        == "unassigned"
+        == "assigned"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -753,7 +753,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 6
+        destinationConversationID: 1
+        destinationDialogueID: 10
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -762,7 +768,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 287
-        y: 217
+        y: 220.1579
         width: 160
         height: 30
     - id: 7
@@ -803,7 +809,7 @@ MonoBehaviour:
       falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks: []
-      conditionsString: 
+      conditionsString: CurrentQuestState("Who is Alexander Cliffton") == "success"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -912,9 +918,58 @@ MonoBehaviour:
         y: 218
         width: 160
         height: 30
+    - id: 10
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 4
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: This Looks Important
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: Item["NewsPaperClipping"].Is_Item == true
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 287
+        y: 270.1579
+        width: 160
+        height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 10.55583, y: 0}
+    canvasZoom: 0.950001
   syncInfo:
     syncActors: 0
     syncItems: 0
