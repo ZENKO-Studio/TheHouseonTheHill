@@ -23,6 +23,9 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         EventBus.Subscribe<ItemInspectedEvent>(OnItemInspected);
+
+        foreach (var item in items)
+            CreateItemButton(item);
     }
 
     private void OnDestroy()
@@ -33,14 +36,7 @@ public class Inventory : MonoBehaviour
     public void AddItem(InventoryItem item)
     {
         items.Add(item);
-        if (item is KeyItem)
-        {
-            item.transform.SetParent(keyItemContainer, false);
-        }
-        else if (item is Resource)
-        {
-            item.transform.SetParent(resourceItemContainer, false);
-        }
+       
         CreateItemButton(item);
 
         EventBus.Publish(new ItemAddedEvent(item));
@@ -61,15 +57,36 @@ public class Inventory : MonoBehaviour
 
     private void CreateItemButton(InventoryItem item)
     {
-        GameObject buttonObject = Instantiate(itemButtonPrefab, contentTransform);
+        GameObject buttonObject = Instantiate(itemButtonPrefab);
+        if (item is KeyItem)
+        {
+           buttonObject.transform.SetParent(keyItemContainer, false);
+        }
+        else if (item is Resource)
+        {
+            buttonObject.transform.SetParent(resourceItemContainer, false);
+        }
+        item.btnIndex = buttonObject.transform.GetSiblingIndex();
         Button button = buttonObject.GetComponent<Button>();
         button.onClick.AddListener(() => InspectItem(item));
 
         Text buttonText = buttonObject.GetComponentInChildren<Text>();
-        buttonText.text = item.itemName;
+        //buttonText.text = item.itemName;
 
-        Image buttonImage = buttonObject.GetComponentsInChildren<Image>()[1];
+        Image buttonImage = buttonObject.GetComponentInChildren<Image>();
         buttonImage.sprite = item.itemIcon;
+    }
+
+    private void RemoveItemButton(InventoryItem item)
+    {
+        if (item is KeyItem)
+        {
+            Destroy(keyItemContainer.transform.GetChild(item.btnIndex));    
+        }
+        else if (item is Resource)
+        {
+            Destroy(keyItemContainer.transform.GetChild(item.btnIndex));
+        }
     }
 
     private void InspectItem(InventoryItem item)
@@ -78,15 +95,15 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < itemPreviewParent.childCount; i++)
         {
             if(itemPreviewParent.GetChild(i) != itemPreviewParent)
-                Destroy(itemPreviewParent.GetChild(i));
+                Destroy(itemPreviewParent.GetChild(i).gameObject);
         }
 
         EventBus.Publish(new ItemInspectedEvent(item));
         // Display item details in the inspection panel
-        //itemNameText.text = item.itemName;
-        itemIconImage.sprite = item.itemIcon;
+        itemNameText.text = item.itemName;
+        //itemIconImage.sprite = item.itemIcon;
         itemDescriptionText.text = item.GetDescription(); // Assuming GetDescription() returns item details
-        GameObject previewOb = Instantiate(item.itemPreview, itemPreviewParent);
+        GameObject previewOb = Instantiate(item.itemPreview, new Vector3(0, 0, 0), Quaternion.identity, itemPreviewParent);
     }
 
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)

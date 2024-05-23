@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     {
         // Add some items to the inventory for testing
         AddKeyItem("Golden Key");
-        AddResourceItem("Salt", 10);
+        //AddResourceItem("Salt", 10);
     }
 
     public void AddKeyItem(string name)
