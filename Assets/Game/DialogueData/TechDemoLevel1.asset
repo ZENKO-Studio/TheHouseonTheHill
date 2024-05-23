@@ -150,7 +150,7 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: State
-      value: active
+      value: unassigned
       type: 0
       typeString: 
     - title: Is Item
@@ -399,7 +399,7 @@ MonoBehaviour:
       isGroup: 0
       nodeColor: 
       delaySimStatus: 0
-      falseConditionAction: 
+      falseConditionAction: Block
       conditionPriority: 2
       outgoingLinks:
       - originConversationID: 1
@@ -477,8 +477,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 134
+        x: 81.05264
+        y: 131.89473
         width: 160
         height: 30
     - id: 2
@@ -496,7 +496,7 @@ MonoBehaviour:
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
-        value: -1
+        value: 1
         type: 5
         typeString: CustomFieldType_Actor
       - title: Menu Text
@@ -533,8 +533,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 80
-        y: 218
+        x: 75.78949
+        y: 212.73685
         width: 160
         height: 30
     - id: 3
@@ -620,7 +620,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Sequence
-        value: 
+        value: UpdateTracker(What Happened to Alexander Cliffton==assigned)
         type: 0
         typeString: 
       conversationID: 1
@@ -712,7 +712,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 600
+        x: 598.9474
         y: 134
         width: 160
         height: 30
