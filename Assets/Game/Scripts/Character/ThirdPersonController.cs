@@ -19,6 +19,7 @@ namespace StarterAssets
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
+ 
 
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
@@ -150,6 +151,7 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+         
         }
 
         private void Start()
@@ -183,6 +185,7 @@ namespace StarterAssets
             HandleZoom();
             HandleCapture();
             HandleInventory();
+  
         }
 
         private void HandleCapture()
@@ -192,6 +195,7 @@ namespace StarterAssets
                 captureScript.ToggleCapture();
             }
         }
+  
 
         private void HandleZoom()
         {
