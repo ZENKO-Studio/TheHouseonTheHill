@@ -6,6 +6,8 @@ public abstract class InventoryItem : MonoBehaviour
 {
     public string itemName;
     public Sprite itemIcon;
+    public int btnIndex;
+    public GameObject itemPreview;
 
     public abstract void Use();
 

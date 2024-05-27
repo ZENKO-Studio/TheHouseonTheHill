@@ -51,6 +51,7 @@ public class EventBus : MonoBehaviour
     public class ItemRemovedEvent
     {
         public InventoryItem Item { get; private set; }
+        public int index {  get; private set; }
 
         public ItemRemovedEvent(InventoryItem item)
         {

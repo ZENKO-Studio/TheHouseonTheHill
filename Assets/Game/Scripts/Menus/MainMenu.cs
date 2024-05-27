@@ -16,7 +16,7 @@ public class MainMenu : Menu
         MenuManager.Instance.ShowMenu(hudClassifier);
 
         // Disable the main camera
-        DisableMainCamera();
+       // DisableMainCamera();
     }
 
     // Method to return to the main menu
@@ -45,6 +45,14 @@ public class MainMenu : Menu
     {
         MenuManager.Instance.ShowMenu(optionsMenuClassifier);
         MenuManager.Instance.HideMenu(menuClassifier);
+    }
+
+    public void OnApplicationQuit()
+    {
+
+        Application.Quit();
+        
+
     }
 
     // Method to disable the main camera
