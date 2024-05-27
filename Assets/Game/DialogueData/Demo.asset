@@ -590,8 +590,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 449.29782
-        y: 188.19023
+        x: 454.1171
+        y: 241.20226
         width: 160
         height: 30
     - id: 2
@@ -646,8 +646,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 451.7075
-        y: 238.19023
+        x: 452.91226
+        y: 297.2264
         width: 160
         height: 30
     - id: 3
@@ -696,8 +696,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 453.7075
-        y: 287.19025
+        x: 462.1412
+        y: 352.2505
         width: 160
         height: 30
     - id: 4
@@ -741,7 +741,7 @@ MonoBehaviour:
       - originConversationID: 1
         originDialogueID: 4
         destinationConversationID: 1
-        destinationDialogueID: 1
+        destinationDialogueID: 5
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -753,6 +753,61 @@ MonoBehaviour:
         serializedVersion: 2
         x: 451.884
         y: 135.17815
+        width: 160
+        height: 30
+    - id: 5
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 1
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 1
+        originDialogueID: 5
+        destinationConversationID: 1
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 456.7033
+        y: 188.7926
         width: 160
         height: 30
     entryGroups: []
