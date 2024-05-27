@@ -10,7 +10,15 @@ using static UnityEngine.InputSystem.InputAction;
 public class PauseMenu : Menu
 {
     public MenuClassifier hudMenuClassifier;
-    // Add this line to reference the level scene
+    // Add this line to reference the level scen
+    public InputAction pauseInputAction;
+
+    private void OnEnable()
+    {
+        pauseInputAction.Enable();
+        pauseInputAction.performed += OnPauseGamePerformed;
+    }
+
 
     public void OnReturnToMainMenu()
     {
@@ -18,18 +26,28 @@ public class PauseMenu : Menu
         MenuManager.Instance.HideMenu(menuClassifier);
     }
 
+    private void OnPauseGamePerformed(InputAction.CallbackContext context)
+    {
+        if (Time.timeScale == 1.0f)
+        {
+            OnPauseGame();
+        }
+        else
+        {
+            OnContinueGame();
+        }
+    }
+
     public void OnPauseGame()
     {
         Time.timeScale = 0.0f;
-        MenuManager.Instance.HideMenu(menuClassifier);
+        MenuManager.Instance.ShowMenu(menuClassifier);
     }
 
-    public void OnContinueGame() {
-    
+    public void OnContinueGame()
+    {
         Time.timeScale = 1.0f;
         MenuManager.Instance.HideMenu(hudMenuClassifier);
-
-    
     }
 
 }
