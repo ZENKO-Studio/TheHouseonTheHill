@@ -813,7 +813,8 @@ PlayerSettings:
     Standalone: USE_CINEMACHINE;USE_TWINE;USE_NEW_INPUT
   additionalCompilerArguments: {}
   platformArchitecture: {}
-  scriptingBackend: {}
+  scriptingBackend:
+    Standalone: 1
   il2cppCompilerConfiguration: {}
   il2cppCodeGeneration: {}
   managedStrippingLevel:
