@@ -4,10 +4,28 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager Instance { get; private set; }
+
     public Inventory inventory;
     public GameObject keyItemPrefab;
     public GameObject resourceItemPrefab;
+    
 
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Make this object persist across scene loads
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate instances
+            return;
+        }
+    }
     private void Start()
     {
         // Add some items to the inventory for testing
@@ -31,13 +49,8 @@ public class GameManager : MonoBehaviour
         resourceItem.amount = amount;
         inventory.AddItem(resourceItem);
     }
-    public class ToggleInventoryEvent
+    public void ToggleInventory(bool isOpen)
     {
-        public bool IsOpen;
-
-        public ToggleInventoryEvent(bool isOpen)
-        {
-            IsOpen = isOpen;
-        }
+        EventBus.Publish(new EventBus.ToggleInventoryEvent(isOpen));
     }
 }

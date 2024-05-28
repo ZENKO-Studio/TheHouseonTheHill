@@ -153,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 560079103905712095}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.92999995, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -667,8 +667,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1844741075902189412}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.125, y: 1.515, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -704,37 +704,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4336075596807534824}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2051379267597657495
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2051379267597657488}
-  m_Layer: 0
-  m_Name: PlayerCameraRoot
-  m_TagString: CinemachineTarget
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2051379267597657488
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2051379267597657495}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.375, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6470050927985804918}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2184897262532572288
 GameObject:
@@ -1369,8 +1338,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4102571147040354754}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.018014986, y: -0.010633505, z: 0.00019160434, w: 0.9997812}
-  m_LocalPosition: {x: 0.42600012, y: 1.4925002, z: -4.16}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.29999995, y: 1.65, z: -2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1719,8 +1688,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4581362625198515239}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.018014986, y: -0.010633505, z: 0.00019160434, w: 0.9997812}
-  m_LocalPosition: {x: 0.42600012, y: 1.4925002, z: -4.16}
+  m_LocalRotation: {x: 0.038022853, y: -0.22012702, z: 0.008587181, w: 0.9746921}
+  m_LocalPosition: {x: 0.29999995, y: 1.65, z: -2.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1745,8 +1714,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 5870267953871990643}
-  m_Follow: {fileID: 2051379267597657488}
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 5870267953871990643}
   m_Lens:
     FieldOfView: 25.1
     OrthographicSize: 10
@@ -1831,16 +1800,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0.43, y: 0.25, z: 0.3}
-  ShoulderOffset: {x: 2.13, y: 0.36, z: -0.16}
+  Damping: {x: 0.02, y: 0.02, z: 0.3}
+  ShoulderOffset: {x: 0.3, y: 0.1, z: 0}
   VerticalArmLength: 0
-  CameraSide: 0.6
-  CameraDistance: 4
+  CameraSide: 1
+  CameraDistance: 2.25
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 1
   IgnoreTag: Player
-  CameraRadius: 0.15
+  CameraRadius: 0.001
   DampingIntoCollision: 0
   DampingFromCollision: 0
 --- !u!114 &9120171322223571394
@@ -2123,12 +2092,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5945294282808597708}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.92999995, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2051379267597657488}
   - {fileID: 54111555116810916}
   - {fileID: 7783384143018785007}
   - {fileID: 5870267953871990643}
@@ -2220,7 +2188,7 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 1
-  CinemachineCameraTarget: {fileID: 2051379267597657495}
+  CinemachineCameraTarget: {fileID: 1844741075902189412}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0

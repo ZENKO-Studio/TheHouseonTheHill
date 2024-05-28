@@ -17,6 +17,7 @@ namespace StarterAssets
         [Header("Player")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
+ 
 
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
@@ -130,6 +131,7 @@ namespace StarterAssets
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
+         
         }
 
         private void Start()
@@ -159,6 +161,50 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+<<<<<<< HEAD:Assets/Game/Scripts/ThirdPersonController.cs
+=======
+            HandleCrouching();
+            HandleZoom();
+            HandleCapture();
+            HandleInventory();
+  
+        }
+
+        private void HandleCapture()
+        {
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                captureScript.ToggleCapture();
+            }
+        }
+  
+
+        private void HandleZoom()
+        {
+            float scrollInput = Input.mouseScrollDelta.y;
+            if (scrollInput != 0)
+            {
+                if (virtualCamera != null)
+                {
+                    float newFOV = virtualCamera.m_Lens.FieldOfView - scrollInput * zoomSpeed;
+                    virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
+                }
+                else if (mainCamera != null)
+                {
+                    float newFOV = mainCamera.fieldOfView - scrollInput * zoomSpeed;
+                    mainCamera.fieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
+                }
+            }
+        }
+
+        private void HandleInventory()
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                isInventoryOpen = !isInventoryOpen;
+                EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
+            }
+>>>>>>> Developing:Assets/Game/Scripts/Character/ThirdPersonController.cs
         }
 
         private void LateUpdate()
