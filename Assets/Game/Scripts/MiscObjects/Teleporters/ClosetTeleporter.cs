@@ -25,6 +25,9 @@ public class ClosetTeleporter : Teleporter
             if(curTime > lightToggleDelay) 
             {
                 closetLight.enabled = false;
+            }
+            if(curTime > lightToggleDelay*2f)
+            {
                 Teleport();
                 ResetTeleporter();
             }
