@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -65,7 +66,7 @@ public class Teleporter : MonoBehaviour
             }
         }
         Debug.Log(dstLocations[r].position);
-        playerTrans.SetPositionAndRotation(dstLocations[r].position, dstLocations[r].rotation);
+        playerTrans.GetComponent<ThirdPersonController>().Teleport(dstLocations[r]);
         
     }
 }
