@@ -388,5 +388,12 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+
+        public void Teleport(Transform t)
+        {
+            _controller.enabled = false;
+            transform.SetPositionAndRotation(t.position, t.rotation);
+            _controller.enabled = true;
+        }
     }
 }
