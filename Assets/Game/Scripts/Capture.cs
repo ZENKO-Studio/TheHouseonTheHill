@@ -35,6 +35,8 @@ public class Capture : MonoBehaviour
     private bool isPlayerActive = true;
     private bool isCaptureMode = false;
 
+    private SeqBase seqToTrigger;
+
     private void Start()
     {
         mainCamera = Camera.main;
@@ -70,6 +72,7 @@ public class Capture : MonoBehaviour
                     if (obj != null && mainCamera != null && CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj))
                     {
                         isKeyItem = obj.GetComponent<KeyItem>() != null;
+                        obj.TryGetComponent<SeqBase>(out seqToTrigger);
                         break;
                     }
                 }
@@ -181,6 +184,15 @@ public class Capture : MonoBehaviour
     {
         viewingPhoto = false;
         PhotoFrame.SetActive(false);
+    }
+
+    //Call this function wherever appropriate
+    void TriggerPhotoSeq()
+    {
+        if (seqToTrigger != null)
+            seqToTrigger.TriggerSeq();
+
+        seqToTrigger = null;
     }
 }
 

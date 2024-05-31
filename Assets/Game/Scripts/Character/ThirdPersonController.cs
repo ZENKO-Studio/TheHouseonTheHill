@@ -115,12 +115,14 @@ namespace StarterAssets
 #endif
         private Animator _animator;
         private CharacterController _controller;
-        private StarterAssetsInputs _input;
+        public StarterAssetsInputs _input;
         private GameObject _mainCamera;
 
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
+
+        bool bCanMove = true;
 
         private bool IsCurrentDeviceMouse
         {
@@ -169,9 +171,13 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
+            if(bCanMove)
+            {
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+            }
+            
         }
 
         private void LateUpdate()
@@ -427,6 +433,15 @@ namespace StarterAssets
             if(_cameraOffset != null)
                 _cameraOffset.m_Offset.z = camZoom;
             
+        }
+
+        public void CanMove(bool v)
+        {
+            bCanMove = v;
+            if(bCanMove)
+                _controller.enabled = true;
+            else
+                _controller.enabled = false;
         }
     }
 }
