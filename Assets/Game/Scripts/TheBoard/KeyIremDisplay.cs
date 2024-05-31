@@ -11,6 +11,6 @@ public class KeyIremDisplay : MonoBehaviour
     public void DisplayKeyItem(GameObject keyItemPrefab)
     {
         GameObject displayObject = Instantiate(keyItemPrefab, keyItemDisplayArea);
-        displayObject.layer = LayerMask.NameToLayer("KeyItemsLayer");
+        displayObject.layer = LayerMask.NameToLayer("UI");
     }
 }
