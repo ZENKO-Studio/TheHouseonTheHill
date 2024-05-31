@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class InventoryItem : MonoBehaviour
 {
+    public string ItemId;
     public string itemName;
     public Sprite itemIcon;
     public int btnIndex;

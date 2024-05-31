@@ -87,6 +87,18 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
+        [Tooltip("How fast should camera zoom in and out")] 
+        [SerializeField] float _camZoomSpeed = 5f;
+        [Tooltip("How much it should zoom out")]
+        [SerializeField]
+        [Range(0f, -1.5f)] float minZoom;
+        
+        [Tooltip("How much it should zoom in")]
+        [SerializeField]
+        [Range(0f, 1.5f)] float maxZoom;
+        
+        [SerializeField] private CinemachineCameraOffset _cameraOffset;
+
         // timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
@@ -129,6 +141,7 @@ namespace StarterAssets
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+                
             }
         }
 
@@ -163,7 +176,8 @@ namespace StarterAssets
 
         private void LateUpdate()
         {
-            CameraRotation();
+            //CameraRotation();
+            
         }
 
         private void AssignAnimationIDs()
@@ -209,6 +223,11 @@ namespace StarterAssets
             // Cinemachine will follow this target
             CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
                 _cinemachineTargetYaw, 0.0f);
+        }
+
+        private void CameraZoom()
+        {
+            
         }
 
         private void Move()
@@ -394,6 +413,20 @@ namespace StarterAssets
             _controller.enabled = false;
             transform.SetPositionAndRotation(t.position, t.rotation);
             _controller.enabled = true;
+        }
+
+        float camZoom = 0;
+
+        //Listen to Zoom Value
+        public void OnCamZoom(InputValue value)
+        {
+            camZoom += value.Get<float>() * Time.deltaTime * _camZoomSpeed;
+
+            camZoom = Mathf.Clamp(camZoom, minZoom, maxZoom);
+
+            if(_cameraOffset != null)
+                _cameraOffset.m_Offset.z = camZoom;
+            
         }
     }
 }

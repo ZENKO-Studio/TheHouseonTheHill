@@ -73,5 +73,10 @@ public class PlayerController : MonoBehaviour
     {
         sprint = value.isPressed;
     }
+
+    public void OnInteract(InputValue value)
+    {
+        Debug.Log($"{name} is Interacting");
+    }
     #endregion
 }
