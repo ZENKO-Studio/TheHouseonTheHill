@@ -13,6 +13,13 @@ public class PauseMenu : Menu
     // Add this line to reference the level scen
     public InputAction pauseInputAction;
 
+    private Camera Main;
+
+    private void Awake()
+    {
+        Main = Camera.main;
+    }
+
     private void OnEnable()
     {
         pauseInputAction.Enable();
@@ -24,6 +31,10 @@ public class PauseMenu : Menu
     {
         MenuManager.Instance.GetMenu<MainMenu>(MenuManager.Instance.MainMenuClassifier)?.OnReturnToMainMenu();
         MenuManager.Instance.HideMenu(menuClassifier);
+
+        Main.gameObject.SetActive(true);
+
+
     }
 
     private void OnPauseGamePerformed(InputAction.CallbackContext context)
