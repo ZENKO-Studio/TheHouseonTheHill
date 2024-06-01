@@ -1,6 +1,8 @@
-﻿ using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
+using static EventBus;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -69,13 +71,13 @@ namespace StarterAssets
         [Tooltip("How far in degrees can you move the camera down")]
         public float BottomClamp = -30.0f;
 
-        [Tooltip("Additional degress to override the camera. Useful for fine tuning camera position when locked")]
+        [Tooltip("Additional degrees to override the camera. Useful for fine-tuning camera position when locked")]
         public float CameraAngleOverride = 0.0f;
 
-        [Tooltip("For locking the camera position on all axis")]
+        [Tooltip("For locking the camera position on all axes")]
         public bool LockCameraPosition = false;
 
-        // cinemachine
+        // Cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
 
@@ -87,28 +89,45 @@ namespace StarterAssets
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
 
-        [Tooltip("How fast should camera zoom in and out")] 
+        [Tooltip("How fast should camera zoom in and out")]
         [SerializeField] float _camZoomSpeed = 5f;
         [Tooltip("How much it should zoom out")]
         [SerializeField]
         [Range(0f, -1.5f)] float minZoom;
-        
+
         [Tooltip("How much it should zoom in")]
         [SerializeField]
         [Range(0f, 1.5f)] float maxZoom;
-        
-        [SerializeField] private CinemachineCameraOffset _cameraOffset;
 
-        // timeout deltatime
+        [Header("Zoom Settings")]
+        [SerializeField] private float zoomSpeed = 10f;
+        [SerializeField] private float minFOV = 15f;
+        [SerializeField] private float maxFOV = 90f;
+
+        [SerializeField] private Camera mainCamera;
+        [SerializeField] private CinemachineVirtualCamera virtualCamera;
+        private bool viewingPhoto;
+        private bool isPlayerActive = true;
+
+        // Capture reference
+        [SerializeField] private Capture captureScript;
+
+        // Inventory state
+        private bool isInventoryOpen = false;
+
+        // Timeout deltatime
         private float _jumpTimeoutDelta;
         private float _fallTimeoutDelta;
 
-        // animation IDs
+        // Animation IDs
         private int _animIDSpeed;
         private int _animIDGrounded;
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+        [Header("Animation")]
+        public bool IsCrouched = false; // To track crouching state
+        private int _animIDCrouched;  // Animator parameter ID
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -122,8 +141,6 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
-        bool bCanMove = true;
-
         private bool IsCurrentDeviceMouse
         {
             get
@@ -136,21 +153,19 @@ namespace StarterAssets
             }
         }
 
-
         private void Awake()
         {
-            // get a reference to our main camera
+            // Get a reference to our main camera
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-                
             }
         }
 
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -162,7 +177,7 @@ namespace StarterAssets
 
             AssignAnimationIDs();
 
-            // reset our timeouts on start
+            // Reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
         }
@@ -171,19 +186,55 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            if(bCanMove)
+            JumpAndGravity();
+            GroundedCheck();
+            Move();
+            HandleCrouching();
+            HandleZoom();
+            HandleCapture();
+            HandleInventory();
+
+        }
+
+
+        private void HandleCapture()
+        {
+            if (Input.GetKeyDown(KeyCode.V))
             {
-                JumpAndGravity();
-                GroundedCheck();
-                Move();
+                captureScript.ToggleCapture();
             }
-            
+        }
+
+        private void HandleZoom()
+        {
+            float scrollInput = Input.mouseScrollDelta.y;
+            if (scrollInput != 0)
+            {
+                if (virtualCamera != null)
+                {
+                    float newFOV = virtualCamera.m_Lens.FieldOfView - scrollInput * zoomSpeed;
+                    virtualCamera.m_Lens.FieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
+                }
+                else if (mainCamera != null)
+                {
+                    float newFOV = mainCamera.fieldOfView - scrollInput * zoomSpeed;
+                    mainCamera.fieldOfView = Mathf.Clamp(newFOV, minFOV, maxFOV);
+                }
+            }
+        }
+
+        private void HandleInventory()
+        {
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                isInventoryOpen = !isInventoryOpen;
+                EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
+            }
         }
 
         private void LateUpdate()
         {
-            //CameraRotation();
-            
+            CameraRotation();
         }
 
         private void AssignAnimationIDs()
@@ -193,17 +244,16 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+            _animIDCrouched = Animator.StringToHash("Crouch");
         }
 
         private void GroundedCheck()
         {
-            // set sphere position, with offset
-            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
-                transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
-                QueryTriggerInteraction.Ignore);
+            // Set sphere position, with offset
+            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
 
-            // update animator if using character
+            // Update animator if using character
             if (_hasAnimator)
             {
                 _animator.SetBool(_animIDGrounded, Grounded);
@@ -212,57 +262,50 @@ namespace StarterAssets
 
         private void CameraRotation()
         {
-            // if there is an input and camera position is not fixed
+            // If there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
-                //Don't multiply mouse input by Time.deltaTime;
+                // Don't multiply mouse input by Time.deltaTime;
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
                 _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
                 _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
             }
 
-            // clamp our rotations so our values are limited 360 degrees
+            // Clamp our rotations so our values are limited 360 degrees
             _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
             _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, BottomClamp, TopClamp);
 
             // Cinemachine will follow this target
-            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride,
-                _cinemachineTargetYaw, 0.0f);
-        }
-
-        private void CameraZoom()
-        {
-            
+            CinemachineCameraTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
         }
 
         private void Move()
         {
-            // set target speed based on move speed, sprint speed and if sprint is pressed
+            // Set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
-            // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
+            // A simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
-            // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is no input, set the target speed to 0
+            // Note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+            // If there is no input, set the target speed to 0
             if (_input.move == Vector2.zero) targetSpeed = 0.0f;
 
-            // a reference to the players current horizontal velocity
+            // A reference to the player's current horizontal velocity
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
             float speedOffset = 0.1f;
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-            // accelerate or decelerate to target speed
+            // Accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
                 currentHorizontalSpeed > targetSpeed + speedOffset)
             {
-                // creates curved result rather than a linear one giving a more organic speed change
-                // note T in Lerp is clamped, so we don't need to clamp our speed
-                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                    Time.deltaTime * SpeedChangeRate);
+                // Creates curved result rather than a linear one giving a more organic speed change
+                // Note T in Lerp is clamped, so we don't need to clamp our speed
+                _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude, Time.deltaTime * SpeedChangeRate);
 
-                // round speed to 3 decimal places
+                // Round speed to 3 decimal places
                 _speed = Mathf.Round(_speed * 1000f) / 1000f;
             }
             else
@@ -273,30 +316,28 @@ namespace StarterAssets
             _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
             if (_animationBlend < 0.01f) _animationBlend = 0f;
 
-            // normalise input direction
+            // Normalize input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
 
-            // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is a move input rotate player when the player is moving
+            // Note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
+            // If there is a move input rotate player when the player is moving
             if (_input.move != Vector2.zero)
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
-                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
-                    RotationSmoothTime);
+                float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity, RotationSmoothTime);
 
-                // rotate to face input direction relative to camera position
+                // Rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
-
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-            // move the player
+            // Move the player
             _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
-            // update animator if using character
+            // Update animator if using character
             if (_hasAnimator)
             {
                 _animator.SetFloat(_animIDSpeed, _animationBlend);
@@ -308,17 +349,17 @@ namespace StarterAssets
         {
             if (Grounded)
             {
-                // reset the fall timeout timer
+                // Reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
 
-                // update animator if using character
+                // Update animator if using character
                 if (_hasAnimator)
                 {
                     _animator.SetBool(_animIDJump, false);
                     _animator.SetBool(_animIDFreeFall, false);
                 }
 
-                // stop our velocity dropping infinitely when grounded
+                // Stop our velocity dropping infinitely when grounded
                 if (_verticalVelocity < 0.0f)
                 {
                     _verticalVelocity = -2f;
@@ -327,17 +368,17 @@ namespace StarterAssets
                 // Jump
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
+                    // The square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
 
-                    // update animator if using character
+                    // Update animator if using character
                     if (_hasAnimator)
                     {
                         _animator.SetBool(_animIDJump, true);
                     }
                 }
 
-                // jump timeout
+                // Jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
                     _jumpTimeoutDelta -= Time.deltaTime;
@@ -345,31 +386,44 @@ namespace StarterAssets
             }
             else
             {
-                // reset the jump timeout timer
+                // Reset the jump timeout timer
                 _jumpTimeoutDelta = JumpTimeout;
 
-                // fall timeout
+                // Fall timeout
                 if (_fallTimeoutDelta >= 0.0f)
                 {
                     _fallTimeoutDelta -= Time.deltaTime;
                 }
                 else
                 {
-                    // update animator if using character
+                    // Update animator if using character
                     if (_hasAnimator)
                     {
                         _animator.SetBool(_animIDFreeFall, true);
                     }
                 }
 
-                // if we are not grounded, do not jump
+                // If we are not grounded, do not jump
                 _input.jump = false;
             }
 
-            // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+            // Apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
             if (_verticalVelocity < _terminalVelocity)
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
+            }
+        }
+
+        private void HandleCrouching()
+        {
+            // Toggle crouch state if 'C' key is pressed
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                IsCrouched = !IsCrouched; // Toggle the crouch state
+                if (_hasAnimator)
+                {
+                    _animator.SetBool(_animIDCrouched, IsCrouched); // Update the animator with the new state
+                }
             }
         }
 
@@ -388,10 +442,8 @@ namespace StarterAssets
             if (Grounded) Gizmos.color = transparentGreen;
             else Gizmos.color = transparentRed;
 
-            // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-            Gizmos.DrawSphere(
-                new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
-                GroundedRadius);
+            // When selected, draw a gizmo in the position of, and matching radius of, the grounded collider
+            Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
         }
 
         private void OnFootstep(AnimationEvent animationEvent)
@@ -421,27 +473,8 @@ namespace StarterAssets
             _controller.enabled = true;
         }
 
-        float camZoom = 0;
 
-        //Listen to Zoom Value
-        public void OnCamZoom(InputValue value)
-        {
-            camZoom += value.Get<float>() * Time.deltaTime * _camZoomSpeed;
 
-            camZoom = Mathf.Clamp(camZoom, minZoom, maxZoom);
 
-            if(_cameraOffset != null)
-                _cameraOffset.m_Offset.z = camZoom;
-            
-        }
-
-        public void CanMove(bool v)
-        {
-            bCanMove = v;
-            if(bCanMove)
-                _controller.enabled = true;
-            else
-                _controller.enabled = false;
-        }
     }
 }
