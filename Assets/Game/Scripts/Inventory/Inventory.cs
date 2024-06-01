@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     public Transform keyItemContainer;
     public Transform resourceItemContainer;
     public Transform contentTransform; // Reference to the ScrollView content
+
     public GameObject itemButtonPrefab; // Reference to the ItemButton prefab
 
     // References to the inspection UI elements
@@ -18,9 +19,6 @@ public class Inventory : MonoBehaviour
     public Image itemIconImage;
     public TMP_Text itemDescriptionText;
     public Transform itemPreviewParent;
-    public Transform boardContainer;
-
-    public Camera newCamera; // Reference to the new camera
 
     private void OnEnable()
     {
@@ -43,60 +41,21 @@ public class Inventory : MonoBehaviour
         {
             CreateItemButton(item);
         }
-
-        
     }
 
-    void Update()
+    public void AddItem(InventoryItem item)
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = newCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+        items.Add(item);
+        CreateItemButton(item);
 
-            if (Physics.Raycast(ray, out hit))
-            {
-                KeyItem keyItem = hit.collider.GetComponent<KeyItem>();
-                if (keyItem != null)
-                {
-                    PlaceKeyItemOnBoard(keyItem);
-                }
-            }
-        }
-    }
-
-    void PlaceKeyItemOnBoard(KeyItem keyItem)
-    {
-        // Implement logic to place the key item on the board
-        // For example, find the corresponding quad using keyItem.ItemId and place the key item there
-        Debug.Log("Placing key item: " + keyItem.itemName);
-
-        // Example logic to place the key item on a quad
-        Transform targetQuad = FindQuadForItem(keyItem.ItemId);
-        if (targetQuad != null)
-        {
-            keyItem.transform.SetParent(targetQuad);
-            keyItem.transform.localPosition = Vector3.zero;
-        }
-    }
-
-    Transform FindQuadForItem(string itemId)
-    {
-        // Find the quad on the board that matches the itemId
-        foreach (Transform quad in boardContainer)
-        {
-            if (quad.name == itemId) // Assuming quads are named after itemIds
-            {
-                return quad;
-            }
-        }
-        return null;
+        EventBus.Publish(new ItemAddedEvent(item));
     }
 
     public void RemoveItem(InventoryItem item)
     {
         items.Remove(item);
         RemoveItemButton(item);
+
         EventBus.Publish(new ItemRemovedEvent(item));
     }
 
@@ -177,31 +136,4 @@ public class Inventory : MonoBehaviour
         Debug.Log("Item removed: " + removedEvent.Item.itemName);
         RemoveItemButton(removedEvent.Item);
     }
-
-    public void DisplayKeyItem(InventoryItem item)
-    {
-        if (item is KeyItem)
-        {
-            GameObject displayObject = Instantiate(item.itemPreview);
-            displayObject.transform.position = new Vector3(0, 0, 0); // Set the position appropriately
-            displayObject.layer = LayerMask.NameToLayer("KeyItemsLayer"); // Assign to KeyItemsLayer
-
-            // Additional setup if needed
-        }
-    }
-
-    // Call this method when adding a key item
-    public void AddItem(InventoryItem item)
-    {
-        items.Add(item);
-        CreateItemButton(item);
-
-        if (item is KeyItem)
-        {
-            DisplayKeyItem(item);
-        }
-
-        EventBus.Publish(new ItemAddedEvent(item));
-    }
 }
-

@@ -10,40 +10,38 @@ public class EnterBoard : MonoBehaviour
     public float interactDistance = 2.0f; // Distance for interaction
 
     public Camera boardCamera; // Reference to the board camera
+    public InputAction interactActionReference; // Reference to the input action for interaction
 
-    public InputAction playerInputActions;
     private bool isBoardCameraActive = false;
-    private Camera mainCamera;
+    public Camera mainCamera;
 
     private void Awake()
     {
         mainCamera = Camera.main;
-
     }
 
     private void OnEnable()
     {
-        playerInputActions.Enable();
-        playerInputActions.performed += OnInteract;
+        interactActionReference.Enable();
+        interactActionReference.performed += OnInteract;
     }
 
     private void OnDisable()
     {
-      
-        playerInputActions.performed -= OnInteract;
+        interactActionReference.performed -= OnInteract;
+        interactActionReference.Disable();
     }
 
     private void OnInteract(InputAction.CallbackContext context)
     {
         if (isBoardCameraActive)
         {
-            // Logic to turn off board camera and turn on main camera
-            boardCamera.enabled = false;
-            mainCamera.enabled = true;
-            isBoardCameraActive = false;
+            // Switch back to the main camera
+            SwitchToMainCamera();
         }
         else
         {
+            // Try to interact with the board
             TryInteractWithBoard();
         }
     }
@@ -57,12 +55,23 @@ public class EnterBoard : MonoBehaviour
         {
             if (hit.collider.CompareTag("TheBoard"))
             {
-                // Logic to turn off main camera and activate board camera automatically
-                mainCamera.enabled = false;
-                boardCamera.enabled = true;
-                isBoardCameraActive = true;
+                // Switch to the board camera
+                SwitchToBoardCamera();
             }
         }
     }
 
+    private void SwitchToMainCamera()
+    {
+        mainCamera.enabled = true;
+        boardCamera.enabled = false;
+        isBoardCameraActive = false;
+    }
+
+    private void SwitchToBoardCamera()
+    {
+        mainCamera.enabled = false;
+        boardCamera.enabled = true;
+        isBoardCameraActive = true;
+    }
 }
