@@ -30,17 +30,11 @@ public class MovingTable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!bCanInteract)
-            return;
+       
 
-        if(Input.GetKeyDown(KeyCode.E)) 
-        {
-            bInteracting = !bInteracting;
-            if (playerController)
-                playerController.CanMove(!bInteracting);
-        }
+        
 
-        if (bInteracting && playerController != null)
+        if ( playerController != null)
         {
             if (deltaP < moveDist)
             {
