@@ -10,38 +10,42 @@ public class EnterBoard : MonoBehaviour
     public float interactDistance = 2.0f; // Distance for interaction
 
     public Camera boardCamera; // Reference to the board camera
-    public InputAction interactActionReference; // Reference to the input action for interaction
 
+    public InputAction playerInputActions;
     private bool isBoardCameraActive = false;
-    public Camera mainCamera;
+    private Camera mainCamera;
 
     private void Awake()
     {
         mainCamera = Camera.main;
+
+        // Initialize InputAction
+        playerInputActions = new InputAction(binding: "<Keyboard>/e"); // Example binding, adjust as necessary
     }
 
     private void OnEnable()
     {
-        interactActionReference.Enable();
-        interactActionReference.performed += OnInteract;
+        playerInputActions.Enable();
+        playerInputActions.performed += OnInteract;
     }
 
     private void OnDisable()
     {
-        interactActionReference.performed -= OnInteract;
-        interactActionReference.Disable();
+        playerInputActions.Disable();
+        playerInputActions.performed -= OnInteract;
     }
 
     private void OnInteract(InputAction.CallbackContext context)
     {
         if (isBoardCameraActive)
         {
-            // Switch back to the main camera
-            SwitchToMainCamera();
+            // Logic to turn off board camera and turn on main camera
+            boardCamera.enabled = false;
+            mainCamera.enabled = true;
+            isBoardCameraActive = false;
         }
         else
         {
-            // Try to interact with the board
             TryInteractWithBoard();
         }
     }
@@ -53,25 +57,13 @@ public class EnterBoard : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactDistance, interactableLayer))
         {
-            if (hit.collider.CompareTag("TheBoard"))
+            if (hit.collider.CompareTag("InteractableBoard"))
             {
-                // Switch to the board camera
-                SwitchToBoardCamera();
+                // Logic to turn off main camera and activate board camera automatically
+                mainCamera.enabled = false;
+                boardCamera.enabled = true;
+                isBoardCameraActive = true;
             }
         }
-    }
-
-    private void SwitchToMainCamera()
-    {
-        mainCamera.enabled = true;
-        boardCamera.enabled = false;
-        isBoardCameraActive = false;
-    }
-
-    private void SwitchToBoardCamera()
-    {
-        mainCamera.enabled = false;
-        boardCamera.enabled = true;
-        isBoardCameraActive = true;
     }
 }
