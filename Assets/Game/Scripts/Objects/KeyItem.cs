@@ -15,5 +15,17 @@ public class KeyItem : Object
     {
         return "This is a key item: " + itemName;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Player")
+        {
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                Inventory.Instance.AddItem(this);
+                gameObject.SetActive(false);
+            }
+        }
+    }
 }
 

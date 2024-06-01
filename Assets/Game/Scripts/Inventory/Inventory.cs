@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static EventBus;
 
-public class Inventory : MonoBehaviour
+public class Inventory : Singleton<Inventory>
 {
     public List<InventoryItem> items = new List<InventoryItem>();
     public Transform keyItemContainer;
@@ -82,8 +82,8 @@ public class Inventory : MonoBehaviour
         Button button = buttonObject.GetComponent<Button>();
         button.onClick.AddListener(() => InspectItem(item));
 
-        TMP_Text buttonText = buttonObject.GetComponentInChildren<TMP_Text>();
-        buttonText.text = item.itemName;
+        //TMP_Text buttonText = buttonObject.GetComponentInChildren<TMP_Text>();
+        //buttonText.text = item.itemName;
 
         Image buttonImage = buttonObject.GetComponentInChildren<Image>();
         buttonImage.sprite = item.itemIcon;
@@ -111,13 +111,19 @@ public class Inventory : MonoBehaviour
 
         // Display item details in the inspection panel
         itemNameText.text = item.itemName;
-        itemIconImage.sprite = item.itemIcon;
+        //itemIconImage.sprite = item.itemIcon;
         itemDescriptionText.text = item.GetDescription(); // Assuming GetDescription() returns item details
 
         if (item.itemPreview != null)
         {
-            Instantiate(item.itemPreview, Vector3.zero, Quaternion.identity, itemPreviewParent);
+            Debug.Log($"Instantiating Item {item.name}");
+            GameObject g = Instantiate(item.itemPreview, itemPreviewParent);
+            g.transform.localPosition = Vector3.zero;
+            g.transform.rotation = Quaternion.identity;
+            g.SetActive(true);
+            
         }
+        //(item.gameObject);
     }
 
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)
@@ -128,7 +134,7 @@ public class Inventory : MonoBehaviour
     private void OnItemAdded(ItemAddedEvent addedEvent)
     {
         Debug.Log("Item added: " + addedEvent.Item.itemName);
-        CreateItemButton(addedEvent.Item);
+        //CreateItemButton(addedEvent.Item);
     }
 
     private void OnItemRemoved(ItemRemovedEvent removedEvent)
