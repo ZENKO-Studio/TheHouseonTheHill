@@ -2,6 +2,7 @@ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Capture : MonoBehaviour
@@ -36,6 +37,24 @@ public class Capture : MonoBehaviour
     private bool isCaptureMode = false;
 
     private SeqBase seqToTrigger;
+    public InputAction inputActions;
+
+    private void Awake()
+    {
+        
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Enable();
+        inputActions.performed += OnToggleCaptureMode;
+    }
+
+    private void OnDisable()
+    {
+        inputActions.performed -= OnToggleCaptureMode;
+        inputActions.Disable();
+    }
 
     private void Start()
     {
@@ -73,6 +92,13 @@ public class Capture : MonoBehaviour
                     {
                         isKeyItem = obj.GetComponent<KeyItem>() != null;
                         obj.TryGetComponent<SeqBase>(out seqToTrigger);
+
+                        // Check for PhotoTarget component
+                        PhotoTarget photoTarget = obj.GetComponent<PhotoTarget>();
+                        if (photoTarget != null)
+                        {
+                            seqToTrigger = photoTarget.sequenceToTrigger;
+                        }
                         break;
                     }
                 }
@@ -91,10 +117,15 @@ public class Capture : MonoBehaviour
         }
     }
 
+    private void OnToggleCaptureMode(InputAction.CallbackContext context)
+    {
+        ToggleCapture();
+    }
+
     public void ToggleCapture()
     {
         isCaptureMode = !isCaptureMode;
-       // Disable player control when in capture mode
+        // Disable player control when in capture mode
 
         if (captureModeCanvas != null)
         {
@@ -161,13 +192,15 @@ public class Capture : MonoBehaviour
         {
             SavePhotoAsGameObject(photoSprite);
         }
+
+        // Trigger the sequence if available
+        TriggerPhotoSeq();
     }
 
     void SavePhotoAsGameObject(Sprite photoSprite)
     {
         GameObject newPhoto = Instantiate(photoPrefab, normalPhotoContainer); // Instantiate new photo in the normal photo container
         newPhoto.GetComponentInChildren<Image>().sprite = photoSprite;
-        
     }
 
     void SaveKeyItemAsGameObject(Sprite photoSprite)
@@ -186,7 +219,7 @@ public class Capture : MonoBehaviour
         PhotoFrame.SetActive(false);
     }
 
-    //Call this function wherever appropriate
+    // Call this function wherever appropriate
     void TriggerPhotoSeq()
     {
         if (seqToTrigger != null)
