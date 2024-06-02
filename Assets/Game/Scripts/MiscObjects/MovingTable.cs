@@ -5,18 +5,17 @@ using UnityEngine;
 
 public class MovingTable : MonoBehaviour
 {
-    bool bInteracting;
-
-    ThirdPersonController playerController;
-
+    private bool bInteracting;
+    private ThirdPersonController playerController;
     private Vector3 offsetVec;
 
     [Range(0f, 10f)]
-    [SerializeField] float moveDist = 3f;
-    [SerializeField] float moveSpeed = 1f;
+    [SerializeField] private float moveDist = 3f;
+    [SerializeField] private float moveSpeed = 1f;
 
     private Vector3 deltaPos;
     private bool bCanInteract;
+    private float deltaP = 0;
 
     private void Start()
     {
@@ -25,37 +24,35 @@ public class MovingTable : MonoBehaviour
         deltaPos = transform.position + new Vector3(0, 0, moveDist);
     }
 
-    float deltaP = 0;
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-       
-
-        
-
-        if ( playerController != null)
+        if (bCanInteract && Input.GetKeyDown(KeyCode.E))
         {
-            if (deltaP < moveDist)
-            {
-                float playerInput = Mathf.Clamp01(playerController._input.move.y);
-                transform.Translate(transform.forward * playerInput * moveSpeed * Time.deltaTime);
-                deltaP += playerInput * moveSpeed * Time.deltaTime;
-            }
+            bInteracting = !bInteracting;
+        }
 
-            playerController.transform.position = transform.position + offsetVec;
-            playerController.transform.rotation = transform.rotation;
+        if (bInteracting && deltaP < moveDist)
+        {
+            float playerInput = Mathf.Clamp01(playerController._input.move.y);
+            transform.Translate(transform.forward * playerInput * moveSpeed * Time.deltaTime);
+            deltaP += playerInput * moveSpeed * Time.deltaTime;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        bCanInteract = true;
-        other.TryGetComponent<ThirdPersonController>(out playerController);
+        if (other.TryGetComponent<ThirdPersonController>(out playerController))
+        {
+            bCanInteract = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        bCanInteract = false;
+        if (other.TryGetComponent<ThirdPersonController>(out playerController))
+        {
+            bCanInteract = false;
+            bInteracting = false;
+        }
     }
 }
