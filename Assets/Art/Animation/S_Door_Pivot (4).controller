@@ -62,7 +62,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: FonudKey
+    m_ConditionEvent: FoundKey
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -9179874143130243840}
@@ -87,7 +87,7 @@ AnimatorController:
   m_Name: S_Door_Pivot (4)
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: FonudKey
+  - m_Name: FoundKey
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
