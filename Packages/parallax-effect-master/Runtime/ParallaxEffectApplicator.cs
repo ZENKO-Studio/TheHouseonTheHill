@@ -1,5 +1,5 @@
+using Codice.CM.Client.Differences;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 namespace Sxm.ParallaxEffect
@@ -13,9 +13,9 @@ namespace Sxm.ParallaxEffect
         public const string ForceRootLookAtCameraName = nameof(forceRootLookAtCamera);
         public const string LayersRootName = nameof(layersRoot);
         public const string ParallaxLayersName = nameof(parallaxLayers);
-        
+
         public MotionSource SelectedMotionSource => motionSource;
-        
+
         [SerializeField] private MotionSource motionSource = MotionSource.Camera;
         [SerializeField] private Camera targetCamera;
         [SerializeField, Range(0f, 1f)] private float selfSpeed = 1f;
@@ -32,38 +32,29 @@ namespace Sxm.ParallaxEffect
         private float _lastCameraHorizontalPosition = 0f;
         private Quaternion _lastCameraRotation = Quaternion.identity;
 
-        private void Awake()
-        {
-            targetCamera = Camera.main;
-        }
-
         private static readonly Dictionary<MovementDirection, Vector3> MovementDirectionMap = new Dictionary<MovementDirection, Vector3>
         {
             { MovementDirection.Left, Vector3.left },
             { MovementDirection.Right, Vector3.right }
         };
 
-        public enum MotionSource
+        private void Awake()
         {
-            Self,
-            Camera
-        }
-
-        private enum MovementDirection
-        {
-            Left,
-            Right
+            if (targetCamera == null)
+            {
+                targetCamera = Camera.main;
+            }
         }
 
         private void Start()
         {
             Transform cameraTransform = targetCamera.transform;
-            
+
             _initialCameraVerticalPosition = cameraTransform.position.y;
             _lastCameraHorizontalPosition = cameraTransform.position.x;
             _lastCameraRotation = cameraTransform.rotation;
-            
-            AddSideLayersTo();
+
+            AddSideLayers();
         }
 
         private void Update()
@@ -72,77 +63,87 @@ namespace Sxm.ParallaxEffect
             {
                 ForceLayersRootLookAtCamera();
             }
-            
-            WrapLayersInBounds();
-            ApplyParallaxTo();
+
+            ApplyParallax();
+            WrapLayers();
         }
 
         private void ForceLayersRootLookAtCamera()
         {
             Transform cameraTransform = targetCamera.transform;
 
-            if (cameraTransform.rotation == _lastCameraRotation)
+            if (cameraTransform.rotation != _lastCameraRotation)
             {
-                return;
-            }
+                layersRoot.position = cameraTransform.position + cameraTransform.forward + cameraTransform.TransformDirection(-_initialCameraVerticalPosition * Vector3.up);
+                layersRoot.rotation = Quaternion.LookRotation(cameraTransform.forward, cameraTransform.up);
 
-            layersRoot.position = cameraTransform.position + cameraTransform.forward + cameraTransform.TransformDirection(-_initialCameraVerticalPosition * Vector3.up);
-            layersRoot.rotation = Quaternion.LookRotation(cameraTransform.forward, cameraTransform.up);
-            
-            _lastCameraRotation = cameraTransform.rotation;
+                _lastCameraRotation = cameraTransform.rotation;
+            }
         }
 
-        private void ApplyParallaxTo()
+        private void ApplyParallax()
         {
             float currentCameraPosition = targetCamera.transform.position.x;
-            
+
             Vector3 deltaDistance = motionSource == MotionSource.Camera
                 ? Vector3.right * (currentCameraPosition - _lastCameraHorizontalPosition)
                 : selfSpeed * Time.deltaTime * MovementDirectionMap[selfDirection];
             _lastCameraHorizontalPosition = currentCameraPosition;
-            
+
             foreach (var layer in parallaxLayers)
             {
                 layer.TranslateWithParallax(deltaDistance, motionSource);
             }
         }
 
-        private void WrapLayersInBounds()
+        private void WrapLayers()
         {
             foreach (var layer in parallaxLayers)
             {
                 float signDistance = layer.RectTransform.InverseTransformPoint(targetCamera.transform.position).x;
-                
+
                 Vector3 direction = Vector3.right * Mathf.Sign(signDistance);
                 float distance = Mathf.Abs(signDistance);
                 float layerRelativeWidth = layer.RectTransform.rect.width;
-                
+
                 if (distance > layerRelativeWidth)
                 {
-                    layer.Translate(direction * layerRelativeWidth);
+                    layer.Translate(direction * layerRelativeWidth * parallaxLayers.Length);
                 }
             }
         }
 
-        private void AddSideLayersTo()
+        private void AddSideLayers()
         {
             foreach (var layer in parallaxLayers)
             {
                 RectTransform parent = layer.RectTransform;
                 string parentName = parent.gameObject.name;
-                
+
                 Vector3 horizontalOffset = Vector3.right * parent.rect.width;
                 var leftSideLayer = Instantiate(parent, parent.position - horizontalOffset, Quaternion.identity);
                 var rightSideLayer = Instantiate(parent, parent.position + horizontalOffset, Quaternion.identity);
 
                 leftSideLayer.gameObject.name = $"{parentName} - Left";
                 rightSideLayer.gameObject.name = $"{parentName} - Right";
-                
-                leftSideLayer.SetParent(parent);
-                rightSideLayer.SetParent(parent);
-                
+
+                leftSideLayer.SetParent(parent.parent);
+                rightSideLayer.SetParent(parent.parent);
+
                 leftSideLayer.sizeDelta = rightSideLayer.sizeDelta = Vector2.zero;
             }
+        }
+
+        // Method to toggle direction
+        public void ToggleDirection()
+        {
+            selfDirection = selfDirection == MovementDirection.Left ? MovementDirection.Right : MovementDirection.Left;
+        }
+
+        public enum MotionSource
+        {
+            Self,
+            Camera
         }
     }
 }
