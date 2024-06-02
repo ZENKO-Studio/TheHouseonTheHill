@@ -20,7 +20,7 @@ public class EnterBoard : MonoBehaviour
         mainCamera = Camera.main;
 
         // Initialize InputAction
-        playerInputActions = new InputAction(binding: "<Keyboard>/e"); // Example binding, adjust as necessary
+        // Example binding, adjust as necessary
     }
 
     private void OnEnable()
@@ -57,7 +57,7 @@ public class EnterBoard : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, interactDistance, interactableLayer))
         {
-            if (hit.collider.CompareTag("InteractableBoard"))
+            if (hit.collider.CompareTag("TheBoard"))
             {
                 // Logic to turn off main camera and activate board camera automatically
                 mainCamera.enabled = false;
