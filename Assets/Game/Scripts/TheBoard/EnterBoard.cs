@@ -43,6 +43,9 @@ public class EnterBoard : MonoBehaviour
             boardCamera.enabled = false;
             mainCamera.enabled = true;
             isBoardCameraActive = false;
+
+            Cursor.lockState = CursorLockMode.Locked; // Unlock the cursor
+            Cursor.visible = false; // Make the cursor invisible
         }
         else
         {
@@ -63,6 +66,10 @@ public class EnterBoard : MonoBehaviour
                 mainCamera.enabled = false;
                 boardCamera.enabled = true;
                 isBoardCameraActive = true;
+
+                //So that board can be interacted as UI
+                Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+                Cursor.visible = true; // Make the cursor visible
             }
         }
     }
