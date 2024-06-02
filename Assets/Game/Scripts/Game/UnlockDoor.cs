@@ -20,7 +20,7 @@ public class UnlockDoor : MonoBehaviour
     {
         if (!isOpen && Vector3.Distance(playerTransform.position, transform.position) <= interactionDistance)
         {
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 Inventory inventory = Inventory.Instance;
                 InventoryItem keyItem = inventory.items.Find(item => item.itemName == requiredKeyItemName);
