@@ -3161,7 +3161,10 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState(" Who is Alexander Cliffton? ") == "success"
-      userScript: SetQuestState("What really happened to Alexander Cliffton", "success")
+      userScript: 'SetQuestState("What really happened to Alexander Cliffton", "success");
+
+        SetQuestState("
+        Who is Alexander Cliffton? ", "success")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
