@@ -1,45 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class DoorController : MonoBehaviour
+namespace Game.Scripts.MiscObjects.DoorController.cs
 {
-    public Animator doorAnimator; // Reference to the animator component of the door
-    public KeyCode interactKey = KeyCode.E; // The key to press to interact with the door
-    public AudioSource doorAudioSource;
-    private bool playerInRange = false; // Flag to track if the player is in range
-
-    void Update()
+    public class DoorController : MonoBehaviour
     {
-        // Check if the player is in range and pressing the interact key
-        if (playerInRange && Input.GetKeyDown(interactKey))
+        public Animator doorAnimator; // Reference to the animator component of the door
+        public KeyCode interactKey = KeyCode.E; // The key to press to interact with the door
+        public AudioSource doorAudioSource;
+        private bool playerInRange = false; // Flag to track if the player is in range
+
+        void Update()
         {
-            // Trigger the "Open" animation if it's not already playing
-            if (!doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("Door Animation"))
+            // Check if the player is in range and pressing the interact key
+            if (playerInRange && Input.GetKeyDown(interactKey))
             {
-                doorAnimator.SetTrigger("Open");
+                // Trigger the "Open" animation if it's not already playing
+                if (!doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("Door Animation"))
+                {
+                    doorAnimator.SetTrigger("Open");
+                }
+                doorAudioSource.Stop();
             }
-            doorAudioSource.Stop();
         }
-    }
 
-    void OnTriggerEnter(Collider other)
-    {
-        // Check if the object entering the trigger is tagged as "Player"
-        if (other.CompareTag("Player"))
+        void OnTriggerEnter(Collider other)
         {
-            // Set playerInRange flag to true
-            playerInRange = true;
+            // Check if the object entering the trigger is tagged as "Player"
+            if (other.CompareTag("Player"))
+            {
+                // Set playerInRange flag to true
+                playerInRange = true;
+            }
         }
-    }
 
-    void OnTriggerExit(Collider other)
-    {
-        // Check if the object exiting the trigger is tagged as "Player"
-        if (other.CompareTag("Player"))
+        void OnTriggerExit(Collider other)
         {
-            // Set playerInRange flag to false
-            playerInRange = false;
+            // Check if the object exiting the trigger is tagged as "Player"
+            if (other.CompareTag("Player"))
+            {
+                // Set playerInRange flag to false
+                playerInRange = false;
+            }
         }
     }
 }
