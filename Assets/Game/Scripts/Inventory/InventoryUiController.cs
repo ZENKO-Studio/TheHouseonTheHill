@@ -25,16 +25,16 @@ public class InventoryUiController : MonoBehaviour
             isOpen = !isOpen;
             inventoryCanvas.SetActive(isOpen);
 
-            if (isOpen)
-            {
-                Cursor.lockState = CursorLockMode.None; // Unlock the cursor
-                Cursor.visible = true; // Make the cursor visible
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Locked; // Unlock the cursor
-                Cursor.visible = false; // Make the cursor visible
-            }
+            //if (isOpen)
+            //{
+            //    Cursor.lockState = CursorLockMode.None; // Unlock the cursor
+            //    Cursor.visible = true; // Make the cursor visible
+            //}
+            //else
+            //{
+            //    Cursor.lockState = CursorLockMode.Locked; // Unlock the cursor
+            //    Cursor.visible = false; // Make the cursor visible
+            //}
         }
     }
 
@@ -47,16 +47,6 @@ public class InventoryUiController : MonoBehaviour
     {
         inventoryCanvas.SetActive( toggleEvent.IsOpen );
 
-        if( toggleEvent.IsOpen ) 
-        {
-            Cursor.lockState = CursorLockMode.None; // Unlock the cursor
-            Cursor.visible = true; // Make the cursor visible
-        }
-        else
-        {
-            Cursor.lockState = CursorLockMode.Locked; // Unlock the cursor
-            Cursor.visible = false; // Make the cursor visible
-        }
     }
 
     #region Toggle Menu Pages
