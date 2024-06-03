@@ -36,7 +36,7 @@ public class Capture : MonoBehaviour
     private bool isPlayerActive = true;
     private bool isCaptureMode = false;
 
-    private SeqBase seqToTrigger;
+    [SerializeField] SeqBase seqToTrigger;
     public InputAction inputActions;
 
     private void Awake()
@@ -90,12 +90,8 @@ public class Capture : MonoBehaviour
                 {
                     if (obj != null && mainCamera != null && CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj))
                     {
-
                         isKeyItem = obj.GetComponent<KeyItem>() != null;
-                        obj.TryGetComponent(out seqToTrigger);
-                        
-                        Debug.Log($"Setting Sequence {seqToTrigger == null}");
-
+                        //obj.TryGetComponent<SeqBase>(out seqToTrigger);
                         break;
                     }
                 }
@@ -113,6 +109,7 @@ public class Capture : MonoBehaviour
             TogglePlayer();
         }
     }
+
 
     private void OnToggleCaptureMode(InputAction.CallbackContext context)
     {
@@ -191,7 +188,7 @@ public class Capture : MonoBehaviour
         }
 
         // Trigger the sequence if available
-        TriggerPhotoSeq();
+        //TriggerPhotoSeq();
     }
 
     GameObject newPhoto;
@@ -216,7 +213,7 @@ public class Capture : MonoBehaviour
     {
         viewingPhoto = false;
         PhotoFrame.SetActive(false);
-        TriggerPhotoSeq() ;
+        TriggerPhotoSeq();
     }
 
     // Call this function wherever appropriate

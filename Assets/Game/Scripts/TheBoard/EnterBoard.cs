@@ -1,4 +1,4 @@
-using Cinemachine;
+ using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +9,7 @@ public class EnterBoard : MonoBehaviour
     public LayerMask interactableLayer; // Layer for interactable objects
     public float interactDistance = 2.0f; // Distance for interaction
 
+    [SerializeField] GameObject boardPrefab;
     public Camera boardCamera; // Reference to the board camera
 
     public InputAction playerInputActions;
@@ -39,6 +40,7 @@ public class EnterBoard : MonoBehaviour
     {
         if (isBoardCameraActive)
         {
+            boardPrefab.SetActive(false);
             // Logic to turn off board camera and turn on main camera
             boardCamera.enabled = false;
             mainCamera.enabled = true;
@@ -70,6 +72,7 @@ public class EnterBoard : MonoBehaviour
                 //So that board can be interacted as UI
                 Cursor.lockState = CursorLockMode.None; // Unlock the cursor
                 Cursor.visible = true; // Make the cursor visible
+                boardPrefab.SetActive(true);
             }
         }
     }
