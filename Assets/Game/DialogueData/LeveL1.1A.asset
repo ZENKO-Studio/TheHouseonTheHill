@@ -3143,7 +3143,7 @@ MonoBehaviour:
       - title: Sequence
         value: '
 
-'
+          SetActive(Journal,true);'
         type: 0
         typeString: 
       conversationID: 7
@@ -3161,7 +3161,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestState(" Who is Alexander Cliffton? ") == "success"
-      userScript: 
+      userScript: SetQuestState("What really happened to Alexander Cliffton", "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3228,8 +3228,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 17.633942}
-    canvasZoom: 0.85000014
+    canvasScrollPosition: {x: 0, y: 17.935232}
+    canvasZoom: 0.8200002
   - id: 8
     fields:
     - title: Title
