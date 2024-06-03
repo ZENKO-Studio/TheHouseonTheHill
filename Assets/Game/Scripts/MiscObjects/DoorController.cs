@@ -8,6 +8,9 @@ namespace Game.Scripts.MiscObjects.DoorController.cs
         public Animator doorAnimator; // Reference to the animator component of the door
         public KeyCode interactKey = KeyCode.E; // The key to press to interact with the door
         public AudioSource doorAudioSource;
+        [SerializeField] bool shouldAutoClose = false;
+        [Range(0, 15)]
+        [SerializeField] int autoCloseDelay = 2;
         private bool playerInRange = false; // Flag to track if the player is in range
 
         void Update()
@@ -18,9 +21,11 @@ namespace Game.Scripts.MiscObjects.DoorController.cs
                 // Trigger the "Open" animation if it's not already playing
                 if (!doorAnimator.GetCurrentAnimatorStateInfo(0).IsName("Door Animation"))
                 {
-                    doorAnimator.SetTrigger("Open");
+                    doorAnimator.SetTrigger("OpenDoor");
                 }
-                doorAudioSource.Stop();
+                //doorAudioSource.Stop();
+                if(shouldAutoClose)
+                    Invoke(nameof(CloseDoor), autoCloseDelay);
             }
         }
 
@@ -42,6 +47,13 @@ namespace Game.Scripts.MiscObjects.DoorController.cs
                 // Set playerInRange flag to false
                 playerInRange = false;
             }
+        }
+
+        void CloseDoor()
+        {
+            
+                doorAnimator.SetTrigger("CloseDoor");
+            
         }
     }
 }
