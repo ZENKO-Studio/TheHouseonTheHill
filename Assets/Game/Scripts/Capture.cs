@@ -90,15 +90,12 @@ public class Capture : MonoBehaviour
                 {
                     if (obj != null && mainCamera != null && CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj))
                     {
-                        isKeyItem = obj.GetComponent<KeyItem>() != null;
-                        obj.TryGetComponent<SeqBase>(out seqToTrigger);
 
-                        // Check for PhotoTarget component
-                        PhotoTarget photoTarget = obj.GetComponent<PhotoTarget>();
-                        if (photoTarget != null)
-                        {
-                            seqToTrigger = photoTarget.sequenceToTrigger;
-                        }
+                        isKeyItem = obj.GetComponent<KeyItem>() != null;
+                        obj.TryGetComponent(out seqToTrigger);
+                        
+                        Debug.Log($"Setting Sequence {seqToTrigger == null}");
+
                         break;
                     }
                 }
@@ -197,15 +194,17 @@ public class Capture : MonoBehaviour
         TriggerPhotoSeq();
     }
 
+    GameObject newPhoto;
+    
     void SavePhotoAsGameObject(Sprite photoSprite)
     {
-        GameObject newPhoto = Instantiate(photoPrefab, normalPhotoContainer); // Instantiate new photo in the normal photo container
+        newPhoto = Instantiate(photoPrefab, normalPhotoContainer); // Instantiate new photo in the normal photo container
         newPhoto.GetComponentInChildren<Image>().sprite = photoSprite;
     }
 
     void SaveKeyItemAsGameObject(Sprite photoSprite)
     {
-        GameObject newPhoto = Instantiate(photoPrefab, keyItemContainer); // Instantiate new key item photo in the key item container
+        newPhoto = Instantiate(photoPrefab, keyItemContainer); // Instantiate new key item photo in the key item container
         newPhoto.GetComponentInChildren<Image>().sprite = photoSprite;
         KeyItem k = newPhoto.GetComponent<KeyItem>();
         k.itemName = "KeyPhoto";
@@ -217,11 +216,14 @@ public class Capture : MonoBehaviour
     {
         viewingPhoto = false;
         PhotoFrame.SetActive(false);
+        TriggerPhotoSeq() ;
     }
 
     // Call this function wherever appropriate
     void TriggerPhotoSeq()
     {
+        Debug.Log("Sequence Triggered!");
+
         if (seqToTrigger != null)
             seqToTrigger.TriggerSeq();
 
