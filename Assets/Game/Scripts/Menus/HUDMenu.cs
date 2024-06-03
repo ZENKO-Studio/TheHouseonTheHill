@@ -14,6 +14,14 @@ public class HUDMenu : Menu
 
     private Menu pauseMenu;
 
+    public InputAction pauseAction;
+
+    //private void OnEnable()
+    //{
+    //    pauseAction.Enable();
+    //    pauseAction.performed += _ => OnPauseGame();
+    //}
+
 
     protected override void Start()
     {
