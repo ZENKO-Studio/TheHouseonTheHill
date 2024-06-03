@@ -90,12 +90,8 @@ public class Capture : MonoBehaviour
                 {
                     if (obj != null && mainCamera != null && CameraUtilities.IsObjectInViewAndWithinArea(mainCamera, obj))
                     {
-
                         isKeyItem = obj.GetComponent<KeyItem>() != null;
-                        obj.TryGetComponent(out seqToTrigger);
-                        
-                        Debug.Log($"Setting Sequence {seqToTrigger == null}");
-
+                        obj.TryGetComponent<SeqBase>(out seqToTrigger);
                         break;
                     }
                 }
@@ -113,6 +109,7 @@ public class Capture : MonoBehaviour
             TogglePlayer();
         }
     }
+
 
     private void OnToggleCaptureMode(InputAction.CallbackContext context)
     {

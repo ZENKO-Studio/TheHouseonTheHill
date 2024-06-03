@@ -2340,6 +2340,7 @@ struct Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088  : public MonoBehaviour
 	bool ___isCaptureMode;
 	SeqBase_t1C5F91AA8B6F9E75951B14CE6FF3866801766A94* ___seqToTrigger;
 	InputAction_t1B550AD2B55AF322AFB53CD28DA64081220D01CD* ___inputActions;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___newPhoto;
 };
 struct CharacterBase_t0D4D114B80D1C72552F67392E85B3A77EF9F8823  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -2404,6 +2405,7 @@ struct EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190  : public MonoBehavi
 {
 	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___interactableLayer;
 	float ___interactDistance;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___boardPrefab;
 	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___boardCamera;
 	InputAction_t1B550AD2B55AF322AFB53CD28DA64081220D01CD* ___playerInputActions;
 	bool ___isBoardCameraActive;
@@ -9249,23 +9251,26 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EnterBoard_OnInteract_m34DBCFDA7433A795E
 		bool L_0 = __this->___isBoardCameraActive;
 		if (!L_0)
 		{
-			goto IL_0034;
+			goto IL_0040;
 		}
 	}
 	{
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_1 = __this->___boardCamera;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_1 = __this->___boardPrefab;
 		NullCheck(L_1);
-		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_1, (bool)0, NULL);
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_2 = __this->___mainCamera;
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_1, (bool)0, NULL);
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_2 = __this->___boardCamera;
 		NullCheck(L_2);
-		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_2, (bool)1, NULL);
+		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_2, (bool)0, NULL);
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_3 = __this->___mainCamera;
+		NullCheck(L_3);
+		Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A(L_3, (bool)1, NULL);
 		__this->___isBoardCameraActive = (bool)0;
 		Cursor_set_lockState_mD81F6E5F3D86506FFB88567689A3A00A7AD242E9(1, NULL);
 		Cursor_set_visible_m612FCB2E86C15F91CE2E6148D1B556667954A2B7((bool)0, NULL);
 		return;
 	}
 
-IL_0034:
+IL_0040:
 	{
 		EnterBoard_TryInteractWithBoard_m2C5068E663AD21B54EB0C4779EFC26997EDE22EB(__this, NULL);
 		return;
@@ -9309,7 +9314,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EnterBoard_TryInteractWithBoard_m2C5068E
 		L_10 = Physics_Raycast_m34AC1210E893A9EF969BD2C7104B10BE5B580025(L_6, (&V_0), L_7, L_9, NULL);
 		if (!L_10)
 		{
-			goto IL_007d;
+			goto IL_0089;
 		}
 	}
 	{
@@ -9320,7 +9325,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EnterBoard_TryInteractWithBoard_m2C5068E
 		L_12 = Component_CompareTag_mE6F8897E84F12DF12D302FFC4D58204D51096FC5(L_11, _stringLiteral9868EF35A8E481491CA254E577450CA05D360B8A, NULL);
 		if (!L_12)
 		{
-			goto IL_007d;
+			goto IL_0089;
 		}
 	}
 	{
@@ -9333,9 +9338,12 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void EnterBoard_TryInteractWithBoard_m2C5068E
 		__this->___isBoardCameraActive = (bool)1;
 		Cursor_set_lockState_mD81F6E5F3D86506FFB88567689A3A00A7AD242E9(0, NULL);
 		Cursor_set_visible_m612FCB2E86C15F91CE2E6148D1B556667954A2B7((bool)1, NULL);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_15 = __this->___boardPrefab;
+		NullCheck(L_15);
+		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_15, (bool)1, NULL);
 	}
 
-IL_007d:
+IL_0089:
 	{
 		return;
 	}

@@ -8186,6 +8186,7 @@ struct Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088  : public MonoBehaviour
 	bool ___isCaptureMode;
 	SeqBase_t1C5F91AA8B6F9E75951B14CE6FF3866801766A94* ___seqToTrigger;
 	InputAction_t1B550AD2B55AF322AFB53CD28DA64081220D01CD* ___inputActions;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___newPhoto;
 };
 struct CaptureInputHandler_tDCA53D462C045061C5A0F6F489041B54A33A30FC  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
@@ -8237,6 +8238,7 @@ struct EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190  : public MonoBehavi
 {
 	LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB ___interactableLayer;
 	float ___interactDistance;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___boardPrefab;
 	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___boardCamera;
 	InputAction_t1B550AD2B55AF322AFB53CD28DA64081220D01CD* ___playerInputActions;
 	bool ___isBoardCameraActive;
@@ -8944,6 +8946,7 @@ struct HUDMenu_t0815D693B36C4590E03185DC10E416E3C96DB393  : public Menu_t818E8DA
 {
 	MenuClassifier_t2C0DAA1A7CC5A0D19328B644DD825D346DF10EE3* ___pauseMenuClassifier;
 	Menu_t818E8DA587A0E558DE9BC83947BABC9A6FDD0C05* ___pauseMenu;
+	InputAction_t1B550AD2B55AF322AFB53CD28DA64081220D01CD* ___pauseAction;
 };
 struct Inventory_tF939A06B3A6FC9605B83740B581334D9DB672574  : public Singleton_1_t503F46FEF6ED7BF6E6DCC23AA3B78F7A6AAF1778
 {
@@ -11894,9 +11897,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9461[3] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9462[4] = 
 {
 	static_cast<int32_t>(offsetof(U3CCapturePhotoU3Ed__26_tD35C419994AAD2779FCE0324B9C1889D542B3832, ___U3CU3E1__state)),static_cast<int32_t>(offsetof(U3CCapturePhotoU3Ed__26_tD35C419994AAD2779FCE0324B9C1889D542B3832, ___U3CU3E2__current)),static_cast<int32_t>(offsetof(U3CCapturePhotoU3Ed__26_tD35C419994AAD2779FCE0324B9C1889D542B3832, ___U3CU3E4__this)),static_cast<int32_t>(offsetof(U3CCapturePhotoU3Ed__26_tD35C419994AAD2779FCE0324B9C1889D542B3832, ___isKeyItem)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9463[18] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9463[19] = 
 {
-	static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___photoDisplay)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___PhotoFrame)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___photoPrefab)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___normalPhotoContainer)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___keyItemContainer)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___cameraFlash)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___flashTime)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___fadingAnimation)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___player)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___objectsToCheck)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___captureModeCanvas)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___mainCamera)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___inventory)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___viewingPhoto)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___isPlayerActive)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___isCaptureMode)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___seqToTrigger)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___inputActions)),};
+	static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___photoDisplay)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___PhotoFrame)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___photoPrefab)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___normalPhotoContainer)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___keyItemContainer)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___cameraFlash)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___flashTime)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___fadingAnimation)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___player)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___objectsToCheck)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___captureModeCanvas)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___mainCamera)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___inventory)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___viewingPhoto)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___isPlayerActive)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___isCaptureMode)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___seqToTrigger)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___inputActions)),static_cast<int32_t>(offsetof(Capture_tFA5EE9430FB03348D78AC00C2FBFF0CAD22FA088, ___newPhoto)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9464[3] = 
 {
 	static_cast<int32_t>(offsetof(CaptureInputHandler_tDCA53D462C045061C5A0F6F489041B54A33A30FC, ___keyItemPrefab)),static_cast<int32_t>(offsetof(CaptureInputHandler_tDCA53D462C045061C5A0F6F489041B54A33A30FC, ___keyItemContainer)),static_cast<int32_t>(offsetof(CaptureInputHandler_tDCA53D462C045061C5A0F6F489041B54A33A30FC, ___inputActions)),};
@@ -11984,9 +11987,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9494[3] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9495[3] = 
 {
 	static_cast<int32_t>(offsetof(ItemInspector_tBC4AC22C813A34DD7570AAA2F265F57F1C593946, ___inspectionPanel)),static_cast<int32_t>(offsetof(ItemInspector_tBC4AC22C813A34DD7570AAA2F265F57F1C593946, ___inspectionArea)),static_cast<int32_t>(offsetof(ItemInspector_tBC4AC22C813A34DD7570AAA2F265F57F1C593946, ___currentItem)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9496[2] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9496[3] = 
 {
-	static_cast<int32_t>(offsetof(HUDMenu_t0815D693B36C4590E03185DC10E416E3C96DB393, ___pauseMenuClassifier)),static_cast<int32_t>(offsetof(HUDMenu_t0815D693B36C4590E03185DC10E416E3C96DB393, ___pauseMenu)),};
+	static_cast<int32_t>(offsetof(HUDMenu_t0815D693B36C4590E03185DC10E416E3C96DB393, ___pauseMenuClassifier)),static_cast<int32_t>(offsetof(HUDMenu_t0815D693B36C4590E03185DC10E416E3C96DB393, ___pauseMenu)),static_cast<int32_t>(offsetof(HUDMenu_t0815D693B36C4590E03185DC10E416E3C96DB393, ___pauseAction)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9497[3] = 
 {
 	static_cast<int32_t>(offsetof(MainMenu_t5A8A8E4906FD2B24D16567A6BFFDAA6B91DD12DF, ___Level)),static_cast<int32_t>(offsetof(MainMenu_t5A8A8E4906FD2B24D16567A6BFFDAA6B91DD12DF, ___hudClassifier)),static_cast<int32_t>(offsetof(MainMenu_t5A8A8E4906FD2B24D16567A6BFFDAA6B91DD12DF, ___optionsMenuClassifier)),};
@@ -12101,9 +12104,9 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9540[2] =
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9541[4] = 
 {
 	static_cast<int32_t>(offsetof(ClickToZoom_t43FDD7D75E38C350889D65BA252D854F37C9EE2B, ___virtualCamera)),static_cast<int32_t>(offsetof(ClickToZoom_t43FDD7D75E38C350889D65BA252D854F37C9EE2B, ___componentBase)),static_cast<int32_t>(offsetof(ClickToZoom_t43FDD7D75E38C350889D65BA252D854F37C9EE2B, ___cameraDistance)),static_cast<int32_t>(offsetof(ClickToZoom_t43FDD7D75E38C350889D65BA252D854F37C9EE2B, ___Sensitivity)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9542[6] = 
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9542[7] = 
 {
-	static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___interactableLayer)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___interactDistance)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___boardCamera)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___playerInputActions)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___isBoardCameraActive)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___mainCamera)),};
+	static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___interactableLayer)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___interactDistance)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___boardPrefab)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___boardCamera)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___playerInputActions)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___isBoardCameraActive)),static_cast<int32_t>(offsetof(EnterBoard_t957470659E1CB81BCD5728FDEF48B75DD4F53190, ___mainCamera)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable9543[1] = 
 {
 	static_cast<int32_t>(offsetof(KeyIremDisplay_tD510018A2C967459E30672B2D4AF07A426BB2B9E, ___keyItemDisplayArea)),};
