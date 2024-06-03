@@ -12,6 +12,7 @@ public class Seq1 : SeqBase
 
     public override void TriggerSeq()
     {
+        Debug.Log($"Sequence 1 Triggered by {name}");
         DeleteWalls();
         SpawnEnemy();
     }
