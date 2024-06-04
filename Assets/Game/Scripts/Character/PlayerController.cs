@@ -46,8 +46,6 @@ public class PlayerController : MonoBehaviour
 
         characterController.SimpleMove(movDir * movSpeed);
 
-
-
     }
 
     #region Read Inputs
