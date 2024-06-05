@@ -51,13 +51,14 @@ public class EventBus : MonoBehaviour
     public class ItemRemovedEvent
     {
         public InventoryItem Item { get; private set; }
-        public int index {  get; private set; }
+        public int Index { get; private set; }
 
         public ItemRemovedEvent(InventoryItem item)
         {
             Item = item;
         }
     }
+
 
     public class ItemInspectedEvent
     {
@@ -68,6 +69,7 @@ public class EventBus : MonoBehaviour
             Item = item;
         }
     }
+
     public class ToggleInventoryEvent
     {
         public bool IsOpen { get; private set; }
@@ -77,4 +79,5 @@ public class EventBus : MonoBehaviour
             IsOpen = isOpen;
         }
     }
+
 }
