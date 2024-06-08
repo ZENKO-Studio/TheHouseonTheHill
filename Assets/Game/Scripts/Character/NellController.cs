@@ -1,4 +1,6 @@
-
+/** @SAMI 06-06-24
+ *  This script handles movement and other stuff related to Nell
+ **/
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,7 +10,6 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
-[RequireComponent (typeof(AudioSource))]
 public class NellController : CharacterBase
 {
 
