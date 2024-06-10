@@ -19,16 +19,12 @@ public class Flashlight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)) 
+        if(Input.GetKeyDown(KeyCode.F))
         {
-            if (!bIsOn && charging <= 0)
-                return;
-
-            bIsOn = !bIsOn;
-            light.enabled = bIsOn;
+            ToggleFlashlight();
         }
 
-        if(bIsOn)
+        if (bIsOn)
         {
             charging -= depletionRate * Time.deltaTime;
 
@@ -43,5 +39,14 @@ public class Flashlight : MonoBehaviour
         {
             charging += chargeRate * Time.deltaTime;
         }
+    }
+
+    public void ToggleFlashlight()
+    {
+        if (!bIsOn && charging <= 0)
+            return;
+
+        bIsOn = !bIsOn;
+        light.enabled = bIsOn;
     }
 }

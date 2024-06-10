@@ -8,7 +8,7 @@ public class HUDController : MonoBehaviour
     [SerializeField] Slider healthBar;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         if (GameHandler.Instance.playerRef != null)
             GameHandler.Instance.playerRef.OnHealthChanged.AddListener(UpdateHealthbar);
@@ -23,5 +23,11 @@ public class HUDController : MonoBehaviour
     void UpdateHealthbar()
     {
         healthBar.value = GameHandler.Instance.playerRef.GetHealth();
+    }
+
+    void OnDisable()
+    {
+        if (GameHandler.Instance.playerRef != null)
+            GameHandler.Instance.playerRef.OnHealthChanged.RemoveListener(UpdateHealthbar);
     }
 }
