@@ -1,11 +1,13 @@
 /** @SAMI 06-06-24
  *  This script handles movement and other stuff related to Nell
  **/
+using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
@@ -15,8 +17,7 @@ public class NellController : CharacterBase
 
     CharacterController characterController;
     Animator animator;
-    [SerializeField] Transform camTransform;
-
+    
     #region Character Control Values
     [Header("Character Controls")]
     
@@ -50,6 +51,44 @@ public class NellController : CharacterBase
 
     #endregion
 
+    #region Camera Stuff
+    [Header("Cinemachine")]
+
+    [SerializeField] private CinemachineVirtualCamera cineCam;
+
+    [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
+    public GameObject camTarget;
+
+    [Tooltip("How far in degrees can you move the camera up")]
+    public float camYUp = 5.0f;
+
+    [Tooltip("How far in degrees can you move the camera down")]
+    public float camYDown = -15.0f;
+
+    [Tooltip("Additional degrees to override the camera. Useful for fine-tuning camera position when locked")]
+    [HideInInspector] public float CameraAngleOverride = 0.0f;
+
+    [Tooltip("For locking the camera position on all axes")]
+    [HideInInspector] public bool LockCameraPosition = false;
+
+    [Tooltip("How Close the camera should be when zoomed in, default distance is 3")]
+    [SerializeField] float camZoomInDistance = 1f;
+
+    [Tooltip("How Far the camera should be when zoomed out, default distance is 3")]
+    [SerializeField] float camZoomOutDistance = 1f;
+
+    [Tooltip("How fast the camera should Zoom In and Out")]
+    [Range(0.5f, 3f)]
+    float camZoomSpeed = 2f;
+
+    private float currCamDist = 3;
+
+    // Cinemachine
+    private float _cinemachineTargetYaw;
+    private float _cinemachineTargetPitch;
+
+    #endregion
+    
     #region Input Values
     [Header("Player Input Values")]
     public Vector2 moveInput;
@@ -57,6 +96,7 @@ public class NellController : CharacterBase
     public bool jump;
     public bool sprint;
     public bool crouch;
+    public float zoom;
 
     public bool cursorLocked = true;
 	public bool cursorInputForLook = true;
@@ -96,13 +136,19 @@ public class NellController : CharacterBase
         }
     }
 
+    private void LateUpdate()
+    {
+        CameraRotation();
+        CameraZoom();
+    }
+
     private void PlayerMovement()
     {
         if (!bEnableMovement)
             return;
 
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
-        movDir = Quaternion.AngleAxis(camTransform.rotation.eulerAngles.y, Vector3.up) * movDir;
+        movDir = Quaternion.AngleAxis(camTarget.transform.rotation.eulerAngles.y, Vector3.up) * movDir;
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
@@ -155,6 +201,45 @@ public class NellController : CharacterBase
         }
     }
 
+
+    private const float _threshold = 0.01f;
+
+
+    private void CameraRotation()
+    {
+        // If there is an input and camera position is not fixed
+        if (lookInput.sqrMagnitude >= _threshold)
+        {
+            // Don't multiply mouse input by Time.deltaTime;
+            float deltaTimeMultiplier = 1.0f;
+
+            _cinemachineTargetYaw += lookInput.x * deltaTimeMultiplier;
+            _cinemachineTargetPitch += lookInput.y * deltaTimeMultiplier;
+        }
+
+        // Clamp our rotations so our values are limited 360 degrees
+        _cinemachineTargetYaw = ClampAngle(_cinemachineTargetYaw, float.MinValue, float.MaxValue);
+        _cinemachineTargetPitch = ClampAngle(_cinemachineTargetPitch, camYDown, camYUp);
+
+        // Cinemachine will follow this target
+        camTarget.transform.rotation = Quaternion.Euler(_cinemachineTargetPitch + CameraAngleOverride, _cinemachineTargetYaw, 0.0f);
+    }
+
+    private void CameraZoom()
+    {
+        if(cineCam == null)
+        {
+            Debug.Log("Nell Character needs reference to the Cinemachine Virtual Camera for Zoom to work!");
+            return;
+        }
+
+        currCamDist += zoom * camZoomSpeed * Time.deltaTime;
+
+        currCamDist = Mathf.Clamp(currCamDist, camZoomInDistance, camZoomOutDistance);
+
+        cineCam.GetCinemachineComponent<Cinemachine3rdPersonFollow>().CameraDistance = currCamDist;
+    }
+
     private void Crouch()
     {
         animator.SetBool("IsCrouching", crouch);
@@ -164,12 +249,14 @@ public class NellController : CharacterBase
             characterController.center = new Vector3(0f, crouchCenter, 0f);
             characterController.height = crouchHeight;
             soundRange = crouchSound;
+            camTarget.transform.position -= new Vector3(0, .5f, 0);
         }
         else
         {
             characterController.center = new Vector3(0f, defaultCenter, 0f);
             characterController.height = defaultHeight;
             soundRange = walkSound;
+            camTarget.transform.position += new Vector3(0, .5f, 0);
         }
     }
 
@@ -231,11 +318,23 @@ public class NellController : CharacterBase
         Crouch();
     }
 
-    
-
     public void OnInteract(InputValue value)
     {
         Debug.Log($"{name} is Interacting");
+    }
+
+    public void OnCamZoom(InputValue value)
+    {
+        zoom = Mathf.Clamp(value.Get<float>(), -1, 1) * -1;
+    }
+    #endregion
+
+    #region HelperMethods
+    private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
+    {
+        if (lfAngle < -360f) lfAngle += 360f;
+        if (lfAngle > 360f) lfAngle -= 360f;
+        return Mathf.Clamp(lfAngle, lfMin, lfMax);
     }
     #endregion
 }
