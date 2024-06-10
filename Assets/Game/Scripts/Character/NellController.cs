@@ -15,13 +15,14 @@ public class NellController : CharacterBase
 
     CharacterController characterController;
     Animator animator;
+    [SerializeField] Transform camTransform;
 
     #region Character Control Values
     [Header("Character Controls")]
     
     public bool bEnableMovement = true;
     
-    [SerializeField] float rotSpeed = 5f;
+    [SerializeField] float rotSpeed = 300f;
 
     //Can be used if jumping required
     [SerializeField] float jumpSpeed = 4f;
@@ -101,6 +102,8 @@ public class NellController : CharacterBase
             return;
 
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
+        movDir = Quaternion.AngleAxis(camTransform.rotation.eulerAngles.y, Vector3.up) * movDir;
+
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
         if (sprint)
