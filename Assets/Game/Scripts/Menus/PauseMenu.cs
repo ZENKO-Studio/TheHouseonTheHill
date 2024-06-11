@@ -8,8 +8,7 @@ using UnityEngine.TextCore.Text;
 using static UnityEngine.InputSystem.InputAction;
 
 public class PauseMenu : Menu
-{
-    public MenuClassifier hudMenuClassifier;
+{   
     // Add this line to reference the level scen
     private Players pauseInputAction;
 
@@ -60,6 +59,6 @@ public class PauseMenu : Menu
     public void OnContinueGame()
     {
         Time.timeScale = 1.0f;
-        MenuManager.Instance.HideMenu(hudMenuClassifier);
+        MenuManager.Instance.HideMenu(menuClassifier);
     }
 }

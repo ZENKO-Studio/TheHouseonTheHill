@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
+using static EventBus;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
@@ -100,6 +101,16 @@ public class NellController : CharacterBase
 
     public bool cursorLocked = true;
 	public bool cursorInputForLook = true;
+    #endregion
+
+    #region Other Vars
+
+    private bool isInventoryOpen = false;
+    private bool isFlashOn = false;
+    private bool isCamMode = false;
+
+    Flashlight flashlight;
+
     #endregion
 
     private void Awake()
@@ -288,6 +299,13 @@ public class NellController : CharacterBase
         
     }
 
+    public void Teleport(Transform t)
+    {
+        characterController.enabled = false;
+        transform.SetPositionAndRotation(t.position, t.rotation);
+        characterController.enabled = true;
+    }
+
     #region Read Inputs
     public void OnMove(InputValue value)
     {
@@ -327,6 +345,27 @@ public class NellController : CharacterBase
     {
         zoom = Mathf.Clamp(value.Get<float>(), -1, 1) * -1;
     }
+
+    public void OnInventory(InputValue value)
+    {
+        isInventoryOpen = !isInventoryOpen;
+        EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
+    }
+
+    public void OnCamMode(InputValue value)
+    {
+        isCamMode = !isCamMode;
+        //Call to Capture Script Function
+    }
+
+    public void  OnFlashlight(InputValue value)
+    {
+        if(flashlight)
+        {
+            flashlight.ToggleFlashlight();
+        }
+    }
+
     #endregion
 
     #region HelperMethods
