@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5558661007706238527}
   - component: {fileID: 264149781284580017}
   - component: {fileID: 8617862905035112637}
+  - component: {fileID: 3193908024123215756}
   m_Layer: 0
   m_Name: door
   m_TagString: Untagged
@@ -107,6 +108,34 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.84256166, y: 0.31639668, z: 0.067169994}
   m_Center: {x: 0.42128083, y: -0.15819834, z: -0.011195002}
+--- !u!114 &3193908024123215756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464033000765100239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675443adc1b5078419865379d0a29c59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3550993350902840476}
+        m_TargetAssemblyTypeName: Game.Scripts.Interactable.OpenThings, Assembly-CSharp
+        m_MethodName: ToggleDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  priority: 0
 --- !u!1 &5786180078100672784
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +251,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6679055634084297557}
+  - component: {fileID: 3550993350902840476}
   m_Layer: 0
   m_Name: P_KitchenCabinetUpperBasic
   m_TagString: Untagged
@@ -246,3 +276,29 @@ Transform:
   - {fileID: 6445679212467130328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3550993350902840476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5834713446083476373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0928beee878d34fabb152844d29b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gate: {fileID: 6445679212467130328}
+  usePosition: 0
+  useGlobalPosition: 0
+  openPosition: {x: 0, y: 0, z: 0}
+  closePosition: {x: 0, y: 0, z: 0}
+  useRotation: 1
+  useGlobalRotation: 0
+  rotationAxis: {x: 0, y: 1, z: 0}
+  openRotationDeg: 125
+  closeRotationDeg: 0
+  duration: 1
+  openThreshold: 0.5
+  startState: 2
+  scriptOverride: 0
