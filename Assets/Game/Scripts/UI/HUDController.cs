@@ -15,8 +15,8 @@ public class HUDController : MonoBehaviour
 
         hudMenu = GetComponent<HUDMenu>();
 
-        if (GameHandler.Instance.playerRef != null)
-            GameHandler.Instance.playerRef.OnHealthChanged.AddListener(UpdateHealthbar);
+        if (GameManager.Instance.playerRef != null)
+            GameManager.Instance.playerRef.OnHealthChanged.AddListener(UpdateHealthbar);
     }
 
     // Update is called once per frame
@@ -27,14 +27,14 @@ public class HUDController : MonoBehaviour
 
     void UpdateHealthbar()
     {
-        healthBar.value = GameHandler.Instance.playerRef.GetHealth();
+        healthBar.value = GameManager.Instance.playerRef.GetHealth();
         hudMenu.ShowHUD();
         Invoke(nameof(hudMenu.HideHUD), 5f);
     }
 
     void OnDisable()
     {
-        if (GameHandler.Instance.playerRef != null)
-            GameHandler.Instance.playerRef.OnHealthChanged.RemoveListener(UpdateHealthbar);
+        if (GameManager.Instance.playerRef != null)
+            GameManager.Instance.playerRef.OnHealthChanged.RemoveListener(UpdateHealthbar);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class Documents : Object
+public abstract class Documents : UsableObject
 {
     Image img;
     Sprite image;

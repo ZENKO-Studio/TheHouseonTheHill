@@ -5,36 +5,39 @@ using UnityEngine;
 
 public abstract class InventoryItem : MonoBehaviour
 {
-    public string ItemId;
-    public string itemName;
-    public Sprite itemIcon;
-    public GameObject itemPreview;
-    public int btnIndex;
+    public string itemName; //Name of Item
+    public Sprite itemIcon; //Icon to show on button
+    public GameObject itemPreview; //Mesh to be shown on Inventory Cam
+    public string itemDescription; //Mesh to be shown on Inventory Cam
 
-    private GameManager gameManager;
+    [HideInInspector] public int btnIndex;    //Index of Inventory Button (To delete it from Inventory UI)
 
-    private void Awake()
+    protected InventoryHandler inventoryHandler;
+    
+    //public ItemType itemType;
+
+    private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        inventoryHandler = InventoryHandler.Instance;
     }
 
-    public void Interact()
+    protected void OnTriggerEnter(Collider other)
     {
-        if (gameManager != null)
+        if(other.tag == "Player")
         {
-            if (CompareTag("KeyItem"))
-            {
-                gameManager.AddKeyItem(gameObject.name);
-            }
-            else if (CompareTag("ResourceItem"))
-            {
-                gameManager.AddResourceItem(gameObject.name, 1); // Adjust amount as needed
-            }
-
-            Destroy(gameObject); // Remove the item from the scene
+            GameManager.Instance.playerRef.SetInteractable(this);
         }
     }
 
-    public abstract void Use();
+    protected void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            GameManager.Instance.playerRef.SetInteractable(null);
+        }
+    }
+
+    public abstract void Interact();
+
     public abstract string GetDescription();
 }

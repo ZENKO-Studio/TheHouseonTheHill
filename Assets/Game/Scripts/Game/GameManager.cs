@@ -1,59 +1,22 @@
-/**
- * @Sami 06/12/24
- * #TODO Prolly remove this as I have used GameHandler in multiple places since long time ago (feeling bored to replace all the references)
- **/
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
+public class GameManager : Singleton<GameManager>
+{
+    //Should be set on game start or manually in the scene
+    public NellAttributes playerRef;
 
-//public class GameManager : MonoBehaviour
-//{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-//    public static GameManager Instance { get; private set; }
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 
-//    public Inventory inventory;
-//    public GameObject keyItemPrefab;
-//    public GameObject resourceItemPrefab;
-    
-//    private void Awake()
-//    {
-//        if (Instance == null)
-//        {
-//            Instance = this;
-//            DontDestroyOnLoad(gameObject); // Make this object persist across scene loads
-//        }
-//        else
-//        {
-//            Destroy(gameObject); // Destroy duplicate instances
-//            return;
-//        }
-//    }
-//    private void Start()
-//    {
-//        // Add some items to the inventory for testing
-//        AddKeyItem("Golden Key");
-//        //AddResourceItem("Salt", 10);
-//    }
-
-//    public void AddKeyItem(string name)
-//    {
-//        GameObject keyItemObject = Instantiate(keyItemPrefab);
-//        KeyItem keyItem = keyItemObject.GetComponent<KeyItem>();
-//        keyItem.itemName = name;
-//        inventory.AddItem(keyItem);
-//    }
-
-//    public void AddResourceItem(string name, int amount)
-//    {
-//        GameObject resourceItemObject = Instantiate(resourceItemPrefab);
-//        Resource resourceItem = resourceItemObject.GetComponent<Resource>();
-//        resourceItem.itemName = name;
-//        resourceItem.amount = amount;
-//        inventory.AddItem(resourceItem);
-//    }
-//    public void ToggleInventory(bool isOpen)
-//    {
-//        EventBus.Publish(new EventBus.ToggleInventoryEvent(isOpen));
-//    }
-//}
+}
