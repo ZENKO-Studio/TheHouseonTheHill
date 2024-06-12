@@ -179,14 +179,14 @@ public class NellController : CharacterBase
 
         if (movDir != Vector3.zero)
         {
-            animator.SetBool("IsMoving", true);
+            // animator.SetBool("IsMoving", true);
 
             Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
         }
         else
         {
-            animator.SetBool("IsMoving", false);
+            // animator.SetBool("IsMoving", false);
         }
 
     }

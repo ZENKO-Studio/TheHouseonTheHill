@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
     public static GameManager Instance { get; private set; }
 
     public Inventory inventory;
     public GameObject keyItemPrefab;
     public GameObject resourceItemPrefab;
-    
-
+    public NellAttributes playerRef;
 
     private void Awake()
     {
@@ -26,11 +24,12 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
+
     private void Start()
     {
         // Add some items to the inventory for testing
         AddKeyItem("Golden Key");
-        //AddResourceItem("Salt", 10);
+        // AddResourceItem("Salt", 10);
     }
 
     public void AddKeyItem(string name)
@@ -49,6 +48,7 @@ public class GameManager : MonoBehaviour
         resourceItem.amount = amount;
         inventory.AddItem(resourceItem);
     }
+
     public void ToggleInventory(bool isOpen)
     {
         EventBus.Publish(new EventBus.ToggleInventoryEvent(isOpen));
