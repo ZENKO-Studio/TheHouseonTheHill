@@ -82,8 +82,8 @@ public class Inventory : Singleton<Inventory>
         Button button = buttonObject.GetComponent<Button>();
         button.onClick.AddListener(() => InspectItem(item));
 
-        //TMP_Text buttonText = buttonObject.GetComponentInChildren<TMP_Text>();
-        //buttonText.text = item.itemName;
+        TMP_Text buttonText = buttonObject.GetComponentInChildren<TMP_Text>();
+        buttonText.text = item.itemName;
 
         Image buttonImage = buttonObject.GetComponentInChildren<Image>();
         buttonImage.sprite = item.itemIcon;
@@ -111,7 +111,7 @@ public class Inventory : Singleton<Inventory>
 
         // Display item details in the inspection panel
         itemNameText.text = item.itemName;
-        //itemIconImage.sprite = item.itemIcon;
+        itemIconImage.sprite = item.itemIcon;
         itemDescriptionText.text = item.GetDescription(); // Assuming GetDescription() returns item details
 
         if (item.itemPreview != null)
@@ -121,9 +121,7 @@ public class Inventory : Singleton<Inventory>
             g.transform.localPosition = Vector3.zero;
             g.transform.rotation = Quaternion.identity;
             g.SetActive(true);
-            
         }
-        //(item.gameObject);
     }
 
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)

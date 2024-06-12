@@ -10,8 +10,8 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
-        if (GameHandler.Instance.playerRef != null)
-            GameHandler.Instance.playerRef.OnHealthChanged.AddListener(UpdateHealthbar);
+        if (GameManager.Instance.playerRef != null)
+            GameManager.Instance.playerRef.OnHealthChanged.AddListener(UpdateHealthbar);
     }
 
     // Update is called once per frame
@@ -22,12 +22,12 @@ public class HUDController : MonoBehaviour
 
     void UpdateHealthbar()
     {
-        healthBar.value = GameHandler.Instance.playerRef.GetHealth();
+        healthBar.value = GameManager.Instance.playerRef.GetHealth();
     }
 
     void OnDisable()
     {
-        if (GameHandler.Instance.playerRef != null)
-            GameHandler.Instance.playerRef.OnHealthChanged.RemoveListener(UpdateHealthbar);
+        if (GameManager.Instance.playerRef != null)
+            GameManager.Instance.playerRef.OnHealthChanged.RemoveListener(UpdateHealthbar);
     }
 }
