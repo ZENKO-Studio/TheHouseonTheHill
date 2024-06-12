@@ -1130,12 +1130,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 601147046}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &624889582 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8363196858040433239, guid: 63da30b70f59092448cb99ed1f449bec,
-    type: 3}
-  m_PrefabInstance: {fileID: 1826393633}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &632136149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,45 +1682,6 @@ Transform:
   - {fileID: 7881212228677500215}
   m_Father: {fileID: 1884742828}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1216933137 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1309636533108543988, guid: 63da30b70f59092448cb99ed1f449bec,
-    type: 3}
-  m_PrefabInstance: {fileID: 1826393633}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1216933138 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4493949538299173803, guid: 63da30b70f59092448cb99ed1f449bec,
-    type: 3}
-  m_PrefabInstance: {fileID: 1826393633}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1216933142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216933137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 675443adc1b5078419865379d0a29c59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onInteract:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1826393635}
-        m_TargetAssemblyTypeName: OpenThings, Assembly-CSharp
-        m_MethodName: ToggleDoor
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!4 &1217754285 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3824043096827903198, guid: c348a0317696920498b1f010c5c7da0c,
@@ -2397,6 +2352,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5467639592434618368, guid: 63da30b70f59092448cb99ed1f449bec,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8363196858040433239, guid: 63da30b70f59092448cb99ed1f449bec,
         type: 3}
       propertyPath: m_Name
@@ -2405,15 +2365,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8363196858040433239, guid: 63da30b70f59092448cb99ed1f449bec,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1826393635}
-    - targetCorrespondingSourceObject: {fileID: 1309636533108543988, guid: 63da30b70f59092448cb99ed1f449bec,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1216933142}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63da30b70f59092448cb99ed1f449bec, type: 3}
 --- !u!4 &1826393634 stripped
 Transform:
@@ -2421,32 +2373,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1826393633}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1826393635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 624889582}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0928beee878d34fabb152844d29b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gate: {fileID: 1216933138}
-  usePosition: 0
-  useGlobalPosition: 0
-  openPosition: {x: 0, y: 0, z: 0}
-  closePosition: {x: 0, y: -89.988, z: 0}
-  useRotation: 1
-  useGlobalRotation: 0
-  rotationAxis: {x: 0, y: 1, z: 0}
-  openRotationDeg: 45
-  closeRotationDeg: -90
-  duration: 1
-  openThreshold: 0.5
-  startState: 1
-  scriptOverride: 0
 --- !u!1 &1831219036
 GameObject:
   m_ObjectHideFlags: 0
