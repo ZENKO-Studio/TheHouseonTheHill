@@ -8,5 +8,6 @@ namespace Game.Scripts.Interactable
     public interface IInteractable
     {
         public void Interact(CharacterBase player);
+        int Priority { get; }
     }
 }
