@@ -21,19 +21,16 @@ namespace Game.Scripts.Interactable
         {
             _playerInput = GetComponent<PlayerInput>();
             _player = GetComponent<CharacterBase>();
-            // Subscribe to input events or other events if needed
             SubscribeToEvents();
         }
 
         private void OnDestroy()
         {
-            // Unsubscribe from events to avoid memory leaks
             UnsubscribeFromEvents();
         }
 
         private void SubscribeToEvents()
         {
-            // Example: Subscribe to a key press to interact
             if (_playerInput != null)
             {
                 //_playerInput.actions["Interact"].performed += OnInteract;
@@ -42,7 +39,6 @@ namespace Game.Scripts.Interactable
 
         private void UnsubscribeFromEvents()
         {
-            // Example: Unsubscribe from a key press to interact
             if (_playerInput != null)
             {
                 //_playerInput.actions["Interact"].performed -= OnInteract;
@@ -51,16 +47,23 @@ namespace Game.Scripts.Interactable
 
         public void OnInteract(InputValue value)
         {
-            // Check for interactable objects in front of the player
-            // Might have to use 'QueryTriggerInteraction.Ignore' as the last parameter if we want to ignore Colliders set to 'Trigger'
             var colliders = Physics.OverlapSphere(interactCheckPosition.position, interactCheckRadius, interactableLayerMask.value);
+            IInteractable highestPriorityInteractable = null;
+            int highestPriority = int.MinValue;
+
             foreach (var collider in colliders)
             {
                 if (collider.TryGetComponent(out IInteractable interactable))
                 {
-                    interactable.Interact(_player);
+                    if (interactable.Priority > highestPriority)
+                    {
+                        highestPriority = interactable.Priority;
+                        highestPriorityInteractable = interactable;
+                    }
                 }
             }
+
+            highestPriorityInteractable?.Interact(_player);
         }
 
         private void OnDrawGizmos()
@@ -70,3 +73,4 @@ namespace Game.Scripts.Interactable
         }
     }
 }
+
