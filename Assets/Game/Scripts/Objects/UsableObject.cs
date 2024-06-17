@@ -9,10 +9,7 @@ using UnityEngine;
 /// 
 public class UsableObject : InventoryItem
 {
-    public override string GetDescription()
-    {
-        return itemDescription;
-    }
+    
 
     public override void Interact()
     {

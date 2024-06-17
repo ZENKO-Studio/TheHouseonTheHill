@@ -9,6 +9,13 @@ using static EventBus;
 public class InventoryHandler : Singleton<InventoryHandler>
 {
     public List<InventoryItem> items = new List<InventoryItem>();
+
+    //4 Dictionaries with Item and Button (Since we have to add and remove both)
+    public Dictionary<Photo, GameObject> photos; 
+    public Dictionary<Document, GameObject> documents; 
+    public Dictionary<Key, GameObject> keys; 
+    public Dictionary<UsableObject, GameObject> usables; 
+
     public Transform keyItemContainer;
     public Transform resourceItemContainer;
     public Transform contentTransform; // Reference to the ScrollView content
