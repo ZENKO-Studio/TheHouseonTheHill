@@ -39,6 +39,6 @@ public class HUDMenu : Menu
 
     internal void HideHUD()
     {
-        MenuManager.Instance.ShowMenu(menuClassifier);
+        MenuManager.Instance.HideMenu(menuClassifier);
     }
 }

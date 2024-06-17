@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     //Should be set on game start or manually in the scene
-    public NellAttributes playerRef;
+    public NellController playerRef;
 
     // Start is called before the first frame update
     void Start()
