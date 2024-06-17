@@ -2,6 +2,7 @@
 // June 11th, 2024
 // Player Interact script to handle all interactions.
 
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,15 +14,25 @@ namespace Game.Scripts.Interactable
         [SerializeField] private Transform interactCheckPosition;
         [SerializeField, Range(0, 5)] private float interactCheckRadius = 1.0f;
         [SerializeField, Tooltip("What Layers can we interact with")] private LayerMask interactableLayerMask;
+        [SerializeField] private TextMeshProUGUI interactText; // Reference to the UI Text
 
         private PlayerInput _playerInput;
         private CharacterBase _player;
+        private IInteractable _currentInteractable;
+        private Collider[] _interactables = new Collider[10];
+        private bool _overrideInteractable;
 
         private void Start()
         {
             _playerInput = GetComponent<PlayerInput>();
             _player = GetComponent<CharacterBase>();
             SubscribeToEvents();
+            interactText.gameObject.SetActive(false); // Hide the text initially
+        }
+
+        private void Update()
+        {
+            CheckForInteractable();
         }
 
         private void OnDestroy()
@@ -45,25 +56,80 @@ namespace Game.Scripts.Interactable
             }
         }
 
-        public void OnInteract(InputValue value)
+        private void CheckForInteractable()
         {
-            var colliders = Physics.OverlapSphere(interactCheckPosition.position, interactCheckRadius, interactableLayerMask.value);
-            IInteractable highestPriorityInteractable = null;
-            int highestPriority = int.MinValue;
 
-            foreach (var collider in colliders)
+            IInteractable highestPriorityInteractable = null;
+
+            var count = Physics.OverlapSphereNonAlloc(interactCheckPosition.position, interactCheckRadius, _interactables, interactableLayerMask.value);
+
+            for (var i = 0; i < count; i++)
             {
-                if (collider.TryGetComponent(out IInteractable interactable))
+                if (_interactables[i].TryGetComponent(out IInteractable interactable))
                 {
-                    if (interactable.Priority > highestPriority)
+                    highestPriorityInteractable ??= interactable;
+
+                    if (highestPriorityInteractable.Priority < interactable.Priority)
                     {
-                        highestPriority = interactable.Priority;
                         highestPriorityInteractable = interactable;
                     }
                 }
             }
 
-            highestPriorityInteractable?.Interact(_player);
+            if (highestPriorityInteractable != null)
+            {
+                // We now have a different Interactable as the highest priority
+                if (_currentInteractable != highestPriorityInteractable)
+                {
+                    if (_currentInteractable != null)
+                    {
+                        _currentInteractable.Action.performed -= OverrideInteract;
+                    }
+                    if (highestPriorityInteractable.Action.bindings.Count > 0)
+                    {
+                        highestPriorityInteractable.Action.Enable();
+                        highestPriorityInteractable.Action.performed += OverrideInteract;
+                        _overrideInteractable = true;
+                    }
+                    else
+                    {
+                        _overrideInteractable = false;
+                    }
+                }
+
+                _currentInteractable = highestPriorityInteractable;
+
+                string bindingDisplayString;
+
+                if (highestPriorityInteractable.Action.bindings.Count > 0)
+                {
+                    bindingDisplayString = _currentInteractable.Action.GetBindingDisplayString();
+                } else
+                {
+                    bindingDisplayString = "E";
+                }
+                interactText.text = bindingDisplayString;
+                interactText.gameObject.SetActive(true); // Show the text
+
+            }
+            else
+            {
+                _overrideInteractable = false;
+                _currentInteractable = null;
+                interactText.gameObject.SetActive(false); // Hide the text
+            }
+        }
+
+        private void OverrideInteract(InputAction.CallbackContext context)
+        {
+            _currentInteractable?.Interact(_player);
+        }
+
+        public void OnInteract(InputValue value)
+        {
+            if (_overrideInteractable) return;
+
+            _currentInteractable?.Interact(_player);
         }
 
         private void OnDrawGizmos()
