@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -5,9 +6,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using static EventBus;
 
-public class Inventory : Singleton<Inventory>
+public class InventoryHandler : Singleton<InventoryHandler>
 {
     public List<InventoryItem> items = new List<InventoryItem>();
+
+    //4 Dictionaries with Item and Button (Since we have to add and remove both)
+    public Dictionary<Photo, GameObject> photos; 
+    public Dictionary<Document, GameObject> documents; 
+    public Dictionary<Key, GameObject> keys; 
+    public Dictionary<UsableObject, GameObject> usables; 
+
     public Transform keyItemContainer;
     public Transform resourceItemContainer;
     public Transform contentTransform; // Reference to the ScrollView content
@@ -61,7 +69,7 @@ public class Inventory : Singleton<Inventory>
 
     public void UseItem(InventoryItem item)
     {
-        item.Use();
+        //item.Use();
     }
 
     private void CreateItemButton(InventoryItem item)
@@ -69,7 +77,7 @@ public class Inventory : Singleton<Inventory>
         GameObject buttonObject = Instantiate(itemButtonPrefab);
         buttonObject.transform.SetParent(contentTransform, false);
 
-        if (item is KeyItem)
+        if (item is InventoryItem)
         {
             buttonObject.transform.SetParent(keyItemContainer, false);
         }
@@ -91,7 +99,7 @@ public class Inventory : Singleton<Inventory>
 
     private void RemoveItemButton(InventoryItem item)
     {
-        Transform container = item is KeyItem ? keyItemContainer : resourceItemContainer;
+        Transform container = item is InventoryItem ? keyItemContainer : resourceItemContainer;
         if (container != null && item.btnIndex < container.childCount)
         {
             Destroy(container.GetChild(item.btnIndex).gameObject);
@@ -132,12 +140,16 @@ public class Inventory : Singleton<Inventory>
     private void OnItemAdded(ItemAddedEvent addedEvent)
     {
         Debug.Log("Item added: " + addedEvent.Item.itemName);
-        //CreateItemButton(addedEvent.Item);
     }
 
     private void OnItemRemoved(ItemRemovedEvent removedEvent)
     {
         Debug.Log("Item removed: " + removedEvent.Item.itemName);
         RemoveItemButton(removedEvent.Item);
+    }
+
+    internal void AddUsable(UsableObject usableObject)
+    {
+        throw new NotImplementedException();
     }
 }

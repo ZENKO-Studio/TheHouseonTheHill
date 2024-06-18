@@ -3,38 +3,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class InventoryItem : MonoBehaviour
+public abstract class InventoryItem : MonoBehaviour, IInteractable
 {
-    public string ItemId;
-    public string itemName;
-    public Sprite itemIcon;
-    public GameObject itemPreview;
-    public int btnIndex;
+    public string itemName; //Name of Item
+    public Sprite itemIcon; //Icon to show on button
+    public GameObject itemPreview; //Mesh to be shown on Inventory Cam
+    public string itemDescription; //Mesh to be shown on Inventory Cam
+    public GameObject interactPopup; //Popup to show when Player is Close
+    //public string interactDescription;    //Can be enabled to have dynamic messages (As of now assuming to be in Prefab UI Itself)
 
-    private GameManager gameManager;
 
-    private void Awake()
+    public bool bInteractable = true; //Make it false when already interacted with
+
+    protected InventoryHandler inventoryHandler;    //Just a local reference of Inventory System (just to avoid writing the whole thing)
+    
+    private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
+        inventoryHandler = InventoryHandler.Instance;
     }
 
-    public void Interact()
+    protected void OnTriggerEnter(Collider other)
     {
-        if (gameManager != null)
+        if(other.tag == "Player")
         {
-            if (CompareTag("KeyItem"))
-            {
-                gameManager.AddKeyItem(gameObject.name);
-            }
-            else if (CompareTag("ResourceItem"))
-            {
-                gameManager.AddResourceItem(gameObject.name, 1); // Adjust amount as needed
-            }
-
-            Destroy(gameObject); // Remove the item from the scene
+            GameManager.Instance.playerRef.SetInteractable(this);
         }
     }
 
-    public abstract void Use();
-    public abstract string GetDescription();
+    protected void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            GameManager.Instance.playerRef.SetInteractable(null);
+        }
+    }
+
+    public virtual void Interact(CharacterBase player)
+    {
+        //Default Base Method (Will be overrided in other sub classes)
+    }
 }

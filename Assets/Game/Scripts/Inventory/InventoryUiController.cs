@@ -16,26 +16,6 @@ public class InventoryUiController : MonoBehaviour
 
     bool isOpen = false;
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.I))
-    //    {
-    //        isOpen = !isOpen;
-    //        inventoryCanvas.SetActive(isOpen);
-
-    //        if (isOpen)
-    //        {
-    //            Cursor.lockState = CursorLockMode.None; // Unlock the cursor
-    //            Cursor.visible = true; // Make the cursor visible
-    //        }
-    //        else
-    //        {
-    //            Cursor.lockState = CursorLockMode.Locked; // Unlock the cursor
-    //            Cursor.visible = false; // Make the cursor visible
-    //        }
-    //    }
-    //}
-
     private void OnDisable()
     {
         EventBus.Unsubscribe<ToggleInventoryEvent>(OnToggleInventory);
