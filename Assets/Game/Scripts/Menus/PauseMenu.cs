@@ -10,55 +10,37 @@ using static UnityEngine.InputSystem.InputAction;
 public class PauseMenu : Menu
 {
     public MenuClassifier hudMenuClassifier;
-    public InputAction pauseInputAction;
+    // Add this line to reference the level scen
+    private Players pauseInputAction;
 
     private Camera Main;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         Main = Camera.main;
-        if (Main == null)
-        {
-            Debug.LogError("Main Camera not found.");
-        }
-        pauseInputAction = new InputAction(binding: "<Keyboard>/escape");
+        pauseInputAction = new Players();
     }
 
     private void OnEnable()
     {
-        if (pauseInputAction == null)
-        {
-            Debug.LogError("pauseInputAction is not assigned.");
-            return;
-        }
-
-        pauseInputAction.Enable();
-        pauseInputAction.performed += OnPauseGamePerformed;
-        Debug.Log("pauseInputAction enabled and callback assigned.");
+        pauseInputAction.PlayerMap.Enable();
+        pauseInputAction.PlayerMap.Pause.Enable();
+        pauseInputAction.PlayerMap.Pause.performed += OnPauseGamePerformed;
     }
 
-    private void OnDisable()
-    {
-        if (pauseInputAction != null)
-        {
-            pauseInputAction.performed -= OnPauseGamePerformed;
-            
-        }
-    }
 
     public void OnReturnToMainMenu()
     {
         MenuManager.Instance.GetMenu<MainMenu>(MenuManager.Instance.MainMenuClassifier)?.OnReturnToMainMenu();
         MenuManager.Instance.HideMenu(menuClassifier);
 
-        if (Main != null)
-        {
-            Main.gameObject.SetActive(true);
-        }
+        Main.gameObject.SetActive(true);
     }
 
     private void OnPauseGamePerformed(InputAction.CallbackContext context)
     {
+        Debug.Log("i am sami's best friend");
         if (Time.timeScale == 1.0f)
         {
             OnPauseGame();
