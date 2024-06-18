@@ -50,7 +50,7 @@ public class Stalker : EnemyBase, IHear
         {
             //#TODO: Check if stalker is in FOV of player and adjust the damage multiplier
 
-            PlayerCharacter playerRef = playerTransform.GetComponent<PlayerCharacter>();
+            NellAttributes playerRef = playerTransform.GetComponent<NellAttributes>();
             if (playerRef != null)
             {
                 playerRef.TakeDamage(damageToDeal * damageMultiplier);
