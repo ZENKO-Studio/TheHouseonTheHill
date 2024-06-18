@@ -2,6 +2,7 @@ using Game.Scripts.Interactable;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public abstract class InventoryItem : MonoBehaviour, IInteractable
 {
@@ -16,14 +17,23 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
     public bool bInteractable = true; //Make it false when already interacted with
 
     protected InventoryHandler inventoryHandler;    //Just a local reference of Inventory System (just to avoid writing the whole thing)
-    
+
+    #region Unused but needed stuff (thanks to Interface)
+    [HideInInspector] public InputAction Action => throw new System.NotImplementedException();
+    [HideInInspector] public int Priority => throw new System.NotImplementedException();
+    #endregion
+
     private void Start()
     {
         inventoryHandler = InventoryHandler.Instance;
+
+        //No triggers for stuff that is not interactable
+        GetComponent<Collider>().enabled = false;
     }
 
     protected void OnTriggerEnter(Collider other)
     {
+        
         if(other.tag == "Player")
         {
             GameManager.Instance.playerRef.SetInteractable(this);
@@ -32,6 +42,7 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
 
     protected void OnTriggerExit(Collider other)
     {
+
         if (other.tag == "Player")
         {
             GameManager.Instance.playerRef.SetInteractable(null);

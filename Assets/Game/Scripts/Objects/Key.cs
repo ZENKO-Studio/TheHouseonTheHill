@@ -9,5 +9,5 @@ using UnityEngine;
 
 public class Key : UsableObject
 {
-    public int keyID = 0;   //To check with 
+    public int keyID = 0;   //To check with the door (Rohith preferes integers for it)
 }
