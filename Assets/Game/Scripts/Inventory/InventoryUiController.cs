@@ -1,9 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static EventBus;
+
+public enum InventoryPage : byte
+{
+    Usables,
+    Keys,
+    Documents,
+    Photos
+}
 
 public class InventoryUiController : MonoBehaviour
 {
@@ -43,15 +50,25 @@ public class InventoryUiController : MonoBehaviour
         inventoryCanvas.SetActive( toggleEvent.IsOpen );
     }
 
-    private GameObject CreateItemButton(InventoryItem item, int _pgNo)
+    public GameObject CreateItemButton(InventoryItem item, InventoryPage pageToAdd)
     {
         Transform btnParent = null;
 
-        //switch(_pgNo)
-        //{
-        //    case 0:
-        //        btnParent = 
-        //}
+        switch (pageToAdd)
+        {
+            case InventoryPage.Usables:
+                btnParent = usableItemsHolder;
+                break;
+            case InventoryPage.Keys:
+                btnParent = keysHolder;
+                break;
+            case InventoryPage.Documents:
+                btnParent = documentsHolder;
+                break;
+            case InventoryPage.Photos:
+                btnParent = photosHolder;
+                break;
+        }
 
         GameObject buttonObject = Instantiate(itemButtonPrefab);
         buttonObject.transform.SetParent(btnParent, false);
@@ -82,7 +99,7 @@ public class InventoryUiController : MonoBehaviour
         // Display item details in the inspection panel
         itemNameText.text = item.itemName;
         itemIconImage.sprite = item.itemIcon;
-       // itemDescriptionText.text = item.GetDescription(); // Assuming GetDescription() returns item details
+        itemDescriptionText.text = item.itemDescription;
 
         if (item.itemPreview != null)
         {

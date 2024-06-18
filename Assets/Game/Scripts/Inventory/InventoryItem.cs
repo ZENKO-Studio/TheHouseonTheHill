@@ -17,7 +17,7 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
     public bool bInteractable = true; //Make it false when already interacted with
 
     protected InventoryHandler inventoryHandler;    //Just a local reference of Inventory System (just to avoid writing the whole thing)
-
+   
     #region Unused but needed stuff (thanks to Interface)
     [HideInInspector] public InputAction Action => throw new System.NotImplementedException();
     [HideInInspector] public int Priority => throw new System.NotImplementedException();

@@ -59,28 +59,28 @@ public class InventoryHandler : Singleton<InventoryHandler>
         EventBus.Publish(new ItemRemovedEvent(item));
     }
 
-
-   
-
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)
     {
         Debug.Log("Item inspected: " + inspectedEvent.Item.itemName);
     }
 
-    
-
     internal void AddUsable(UsableObject usableObject)
     {
-        throw new NotImplementedException();
+        usables.Add(usableObject, inventoryUI.CreateItemButton(usableObject, InventoryPage.Usables));
     }
 
     internal void AddDocument(Document document)
     {
-        throw new NotImplementedException();
+        documents.Add(document, inventoryUI.CreateItemButton(document, InventoryPage.Documents));
     }
 
     internal void AddPhoto(Photo photo)
     {
-        throw new NotImplementedException();
+        photos.Add(photo, inventoryUI.CreateItemButton(photo, InventoryPage.Photos));
+    }
+
+    internal void AddKey(Key key)
+    {
+        keys.Add(key, inventoryUI.CreateItemButton(key, InventoryPage.Keys));
     }
 }
