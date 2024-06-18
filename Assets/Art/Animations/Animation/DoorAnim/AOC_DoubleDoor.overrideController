@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AOC_DoubleDoor
+  m_Controller: {fileID: 9100000, guid: 1a17a3e9e33c1854a89f12df53322c30, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 20159d259e3c20047b8b5a2a287cc193, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 73b9feb1c91caa74e80a63063702d16b, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 34d53446b380be142ac3f5cf066c862a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b400104cb69f18a4582fb4142f773e9d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 77a37d5b3bf6b3549a0adb70a78d3400, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 747d295daa2217a4a9eaad366c20ddad, type: 2}
