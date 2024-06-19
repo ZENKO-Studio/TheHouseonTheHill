@@ -27,29 +27,29 @@ public class HUDController : MonoBehaviour
         }
 
 
-        hudMenu.Invoke("HideHUD", 5f);
+        //hudMenu.Invoke("HideHUD", 5f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    //// Update is called once per frame
+    //void Update()
+    //{
         
-    }
+    //}
 
     void UpdateHealthbar()
     {
         Debug.Log("UpdatingHealthBar");
         healthBar.value = GameManager.Instance.playerRef.GetHealth();
-        hudMenu.ShowHUD();
-        hudMenu.Invoke("HideHUD", 5f);
+        //hudMenu.ShowHUD();
+        //hudMenu.Invoke("HideHUD", 5f);
     }
     
     void UpdateStaminabar()
     {
         Debug.Log("UpdatingStaminaBar");
         staminaBar.value = GameManager.Instance.playerRef.GetStamina();
-        hudMenu.ShowHUD();
-        hudMenu.Invoke("HideHUD", 5f);
+        //hudMenu.ShowHUD();
+        //hudMenu.Invoke("HideHUD", 5f);
     }
 
     void OnDisable()
