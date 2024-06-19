@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,19 +6,35 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
+    [Header("Health And Stamina")]
     [SerializeField] Slider healthBar;
     [SerializeField] Slider staminaBar;
 
+    [Header("Flashlight")]
+    [SerializeField] Image flashlightImage;
+
+    [SerializeField] Sprite flashOnSprite;
+    [SerializeField] Sprite flashOffSprite;
+
     [SerializeField] HUDMenu hudMenu;
+
+    NellController nellController;
+    Flashlight flashlight;
 
     // Start is called before the first frame update
     void OnEnable()
     {
+        nellController = GameManager.Instance.playerRef;
 
-        if (GameManager.Instance.playerRef != null)
+        if (nellController != null)
         {
-            GameManager.Instance.playerRef.OnHealthChanged.AddListener(UpdateHealthbar);
-            GameManager.Instance.playerRef.OnStaminaChanged.AddListener(UpdateStaminabar);
+            nellController.OnHealthChanged.AddListener(UpdateHealthbar);
+            nellController.OnStaminaChanged.AddListener(UpdateStaminabar);
+            flashlight = nellController.flashlight;
+
+            if (flashlight != null)
+                flashlight.OnFlashLightToggle.AddListener(UpdateFlashlightIcon);
+
             Debug.Log("Listener Added!");
         }
         else
@@ -30,10 +47,12 @@ public class HUDController : MonoBehaviour
         //hudMenu.Invoke("HideHUD", 5f);
     }
 
+    
+
     //// Update is called once per frame
     //void Update()
     //{
-        
+
     //}
 
     void UpdateHealthbar()
@@ -52,12 +71,20 @@ public class HUDController : MonoBehaviour
         //hudMenu.Invoke("HideHUD", 5f);
     }
 
+    private void UpdateFlashlightIcon()
+    {
+        flashlightImage.sprite = flashlight.IsOn() ? flashOnSprite : flashOffSprite;
+    }
+
     void OnDisable()
     {
-        if (GameManager.Instance.playerRef != null)
+        if (nellController != null)
         {
-            GameManager.Instance.playerRef.OnHealthChanged.RemoveListener(UpdateHealthbar);
-            GameManager.Instance.playerRef.OnStaminaChanged.RemoveListener(UpdateStaminabar);
+            nellController.OnHealthChanged.RemoveListener(UpdateHealthbar);
+            nellController.OnStaminaChanged.RemoveListener(UpdateStaminabar);
         }
+
+        if (flashlight != null)
+            flashlight.OnFlashLightToggle.RemoveListener(UpdateFlashlightIcon);
     }
 }

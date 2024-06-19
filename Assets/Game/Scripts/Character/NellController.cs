@@ -374,7 +374,7 @@ public class NellController : CharacterBase
         //Call to Capture Script Function
     }
 
-    public void  OnFlashlight(InputValue value)
+    public void OnFlashlight(InputValue value)
     {
         if(flashlight)
         {
