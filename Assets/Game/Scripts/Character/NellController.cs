@@ -103,6 +103,9 @@ public class NellController : CharacterBase
 
     #region Other Vars
 
+    //Temp #TODO Replace later with the Interactable Script
+    private InventoryItem _itemInRange = null;
+
     private bool isInventoryOpen = false;
     private bool isFlashOn = false;
     private bool isCamMode = false;
@@ -126,6 +129,7 @@ public class NellController : CharacterBase
     {
         base.Start();
         ogStepOffset = characterController.stepOffset;
+
     }
 
     public override void TakeDamage(float damage)
@@ -312,7 +316,7 @@ public class NellController : CharacterBase
     //Set things that are in range and interactable
     internal void SetInteractable(InventoryItem inventoryItem)
     {
-        throw new NotImplementedException();
+        _itemInRange = inventoryItem;
     }
 
     #region Read Inputs
@@ -348,6 +352,8 @@ public class NellController : CharacterBase
     public void OnInteract(InputValue value)
     {
         Debug.Log($"{name} is Interacting");
+        if (_itemInRange)
+            _itemInRange.Interact(this);
     }
 
     public void OnCamZoom(InputValue value)

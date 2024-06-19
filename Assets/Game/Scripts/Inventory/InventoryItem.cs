@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(SphereCollider))]
 public abstract class InventoryItem : MonoBehaviour, IInteractable
 {
     public string itemName; //Name of Item
@@ -26,9 +27,13 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
     private void Start()
     {
         inventoryHandler = InventoryHandler.Instance;
+        GetComponent<Collider>().isTrigger = true;
 
         //No triggers for stuff that is not interactable
-        GetComponent<Collider>().enabled = false;
+        if(!bInteractable) 
+        { 
+            GetComponent<Collider>().enabled = false;
+        }
     }
 
     protected void OnTriggerEnter(Collider other)
