@@ -100,7 +100,7 @@ public class InventoryUiController : MonoBehaviour
 
         // Display item details in the inspection panel
         itemNameText.text = item.itemName;
-        itemIconImage.sprite = item.itemIcon;
+        //itemIconImage.sprite = item.itemIcon;
         itemDescriptionText.text = item.itemDescription;
 
         if (item.itemPreview != null)

@@ -110,7 +110,8 @@ public class NellController : CharacterBase
     private bool isFlashOn = false;
     private bool isCamMode = false;
 
-    Flashlight flashlight;
+    //Reference to Flashlight
+    public Flashlight flashlight;
 
     #endregion
 
@@ -373,7 +374,7 @@ public class NellController : CharacterBase
         //Call to Capture Script Function
     }
 
-    public void  OnFlashlight(InputValue value)
+    public void OnFlashlight(InputValue value)
     {
         if(flashlight)
         {
