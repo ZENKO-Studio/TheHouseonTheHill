@@ -57,5 +57,6 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
     public virtual void Interact(CharacterBase player)
     {
         //Default Base Method (Will be overrided in other sub classes)
+        gameObject.SetActive(false);
     }
 }

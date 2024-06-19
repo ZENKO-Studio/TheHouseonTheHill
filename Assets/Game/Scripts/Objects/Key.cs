@@ -14,5 +14,6 @@ public class Key : UsableObject
     public override void Interact(CharacterBase player)
     {
         inventoryHandler.AddKey(this);
+        base.Interact(player);
     }
 }

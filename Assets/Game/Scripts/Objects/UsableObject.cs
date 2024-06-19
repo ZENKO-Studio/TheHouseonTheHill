@@ -18,6 +18,7 @@ public class UsableObject : InventoryItem
         {
             inventoryHandler.AddUsable(this);
         }
+        base.Interact(player);
     }
 
     public virtual void Use()

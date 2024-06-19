@@ -8,5 +8,6 @@ public class Document : InventoryItem
     public override void Interact(CharacterBase player)
     {
         inventoryHandler.AddDocument(this);
+        base.Interact(player);
     }
 }

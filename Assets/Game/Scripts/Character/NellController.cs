@@ -110,7 +110,8 @@ public class NellController : CharacterBase
     private bool isFlashOn = false;
     private bool isCamMode = false;
 
-    Flashlight flashlight;
+    //Reference to Flashlight
+    public Flashlight flashlight;
 
     #endregion
 
