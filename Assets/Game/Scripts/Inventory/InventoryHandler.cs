@@ -17,10 +17,10 @@ public class InventoryHandler : Singleton<InventoryHandler>
     public List<InventoryItem> items = new List<InventoryItem>();
 
     //4 Dictionaries with Item and Button (Since we have to add and remove both)
-    public Dictionary<Photo, GameObject> photos; 
-    public Dictionary<Document, GameObject> documents; 
-    public Dictionary<Key, GameObject> keys; 
-    public Dictionary<UsableObject, GameObject> usables; 
+    public Dictionary<Photo, GameObject> photos = new Dictionary<Photo, GameObject>(); 
+    public Dictionary<Document, GameObject> documents = new Dictionary<Document, GameObject>(); 
+    public Dictionary<Key, GameObject> keys = new Dictionary<Key, GameObject>(); 
+    public Dictionary<UsableObject, GameObject> usables = new Dictionary<UsableObject, GameObject>(); 
 
     private void OnEnable()
     {
@@ -66,21 +66,32 @@ public class InventoryHandler : Singleton<InventoryHandler>
 
     internal void AddUsable(UsableObject usableObject)
     {
+        print($"Adding {usableObject.name}");
         usables.Add(usableObject, inventoryUI.CreateItemButton(usableObject, InventoryPage.Usables));
+        print(usables.ToString());
     }
 
     internal void AddDocument(Document document)
     {
+
+        print($"Adding {document.name}");
         documents.Add(document, inventoryUI.CreateItemButton(document, InventoryPage.Documents));
+        print(usables.ToString());
     }
 
     internal void AddPhoto(Photo photo)
     {
+
+        print($"Adding {photo.name}");
+
         photos.Add(photo, inventoryUI.CreateItemButton(photo, InventoryPage.Photos));
+        print(usables.ToString());
     }
 
     internal void AddKey(Key key)
     {
+        print($"Adding {key.name}");
         keys.Add(key, inventoryUI.CreateItemButton(key, InventoryPage.Keys));
+        print(usables.ToString());
     }
 }

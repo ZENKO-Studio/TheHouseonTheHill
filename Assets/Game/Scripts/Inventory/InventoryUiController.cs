@@ -52,6 +52,8 @@ public class InventoryUiController : MonoBehaviour
 
     public GameObject CreateItemButton(InventoryItem item, InventoryPage pageToAdd)
     {
+        print($"Adding Button for {item.name}");
+
         Transform btnParent = null;
 
         switch (pageToAdd)
@@ -76,8 +78,8 @@ public class InventoryUiController : MonoBehaviour
         Button button = buttonObject.GetComponent<Button>();
         button.onClick.AddListener(() => InspectItem(item));
 
-        TMP_Text buttonText = buttonObject.GetComponentInChildren<TMP_Text>();
-        buttonText.text = item.itemName;
+        //TMP_Text buttonText = buttonObject.GetComponentInChildren<TMP_Text>();
+        //buttonText.text = item.itemName;
 
         Image buttonImage = buttonObject.GetComponentInChildren<Image>();
         buttonImage.sprite = item.itemIcon;
