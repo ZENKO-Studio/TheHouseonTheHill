@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1922.8342, g: 1980.1799, b: 2761.8206, a: 1}
+  m_IndirectSpecularColor: {r: 4606.5386, g: 3234.772, b: 3057.6292, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6338,42 +6338,42 @@ PrefabInstance:
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.47906843
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7470002
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.287036
+      value: -3.0000007
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.086787485
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.026712317
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9702848
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2242806
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 7549268625104627731, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: field of view
-      value: 60.000004
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 8059016842853855264, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
@@ -11186,7 +11186,6 @@ GameObject:
   - component: {fileID: 922332979}
   - component: {fileID: 922332978}
   - component: {fileID: 922332980}
-  - component: {fileID: 922332981}
   m_Layer: 0
   m_Name: State-Driven Camera
   m_TagString: Untagged
@@ -11354,20 +11353,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &922332981
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 922332977}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd7dcdc4fcae23142bd0b978571bd622, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateDrivenCamera: {fileID: 0}
-  activeCamTransform: {fileID: 0}
 --- !u!1 &924173873
 GameObject:
   m_ObjectHideFlags: 0

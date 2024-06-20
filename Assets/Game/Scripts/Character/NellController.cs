@@ -86,6 +86,8 @@ public class NellController : CharacterBase
     private float _cinemachineTargetYaw;
     private float _cinemachineTargetPitch;
 
+    [Tooltip("Reference to the Main Camera")]
+    [SerializeField] private Transform mainCamTransform;
     #endregion
     
     #region Input Values
@@ -113,6 +115,7 @@ public class NellController : CharacterBase
     //Reference to Flashlight
     public Flashlight flashlight;
 
+
     #endregion
 
     private void Awake()
@@ -131,6 +134,8 @@ public class NellController : CharacterBase
         base.Start();
         ogStepOffset = characterController.stepOffset;
 
+        //Ensuring its set
+        mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
     }
 
     public override void TakeDamage(float damage)
@@ -164,7 +169,12 @@ public class NellController : CharacterBase
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
 
         //Check for Game Managers Active Camera
-        if(GameManager.Instance.ActiveCam() != null)
+        if(GameManager.Instance.bUsingStaticCam)
+        {
+            //Use the Main Camera as it is repositioned at Virtual Camera
+            movDir = Quaternion.AngleAxis(mainCamTransform.rotation.eulerAngles.y, Vector3.up) * movDir;
+        }
+        else if(GameManager.Instance.ActiveCam() != null)
         {
             //Use the active cams Yaw to adjust movement direction
             movDir = Quaternion.AngleAxis(GameManager.Instance.ActiveCam().rotation.eulerAngles.y, Vector3.up) * movDir;
