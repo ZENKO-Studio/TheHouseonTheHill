@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Document : InventoryItem
 {
-    public override void Interact(CharacterBase player)
+    public override void Interact()
     {
         inventoryHandler.AddDocument(this);
-        base.Interact(player);
+        PostInteract();
     }
 }

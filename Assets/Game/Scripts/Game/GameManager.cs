@@ -9,6 +9,10 @@ public class GameManager : Singleton<GameManager>
 
     //Should be set when camera switches (Set it to null when using Third Person Camera)
     Transform activeCamTransform = null;
+    
+    public bool bUsingStaticCam;
+
+
 
     // Start is called before the first frame update
     void Start()
