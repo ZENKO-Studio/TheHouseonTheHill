@@ -375,7 +375,7 @@ public class NellController : CharacterBase
     {
         Debug.Log($"{name} is Interacting");
         if (_itemInRange)
-            _itemInRange.Interact(this);
+            _itemInRange.Interact();
     }
 
     public void OnCamZoom(InputValue value)

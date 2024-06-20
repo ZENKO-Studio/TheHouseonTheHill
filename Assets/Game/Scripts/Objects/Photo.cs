@@ -17,10 +17,10 @@ public class Photo : InventoryItem
         image = GetComponentInChildren<Image>();
     }
 
-    public override void Interact(CharacterBase player)
+    public override void Interact()
     {
         inventoryHandler.AddPhoto(this);
-        base.Interact(player);
+        PostInteract();
     }
 }
 
