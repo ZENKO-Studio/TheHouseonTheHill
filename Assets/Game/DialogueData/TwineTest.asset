@@ -69,7 +69,7 @@ MonoBehaviour:
     - title: Initial Value
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Description
       value: 
       type: 0
@@ -2976,7 +2976,7 @@ MonoBehaviour:
       - originConversationID: 2
         originDialogueID: 0
         destinationConversationID: 2
-        destinationDialogueID: 1
+        destinationDialogueID: 20
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -2986,8 +2986,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7150
-        y: 905
+        x: 6961.0093
+        y: 687.5687
         width: 160
         height: 30
     - id: 1
@@ -3013,7 +3013,11 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: The basement door gets locked.
+        value: 'Man. I always hated basements. But I''ve always liked a good ghost
+          story. If there''s nowhere out of here, I might as well make the most of
+          it... I wonder what made that sound earlier?
+
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -3041,8 +3045,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7181.2085
-        y: 992.8572
+        x: 6959.9614
+        y: 874.55725
         width: 160
         height: 30
     - id: 2
@@ -3068,12 +3072,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'There is a collectable(1) in the room.
+        value: 'Oh, what''s that on the table?
 
-          Got the collectable.
-
-          Not
-          having the collectable.'
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -3107,8 +3108,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7065
-        y: 1075
+        x: 6962.394
+        y: 956.95386
         width: 160
         height: 30
     - id: 3
@@ -3134,7 +3135,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You see the a room which is covered with water.
+        value: Aaaaand it's flooded. Perfect. The floor doesn't look too stable.
         type: 0
         typeString: 
       - title: Sequence
@@ -3162,8 +3163,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6949.836
-        y: 1321.3114
+        x: 6953.2544
+        y: 1167.8783
         width: 160
         height: 30
     - id: 4
@@ -3189,7 +3190,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There is a door infront of you. Open it.
+        value: (Sighing) Time to go further into the dark... Nothing bad has ever
+          come of that.
         type: 0
         typeString: 
       - title: Sequence
@@ -3217,8 +3219,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6890
-        y: 1200
+        x: 6956.973
+        y: 1092.6604
         width: 160
         height: 30
     - id: 5
@@ -3244,7 +3246,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Search for the collectable.
+        value: 'I''ll need a key to continue any further. Maybe I should look around
+          for one.
+
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -3266,8 +3271,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7499.058
-        y: 1174.9755
+        x: 7279.0312
+        y: 957.55396
         width: 160
         height: 30
     - id: 6
@@ -3293,13 +3298,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'There is a key item in the room, use your camera to take pic.
-
-          Got
-          the picture of the key item.
-
-          Didn''t take the picture of the
-          key item.'
+        value: What's that on the wall? I should take a picture of that so I can
+          add it to the Board later.
         type: 0
         typeString: 
       - title: Sequence
@@ -3333,8 +3333,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6988.182
-        y: 1667.7273
+        x: 6955.2754
+        y: 1445.996
         width: 160
         height: 30
     - id: 7
@@ -3360,7 +3360,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Search for the collectable.
+        value: 'What''s this? A picture? Maybe it''s someone who used to live here
+          before... I''ll hang onto it for now.
+
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -3382,8 +3385,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7288.182
-        y: 1667.7273
+        x: 7367.268
+        y: 1340.6317
         width: 160
         height: 30
     - id: 8
@@ -3409,7 +3412,12 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There is a floating wooden plank.
+        value: 'I need to keep an eye out for any deep water. Picture the headlines:
+          young journalist drowns to death because she never learned how to swim.
+
+
+          Lame.
+          Thank God there''s a whole bunch of conveniently placed floating furniture. '
         type: 0
         typeString: 
       - title: Sequence
@@ -3437,8 +3445,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7121.8184
-        y: 1408.6364
+        x: 6953.5005
+        y: 1253.3107
         width: 160
         height: 30
     - id: 9
@@ -3464,12 +3472,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'There is a collectable(2) in the room.
-
-          Got the collectable
-
-          Not
-          having the collectable.'
+        value: There looks to be something on top of that cabinet...
         type: 0
         typeString: 
       - title: Sequence
@@ -3503,8 +3506,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6987.2725
-        y: 1524.5454
+        x: 6962.012
+        y: 1339.7219
         width: 160
         height: 30
     - id: 10
@@ -3530,7 +3533,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Open the door to get into next room.
+        value: Weird... That door opened when I took a picture. Nothing about this
+          place makes any sense.
         type: 0
         typeString: 
       - title: Sequence
@@ -3558,8 +3562,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6690
-        y: 1925
+        x: 6958.2217
+        y: 1564.8918
         width: 160
         height: 30
     - id: 11
@@ -3585,7 +3589,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Try finding the key item and take picture with your camera.
+        value: 'Hmm... I feel like I''m not finished here...
+
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -3607,8 +3613,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6915
-        y: 1925
+        x: 7341.256
+        y: 1439.0865
         width: 160
         height: 30
     - id: 12
@@ -3634,7 +3640,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You see this room is also filled with water.
+        value: More water. Great.
         type: 0
         typeString: 
       - title: Sequence
@@ -3662,8 +3668,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6690
-        y: 2050
+        x: 6958.244
+        y: 1686.7775
         width: 160
         height: 30
     - id: 13
@@ -3689,12 +3695,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Go to the door.
-
-          If you have key, open the door.
-
-          If
-          you don''t have the key, find the key.'
+        value: Door's broken, maybe I can find a way around.
         type: 0
         typeString: 
       - title: Sequence
@@ -3715,12 +3716,6 @@ MonoBehaviour:
         destinationDialogueID: 15
         isConnector: 0
         priority: 2
-      - originConversationID: 2
-        originDialogueID: 13
-        destinationConversationID: 2
-        destinationDialogueID: 14
-        isConnector: 0
-        priority: 2
       conditionsString: 
       userScript: 
       onExecute:
@@ -3728,57 +3723,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6690
-        y: 2175
-        width: 160
-        height: 30
-    - id: 14
-      fields:
-      - title: Title
-        value: 02.9b
-        type: 0
-        typeString: 
-      - title: Description
-        value: 
-        type: 0
-        typeString: 
-      - title: Actor
-        value: 1
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Conversant
-        value: 2
-        type: 5
-        typeString: CustomFieldType_Actor
-      - title: Menu Text
-        value: 
-        type: 0
-        typeString: 
-      - title: Dialogue Text
-        value: Search for the key in the room.
-        type: 0
-        typeString: 
-      - title: Sequence
-        value: 
-        type: 0
-        typeString: 
-      conversationID: 2
-      isRoot: 0
-      isGroup: 0
-      nodeColor: 
-      delaySimStatus: 0
-      falseConditionAction: Block
-      conditionPriority: 2
-      outgoingLinks: []
-      conditionsString: 
-      userScript: 
-      onExecute:
-        m_PersistentCalls:
-          m_Calls: []
-      canvasRect:
-        serializedVersion: 2
-        x: 6815
-        y: 2300
+        x: 6958.244
+        y: 1768.3811
         width: 160
         height: 30
     - id: 15
@@ -3804,7 +3750,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: You hear a scary sound.
+        value: Keep your head above the water, Nell...
         type: 0
         typeString: 
       - title: Sequence
@@ -3832,8 +3778,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6565
-        y: 2300
+        x: 6951.426
+        y: 1860.427
         width: 160
         height: 30
     - id: 16
@@ -3859,7 +3805,9 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There is a open ventilation shaft.
+        value: 'There''s that noise again... It sounded like a broken boiler when
+          I was back upstairs. I''m starting to think it''s probably going to be
+          a lot worse. '
         type: 0
         typeString: 
       - title: Sequence
@@ -3887,8 +3835,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6565
-        y: 2425
+        x: 6951.426
+        y: 1985.4274
         width: 160
         height: 30
     - id: 17
@@ -3914,7 +3862,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: There is an enemy patrolling in the room.
+        value: That's definitely not a broken boiler...
         type: 0
         typeString: 
       - title: Sequence
@@ -3942,8 +3890,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6565
-        y: 2550
+        x: 6951.426
+        y: 2110.4282
         width: 160
         height: 30
     - id: 18
@@ -3969,7 +3917,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Reach the end of the room.
+        value: It doesn't seem to have followed me. Control your breathing, Nell.
+          This isn't the weirdest thing you've seen today. Remember what your therapist
+          said? Find that safe place in the back of your mind, find your Sanctuary...
+          Take some time to make sense of everything you just saw...
         type: 0
         typeString: 
       - title: Sequence
@@ -3991,13 +3942,572 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6565
-        y: 2675
+        x: 6951.426
+        y: 2235.4282
+        width: 160
+        height: 30
+    - id: 19
+      fields:
+      - title: Title
+        value: Basement Level
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'Nell arrives at Hill House and spends some time getting acquainted
+          with the space. However, things quickly take a turn towards the macabre,
+          and weird things begin happening.
+
+          
+
+          She hears a
+          noise coming from the basement and decides to investigate...'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 19
+        destinationConversationID: 2
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6960.671
+        y: 798.66547
+        width: 160
+        height: 30
+    - id: 20
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: THE FOLLOWING STORY IS A PLACEHOLDER AND HAS BEEN SIMPLIED FOR BREVITY.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 2
+        originDialogueID: 20
+        destinationConversationID: 2
+        destinationDialogueID: 19
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6963.137
+        y: 746.07935
+        width: 160
+        height: 30
+    - id: 21
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Player picks up key in room one and unlocks the door. If no key, go
+          to response 2.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6786.6953
+        y: 1093.9036
+        width: 160
+        height: 30
+    - id: 22
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'On trigger: walk through the door to see the first flooded room.'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6782.455
+        y: 1168.2502
+        width: 160
+        height: 30
+    - id: 23
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Add Marchand Sister Wedding photo to player inv
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 7362.415
+        y: 1305.6962
+        width: 160
+        height: 30
+    - id: 24
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Player took photo of key item and the door unlocks.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6784.2153
+        y: 1565.6577
+        width: 160
+        height: 30
+    - id: 25
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'On trigger: when player walks through the door into the next room.'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6782.187
+        y: 1688.588
+        width: 160
+        height: 30
+    - id: 26
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'On trigger: When player enters the ventilation shaft'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6772.829
+        y: 1861.7767
+        width: 160
+        height: 30
+    - id: 27
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Play Stalker noise on trigger
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6779.225
+        y: 1983.8523
+        width: 160
+        height: 30
+    - id: 28
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 'On trigger: when player enters room with stalker'
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6781.376
+        y: 2113.041
+        width: 160
+        height: 30
+    - id: 29
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Make player go to Sanctuary via button prompt/on screen popup/whatever
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6767.154
+        y: 2240.1816
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 5109.9688, y: 882.38824}
-    canvasZoom: 0.31000003
+    canvasScrollPosition: {x: 6310.89, y: 1496.2257}
+    canvasZoom: 0.9099997
   syncInfo:
     syncActors: 0
     syncItems: 0
