@@ -26,7 +26,7 @@ public class InventoryUiController : MonoBehaviour
 
     // References to the inspection UI elements
     public TMP_Text itemNameText;
-    public Image itemIconImage;
+   // public Image itemIconImage;
     public TMP_Text itemDescriptionText;
     public Transform itemPreviewParent;
 
