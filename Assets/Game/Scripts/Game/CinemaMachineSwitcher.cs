@@ -6,7 +6,6 @@ using UnityEngine.InputSystem;
 
 public class CinemaMachineSwitcher : MonoBehaviour
 {
-
     [Header("Callbacks")]
     public UnityEvent onEnter;
 
@@ -21,6 +20,7 @@ public class CinemaMachineSwitcher : MonoBehaviour
     private void OnEnter()
     {
         onEnter.Invoke();
+        CinemachineStateCamRef.Instance.SetActiveCam();
     }
 
 }

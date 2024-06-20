@@ -162,7 +162,18 @@ public class NellController : CharacterBase
             return;
 
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
-        movDir = Quaternion.AngleAxis(camTarget.transform.rotation.eulerAngles.y, Vector3.up) * movDir;
+
+        //Check for Game Managers Active Camera
+        if(GameManager.Instance.ActiveCam() != null)
+        {
+            //Use the active cams Yaw to adjust movement direction
+            movDir = Quaternion.AngleAxis(GameManager.Instance.ActiveCam().rotation.eulerAngles.y, Vector3.up) * movDir;
+        }
+        else
+        {
+            //Use Third Person Cams Yaw to adjust movement direction
+            movDir = Quaternion.AngleAxis(camTarget.transform.rotation.eulerAngles.y, Vector3.up) * movDir;
+        }
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 

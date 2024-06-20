@@ -7,6 +7,9 @@ public class GameManager : Singleton<GameManager>
     //Should be set on game start or manually in the scene
     public NellController playerRef;
 
+    //Should be set when camera switches (Set it to null when using Third Person Camera)
+    Transform activeCamTransform = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,18 @@ public class GameManager : Singleton<GameManager>
     void Update()
     {
         
+    }
+
+    //Get Active Camera
+    public Transform ActiveCam()
+    {
+        return activeCamTransform; 
+    }
+
+    //Call this method when switching camera
+    public void SetActiveCamTransform(Transform activeCamTransform)
+    {
+        this.activeCamTransform = activeCamTransform;
     }
 
 }
