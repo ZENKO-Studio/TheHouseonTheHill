@@ -20,6 +20,7 @@ public class Photo : InventoryItem
     public override void Interact(CharacterBase player)
     {
         inventoryHandler.AddPhoto(this);
+        base.Interact(player);
     }
 }
 
