@@ -12,13 +12,13 @@ public class UsableObject : InventoryItem
     [Tooltip("Whether the item should be removed after use")]
     public bool bShouldBeRemoved = false;
 
-    public override void Interact(CharacterBase player)
+    public override void Interact()
     {
         if(inventoryHandler != null) 
         {
             inventoryHandler.AddUsable(this);
         }
-        base.Interact(player);
+        PostInteract();
     }
 
     public virtual void Use()

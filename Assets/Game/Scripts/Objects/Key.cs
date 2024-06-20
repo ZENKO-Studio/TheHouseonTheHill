@@ -11,9 +11,9 @@ public class Key : UsableObject
 {
     public int keyID = 0;   //To check with the door (Rohith preferes integers for it)
 
-    public override void Interact(CharacterBase player)
+    public override void Interact()
     {
-        inventoryHandler.AddKey(this);
-        base.Interact(player);
+        inventoryHandler.AddKey(this); 
+        PostInteract();
     }
 }
