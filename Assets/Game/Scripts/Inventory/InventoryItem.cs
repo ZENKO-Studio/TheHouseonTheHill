@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(SphereCollider))]
-public abstract class InventoryItem : MonoBehaviour, IInteractable
+public abstract class InventoryItem : MonoBehaviour
 {
     public string itemName; //Name of Item
     public Sprite itemIcon; //Icon to show on button
@@ -19,11 +19,6 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
 
     protected InventoryHandler inventoryHandler;    //Just a local reference of Inventory System (just to avoid writing the whole thing)
    
-    #region Unused but needed stuff (thanks to Interface)
-    [HideInInspector] public InputAction Action => throw new System.NotImplementedException();
-    [HideInInspector] public int Priority => throw new System.NotImplementedException();
-    #endregion
-
     private void Start()
     {
         inventoryHandler = InventoryHandler.Instance;
@@ -38,10 +33,13 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
 
     protected void OnTriggerEnter(Collider other)
     {
-        
         if(other.tag == "Player")
         {
             GameManager.Instance.playerRef.SetInteractable(this);
+            if (interactPopup != null)
+            {
+                interactPopup.SetActive(true);
+            }
         }
     }
 
@@ -51,12 +49,23 @@ public abstract class InventoryItem : MonoBehaviour, IInteractable
         if (other.tag == "Player")
         {
             GameManager.Instance.playerRef.SetInteractable(null);
+            if (interactPopup != null)
+            {
+                interactPopup.SetActive(true);
+            }
         }
     }
 
-    public virtual void Interact(CharacterBase player)
+    public virtual void Interact()
     {
-        //Default Base Method (Will be overrided in other sub classes)
+       
+    }
+
+    //Disable Interactable after interacting
+    protected void PostInteract()
+    {
+        GameManager.Instance.playerRef.SetInteractable(null);
+        bInteractable = false;
         gameObject.SetActive(false);
     }
 }
