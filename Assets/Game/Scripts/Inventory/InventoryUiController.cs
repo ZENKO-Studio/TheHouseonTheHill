@@ -108,7 +108,7 @@ public class InventoryUiController : MonoBehaviour
             Debug.Log($"Instantiating Item {item.name}");
             GameObject g = Instantiate(item.itemPreview, itemPreviewParent);
             g.transform.localPosition = Vector3.zero;
-            g.transform.rotation = Quaternion.identity;
+            g.transform.localRotation = Quaternion.identity;
             g.SetActive(true);
         }
     }
