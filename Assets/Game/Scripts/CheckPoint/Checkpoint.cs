@@ -50,7 +50,7 @@ public class Checkpoint : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 CheckPointSystem.Instance.SaveCheckpoint(this);
-                Debug.Log($"Checkpoint {name} saved on key input.");
+                // Debug.Log($"Checkpoint {name} saved on key input.");
                 yield break; // Exit the coroutine after saving
             }
             yield return null; // Wait until the next frame
