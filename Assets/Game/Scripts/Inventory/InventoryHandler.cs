@@ -68,7 +68,7 @@ public class InventoryHandler : Singleton<InventoryHandler>
     {
         print($"Adding {usableObject.name}");
         usables.Add(usableObject, inventoryUI.CreateItemButton(usableObject, InventoryPage.Usables));
-        print(usables.ToString());
+        //print(usables.ToString());
     }
 
     internal void AddDocument(Document document)
@@ -76,7 +76,7 @@ public class InventoryHandler : Singleton<InventoryHandler>
 
         print($"Adding {document.name}");
         documents.Add(document, inventoryUI.CreateItemButton(document, InventoryPage.Documents));
-        print(usables.ToString());
+        //print(usables.ToString());
     }
 
     internal void AddPhoto(Photo photo)
@@ -85,14 +85,14 @@ public class InventoryHandler : Singleton<InventoryHandler>
         print($"Adding {photo.name}");
 
         photos.Add(photo, inventoryUI.CreateItemButton(photo, InventoryPage.Photos));
-        print(usables.ToString());
+        //print(usables.ToString());
     }
 
     internal void AddKey(Key key)
     {
         print($"Adding {key.name}");
         keys.Add(key, inventoryUI.CreateItemButton(key, InventoryPage.Keys));
-        print(usables.ToString());
+        //print(usables.ToString());
     }
 
     public bool HasKey(int id)

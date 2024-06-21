@@ -116,6 +116,8 @@ public class NellController : CharacterBase
     //Reference to Flashlight
     public Flashlight flashlight;
 
+    //Reference To Photo Capture Script
+    public PhotoCapture photoCapture;
 
     #endregion
 
@@ -123,6 +125,7 @@ public class NellController : CharacterBase
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        photoCapture = GetComponent<PhotoCapture>();
 
         defaultHeight = characterController.height;
         defaultCenter = characterController.center.y;
@@ -407,6 +410,8 @@ public class NellController : CharacterBase
     {
         isCamMode = !isCamMode;
         //Call to Capture Script Function
+        if(photoCapture)
+            photoCapture.CapturePhoto();
     }
 
     public void OnFlashlight(InputValue value)
