@@ -3,6 +3,7 @@
  **/
 using Cinemachine;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
@@ -106,7 +107,7 @@ public class NellController : CharacterBase
     #region Other Vars
 
     //Temp #TODO Replace later with the Interactable Script
-    private InventoryItem _itemInRange = null;
+    private List<InventoryItem> _itemInRange = new List<InventoryItem>();
 
     private bool isInventoryOpen = false;
     private bool isFlashOn = false;
@@ -338,7 +339,15 @@ public class NellController : CharacterBase
     //Set things that are in range and interactable
     internal void SetInteractable(InventoryItem inventoryItem)
     {
-        _itemInRange = inventoryItem;
+        _itemInRange.Add(inventoryItem);
+    }
+    
+    internal void RemoveInteractable(InventoryItem inventoryItem)
+    {
+        if (_itemInRange.Contains(inventoryItem))
+        {
+            _itemInRange.Remove(inventoryItem);
+        }
     }
 
     #region Read Inputs
@@ -374,8 +383,11 @@ public class NellController : CharacterBase
     public void OnInteract(InputValue value)
     {
         Debug.Log($"{name} is Interacting");
-        if (_itemInRange)
-            _itemInRange.Interact();
+        if (_itemInRange[_itemInRange.Count-1] != null)
+        {
+            _itemInRange[_itemInRange.Count-1].Interact();
+            _itemInRange.RemoveAt(_itemInRange.Count-1);
+        }
     }
 
     public void OnCamZoom(InputValue value)
