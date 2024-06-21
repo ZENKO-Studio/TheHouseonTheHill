@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
@@ -11,8 +9,6 @@ public class GameManager : Singleton<GameManager>
     Transform activeCamTransform = null;
     
     public bool bUsingStaticCam;
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +32,12 @@ public class GameManager : Singleton<GameManager>
     public void SetActiveCamTransform(Transform activeCamTransform)
     {
         this.activeCamTransform = activeCamTransform;
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
     }
 
 }
