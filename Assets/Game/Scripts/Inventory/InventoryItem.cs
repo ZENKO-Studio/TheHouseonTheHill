@@ -65,6 +65,10 @@ public abstract class InventoryItem : MonoBehaviour
     protected void PostInteract()
     {
         bInteractable = false;
+        if (interactPopup != null)
+        {
+            interactPopup.SetActive(false);
+        }
         gameObject.SetActive(false);
     }
 }
