@@ -94,4 +94,14 @@ public class InventoryHandler : Singleton<InventoryHandler>
         keys.Add(key, inventoryUI.CreateItemButton(key, InventoryPage.Keys));
         print(usables.ToString());
     }
+
+    public bool HasKey(int id)
+    {
+        foreach (var key in keys) 
+        {
+            if(key.Key.keyID == id)
+                return true;
+        }
+        return false;
+    }
 }
