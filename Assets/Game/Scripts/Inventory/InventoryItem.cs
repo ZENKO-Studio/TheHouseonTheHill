@@ -48,10 +48,10 @@ public abstract class InventoryItem : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            GameManager.Instance.playerRef.SetInteractable(null);
+            GameManager.Instance.playerRef.RemoveInteractable(this);
             if (interactPopup != null)
             {
-                interactPopup.SetActive(true);
+                interactPopup.SetActive(false);
             }
         }
     }
@@ -64,7 +64,6 @@ public abstract class InventoryItem : MonoBehaviour
     //Disable Interactable after interacting
     protected void PostInteract()
     {
-        GameManager.Instance.playerRef.SetInteractable(null);
         bInteractable = false;
         gameObject.SetActive(false);
     }
