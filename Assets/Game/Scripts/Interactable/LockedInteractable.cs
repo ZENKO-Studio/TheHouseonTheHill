@@ -20,8 +20,10 @@ namespace Game.Scripts.Interactable
         public InputAction Action => interactAction;
         public void Interact(CharacterBase player)
         {
+          
             if (InventoryHandler.Instance.HasKey(keyToUnlockInteger))
             {
+                Debug.Log("FS");
                 isLocked = false;
                 onInteract?.Invoke();
             }
