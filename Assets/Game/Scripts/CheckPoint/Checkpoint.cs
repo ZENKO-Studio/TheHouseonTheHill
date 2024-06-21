@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider))]
 public class Checkpoint : MonoBehaviour
 {
-    [SerializeField] private List<Transform> spawnPositions = new();
+    [SerializeField] private Transform spawnPosition;
     [SerializeField] private bool initialSavePoint = false;
 
     private BoxCollider _trigger;
@@ -20,8 +20,14 @@ public class Checkpoint : MonoBehaviour
 
         if (initialSavePoint)
         {
+            Debug.Log($"Setting {name} as initial Checkpoint.");
             CheckPointSystem.Instance.SaveCheckpoint(this);
         }
+    }
+
+    private void Update()
+    {
+        StartCoroutine(CheckForInteraction());
     }
 
     private void OnValidate()
@@ -31,27 +37,37 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out NellController _))
+        if (other.TryGetComponent(out CharacterBase _))
         {
             CheckPointSystem.Instance.SaveCheckpoint(this);
         }
     }
 
-    public void Spawn(List<NellController> players)
+    private IEnumerator CheckForInteraction()
     {
-        Debug.Log($"Spawning {players.Count} at {name}");
-        for (var index = 0; index < players.Count; index++)
+        while (true)
         {
-            players[index].transform.SetPositionAndRotation(spawnPositions[index].position, Quaternion.identity);
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                CheckPointSystem.Instance.SaveCheckpoint(this);
+                Debug.Log($"Checkpoint {name} saved on key input.");
+                yield break; // Exit the coroutine after saving
+            }
+            yield return null; // Wait until the next frame
         }
     }
+
+    public void Spawn(NellController player)
+    {
+        Debug.Log($"Spawning {player} at {name}");
+        player.characterController.enabled = false;
+        player.transform.SetPositionAndRotation(spawnPosition.position, Quaternion.identity);
+        player.characterController.enabled = true;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
-        foreach (var spawnPosition in spawnPositions)
-        {
-            Gizmos.DrawWireSphere(spawnPosition.position, 0.04f);
-        }
+        Gizmos.DrawWireSphere(spawnPosition.position, 0.04f);
     }
 }

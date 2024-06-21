@@ -1,3 +1,7 @@
+// Alvin Philips
+// June 21th, 2024
+// Checkpoint System.
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -5,23 +9,25 @@ using UnityEngine;
 
 public class CheckPointSystem : Singleton<CheckPointSystem>
 {
-    [SerializeField] private List<NellController> players;
+    [SerializeField] private NellController player;
     [SerializeField] private SaveCheckPointIcon savingIcon;
 
     private Checkpoint _lastCheckpoint;
-    private bool _shouldSpawn;
 
     public void SaveCheckpoint(Checkpoint savePoint)
     {
         ForceGrabValues();
-        savingIcon.Play();
+        if (savingIcon)
+        {
+            savingIcon.Play();
+        }
         _lastCheckpoint = savePoint;
     }
 
     public void ForceGrabValues()
     {
         // TODO: Really bad, @alvin fix ASAP
-        players = FindObjectsOfType<NellController>().ToList();
+        player = FindObjectOfType<NellController>();
         savingIcon = FindObjectOfType<SaveCheckPointIcon>();
     }
 
@@ -30,15 +36,10 @@ public class CheckPointSystem : Singleton<CheckPointSystem>
     {
         ForceGrabValues();
         Debug.Log("Respawning Players");
-        _shouldSpawn = true;
-    }
-
-    public void FixedUpdate()
-    {
-        if (!_shouldSpawn) return;
-
-        _lastCheckpoint.Spawn(players);
-        _shouldSpawn = false;
+        if (_lastCheckpoint)
+        {
+            _lastCheckpoint.Spawn(player);
+        }
     }
 }
 

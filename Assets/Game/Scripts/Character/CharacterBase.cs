@@ -50,7 +50,7 @@ public class CharacterBase : MonoBehaviour
         set
         {
             stamina = value;
-            Debug.Log($"{gameObject.name} Stamina Changing: {stamina}");
+            // Debug.Log($"{gameObject.name} Stamina Changing: {stamina}");
             OnStaminaChanged?.Invoke();
         }
     }

@@ -7,7 +7,7 @@ public static class Sounds
     /// </summary>
     public static void MakeSound(Sound sound)
     {
-        Debug.Log($"Sound Made at {sound.pos}");
+        // Debug.Log($"Sound Made at {sound.pos}");
 
         Collider[] col = Physics.OverlapSphere(sound.pos, sound.range);
 
