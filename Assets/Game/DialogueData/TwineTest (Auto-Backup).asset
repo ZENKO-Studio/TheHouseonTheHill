@@ -3917,7 +3917,10 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Reach the end of the room.
+        value: It doesn't seem to have followed me. Control your breathing, Nell.
+          This isn't the weirdest thing you've seen today. Remember what your therapist
+          said? Find that safe place in the back of your mind, find your Sanctuary...
+          Take some time to make sense of everything you just saw...
         type: 0
         typeString: 
       - title: Sequence
@@ -4107,7 +4110,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 6786.6953
-        y: 1028.9034
+        y: 1093.9036
         width: 160
         height: 30
     - id: 22
@@ -4155,8 +4158,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7134.4556
-        y: 1138.2502
+        x: 6782.455
+        y: 1168.2502
         width: 160
         height: 30
     - id: 23
@@ -4204,8 +4207,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 7171.415
-        y: 1309.6962
+        x: 7362.415
+        y: 1305.6962
         width: 160
         height: 30
     - id: 24
@@ -4253,8 +4256,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6844.2153
-        y: 1505.6577
+        x: 6784.2153
+        y: 1565.6577
         width: 160
         height: 30
     - id: 25
@@ -4302,8 +4305,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6837.187
-        y: 1630.588
+        x: 6782.187
+        y: 1688.588
         width: 160
         height: 30
     - id: 26
@@ -4351,8 +4354,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6759.829
-        y: 1810.7767
+        x: 6772.829
+        y: 1861.7767
         width: 160
         height: 30
     - id: 27
@@ -4400,8 +4403,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6753.225
-        y: 1942.8523
+        x: 6779.225
+        y: 1983.8523
         width: 160
         height: 30
     - id: 28
@@ -4427,7 +4430,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'On trigger: when player ente'
+        value: 'On trigger: when player enters room with stalker'
         type: 0
         typeString: 
       - title: Sequence
@@ -4449,13 +4452,62 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 6738.376
-        y: 2096.041
+        x: 6781.376
+        y: 2113.041
+        width: 160
+        height: 30
+    - id: 29
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 0
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Make player go to Sanctuary via button prompt/on screen popup/whatever
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 2
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 6767.154
+        y: 2240.1816
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 6397.376, y: 1454.0408}
-    canvasZoom: 0.99999964
+    canvasScrollPosition: {x: 5916.148, y: 1681.3158}
+    canvasZoom: 1.1199996
   syncInfo:
     syncActors: 0
     syncItems: 0

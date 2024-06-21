@@ -1,0 +1,235 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2130073796157755337
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1336884297043947619, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_Name
+      value: P_WallDoorWide Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2480330672115016003, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: closeRotationDeg
+      value: 89.988
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569280621180587580, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: keyToUnlockInteger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569280621180587580, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: interactAction.m_Id
+      value: 378ca696-7de4-47b4-8fef-632a51a35557
+      objectReference: {fileID: 0}
+    - target: {fileID: 2569280621180587580, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: interactAction.m_Name
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389310518625302926, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: keyToUnlockInteger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389310518625302926, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: interactAction.m_Id
+      value: 736c19f6-e2f1-43fe-920d-ff5c8253757a
+      objectReference: {fileID: 0}
+    - target: {fileID: 4389310518625302926, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: interactAction.m_Name
+      value: Interact
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2690008
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363324026835294110, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4389310518625302926, guid: d3493daaed9eca2438077bc00d7fb0c8, type: 3}
+    - {fileID: 2569280621180587580, guid: d3493daaed9eca2438077bc00d7fb0c8, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8639755353842417223, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8992749932921126987}
+    - targetCorrespondingSourceObject: {fileID: 5737221555735466798, guid: d3493daaed9eca2438077bc00d7fb0c8,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 751729345616920088}
+  m_SourcePrefab: {fileID: 100100000, guid: d3493daaed9eca2438077bc00d7fb0c8, type: 3}
+--- !u!114 &4603924901419691658 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2480330672115016003, guid: d3493daaed9eca2438077bc00d7fb0c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130073796157755337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0928beee878d34fabb152844d29b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &5913576296449465575 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5737221555735466798, guid: d3493daaed9eca2438077bc00d7fb0c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130073796157755337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &751729345616920088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5913576296449465575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9f5676ccc6b0b4ea31e2dff480c46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyToUnlockInteger: 1
+  isLocked: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4603924901419691658}
+        m_TargetAssemblyTypeName: Game.Scripts.Interactable.OpenThings, Assembly-CSharp
+        m_MethodName: ToggleDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onUnlock:
+    m_PersistentCalls:
+      m_Calls: []
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 95e91c24-d214-4db4-8536-58d83384d76c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  priority: 0
+--- !u!114 &7435206266661810298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8836241003065868211, guid: d3493daaed9eca2438077bc00d7fb0c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130073796157755337}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0928beee878d34fabb152844d29b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &7667687796271198606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8639755353842417223, guid: d3493daaed9eca2438077bc00d7fb0c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2130073796157755337}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8992749932921126987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667687796271198606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9f5676ccc6b0b4ea31e2dff480c46b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyToUnlockInteger: 1
+  isLocked: 1
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7435206266661810298}
+        m_TargetAssemblyTypeName: Game.Scripts.Interactable.OpenThings, Assembly-CSharp
+        m_MethodName: ToggleDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onUnlock:
+    m_PersistentCalls:
+      m_Calls: []
+  interactAction:
+    m_Name: Interact
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6c554f3d-d263-4cb5-a765-abf6b887a215
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  priority: 0
