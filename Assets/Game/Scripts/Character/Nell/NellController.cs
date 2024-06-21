@@ -15,7 +15,7 @@ using static EventBus;
 public class NellController : CharacterBase
 {
 
-    CharacterController characterController;
+    public CharacterController characterController;
     Animator animator;
     
     #region Character Control Values
