@@ -8,17 +8,22 @@ public class BoardListItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
     Canvas canvas;
     RectTransform rectTransform;
 
+    //The item in the inventory this represents
+    public GameObject representedItem; 
+
     private void Awake()
     {
         canvas = GetComponentInParent<Canvas>();
+
         if (canvas == null)
             print("Canvas Null");
+        
         rectTransform = GetComponent<RectTransform>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -28,11 +33,11 @@ public class BoardListItem : MonoBehaviour, IPointerDownHandler, IBeginDragHandl
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        throw new System.NotImplementedException();
+        
     }
 }
