@@ -192,7 +192,6 @@ public class NellController : CharacterBase
         {
             inputMag *= 2;
             soundRange = runSound;
-            DepleteStamina();
         }
         else
         {
@@ -205,7 +204,10 @@ public class NellController : CharacterBase
 
         if (movDir != Vector3.zero)
         {
-             animator.SetBool("IsMoving", true);
+            animator.SetBool("IsMoving", true);
+
+            if(sprint)
+                DepleteStamina();
 
             Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
