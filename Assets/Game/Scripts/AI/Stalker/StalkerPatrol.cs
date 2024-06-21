@@ -11,6 +11,8 @@ public class StalkerPatrol : StalkerBaseState
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (!agent.isOnNavMesh) return;
+
         currentDest = stalkerRef.GetNextWaypoint();
         if (currentDest != null)
         {
@@ -35,6 +37,8 @@ public class StalkerPatrol : StalkerBaseState
             fsm.ChangeState(StalkerFSM.InvestigateSoundState);
             return;
         }
+
+        if (!agent.isOnNavMesh) return;
 
         if (agent.desiredVelocity != Vector3.zero)
         {
