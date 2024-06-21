@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 4614.86, g: 3259.69, b: 3228.9263, a: 1}
+  m_IndirectSpecularColor: {r: 4610.641, g: 3258.2798, b: 3229.3638, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -582,6 +582,79 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2899ffa1a96e53c48b8b2eb1a3d8715b, type: 3}
+--- !u!1001 &1749019901
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 960
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 540
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2003811715572194096, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5133362521341387890, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: playerRef
+      value: 
+      objectReference: {fileID: 5985043283227236416}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8730ba4d878f13046b6cceb633fbd7e2, type: 3}
 --- !u!82 &1799102659
 AudioSource:
   m_ObjectHideFlags: 0
@@ -30839,6 +30912,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3436713708337730574}
     m_Modifications:
+    - target: {fileID: 4353181167298586715, guid: 8f3d3801b11589a40a5325a3816e43de,
+        type: 3}
+      propertyPath: m_Name
+      value: ASS
+      objectReference: {fileID: 0}
     - target: {fileID: 5879760646353469496, guid: 8f3d3801b11589a40a5325a3816e43de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30888,11 +30966,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4353181167298586715, guid: 8f3d3801b11589a40a5325a3816e43de,
-        type: 3}
-      propertyPath: m_Name
-      value: ASS
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32147,3 +32220,4 @@ SceneRoots:
   - {fileID: 54283899}
   - {fileID: 177284049}
   - {fileID: 2031749382}
+  - {fileID: 1749019901}
