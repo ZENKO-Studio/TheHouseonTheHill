@@ -382,7 +382,6 @@ public class NellController : CharacterBase
 
     public void OnInteract(InputValue value)
     {
-        return;
        //  Debug.Log($"{name} is Interacting");
         if (_itemInRange[_itemInRange.Count-1] != null)
         {

@@ -92,7 +92,7 @@ public class InventoryHandler : Singleton<InventoryHandler>
     {
         print($"Adding {key.name}");
         keys.Add(key, inventoryUI.CreateItemButton(key, InventoryPage.Keys));
-        print(usables.ToString());
+        print(keys.Count);
     }
 
     public bool HasKey(int id)
