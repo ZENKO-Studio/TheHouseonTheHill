@@ -11,8 +11,9 @@ public class Photo : InventoryItem
     //This is the UI where the Captured Image will be on
     public Image image;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         bInteractable = false;
         image = GetComponentInChildren<Image>();
     }

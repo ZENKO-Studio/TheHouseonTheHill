@@ -19,7 +19,7 @@ public abstract class InventoryItem : MonoBehaviour
 
     protected InventoryHandler inventoryHandler;    //Just a local reference of Inventory System (just to avoid writing the whole thing)
    
-    private void Start()
+    protected virtual void Start()
     {
         inventoryHandler = InventoryHandler.Instance;
         GetComponent<Collider>().isTrigger = true;
