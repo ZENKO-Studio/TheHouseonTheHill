@@ -116,8 +116,6 @@ public class NellController : CharacterBase
     //Reference to Flashlight
     public Flashlight flashlight;
 
-    //Reference To Photo Capture Script
-    public PhotoCapture photoCapture;
 
     #endregion
 
@@ -125,7 +123,6 @@ public class NellController : CharacterBase
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
-        photoCapture = GetComponent<PhotoCapture>();
 
         defaultHeight = characterController.height;
         defaultCenter = characterController.center.y;
@@ -195,6 +192,7 @@ public class NellController : CharacterBase
         {
             inputMag *= 2;
             soundRange = runSound;
+            DepleteStamina();
         }
         else
         {
@@ -207,17 +205,14 @@ public class NellController : CharacterBase
 
         if (movDir != Vector3.zero)
         {
-            animator.SetBool("IsMoving", true);
-
-            if(sprint)
-                DepleteStamina();
+             // animator.SetBool("IsMoving", true);
 
             Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
         }
         else
         {
-             animator.SetBool("IsMoving", false);
+             // animator.SetBool("IsMoving", false);
              if(GetStamina() < 100)
                 GenerateStamina();
         }
@@ -309,7 +304,7 @@ public class NellController : CharacterBase
     private void OnFootstep(AnimationEvent animationEvent)
     {
 
-        Debug.Log("Footstep");
+        // Debug.Log("Footstep");
         if (animationEvent.animatorClipInfo.weight > 0.5f)
         {
             if (FootstepAudioClips.Length > 0)
@@ -387,7 +382,7 @@ public class NellController : CharacterBase
 
     public void OnInteract(InputValue value)
     {
-        Debug.Log($"{name} is Interacting");
+       //  Debug.Log($"{name} is Interacting");
         if (_itemInRange[_itemInRange.Count-1] != null)
         {
             _itemInRange[_itemInRange.Count-1].Interact();
@@ -410,8 +405,6 @@ public class NellController : CharacterBase
     {
         isCamMode = !isCamMode;
         //Call to Capture Script Function
-        if(photoCapture)
-            photoCapture.CapturePhoto();
     }
 
     public void OnFlashlight(InputValue value)
