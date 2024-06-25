@@ -12,7 +12,7 @@ public class CaptureableItem : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.Instance.playerRef.photoCapture.capturablePhoto = photoPrefab;
+            //GameManager.Instance.playerRef.photoCapture.capturablePhoto = photoPrefab;
             if (interactPopup != null)
             {
                 interactPopup.SetActive(true);
@@ -24,7 +24,7 @@ public class CaptureableItem : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.Instance.playerRef.photoCapture.capturablePhoto = null;
+            //GameManager.Instance.playerRef.photoCapture.capturablePhoto = null;
             if (interactPopup != null)
             {
                 interactPopup.SetActive(false);

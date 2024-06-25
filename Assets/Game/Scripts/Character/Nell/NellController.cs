@@ -380,15 +380,15 @@ public class NellController : CharacterBase
         Crouch();
     }
 
-    public void OnInteract(InputValue value)
-    {
-       //  Debug.Log($"{name} is Interacting");
-        if (_itemInRange[_itemInRange.Count-1] != null)
-        {
-            _itemInRange[_itemInRange.Count-1].Interact();
-            _itemInRange.RemoveAt(_itemInRange.Count-1);
-        }
-    }
+    //public void OnInteract(InputValue value)
+    //{
+    //   //  Debug.Log($"{name} is Interacting");
+    //    if (_itemInRange[_itemInRange.Count-1] != null)
+    //    {
+    //        _itemInRange[_itemInRange.Count-1].Interact();
+    //        _itemInRange.RemoveAt(_itemInRange.Count-1);
+    //    }
+    //}
 
     public void OnCamZoom(InputValue value)
     {
