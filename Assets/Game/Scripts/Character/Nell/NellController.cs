@@ -115,14 +115,16 @@ public class NellController : CharacterBase
 
     //Reference to Flashlight
     public Flashlight flashlight;
-
-
+    
+    //Reference to Photo Capture Component
+    internal PhotoCapture photoCapture;
     #endregion
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        photoCapture = GetComponent<PhotoCapture>();
 
         defaultHeight = characterController.height;
         defaultCenter = characterController.center.y;
@@ -134,6 +136,8 @@ public class NellController : CharacterBase
     {
         base.Start();
         ogStepOffset = characterController.stepOffset;
+
+        GameManager.Instance.playerRef = this;
 
         //Ensuring its set
         mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
@@ -188,11 +192,10 @@ public class NellController : CharacterBase
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
-        if (sprint && Stamina > 0)
+        if (sprint)
         {
             inputMag *= 2;
             soundRange = runSound;
-            DepleteStamina();
         }
         else
         {
@@ -205,7 +208,10 @@ public class NellController : CharacterBase
 
         if (movDir != Vector3.zero)
         {
-             // animator.SetBool("IsMoving", true);
+            // animator.SetBool("IsMoving", true);
+
+            if (sprint && Stamina > 0)
+                DepleteStamina();
 
             Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
@@ -382,7 +388,10 @@ public class NellController : CharacterBase
 
     public void OnInteract(InputValue value)
     {
-       //  Debug.Log($"{name} is Interacting");
+        //  Debug.Log($"{name} is Interacting");
+        if (_itemInRange.Count == 0)
+            return;
+
         if (_itemInRange[_itemInRange.Count-1] != null)
         {
             _itemInRange[_itemInRange.Count-1].Interact();
