@@ -1,18 +1,28 @@
-using Game.Scripts.Interactable;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
+public enum ItemType
+{
+    UsableObj,
+    Key,
+    Document,
+    Photo
+}
 
 [RequireComponent(typeof(SphereCollider))]
-public abstract class InventoryItem : MonoBehaviour
+public class InventoryItem : MonoBehaviour
 {
     public string itemName; //Name of Item
     public Sprite itemIcon; //Icon to show on button
-    public GameObject itemPreview; //Mesh to be shown on Inventory Cam
-    public string itemDescription; //Mesh to be shown on Inventory Cam
+    public string itemDescription; //Description of the item
+
+    public GameObject itemPreview; //Mesh to be shown on Inventory Cam (reference to prefab so that it can be instantiated)
+    public GameObject boardItemPreview; //Representation in the Board (Can be an sized up image / item preview) depending on the actual board system
+
     public GameObject interactPopup; //Popup to show when Player is Close
     //public string interactDescription;    //Can be enabled to have dynamic messages (As of now assuming to be in Prefab UI Itself)
+
+    public int itemId = -1; //To distinguish Item (Like Key ID / Document Id)
+    public ItemType itemType;
 
 
     public bool bInteractable = true; //Make it false when already interacted with
@@ -58,7 +68,7 @@ public abstract class InventoryItem : MonoBehaviour
 
     public virtual void Interact()
     {
-       
+        
     }
 
     //Disable Interactable after interacting

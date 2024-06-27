@@ -171,8 +171,6 @@ public class NellController : CharacterBase
         }
     }
 
-   
-
     private void LateUpdate()
     {
         //#TODO Add condition to check if using third person (Something that can be added in Game Manager)
@@ -241,6 +239,7 @@ public class NellController : CharacterBase
                 GenerateStamina();
         }
 
+        
         if(!bGrounded)
         {
             Vector3 velocity = movDir * inputMag * forwardJumpForce;
