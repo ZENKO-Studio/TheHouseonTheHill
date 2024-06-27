@@ -27,6 +27,9 @@ public class NellController : CharacterBase
     //Can be used if jumping required
     [SerializeField] float jumpSpeed = 4f;
 
+    [Tooltip("How much the character should move forward when moving and jumping")]
+    [SerializeField] float forwardJumpForce = 3f;
+
     float ogStepOffset;
     float ySpeed = 0f;
 
@@ -35,6 +38,13 @@ public class NellController : CharacterBase
     private float crouchCenter;
     private float defaultHeight;
     private float defaultCenter;
+
+    //Some variables for Animation Control
+    private bool bJumping;
+    private bool bGrounded;
+    private bool bFalling;
+
+
     #endregion
 
     #region Sound And Audio
@@ -157,11 +167,19 @@ public class NellController : CharacterBase
         if (characterController != null)
         {
             PlayerMovement();
+            SetAnimatorParams();
         }
     }
 
+   
+
     private void LateUpdate()
     {
+        //#TODO Add condition to check if using third person (Something that can be added in Game Manager)
+        //Current conditions to figure out if 3rd person or fixed cam
+        if (GameManager.Instance.ActiveCam() == null && GameManager.Instance.bUsingStaticCam)
+            return;
+
         CameraRotation();
         CameraZoom();
     }
@@ -208,7 +226,7 @@ public class NellController : CharacterBase
 
         if (movDir != Vector3.zero)
         {
-            // animator.SetBool("IsMoving", true);
+            animator.SetBool("IsMoving", true);
 
             if (sprint && Stamina > 0)
                 DepleteStamina();
@@ -218,9 +236,17 @@ public class NellController : CharacterBase
         }
         else
         {
-             // animator.SetBool("IsMoving", false);
+             animator.SetBool("IsMoving", false);
              if(GetStamina() < 100)
                 GenerateStamina();
+        }
+
+        if(!bGrounded)
+        {
+            Vector3 velocity = movDir * inputMag * forwardJumpForce;
+            velocity.y = ySpeed;
+
+            characterController.Move(velocity * Time.deltaTime);
         }
 
     }
@@ -231,23 +257,40 @@ public class NellController : CharacterBase
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
+
         if (characterController.isGrounded)
         {
             characterController.stepOffset = ogStepOffset;
             ySpeed = -0.5f;
-
+            bGrounded = true;
+            bJumping = false;
+            bFalling = false;
             if (jump)
             {
                 ySpeed = jumpSpeed;
                 jump = false;
+                bJumping = true;
+                
             }
         }
         else
         {
             characterController.stepOffset = 0;
+            bGrounded = false;
+
+            if((bJumping && ySpeed < 0) || ySpeed < -2)
+            {
+                bFalling = true;
+            }
         }
     }
 
+    private void SetAnimatorParams()
+    {
+        animator.SetBool("IsJumping", bJumping);
+        animator.SetBool("IsGrounded", bGrounded);
+        animator.SetBool("IsFalling", bFalling);
+    }
 
     private const float _threshold = 0.01f;
 
@@ -327,11 +370,15 @@ public class NellController : CharacterBase
 
     private void OnAnimatorMove()
     {
-        Vector3 velocity = animator.deltaPosition;
-        velocity.y = ySpeed * Time.deltaTime;
+        if(bGrounded)
+        {
+            Vector3 velocity = animator.deltaPosition;
+            velocity.y = ySpeed * Time.deltaTime;
 
-        characterController.Move(velocity);
-
+            characterController.Move(velocity);
+        }
+        
+           
         
     }
 
@@ -372,7 +419,8 @@ public class NellController : CharacterBase
 
     public void OnJump(InputValue value)
     {
-        jump = value.isPressed;
+        if(!crouch)
+            jump = value.isPressed;
     }
 
     public void OnSprint(InputValue value)

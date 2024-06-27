@@ -1480,6 +1480,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b786b2d4bb425440827d4850552596a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NellPrefab: {fileID: 0}
+  InventorySystemPrefab: {fileID: 0}
+  HUDPrefab: {fileID: 0}
   playerRef: {fileID: 1414182983}
   bUsingStaticCam: 0
 --- !u!1001 &1414182981
@@ -1550,6 +1553,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nell
       objectReference: {fileID: 0}
+    - target: {fileID: 6334054333862183694, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 85feb1eebba657b46973f47da501f6ac, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
