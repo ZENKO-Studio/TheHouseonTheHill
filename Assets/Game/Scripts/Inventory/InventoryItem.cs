@@ -68,7 +68,9 @@ public class InventoryItem : MonoBehaviour
 
     public virtual void Interact()
     {
-        
+        inventoryHandler.AddItem(this);
+
+        PostInteract();
     }
 
     //Disable Interactable after interacting

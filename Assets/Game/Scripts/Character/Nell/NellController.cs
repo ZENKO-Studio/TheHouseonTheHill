@@ -376,9 +376,6 @@ public class NellController : CharacterBase
 
             characterController.Move(velocity);
         }
-        
-           
-        
     }
 
     public void Teleport(Transform t)
