@@ -406,9 +406,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6854631458508774965}
   - component: {fileID: 7549268625104627731}
-  - component: {fileID: 4787580099766324081}
   - component: {fileID: 7447897986652065610}
   - component: {fileID: 6646767449975587250}
+  - component: {fileID: 2717173981813153227}
   m_Layer: 0
   m_Name: MainCam
   m_TagString: MainCamera
@@ -424,8 +424,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4496020360722962213}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.75, z: -3}
+  m_LocalRotation: {x: 0.0030040666, y: -0.97327316, z: 0.22584578, w: 0.041522115}
+  m_LocalPosition: {x: 8.6580715, y: 4.9700003, z: 5.4049273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -464,7 +464,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 50
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -482,14 +482,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4787580099766324081
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4496020360722962213}
-  m_Enabled: 1
 --- !u!114 &7447897986652065610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +645,19 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2717173981813153227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4496020360722962213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &8311689536160239675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,9 +1140,11 @@ MonoBehaviour:
   OnCharacterDead:
     m_PersistentCalls:
       m_Calls: []
+  characterController: {fileID: 0}
   bEnableMovement: 1
   rotSpeed: 300
   jumpSpeed: 4
+  forwardJumpForce: 3
   crouchHeight: 1.28
   crouchSound: 0
   walkSound: 5
@@ -1172,7 +1179,6 @@ MonoBehaviour:
   cursorLocked: 1
   cursorInputForLook: 1
   flashlight: {fileID: 932870709483973100}
-  photoCapture: {fileID: 0}
 --- !u!114 &1405805713240049994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,7 +1227,11 @@ MonoBehaviour:
   interactableLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  interactText: {fileID: 0}
+  interactImage: {fileID: 0}
+  defaultInteraction:
+    text: 
+    image: {fileID: 0}
+  interactionButtons: []
 --- !u!114 &2612869046255321716
 MonoBehaviour:
   m_ObjectHideFlags: 0
