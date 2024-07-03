@@ -44,6 +44,8 @@ public class NellController : CharacterBase
     private bool bGrounded;
     private bool bFalling;
 
+    //This is the variable that can be changed to take control away from player and give back to player
+    public bool bPlayerHasControl = true;
 
     #endregion
 
@@ -128,6 +130,7 @@ public class NellController : CharacterBase
     
     //Reference to Photo Capture Component
     internal PhotoCapture photoCapture;
+    private bool isBoardOpen;
     #endregion
 
     private void Awake()
@@ -164,7 +167,7 @@ public class NellController : CharacterBase
 
     private void Update()
     {
-        if (characterController != null)
+        if (characterController != null && bPlayerHasControl)
         {
             PlayerMovement();
             SetAnimatorParams();
@@ -452,6 +455,12 @@ public class NellController : CharacterBase
     {
         isInventoryOpen = !isInventoryOpen;
         EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
+    }
+
+    public void OnBoard(InputValue value)
+    {
+        isBoardOpen = !isBoardOpen;
+        EventBus.Publish(new ToggleBoardEvent(isBoardOpen));
     }
 
     public void OnCamMode(InputValue value)

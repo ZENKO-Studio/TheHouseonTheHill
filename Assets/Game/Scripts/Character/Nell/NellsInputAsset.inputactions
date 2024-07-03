@@ -78,6 +78,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Board",
+                    "type": "Button",
+                    "id": "20cd6733-59c4-4f7d-958a-073406699448",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PauseGame",
                     "type": "Button",
                     "id": "21699bea-0980-425c-912a-1fa87b98b15e",
@@ -356,6 +365,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "CamMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c58f328-a6ee-46e4-ba6c-057de6f6b179",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Board",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

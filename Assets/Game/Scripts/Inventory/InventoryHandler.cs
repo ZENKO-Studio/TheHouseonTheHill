@@ -1,5 +1,5 @@
 /**@Sami 12/06/2024
- * 
+ * Handles all the stuff related to inventory
  **/
 
 using System.Collections.Generic;

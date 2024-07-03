@@ -89,7 +89,7 @@ public class InventoryUiController : MonoBehaviour
 
     private void InspectItem(InventoryItem item)
     {
-        InventoryHandler.Instance.RemoveItem(item);
+        //InventoryHandler.Instance.RemoveItem(item); This can be uncomented to debug removal
 
         // Remove previously previewed items from preview
         for (int i = 0; i < itemPreviewParent.childCount; i++)
