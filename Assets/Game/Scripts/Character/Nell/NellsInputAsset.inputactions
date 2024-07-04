@@ -112,6 +112,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "ThrowSalt",
+                    "type": "Button",
+                    "id": "7cb26c85-a638-411d-9ef1-b2dae69d75b0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -376,6 +385,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Board",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f2c808f-2f5b-471a-89cb-c4d7e22740ad",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrowSalt",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

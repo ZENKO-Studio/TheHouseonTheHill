@@ -15,9 +15,10 @@ using static EventBus;
 [RequireComponent(typeof(SaltChargeHandler))]
 public class NellController : CharacterBase
 {
+    
 
     public CharacterController characterController;
-    public Animator nellAnimator;
+    public Animator nellsAnimator;
     
     #region Character Control Values
     [Header("Character Controls")]
@@ -143,8 +144,9 @@ public class NellController : CharacterBase
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        nellsAnimator = GetComponent<Animator>();
         photoCapture = GetComponent<PhotoCapture>();
+        saltChargeHandler = GetComponent<SaltChargeHandler>();
 
         defaultHeight = characterController.height;
         defaultCenter = characterController.center.y;
@@ -230,11 +232,11 @@ public class NellController : CharacterBase
 
         PlayerJump();
 
-        animator.SetFloat("InputMagnitude", inputMag, 0.05f, Time.deltaTime);   //This is to smmoth out blend value for sharp input changes in WASD
+        nellsAnimator.SetFloat("InputMagnitude", inputMag, 0.05f, Time.deltaTime);   //This is to smmoth out blend value for sharp input changes in WASD
 
         if (movDir != Vector3.zero)
         {
-            animator.SetBool("IsMoving", true);
+            nellsAnimator.SetBool("IsMoving", true);
 
             if (sprint && Stamina > 0)
                 DepleteStamina();
@@ -244,7 +246,7 @@ public class NellController : CharacterBase
         }
         else
         {
-             animator.SetBool("IsMoving", false);
+             nellsAnimator.SetBool("IsMoving", false);
              if(GetStamina() < 100)
                 GenerateStamina();
         }
@@ -296,9 +298,9 @@ public class NellController : CharacterBase
 
     private void SetAnimatorParams()
     {
-        animator.SetBool("IsJumping", bJumping);
-        animator.SetBool("IsGrounded", bGrounded);
-        animator.SetBool("IsFalling", bFalling);
+        nellsAnimator.SetBool("IsJumping", bJumping);
+        nellsAnimator.SetBool("IsGrounded", bGrounded);
+        nellsAnimator.SetBool("IsFalling", bFalling);
     }
 
     private const float _threshold = 0.01f;
@@ -341,7 +343,7 @@ public class NellController : CharacterBase
 
     private void Crouch()
     {
-        animator.SetBool("IsCrouching", crouch);
+        nellsAnimator.SetBool("IsCrouching", crouch);
 
         if (crouch)
         {
@@ -361,8 +363,6 @@ public class NellController : CharacterBase
 
     private void OnFootstep(AnimationEvent animationEvent)
     {
-
-        // Debug.Log("Footstep");
         if (animationEvent.animatorClipInfo.weight > 0.5f)
         {
             if (FootstepAudioClips.Length > 0)
@@ -381,7 +381,7 @@ public class NellController : CharacterBase
     {
         if(bGrounded)
         {
-            Vector3 velocity = animator.deltaPosition;
+            Vector3 velocity = nellsAnimator.deltaPosition;
             velocity.y = ySpeed * Time.deltaTime;
 
             characterController.Move(velocity);
@@ -482,6 +482,11 @@ public class NellController : CharacterBase
         {
             flashlight.ToggleFlashlight();
         }
+    }
+
+    public void OnThrowSalt(InputValue value)
+    {
+        saltChargeHandler.ThrowSalt();
     }
 
     #endregion

@@ -30,6 +30,7 @@ public class Stalker : EnemyBase, IHear
         stalkerAgent = GetComponent<NavMeshAgent>();
         stalkerAgent.stoppingDistance = attackRange;
         stalkerAgent.speed = moveSpeed;
+        fsm = GetComponent<StalkerFSM>();
     }
 
     #region Attacking Player
@@ -110,7 +111,12 @@ public class Stalker : EnemyBase, IHear
     #region Getting Stunned
     public void GetStunned()
     {
-        
+        if(fsm == null)
+        {
+            Debug.Log("FSM Null");
+            return;
+        }
+
         fsm.ChangeState(StalkerFSM.StunState);
         
     }
