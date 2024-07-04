@@ -25,11 +25,6 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        StartCoroutine(CheckForInteraction());
-    }
-
     private void OnValidate()
     {
         _trigger = GetComponent<BoxCollider>();
@@ -40,20 +35,6 @@ public class Checkpoint : MonoBehaviour
         if (other.TryGetComponent(out CharacterBase _))
         {
             CheckPointSystem.Instance.SaveCheckpoint(this);
-        }
-    }
-
-    private IEnumerator CheckForInteraction()
-    {
-        while (true)
-        {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                CheckPointSystem.Instance.SaveCheckpoint(this);
-                // Debug.Log($"Checkpoint {name} saved on key input.");
-                yield break; // Exit the coroutine after saving
-            }
-            yield return null; // Wait until the next frame
         }
     }
 
