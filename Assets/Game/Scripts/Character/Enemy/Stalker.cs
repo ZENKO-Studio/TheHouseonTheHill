@@ -108,12 +108,11 @@ public class Stalker : EnemyBase, IHear
     #endregion
 
     #region Getting Stunned
-    private void OnTriggerEnter(Collider other)
+    public void GetStunned()
     {
-        if(other.tag == "Salt")
-        {
-            fsm.ChangeState(StalkerFSM.StunState);
-        }
+        
+        fsm.ChangeState(StalkerFSM.StunState);
+        
     }
     #endregion
 }

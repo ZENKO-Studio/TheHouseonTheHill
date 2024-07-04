@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5340496172139674197}
   - component: {fileID: 1203845111332552684}
   - component: {fileID: 84347587368423053}
-  - component: {fileID: 4131734134736874234}
   - component: {fileID: 614117964582466022}
   m_Layer: 0
   m_Name: WritingOnWall
@@ -108,23 +107,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &4131734134736874234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5507307620602217356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cefb4ca4a5bb1d4ebc4c293f58174ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ItemId: 
-  itemName: 
-  itemIcon: {fileID: 0}
-  btnIndex: 0
-  itemPreview: {fileID: 0}
 --- !u!114 &614117964582466022
 MonoBehaviour:
   m_ObjectHideFlags: 0

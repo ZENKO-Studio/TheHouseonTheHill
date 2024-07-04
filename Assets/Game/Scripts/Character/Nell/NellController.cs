@@ -12,11 +12,12 @@ using static EventBus;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SaltChargeHandler))]
 public class NellController : CharacterBase
 {
 
     public CharacterController characterController;
-    Animator animator;
+    public Animator nellAnimator;
     
     #region Character Control Values
     [Header("Character Controls")]
@@ -114,6 +115,12 @@ public class NellController : CharacterBase
 
     public bool cursorLocked = true;
 	public bool cursorInputForLook = true;
+    #endregion
+
+    #region Player Objects (Salt and Batteries)
+
+    SaltChargeHandler saltChargeHandler;
+    
     #endregion
 
     #region Other Vars
