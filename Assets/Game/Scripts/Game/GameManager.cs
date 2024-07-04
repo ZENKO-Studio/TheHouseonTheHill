@@ -70,8 +70,8 @@ public class GameManager : Singleton<GameManager>
         Transform checkpointTrans = null;
 
         playerRef = Instantiate(NellPrefab).GetComponent<NellController>();
-        playerRef.transform.position = checkpointTrans.position;
-        playerRef.transform.rotation = checkpointTrans.rotation;
+        //playerRef.transform.position = checkpointTrans.position;
+        //playerRef.transform.rotation = checkpointTrans.rotation;
 
         //HUD
         Instantiate(HUDPrefab);
