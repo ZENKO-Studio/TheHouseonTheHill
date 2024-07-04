@@ -20,7 +20,7 @@ public class Floaters : MonoBehaviour
     // Rigid-body component of floating objects
     public Rigidbody rb;
 
-    //Depth at which objects Experice bouancy
+    //Depth at which objects Experince bouancy
     [SerializeField,Range(0,10)]public float depthBefSub;
     //Amount of buoyant force applied
     [SerializeField, Range(0, 10)] public float displacementAmt;
