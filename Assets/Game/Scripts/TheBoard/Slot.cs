@@ -39,7 +39,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             //Destroy Slot Item
             TheBoardController.Instance.boardItems.Remove(slotItem);
-            TheBoardController.Instance.CreateBoardBtn(slotItem.inventoryItem);
+            TheBoardController.Instance.SetBoardItems(slotItem.inventoryItem);
             Destroy(slotItem.gameObject);
         }
 

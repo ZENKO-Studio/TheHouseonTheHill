@@ -16,11 +16,9 @@ public class TheBoardController : Singleton<TheBoardController>
 
     [SerializeField] Transform _buttonArea; //Referenc to the Panel where buttons will be
 
-    public GameObject boardListItemBtn; // Reference to the ItemButton prefab
-    
     [SerializeField] GameObject boardUI;
 
-    [SerializeField] Camera boardCam;
+    [SerializeField] GameObject boardItemPrefab;
 
     List<SlotHandler> slotHandlers = new List<SlotHandler>();//This will be group of slots
 
@@ -32,6 +30,15 @@ public class TheBoardController : Singleton<TheBoardController>
 
     private void OnToggleBoard(ToggleBoardEvent toggleEvent)
     {
+        if(toggleEvent.IsOpen)
+        {
+            PopulateBoardItemBtns();
+        }
+        else
+        {
+            RemoveAllBtns();
+        }
+
         boardUI.SetActive(toggleEvent.IsOpen);
     }
 
@@ -43,8 +50,6 @@ public class TheBoardController : Singleton<TheBoardController>
 
         _inventory = InventoryHandler.Instance;
      
-        PopulateBoardItemBtns();
-
         //Get all the slot handlers for the Board
         slotHandlers = GetComponentsInChildren<SlotHandler>().ToList<SlotHandler>();
         
@@ -67,7 +72,7 @@ public class TheBoardController : Singleton<TheBoardController>
         for (int i = _buttonArea.childCount - 1; i >= 0; i--)
         {
             // Get the child at the current index
-            Transform child = transform.GetChild(i);
+            Transform child = _buttonArea.GetChild(i);
             // Destroy the child game object
             Destroy(child.gameObject);
         }
@@ -78,21 +83,22 @@ public class TheBoardController : Singleton<TheBoardController>
     {
         foreach(var v in _inventory.documents)
         {
-            CreateBoardBtn(v.Key);
+            
+            SetBoardItems(v.Key);
         }
         
         foreach(var v in _inventory.photos)
         {
-            CreateBoardBtn(v.Key);
+            SetBoardItems(v.Key);
         }
     }
 
-    internal void CreateBoardBtn(InventoryItem i)
+    internal void SetBoardItems(InventoryItem i)
     {
-        GameObject g = Instantiate(boardListItemBtn, _buttonArea);
+        GameObject g = Instantiate(boardItemPrefab, _buttonArea);
         g.GetComponent<Image>().sprite = i.itemIcon;
 
-        BoardBtn b = g.GetComponent<BoardBtn>();
-        b.rep_Item = i;
+        BoardItem b = g.GetComponent<BoardItem>();
+        b.inventoryItem = i;
     }
 }
