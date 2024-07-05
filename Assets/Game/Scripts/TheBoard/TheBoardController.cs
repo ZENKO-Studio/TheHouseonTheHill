@@ -26,7 +26,7 @@ public class TheBoardController : Singleton<TheBoardController>
     internal static BoardItem itemBeingDragged;
 
     //This to be made scriptable as this will be used to save the board state
-    public List<BoardItem> boardItems;
+    public List<InventoryItem> boardItems;
 
     private void OnToggleBoard(ToggleBoardEvent toggleEvent)
     {
@@ -83,13 +83,14 @@ public class TheBoardController : Singleton<TheBoardController>
     {
         foreach(var v in _inventory.documents)
         {
-            
-            SetBoardItems(v.Key);
+            if(!boardItems.Contains(v.Key))
+                SetBoardItems(v.Key);
         }
         
         foreach(var v in _inventory.photos)
         {
-            SetBoardItems(v.Key);
+            if (!boardItems.Contains(v.Key))
+                SetBoardItems(v.Key);
         }
     }
 
