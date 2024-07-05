@@ -10,7 +10,7 @@ public class SaltChargeHandler : MonoBehaviour
     [Tooltip("How frequently can nell throw salt (Cooldown for Salt use)")]
     [SerializeField] int throwFreq = 3;
 
-    int currentSaltCharges = 5;
+    int currentSaltCharges = 0;
 
     [SerializeField]
     Transform saltSpawnPosition;
