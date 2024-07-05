@@ -33,8 +33,6 @@ public class Floaters : MonoBehaviour
         
         rb.AddForceAtPosition(Physics.gravity / floaters, transform.position, ForceMode.Acceleration);
         _search.startPosition = transform.position;
-        water.
-
 
     }
 
