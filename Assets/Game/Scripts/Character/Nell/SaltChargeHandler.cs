@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SaltChargeHandler : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class SaltChargeHandler : MonoBehaviour
     [Tooltip("How frequently can nell throw salt (Cooldown for Salt use)")]
     [SerializeField] int throwFreq = 3;
 
-    int currentSaltCharges = 0;
+    int currentSaltCharges = 4;
 
     [SerializeField]
     Transform saltSpawnPosition;
@@ -24,6 +25,13 @@ public class SaltChargeHandler : MonoBehaviour
     bool bCanThrowSalt = false;
 
     NellController nellController;
+
+    //Can be used to Updated the HUD for player and if we have health bars for NPCs
+    public UnityEvent OnSaltChanged = new UnityEvent();
+
+    public int CurrentSaltCharges { get => currentSaltCharges; set { currentSaltCharges = value;
+            OnSaltChanged?.Invoke();
+        } }
 
     private void Awake()
     {
@@ -39,7 +47,7 @@ public class SaltChargeHandler : MonoBehaviour
             nellController.nellsAnimator.SetTrigger("ThrowSalt");
             bCanThrowSalt = false;
 
-            currentSaltCharges--;
+            CurrentSaltCharges--;
 
             Invoke(nameof(ResetSaltAbility), throwFreq);
         }
@@ -65,7 +73,7 @@ public class SaltChargeHandler : MonoBehaviour
 
     private void ResetSaltAbility()
     {
-        if (currentSaltCharges > 0)
+        if (CurrentSaltCharges > 0)
         {
             bCanThrowSalt = true;
         }
@@ -74,6 +82,6 @@ public class SaltChargeHandler : MonoBehaviour
     //When the salt is picked up
     public void AddSalt()
     {
-        currentSaltCharges = currentSaltCharges == maxSaltCharges ? currentSaltCharges + 1 : maxSaltCharges;
+        CurrentSaltCharges = CurrentSaltCharges == maxSaltCharges ? CurrentSaltCharges + 1 : maxSaltCharges;
     }
 }
