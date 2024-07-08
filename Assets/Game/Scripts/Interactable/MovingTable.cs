@@ -6,7 +6,7 @@ using UnityEngine;
 public class MovingTable : MonoBehaviour
 {
     private bool bInteracting;
-    private ThirdPersonController playerController;
+    private NellController playerController;
     private Vector3 offsetVec;
 
     [Range(0f, 10f)]
@@ -33,7 +33,7 @@ public class MovingTable : MonoBehaviour
 
         if (bInteracting && deltaP < moveDist)
         {
-            float playerInput = Mathf.Clamp01(playerController._input.move.y);
+            float playerInput = Mathf.Clamp01(playerController.moveInput.y);
             transform.Translate(transform.forward * playerInput * moveSpeed * Time.deltaTime);
             deltaP += playerInput * moveSpeed * Time.deltaTime;
         }
@@ -41,7 +41,7 @@ public class MovingTable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<ThirdPersonController>(out playerController))
+        if (other.TryGetComponent<NellController>(out playerController))
         {
             bCanInteract = true;
         }
@@ -49,7 +49,7 @@ public class MovingTable : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<ThirdPersonController>(out playerController))
+        if (other.TryGetComponent<NellController>(out playerController))
         {
             bCanInteract = false;
             bInteracting = false;

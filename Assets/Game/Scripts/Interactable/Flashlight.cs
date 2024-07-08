@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Light))]
 public class Flashlight : MonoBehaviour
@@ -10,19 +11,23 @@ public class Flashlight : MonoBehaviour
     [SerializeField] float depletionRate = 5f;
     [SerializeField] float chargeRate = 2f;
 
+    //Can be used to Updated the HUD for player and if we have health bars for NPCs
+    [HideInInspector] public UnityEvent OnFlashLightToggle = new UnityEvent();
+
     // Start is called before the first frame update
     void Start()
     {
         light = GetComponent<Light>();
+        light.enabled = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F))
-        {
-            ToggleFlashlight();
-        }
+        //if(Input.GetKeyDown(KeyCode.F))
+        //{
+        //    ToggleFlashlight();
+        //}
 
         if (bIsOn)
         {
@@ -32,6 +37,7 @@ public class Flashlight : MonoBehaviour
             { 
                 bIsOn = false;
                 light.enabled = false;
+                OnFlashLightToggle?.Invoke();
             }
 
         }
@@ -48,5 +54,12 @@ public class Flashlight : MonoBehaviour
 
         bIsOn = !bIsOn;
         light.enabled = bIsOn;
+
+        OnFlashLightToggle?.Invoke();
+    }
+
+    public bool IsOn()
+    {
+        return bIsOn; 
     }
 }

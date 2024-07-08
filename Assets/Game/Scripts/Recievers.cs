@@ -17,4 +17,11 @@ public class Recievers : MonoBehaviour
         Debug.Log("Left step made");
 
     }
+
+    public void NewEvent()
+    {
+    
+        Debug.Log("Crouch walk");
+
+    }
 }

@@ -30,6 +30,7 @@ public class Stalker : EnemyBase, IHear
         stalkerAgent = GetComponent<NavMeshAgent>();
         stalkerAgent.stoppingDistance = attackRange;
         stalkerAgent.speed = moveSpeed;
+        fsm = GetComponent<StalkerFSM>();
     }
 
     #region Attacking Player
@@ -50,7 +51,7 @@ public class Stalker : EnemyBase, IHear
         {
             //#TODO: Check if stalker is in FOV of player and adjust the damage multiplier
 
-            NellAttributes playerRef = playerTransform.GetComponent<NellAttributes>();
+            NellController playerRef = playerTransform.GetComponent<NellController>();
             if (playerRef != null)
             {
                 playerRef.TakeDamage(damageToDeal * damageMultiplier);
@@ -108,12 +109,16 @@ public class Stalker : EnemyBase, IHear
     #endregion
 
     #region Getting Stunned
-    private void OnTriggerEnter(Collider other)
+    public void GetStunned()
     {
-        if(other.tag == "Salt")
+        if(fsm == null)
         {
-            fsm.ChangeState(StalkerFSM.StunState);
+            Debug.Log("FSM Null");
+            return;
         }
+
+        fsm.ChangeState(StalkerFSM.StunState);
+        
     }
     #endregion
 }

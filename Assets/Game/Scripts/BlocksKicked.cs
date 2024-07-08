@@ -91,7 +91,8 @@ public class BlocksKicked : MonoBehaviour
     {
         // Replace this method with the actual check for whether the player is sprinting
         // This is a placeholder to demonstrate the logic.
-        return player.GetComponent<StarterAssets.ThirdPersonController>().MoveSpeed > 1;
+        //return player.GetComponent<StarterAssets.ThirdPersonController>().MoveSpeed > 1;
+        return true;
     }
 
     void KickBlock(Rigidbody blockRigidbody)
