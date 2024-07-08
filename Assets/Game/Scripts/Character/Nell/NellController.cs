@@ -187,7 +187,7 @@ public class NellController : CharacterBase
     {
         //#TODO Add condition to check if using third person (Something that can be added in Game Manager)
         //Current conditions to figure out if 3rd person or fixed cam
-        if (GameManager.Instance.ActiveCam() == null && GameManager.Instance.bUsingStaticCam)
+        if (GameManager.Instance.ActiveCam() == null || GameManager.Instance.bUsingStaticCam)
             return;
 
         CameraRotation();
@@ -304,7 +304,6 @@ public class NellController : CharacterBase
     }
 
     private const float _threshold = 0.01f;
-
 
     private void CameraRotation()
     {
