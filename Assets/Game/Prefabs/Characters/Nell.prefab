@@ -1183,8 +1183,8 @@ MonoBehaviour:
   crouchHeight: 1.28
   bPlayerHasControl: 1
   crouchSound: 0
-  walkSound: 0
-  runSound: 0
+  walkSound: 5
+  runSound: 8
   FootstepAudioClips:
   - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
   - {fileID: 8300000, guid: 85016e0f2b01da248b9663dd49a161b0, type: 3}
@@ -1214,7 +1214,6 @@ MonoBehaviour:
   zoom: 0
   cursorLocked: 1
   cursorInputForLook: 1
-  saltChargeHandler: {fileID: 0}
   flashlight: {fileID: 932870709483973100}
 --- !u!114 &1405805713240049994
 MonoBehaviour:
@@ -1254,7 +1253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742223827033686990}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f5ac78f9fce5e641b398f616018b152, type: 3}
   m_Name: 
@@ -1299,9 +1298,6 @@ MonoBehaviour:
   maxSaltCharges: 5
   throwFreq: 3
   saltSpawnPosition: {fileID: 6479327372558991422}
-  saltParticles: {fileID: 4627466016778062978, guid: 52ec9d16bca12a847af5488d1762176a,
+  saltParticles: {fileID: 4627466016778062978, guid: 8a0c7bb6595eed94f8cfcfc566a96a97,
     type: 3}
   throwDistance: 5
-  OnSaltChanged:
-    m_PersistentCalls:
-      m_Calls: []
