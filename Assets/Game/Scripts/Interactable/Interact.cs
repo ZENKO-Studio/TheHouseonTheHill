@@ -24,7 +24,7 @@ namespace Game.Scripts.Interactable
         [SerializeField] private Transform interactCheckPosition;
         [SerializeField, Range(0, 5)] private float interactCheckRadius = 1.0f;
         [SerializeField, Tooltip("What Layers can we interact with")] private LayerMask interactableLayerMask;
-        [SerializeField] private Image interactImage;
+        //[SerializeField] private Image interactImage;
 
         [SerializeField] private InteractButton defaultInteraction;
         [SerializeField] private List<InteractButton> interactionButtons;
@@ -42,7 +42,7 @@ namespace Game.Scripts.Interactable
             _playerInput = GetComponent<PlayerInput>();
             _player = GetComponent<CharacterBase>();
             SubscribeToEvents();
-            interactImage.gameObject.SetActive(false);
+            //interactImage.gameObject.SetActive(false);
 
             foreach (var button in interactionButtons)
             {
@@ -137,17 +137,17 @@ namespace Game.Scripts.Interactable
                 }
                 if (interactableObject != gameObject)
                 {
-                    interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
+               //     interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
                 }
-                interactImage.sprite = GetInteractionButtonFromString(bindingDisplayString);
-                interactImage.gameObject.SetActive(true); // Show the text
+              //  interactImage.sprite = GetInteractionButtonFromString(bindingDisplayString);
+               // interactImage.gameObject.SetActive(true); // Show the text
 
             }
             else
             {
                 _overrideInteractable = false;
                 _currentInteractable = null;
-                interactImage.gameObject.SetActive(false); // Show the text
+                //interactImage.gameObject.SetActive(false); // Show the text
             }
         }
 
