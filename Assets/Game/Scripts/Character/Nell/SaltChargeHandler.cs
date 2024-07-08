@@ -13,6 +13,7 @@ public class SaltChargeHandler : MonoBehaviour
 
     int currentSaltCharges = 4;
 
+
     [SerializeField]
     Transform saltSpawnPosition;
 
