@@ -120,7 +120,7 @@ public class NellController : CharacterBase
 
     #region Player Objects (Salt and Batteries)
 
-    SaltChargeHandler saltChargeHandler;
+    public SaltChargeHandler saltChargeHandler;
     
     #endregion
 
@@ -436,6 +436,9 @@ public class NellController : CharacterBase
 
     public void OnCrouch(InputValue value)
     {
+        if (!bGrounded)
+            return;
+
         crouch = !crouch;
         Crouch();
     }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ public class HUDController : MonoBehaviour
     [Header("Health And Stamina")]
     [SerializeField] Slider healthBar;
     [SerializeField] Slider staminaBar;
+
+    [Header("Salt Charges")]
+    [SerializeField] TMP_Text saltText;
 
     [Header("Flashlight")]
     [SerializeField] Image flashlightImage;
@@ -30,6 +34,7 @@ public class HUDController : MonoBehaviour
         {
             nellController.OnHealthChanged.AddListener(UpdateHealthbar);
             nellController.OnStaminaChanged.AddListener(UpdateStaminabar);
+            nellController.saltChargeHandler.OnSaltChanged.AddListener(UpdateSaltCount);
             flashlight = nellController.flashlight;
 
             if (flashlight != null)
@@ -47,7 +52,9 @@ public class HUDController : MonoBehaviour
         //hudMenu.Invoke("HideHUD", 5f);
     }
 
-    
+   
+
+
 
     //// Update is called once per frame
     //void Update()
@@ -71,6 +78,14 @@ public class HUDController : MonoBehaviour
         //hudMenu.Invoke("HideHUD", 5f);
     }
 
+    private void UpdateSaltCount()
+    {
+        if(saltText)
+        {
+            saltText.text = nellController.saltChargeHandler.CurrentSaltCharges.ToString();
+        }
+    }
+
     private void UpdateFlashlightIcon()
     {
         flashlightImage.sprite = flashlight.IsOn() ? flashOnSprite : flashOffSprite;
@@ -82,6 +97,8 @@ public class HUDController : MonoBehaviour
         {
             nellController.OnHealthChanged.RemoveListener(UpdateHealthbar);
             nellController.OnStaminaChanged.RemoveListener(UpdateStaminabar);
+            nellController.saltChargeHandler.OnSaltChanged.RemoveListener(UpdateSaltCount);
+
         }
 
         if (flashlight != null)
