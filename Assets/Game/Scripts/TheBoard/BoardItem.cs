@@ -34,8 +34,7 @@ public class BoardItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("BeginDrag");
-
+        
         TheBoardController.itemBeingDragged = this;
 
         initPos = rectTransform.anchoredPosition;
@@ -60,7 +59,6 @@ public class BoardItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
             rectTransform.anchoredPosition = initPos;
         }
 
-        Debug.Log("EndDrag");
     }
 
     
