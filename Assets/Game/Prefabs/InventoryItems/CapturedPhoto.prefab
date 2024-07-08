@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 577879318180470612}
   - component: {fileID: 6337740784838190086}
-  - component: {fileID: 2178921505317286588}
+  - component: {fileID: 945275287051739584}
   m_Layer: 0
   m_Name: CapturedPhoto
   m_TagString: Untagged
@@ -56,7 +56,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2178921505317286588
+--- !u!114 &945275287051739584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,16 +65,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 2975938927831842565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dec26a813649b474bb4ca7de46076469, type: 3}
+  m_Script: {fileID: 11500000, guid: 023e0caafb860a144b2787ca3d52ac28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemName: Wall Writing
+  itemName: 
   itemIcon: {fileID: 21300000, guid: 02fbb2adace52864c9ca7a6cd312dd82, type: 3}
+  itemDescription: 
   itemPreview: {fileID: 2975938927831842565}
-  itemDescription: Wall Photo
+  boardItemPreview: {fileID: 0}
   interactPopup: {fileID: 0}
+  itemId: -1
+  itemType: 3
   bInteractable: 0
-  image: {fileID: 8909716234344493757}
 --- !u!1 &8902076971141592500
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,15 +306,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7337679052490835872}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8909716234344493757 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2193542796385252637, guid: 567eb65abef632745a027b6ca5721f6d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7337679052490835872}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

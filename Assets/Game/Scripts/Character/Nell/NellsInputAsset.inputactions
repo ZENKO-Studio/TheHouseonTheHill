@@ -78,6 +78,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Board",
+                    "type": "Button",
+                    "id": "20cd6733-59c4-4f7d-958a-073406699448",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "PauseGame",
                     "type": "Button",
                     "id": "21699bea-0980-425c-912a-1fa87b98b15e",
@@ -99,6 +108,15 @@
                     "name": "CamMode",
                     "type": "Button",
                     "id": "e8a45819-fe94-4175-88a2-fcaf0cfb3059",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ThrowSalt",
+                    "type": "Button",
+                    "id": "7cb26c85-a638-411d-9ef1-b2dae69d75b0",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -356,6 +374,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "CamMode",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c58f328-a6ee-46e4-ba6c-057de6f6b179",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Board",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6f2c808f-2f5b-471a-89cb-c4d7e22740ad",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ThrowSalt",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
