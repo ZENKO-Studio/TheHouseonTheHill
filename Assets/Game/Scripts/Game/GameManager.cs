@@ -17,7 +17,7 @@ public class GameManager : Singleton<GameManager>
 
 
     //Should be set on game start or manually in the scene
-    [HideInInspector] public NellController playerRef;
+    public NellController playerRef;
 
     #region Cam View and Player Movement Orientation
     //Can be used for movable objects since it requires some transform to base direction off
@@ -70,8 +70,8 @@ public class GameManager : Singleton<GameManager>
         Transform checkpointTrans = null;
 
         playerRef = Instantiate(NellPrefab).GetComponent<NellController>();
-        playerRef.transform.position = checkpointTrans.position;
-        playerRef.transform.rotation = checkpointTrans.rotation;
+        //playerRef.transform.position = checkpointTrans.position;
+        //playerRef.transform.rotation = checkpointTrans.rotation;
 
         //HUD
         Instantiate(HUDPrefab);

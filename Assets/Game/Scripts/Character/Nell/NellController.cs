@@ -12,11 +12,13 @@ using static EventBus;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SaltChargeHandler))]
 public class NellController : CharacterBase
 {
+    
 
     public CharacterController characterController;
-    Animator animator;
+    public Animator nellsAnimator;
     
     #region Character Control Values
     [Header("Character Controls")]
@@ -44,6 +46,8 @@ public class NellController : CharacterBase
     private bool bGrounded;
     private bool bFalling;
 
+    //This is the variable that can be changed to take control away from player and give back to player
+    public bool bPlayerHasControl = true;
 
     #endregion
 
@@ -114,6 +118,12 @@ public class NellController : CharacterBase
 	public bool cursorInputForLook = true;
     #endregion
 
+    #region Player Objects (Salt and Batteries)
+
+    public SaltChargeHandler saltChargeHandler;
+    
+    #endregion
+
     #region Other Vars
 
     //Temp #TODO Replace later with the Interactable Script
@@ -128,13 +138,15 @@ public class NellController : CharacterBase
     
     //Reference to Photo Capture Component
     internal PhotoCapture photoCapture;
+    private bool isBoardOpen;
     #endregion
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        nellsAnimator = GetComponent<Animator>();
         photoCapture = GetComponent<PhotoCapture>();
+        saltChargeHandler = GetComponent<SaltChargeHandler>();
 
         defaultHeight = characterController.height;
         defaultCenter = characterController.center.y;
@@ -164,7 +176,7 @@ public class NellController : CharacterBase
 
     private void Update()
     {
-        if (characterController != null)
+        if (characterController != null && bPlayerHasControl)
         {
             PlayerMovement();
             SetAnimatorParams();
@@ -220,11 +232,11 @@ public class NellController : CharacterBase
 
         PlayerJump();
 
-        animator.SetFloat("InputMagnitude", inputMag, 0.05f, Time.deltaTime);   //This is to smmoth out blend value for sharp input changes in WASD
+        nellsAnimator.SetFloat("InputMagnitude", inputMag, 0.05f, Time.deltaTime);   //This is to smmoth out blend value for sharp input changes in WASD
 
         if (movDir != Vector3.zero)
         {
-            animator.SetBool("IsMoving", true);
+            nellsAnimator.SetBool("IsMoving", true);
 
             if (sprint && Stamina > 0)
                 DepleteStamina();
@@ -234,7 +246,7 @@ public class NellController : CharacterBase
         }
         else
         {
-             animator.SetBool("IsMoving", false);
+             nellsAnimator.SetBool("IsMoving", false);
              if(GetStamina() < 100)
                 GenerateStamina();
         }
@@ -286,9 +298,9 @@ public class NellController : CharacterBase
 
     private void SetAnimatorParams()
     {
-        animator.SetBool("IsJumping", bJumping);
-        animator.SetBool("IsGrounded", bGrounded);
-        animator.SetBool("IsFalling", bFalling);
+        nellsAnimator.SetBool("IsJumping", bJumping);
+        nellsAnimator.SetBool("IsGrounded", bGrounded);
+        nellsAnimator.SetBool("IsFalling", bFalling);
     }
 
     private const float _threshold = 0.01f;
@@ -331,7 +343,7 @@ public class NellController : CharacterBase
 
     private void Crouch()
     {
-        animator.SetBool("IsCrouching", crouch);
+        nellsAnimator.SetBool("IsCrouching", crouch);
 
         if (crouch)
         {
@@ -351,8 +363,6 @@ public class NellController : CharacterBase
 
     private void OnFootstep(AnimationEvent animationEvent)
     {
-
-        // Debug.Log("Footstep");
         if (animationEvent.animatorClipInfo.weight > 0.5f)
         {
             if (FootstepAudioClips.Length > 0)
@@ -371,14 +381,11 @@ public class NellController : CharacterBase
     {
         if(bGrounded)
         {
-            Vector3 velocity = animator.deltaPosition;
+            Vector3 velocity = nellsAnimator.deltaPosition;
             velocity.y = ySpeed * Time.deltaTime;
 
             characterController.Move(velocity);
         }
-        
-           
-        
     }
 
     public void Teleport(Transform t)
@@ -429,6 +436,9 @@ public class NellController : CharacterBase
 
     public void OnCrouch(InputValue value)
     {
+        if (!bGrounded)
+            return;
+
         crouch = !crouch;
         Crouch();
     }
@@ -439,10 +449,10 @@ public class NellController : CharacterBase
         if (_itemInRange.Count == 0)
             return;
 
-        if (_itemInRange[_itemInRange.Count-1] != null)
+        if (_itemInRange[_itemInRange.Count - 1] != null)
         {
-            _itemInRange[_itemInRange.Count-1].Interact();
-            _itemInRange.RemoveAt(_itemInRange.Count-1);
+            _itemInRange[_itemInRange.Count - 1].Interact();
+            _itemInRange.RemoveAt(_itemInRange.Count - 1);
         }
     }
 
@@ -457,6 +467,12 @@ public class NellController : CharacterBase
         EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
     }
 
+    public void OnBoard(InputValue value)
+    {
+        isBoardOpen = !isBoardOpen;
+        EventBus.Publish(new ToggleBoardEvent(isBoardOpen));
+    }
+
     public void OnCamMode(InputValue value)
     {
         isCamMode = !isCamMode;
@@ -469,6 +485,11 @@ public class NellController : CharacterBase
         {
             flashlight.ToggleFlashlight();
         }
+    }
+
+    public void OnThrowSalt(InputValue value)
+    {
+        saltChargeHandler.ThrowSalt();
     }
 
     #endregion

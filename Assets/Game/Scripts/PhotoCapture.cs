@@ -29,7 +29,7 @@ public class PhotoCapture : MonoBehaviour
             return;
 
         StartCoroutine(CameraFlashEffect());
-        capturablePhoto.GetComponent<Photo>().Interact();
+        capturablePhoto.GetComponent<InventoryItem>().Interact();
         //Show the Photo (idk how)
         capturablePhoto = null;
     }
