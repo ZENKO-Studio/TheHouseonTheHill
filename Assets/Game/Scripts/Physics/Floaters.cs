@@ -17,7 +17,6 @@ public class Floaters : MonoBehaviour
    //Number of points applying buoyant force
     public int floaters;
 
-
     //Drag coefficient in water
     [SerializeField, Range(0, 100)] public float waterDrag;
     //Angular Drag coefficient in water
@@ -33,7 +32,7 @@ public class Floaters : MonoBehaviour
         
         rb.AddForceAtPosition(Physics.gravity / floaters, transform.position, ForceMode.Acceleration);
         _search.startPosition = transform.position;
-        water.
+        //water.
 
 
     }
