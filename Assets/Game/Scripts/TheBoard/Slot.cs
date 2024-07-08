@@ -38,14 +38,15 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if(slotItem != null)
         {
             //Destroy Slot Item
-            TheBoardController.Instance.boardItems.Remove(slotItem);
-            TheBoardController.Instance.CreateBoardBtn(slotItem.inventoryItem);
+            TheBoardController.Instance.boardItems.Remove(slotItem.inventoryItem);
+            TheBoardController.Instance.SetBoardItems(slotItem.inventoryItem);
             Destroy(slotItem.gameObject);
         }
 
         slotItem = boardItem;
         slotItem.transform.parent = transform;
         slotItem.transform.localPosition = Vector2.zero;
+        TheBoardController.Instance.boardItems.Add(slotItem.inventoryItem);
 
         Validate();
     }
