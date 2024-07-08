@@ -15,14 +15,12 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("PointerEntered");
         if (TheBoardController.itemBeingDragged != null)
             TheBoardController.itemBeingDragged.assignedSlot = this;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("PointerLeft");
         if (TheBoardController.itemBeingDragged != null)
             TheBoardController.itemBeingDragged.assignedSlot = null;
     }
