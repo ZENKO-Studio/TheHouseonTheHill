@@ -39,6 +39,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             TheBoardController.Instance.boardItems.Remove(slotItem.inventoryItem);
             TheBoardController.Instance.SetBoardItems(slotItem.inventoryItem);
             Destroy(slotItem.gameObject);
+            bValid = false;
         }
 
         slotItem = boardItem;
@@ -58,6 +59,8 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 if(slotItem.inventoryItem.itemId == docId)
                     bValid = true;
             }
+
+            slotHandler.Validate();
         }
     }
 

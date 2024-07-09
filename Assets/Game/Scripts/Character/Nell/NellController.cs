@@ -159,7 +159,7 @@ public class NellController : CharacterBase
         base.Start();
         ogStepOffset = characterController.stepOffset;
 
-        GameManager.Instance.playerRef = this;
+        GameManager.Instance.PlayerSpawned(this);
 
         //Ensuring its set
         mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
@@ -187,7 +187,7 @@ public class NellController : CharacterBase
     {
         //#TODO Add condition to check if using third person (Something that can be added in Game Manager)
         //Current conditions to figure out if 3rd person or fixed cam
-        if (GameManager.Instance.ActiveCam() == null || GameManager.Instance.bUsingStaticCam)
+        if (GameManager.Instance.ActiveCam() != null || GameManager.Instance.bUsingStaticCam)
             return;
 
         CameraRotation();
