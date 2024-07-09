@@ -39,8 +39,6 @@ public class InventoryHandler : Singleton<InventoryHandler>
         //EventBus.Unsubscribe<ItemRemovedEvent>(OnItemRemoved);
     }
 
-
-
     public void AddItem(InventoryItem item)
     {
         //Depending on Item Type Add to respective dictionary
