@@ -54,10 +54,12 @@ public class SaltChargeHandler : MonoBehaviour
         }
     }
 
+    GameObject saltParts = null;
+
     public void SaltThrown(AnimationEvent animationEvent)
     {
         if (saltParticles != null)
-            Instantiate(saltParticles, saltSpawnPosition.position, saltSpawnPosition.rotation); 
+            saltParts = Instantiate(saltParticles, saltSpawnPosition.position, saltSpawnPosition.rotation); 
         
         if (Physics.SphereCast(new Ray(saltSpawnPosition.position, saltSpawnPosition.forward), .5f, out RaycastHit hitInfo, throwDistance))
         {
@@ -74,6 +76,11 @@ public class SaltChargeHandler : MonoBehaviour
 
     private void ResetSaltAbility()
     {
+        if (saltParts != null)
+        {
+            Destroy(saltParts);
+        }
+
         if (CurrentSaltCharges > 0)
         {
             bCanThrowSalt = true;
