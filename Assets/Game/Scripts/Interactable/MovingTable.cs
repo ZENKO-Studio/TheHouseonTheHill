@@ -1,6 +1,3 @@
-using StarterAssets;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingTable : MonoBehaviour
@@ -34,7 +31,7 @@ public class MovingTable : MonoBehaviour
         if (bInteracting && deltaP < moveDist)
         {
             float playerInput = Mathf.Clamp01(playerController.moveInput.y);
-            transform.Translate(transform.forward * playerInput * moveSpeed * Time.deltaTime);
+            transform.Translate(transform.forward * (playerInput * moveSpeed * Time.deltaTime));
             deltaP += playerInput * moveSpeed * Time.deltaTime;
         }
     }
