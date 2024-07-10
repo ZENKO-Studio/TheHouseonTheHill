@@ -28,6 +28,13 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        GameManager.Instance.OnPlayerSpawned.AddListener(HandlePlayerSpawn);
+
+        //hudMenu.Invoke("HideHUD", 5f);
+    }
+
+    private void HandlePlayerSpawn()
+    {
         nellController = GameManager.Instance.playerRef;
 
         if (nellController != null)
@@ -40,6 +47,8 @@ public class HUDController : MonoBehaviour
             if (flashlight != null)
                 flashlight.OnFlashLightToggle.AddListener(UpdateFlashlightIcon);
 
+            UpdateSaltCount();
+
             Debug.Log("Listener Added!");
         }
         else
@@ -47,20 +56,7 @@ public class HUDController : MonoBehaviour
             Debug.Log("Listener Not Added!");
 
         }
-
-
-        //hudMenu.Invoke("HideHUD", 5f);
     }
-
-   
-
-
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 
     void UpdateHealthbar()
     {
@@ -103,5 +99,7 @@ public class HUDController : MonoBehaviour
 
         if (flashlight != null)
             flashlight.OnFlashLightToggle.RemoveListener(UpdateFlashlightIcon);
+
+        GameManager.Instance.OnPlayerSpawned.RemoveListener(HandlePlayerSpawn);
     }
 }
