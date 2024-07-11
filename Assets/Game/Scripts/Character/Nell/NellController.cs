@@ -3,6 +3,7 @@
  **/
 using Cinemachine;
 using Game.Scripts.Interactable;
+using GameCreator.Runtime.Common.Audio;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -143,7 +144,15 @@ public class NellController : CharacterBase
     //Reference to Photo Capture Component
     internal PhotoCapture photoCapture;
     private bool isBoardOpen;
+
+    //Movable Objects
+    internal MovableObject movingObj;    //Reference to object player is currently moving
+    internal bool bObjectAttached;       //Whether player reached the object
+    internal float approachThreshold = .2f; //How close the player should be to actual point
+
     #endregion
+
+    #region Unity Specific Methods
 
     private void Awake()
     {
@@ -180,10 +189,17 @@ public class NellController : CharacterBase
 
     private void Update()
     {
-        if (characterController != null && bPlayerHasControl)
+        if (characterController != null)
         {
-            PlayerMovement();
-            SetAnimatorParams();
+            if(movingObj != null && !bObjectAttached)
+            {
+                MoveToObj();
+            }
+            else if(bPlayerHasControl)
+            {
+                PlayerMovement();
+                SetAnimatorParams();
+            }
         }
     }
 
@@ -197,6 +213,41 @@ public class NellController : CharacterBase
         CameraRotation();
         CameraZoom();
     }
+
+    private void OnFootstep(AnimationEvent animationEvent)
+    {
+        if (animationEvent.animatorClipInfo.weight > 0.5f)
+        {
+            if (FootstepAudioClips.Length > 0)
+            {
+                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
+            }
+            
+            var sound = new Sound(transform.position, soundRange);
+
+            Sounds.MakeSound(sound);
+        }
+    }
+
+    private void OnAnimatorMove()
+    {
+
+        if(bGrounded)
+        {
+            
+                Vector3 velocity = nellsAnimator.deltaPosition;
+                velocity.y = ySpeed * Time.deltaTime;
+
+                characterController.Move(velocity);
+            
+            
+        }
+    }
+
+    #endregion
+
+    #region Player Specifics
 
     private void PlayerMovement()
     {
@@ -265,6 +316,52 @@ public class NellController : CharacterBase
         }
 
     }
+
+    private void MoveToObj()
+    {
+        if(movingObj != null && !bObjectAttached)
+        {
+            float distToObj = Vector3.Distance(transform.position, movingObj.closestSnapPoint.position);
+
+            if (distToObj > approachThreshold)
+            {
+                nellsAnimator.SetBool("IsMoving", true);
+                nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
+                
+                if(Vector3.Angle(transform.forward, movingObj.closestSnapPoint.forward) > 5)
+                {
+                    // Determine which direction to rotate towards
+                    Vector3 targetDirection = movingObj.closestSnapPoint.position - transform.position;
+
+                    // The step size is equal to speed times frame time.
+                    float singleStep = rotSpeed * Time.deltaTime;
+
+                    // Rotate the forward vector towards the target direction by one step
+                    Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+
+                    // Calculate a rotation a step closer to the target and applies rotation to this object
+                    transform.rotation = Quaternion.LookRotation(newDirection);
+                }
+                else
+                {
+                    
+                    transform.rotation = Quaternion.Euler(movingObj.closestSnapPoint.position);
+                }
+            }
+            else
+            {
+                nellsAnimator.SetBool("IsMoving", false);
+                bObjectAttached = true;
+            }
+        }
+    }
+
+    private void MoveObj()
+    {
+
+    }
+
+    
 
     private void PlayerJump()
     {
@@ -364,33 +461,6 @@ public class NellController : CharacterBase
         }
     }
 
-    private void OnFootstep(AnimationEvent animationEvent)
-    {
-        if (animationEvent.animatorClipInfo.weight > 0.5f)
-        {
-            if (FootstepAudioClips.Length > 0)
-            {
-                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
-            }
-            
-            var sound = new Sound(transform.position, soundRange);
-
-            Sounds.MakeSound(sound);
-        }
-    }
-
-    private void OnAnimatorMove()
-    {
-        if(bGrounded)
-        {
-            Vector3 velocity = nellsAnimator.deltaPosition;
-            velocity.y = ySpeed * Time.deltaTime;
-
-            characterController.Move(velocity);
-        }
-    }
-
     public void Teleport(Transform t)
     {
         characterController.enabled = false;
@@ -411,6 +481,8 @@ public class NellController : CharacterBase
             _itemInRange.Remove(inventoryItem);
         }
     }
+
+    #endregion
 
     #region Read Inputs
     public void OnMove(InputValue value)
