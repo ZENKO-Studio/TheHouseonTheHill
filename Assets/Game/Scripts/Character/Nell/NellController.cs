@@ -2,9 +2,11 @@
  *  This script handles movement and other stuff related to Nell (Player Controller particularly)
  **/
 using Cinemachine;
+using Game.Scripts.Interactable;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static EventBus;
@@ -15,8 +17,6 @@ using static EventBus;
 [RequireComponent(typeof(SaltChargeHandler))]
 public class NellController : CharacterBase
 {
-    
-
     public CharacterController characterController;
     public Animator nellsAnimator;
     
@@ -128,6 +128,10 @@ public class NellController : CharacterBase
 
     //Temp #TODO Replace later with the Interactable Script
     private List<InventoryItem> _itemInRange = new List<InventoryItem>();
+
+    [HideInInspector]
+    public UnityEvent PlayerInteracted = new UnityEvent();
+
 
     private bool isInventoryOpen = false;
     private bool isFlashOn = false;
@@ -395,12 +399,12 @@ public class NellController : CharacterBase
     }
 
     //Set things that are in range and interactable
-    internal void SetInteractable(InventoryItem inventoryItem)
+    internal void SetInventoryItem(InventoryItem inventoryItem)
     {
         _itemInRange.Add(inventoryItem);
     }
     
-    internal void RemoveInteractable(InventoryItem inventoryItem)
+    internal void RemoveInventoryItem(InventoryItem inventoryItem)
     {
         if (_itemInRange.Contains(inventoryItem))
         {
@@ -444,6 +448,7 @@ public class NellController : CharacterBase
 
     public void OnInteract(InputValue value)
     {
+        PlayerInteracted?.Invoke();
         //  Debug.Log($"{name} is Interacting");
         if (_itemInRange.Count == 0)
             return;
