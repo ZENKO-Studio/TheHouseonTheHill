@@ -15,7 +15,7 @@ namespace Game.Scripts.cs.game
             {
                 if (instance == null)
                 {
-                    instance = (T)FindObjectOfType(typeof(T));
+                    instance = (T)FindFirstObjectByType(typeof(T));
                     if (instance == null)
                     {
                         GameObject go = new GameObject(typeof(T).Name, typeof(T));
