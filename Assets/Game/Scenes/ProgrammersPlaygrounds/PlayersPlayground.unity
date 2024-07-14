@@ -407,27 +407,27 @@ PrefabInstance:
     - target: {fileID: 3953619279141900455, guid: 612d4cf55a5b242479e82e1a5fc94820,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804548745729930891, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6804548745729930891, guid: 612d4cf55a5b242479e82e1a5fc94820,
         type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6804548745729930891, guid: 612d4cf55a5b242479e82e1a5fc94820,
-        type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8591800803348987084, guid: 612d4cf55a5b242479e82e1a5fc94820,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8591800803348987084, guid: 612d4cf55a5b242479e82e1a5fc94820,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -838,7 +838,7 @@ PrefabInstance:
     - target: {fileID: 3945071751349804027, guid: 9b6e18a9441f2f44782017d227376608,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6797138717229299218, guid: 9b6e18a9441f2f44782017d227376608,
         type: 3}
@@ -2890,6 +2890,9 @@ MonoBehaviour:
   cursorLocked: 1
   cursorInputForLook: 1
   saltChargeHandler: {fileID: 0}
+  PlayerInteracted:
+    m_PersistentCalls:
+      m_Calls: []
   flashlight: {fileID: 635071695}
 --- !u!143 &767144196
 CharacterController:
@@ -6618,7 +6621,7 @@ PrefabInstance:
     - target: {fileID: 6743339645903532223, guid: 5017cbea04840f443a140c0614038a73,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8100769841896580916, guid: 5017cbea04840f443a140c0614038a73,
         type: 3}
