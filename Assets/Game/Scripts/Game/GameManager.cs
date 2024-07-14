@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -17,7 +18,9 @@ public class GameManager : Singleton<GameManager>
 
 
     //Should be set on game start or manually in the scene
-    [HideInInspector] public NellController playerRef;
+    public NellController playerRef;
+
+    public UnityEvent OnPlayerSpawned = new UnityEvent();
 
     #region Cam View and Player Movement Orientation
     //Can be used for movable objects since it requires some transform to base direction off
@@ -100,4 +103,10 @@ public class GameManager : Singleton<GameManager>
         Cursor.visible = true;
     }
 
+    public void PlayerSpawned(NellController player)
+    {
+        playerRef = player;
+
+        OnPlayerSpawned?.Invoke();
+    }
 }

@@ -45,7 +45,7 @@ public class InventoryItem : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GameManager.Instance.playerRef.SetInteractable(this);
+            GameManager.Instance.playerRef.SetInventoryItem(this);
             if (interactPopup != null)
             {
                 interactPopup.SetActive(true);
@@ -58,7 +58,7 @@ public class InventoryItem : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            GameManager.Instance.playerRef.RemoveInteractable(this);
+            GameManager.Instance.playerRef.RemoveInventoryItem(this);
             if (interactPopup != null)
             {
                 interactPopup.SetActive(false);
@@ -68,7 +68,9 @@ public class InventoryItem : MonoBehaviour
 
     public virtual void Interact()
     {
-        
+        inventoryHandler.AddItem(this);
+
+        PostInteract();
     }
 
     //Disable Interactable after interacting

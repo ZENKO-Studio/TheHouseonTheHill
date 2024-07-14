@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,9 @@ public class HUDController : MonoBehaviour
     [Header("Health And Stamina")]
     [SerializeField] Slider healthBar;
     [SerializeField] Slider staminaBar;
+
+    [Header("Salt Charges")]
+    [SerializeField] TMP_Text saltText;
 
     [Header("Flashlight")]
     [SerializeField] Image flashlightImage;
@@ -24,16 +28,26 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void OnEnable()
     {
+        GameManager.Instance.OnPlayerSpawned.AddListener(HandlePlayerSpawn);
+
+        //hudMenu.Invoke("HideHUD", 5f);
+    }
+
+    private void HandlePlayerSpawn()
+    {
         nellController = GameManager.Instance.playerRef;
 
         if (nellController != null)
         {
             nellController.OnHealthChanged.AddListener(UpdateHealthbar);
             nellController.OnStaminaChanged.AddListener(UpdateStaminabar);
+            nellController.saltChargeHandler.OnSaltChanged.AddListener(UpdateSaltCount);
             flashlight = nellController.flashlight;
 
             if (flashlight != null)
                 flashlight.OnFlashLightToggle.AddListener(UpdateFlashlightIcon);
+
+            UpdateSaltCount();
 
             Debug.Log("Listener Added!");
         }
@@ -42,18 +56,7 @@ public class HUDController : MonoBehaviour
             Debug.Log("Listener Not Added!");
 
         }
-
-
-        //hudMenu.Invoke("HideHUD", 5f);
     }
-
-    
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 
     void UpdateHealthbar()
     {
@@ -71,6 +74,14 @@ public class HUDController : MonoBehaviour
         //hudMenu.Invoke("HideHUD", 5f);
     }
 
+    private void UpdateSaltCount()
+    {
+        if(saltText)
+        {
+            saltText.text = nellController.saltChargeHandler.CurrentSaltCharges.ToString();
+        }
+    }
+
     private void UpdateFlashlightIcon()
     {
         flashlightImage.sprite = flashlight.IsOn() ? flashOnSprite : flashOffSprite;
@@ -82,9 +93,13 @@ public class HUDController : MonoBehaviour
         {
             nellController.OnHealthChanged.RemoveListener(UpdateHealthbar);
             nellController.OnStaminaChanged.RemoveListener(UpdateStaminabar);
+            nellController.saltChargeHandler.OnSaltChanged.RemoveListener(UpdateSaltCount);
+
         }
 
         if (flashlight != null)
             flashlight.OnFlashLightToggle.RemoveListener(UpdateFlashlightIcon);
+
+        GameManager.Instance.OnPlayerSpawned.RemoveListener(HandlePlayerSpawn);
     }
 }

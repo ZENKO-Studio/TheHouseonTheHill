@@ -301,7 +301,7 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
         {
             Rect labelRect = DrawUtils.GetLabelRect(position);
             Rect iconRect = labelRect;
-            iconRect.width = iconContent.image.width + padSize;
+           // iconRect.width = iconContent.image.width + padSize;
             labelRect.width -= iconRect.width;
             labelRect.x += iconRect.width;
             EditorGUI.PrefixLabel(iconRect, sceneControlID, iconContent);

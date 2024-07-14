@@ -2,9 +2,12 @@
  *  This script handles movement and other stuff related to Nell (Player Controller particularly)
  **/
 using Cinemachine;
+using Game.Scripts.Interactable;
+using GameCreator.Runtime.Common.Audio;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static EventBus;
@@ -12,11 +15,11 @@ using static EventBus;
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SaltChargeHandler))]
 public class NellController : CharacterBase
 {
-
     public CharacterController characterController;
-    Animator animator;
+    public Animator nellsAnimator;
     
     #region Character Control Values
     [Header("Character Controls")]
@@ -44,6 +47,8 @@ public class NellController : CharacterBase
     private bool bGrounded;
     private bool bFalling;
 
+    //This is the variable that can be changed to take control away from player and give back to player
+    public bool bPlayerHasControl = true;
 
     #endregion
 
@@ -114,10 +119,20 @@ public class NellController : CharacterBase
 	public bool cursorInputForLook = true;
     #endregion
 
+    #region Player Objects (Salt and Batteries)
+
+    public SaltChargeHandler saltChargeHandler;
+    
+    #endregion
+
     #region Other Vars
 
     //Temp #TODO Replace later with the Interactable Script
     private List<InventoryItem> _itemInRange = new List<InventoryItem>();
+
+    [HideInInspector]
+    public UnityEvent PlayerInteracted = new UnityEvent();
+
 
     private bool isInventoryOpen = false;
     private bool isFlashOn = false;
@@ -128,13 +143,23 @@ public class NellController : CharacterBase
     
     //Reference to Photo Capture Component
     internal PhotoCapture photoCapture;
+    private bool isBoardOpen;
+
+    //Movable Objects
+    internal MovableObject movingObj;    //Reference to object player is currently moving
+    internal bool bObjectAttached;       //Whether player reached the object
+    internal float approachThreshold = .2f; //How close the player should be to actual point
+
     #endregion
+
+    #region Unity Specific Methods
 
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        nellsAnimator = GetComponent<Animator>();
         photoCapture = GetComponent<PhotoCapture>();
+        saltChargeHandler = GetComponent<SaltChargeHandler>();
 
         defaultHeight = characterController.height;
         defaultCenter = characterController.center.y;
@@ -147,7 +172,7 @@ public class NellController : CharacterBase
         base.Start();
         ogStepOffset = characterController.stepOffset;
 
-        GameManager.Instance.playerRef = this;
+        GameManager.Instance.PlayerSpawned(this);
 
         //Ensuring its set
         mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
@@ -166,8 +191,15 @@ public class NellController : CharacterBase
     {
         if (characterController != null)
         {
-            PlayerMovement();
-            SetAnimatorParams();
+            if(movingObj != null && !bObjectAttached)
+            {
+                MoveToObj();
+            }
+            else if(bPlayerHasControl)
+            {
+                PlayerMovement();
+                SetAnimatorParams();
+            }
         }
     }
 
@@ -175,12 +207,47 @@ public class NellController : CharacterBase
     {
         //#TODO Add condition to check if using third person (Something that can be added in Game Manager)
         //Current conditions to figure out if 3rd person or fixed cam
-        if (GameManager.Instance.ActiveCam() == null && GameManager.Instance.bUsingStaticCam)
+        if (GameManager.Instance.ActiveCam() != null || GameManager.Instance.bUsingStaticCam)
             return;
 
         CameraRotation();
         CameraZoom();
     }
+
+    private void OnFootstep(AnimationEvent animationEvent)
+    {
+        if (animationEvent.animatorClipInfo.weight > 0.5f)
+        {
+            if (FootstepAudioClips.Length > 0)
+            {
+                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
+            }
+            
+            var sound = new Sound(transform.position, soundRange);
+
+            Sounds.MakeSound(sound);
+        }
+    }
+
+    private void OnAnimatorMove()
+    {
+
+        if(bGrounded)
+        {
+            
+                Vector3 velocity = nellsAnimator.deltaPosition;
+                velocity.y = ySpeed * Time.deltaTime;
+
+                characterController.Move(velocity);
+            
+            
+        }
+    }
+
+    #endregion
+
+    #region Player Specifics
 
     private void PlayerMovement()
     {
@@ -220,11 +287,11 @@ public class NellController : CharacterBase
 
         PlayerJump();
 
-        animator.SetFloat("InputMagnitude", inputMag, 0.05f, Time.deltaTime);   //This is to smmoth out blend value for sharp input changes in WASD
+        nellsAnimator.SetFloat("InputMagnitude", inputMag, 0.05f, Time.deltaTime);   //This is to smmoth out blend value for sharp input changes in WASD
 
         if (movDir != Vector3.zero)
         {
-            animator.SetBool("IsMoving", true);
+            nellsAnimator.SetBool("IsMoving", true);
 
             if (sprint && Stamina > 0)
                 DepleteStamina();
@@ -234,7 +301,7 @@ public class NellController : CharacterBase
         }
         else
         {
-             animator.SetBool("IsMoving", false);
+             nellsAnimator.SetBool("IsMoving", false);
              if(GetStamina() < 100)
                 GenerateStamina();
         }
@@ -249,6 +316,52 @@ public class NellController : CharacterBase
         }
 
     }
+
+    private void MoveToObj()
+    {
+        if(movingObj != null && !bObjectAttached)
+        {
+            float distToObj = Vector3.Distance(transform.position, movingObj.closestSnapPoint.position);
+
+            if (distToObj > approachThreshold)
+            {
+                nellsAnimator.SetBool("IsMoving", true);
+                nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
+                
+                if(Vector3.Angle(transform.forward, movingObj.closestSnapPoint.forward) > 5)
+                {
+                    // Determine which direction to rotate towards
+                    Vector3 targetDirection = movingObj.closestSnapPoint.position - transform.position;
+
+                    // The step size is equal to speed times frame time.
+                    float singleStep = rotSpeed * Time.deltaTime;
+
+                    // Rotate the forward vector towards the target direction by one step
+                    Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
+
+                    // Calculate a rotation a step closer to the target and applies rotation to this object
+                    transform.rotation = Quaternion.LookRotation(newDirection);
+                }
+                else
+                {
+                    
+                    transform.rotation = Quaternion.Euler(movingObj.closestSnapPoint.position);
+                }
+            }
+            else
+            {
+                nellsAnimator.SetBool("IsMoving", false);
+                bObjectAttached = true;
+            }
+        }
+    }
+
+    private void MoveObj()
+    {
+
+    }
+
+    
 
     private void PlayerJump()
     {
@@ -286,13 +399,12 @@ public class NellController : CharacterBase
 
     private void SetAnimatorParams()
     {
-        animator.SetBool("IsJumping", bJumping);
-        animator.SetBool("IsGrounded", bGrounded);
-        animator.SetBool("IsFalling", bFalling);
+        nellsAnimator.SetBool("IsJumping", bJumping);
+        nellsAnimator.SetBool("IsGrounded", bGrounded);
+        nellsAnimator.SetBool("IsFalling", bFalling);
     }
 
     private const float _threshold = 0.01f;
-
 
     private void CameraRotation()
     {
@@ -331,7 +443,7 @@ public class NellController : CharacterBase
 
     private void Crouch()
     {
-        animator.SetBool("IsCrouching", crouch);
+        nellsAnimator.SetBool("IsCrouching", crouch);
 
         if (crouch)
         {
@@ -349,38 +461,6 @@ public class NellController : CharacterBase
         }
     }
 
-    private void OnFootstep(AnimationEvent animationEvent)
-    {
-
-        // Debug.Log("Footstep");
-        if (animationEvent.animatorClipInfo.weight > 0.5f)
-        {
-            if (FootstepAudioClips.Length > 0)
-            {
-                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
-            }
-            
-            var sound = new Sound(transform.position, soundRange);
-
-            Sounds.MakeSound(sound);
-        }
-    }
-
-    private void OnAnimatorMove()
-    {
-        if(bGrounded)
-        {
-            Vector3 velocity = animator.deltaPosition;
-            velocity.y = ySpeed * Time.deltaTime;
-
-            characterController.Move(velocity);
-        }
-        
-           
-        
-    }
-
     public void Teleport(Transform t)
     {
         characterController.enabled = false;
@@ -389,18 +469,20 @@ public class NellController : CharacterBase
     }
 
     //Set things that are in range and interactable
-    internal void SetInteractable(InventoryItem inventoryItem)
+    internal void SetInventoryItem(InventoryItem inventoryItem)
     {
         _itemInRange.Add(inventoryItem);
     }
     
-    internal void RemoveInteractable(InventoryItem inventoryItem)
+    internal void RemoveInventoryItem(InventoryItem inventoryItem)
     {
         if (_itemInRange.Contains(inventoryItem))
         {
             _itemInRange.Remove(inventoryItem);
         }
     }
+
+    #endregion
 
     #region Read Inputs
     public void OnMove(InputValue value)
@@ -429,22 +511,26 @@ public class NellController : CharacterBase
 
     public void OnCrouch(InputValue value)
     {
+        if (!bGrounded)
+            return;
+
         crouch = !crouch;
         Crouch();
     }
 
-    //public void OnInteract(InputValue value)
-    //{
-    //    //  Debug.Log($"{name} is Interacting");
-    //    if (_itemInRange.Count == 0)
-    //        return;
+    public void OnInteract(InputValue value)
+    {
+        PlayerInteracted?.Invoke();
+        //  Debug.Log($"{name} is Interacting");
+        if (_itemInRange.Count == 0)
+            return;
 
-    //    if (_itemInRange[_itemInRange.Count-1] != null)
-    //    {
-    //        _itemInRange[_itemInRange.Count-1].Interact();
-    //        _itemInRange.RemoveAt(_itemInRange.Count-1);
-    //    }
-    //}
+        if (_itemInRange[_itemInRange.Count - 1] != null)
+        {
+            _itemInRange[_itemInRange.Count - 1].Interact();
+            _itemInRange.RemoveAt(_itemInRange.Count - 1);
+        }
+    }
 
     public void OnCamZoom(InputValue value)
     {
@@ -455,6 +541,12 @@ public class NellController : CharacterBase
     {
         isInventoryOpen = !isInventoryOpen;
         EventBus.Publish(new ToggleInventoryEvent(isInventoryOpen));
+    }
+
+    public void OnBoard(InputValue value)
+    {
+        isBoardOpen = !isBoardOpen;
+        EventBus.Publish(new ToggleBoardEvent(isBoardOpen));
     }
 
     public void OnCamMode(InputValue value)
@@ -469,6 +561,11 @@ public class NellController : CharacterBase
         {
             flashlight.ToggleFlashlight();
         }
+    }
+
+    public void OnThrowSalt(InputValue value)
+    {
+        saltChargeHandler.ThrowSalt();
     }
 
     #endregion
