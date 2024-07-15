@@ -41,5 +41,4 @@ public class EnemyBase : CharacterBase
     //    transform.rotation = rot;
     //}
 
-   
 }
