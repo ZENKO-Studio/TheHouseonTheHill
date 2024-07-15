@@ -72,7 +72,7 @@ PrefabInstance:
         type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 7ea0c9519ecd3f44c8cf2b494067dd2c, type: 2}
+      objectReference: {fileID: 2100000, guid: 5e9864baef456df438b1dc4c4863cd86, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -80,8 +80,44 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8066918869142080807}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 201a6e2cb4ad9f742a52da4e313923ef,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3807251637800649225}
   m_SourcePrefab: {fileID: 100100000, guid: 201a6e2cb4ad9f742a52da4e313923ef, type: 3}
+--- !u!1 &1274025534768390658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 201a6e2cb4ad9f742a52da4e313923ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 2121009231999573843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3807251637800649225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1274025534768390658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef0928beee878d34fabb152844d29b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gate: {fileID: 8066918869142080807}
+  usePosition: 1
+  useGlobalPosition: 0
+  openPosition: {x: 0, y: 0, z: 0}
+  closePosition: {x: 0, y: 0, z: 0}
+  useRotation: 0
+  useGlobalRotation: 0
+  rotationAxis: {x: 0, y: 1, z: 0}
+  openRotationDeg: 0
+  closeRotationDeg: 0
+  duration: 1
+  openThreshold: 0.5
+  startState: 0
+  scriptOverride: 0
 --- !u!4 &1938218916251039928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 201a6e2cb4ad9f742a52da4e313923ef,
