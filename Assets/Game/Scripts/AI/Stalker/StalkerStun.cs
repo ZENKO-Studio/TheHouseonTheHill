@@ -10,6 +10,7 @@ public class StalkerStun : StalkerBaseState
     {
         currentTime = 0f;
         agent.speed = 0f;
+        stalkerRef.stalkerAnimator.SetBool("Stun", true);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -31,6 +32,7 @@ public class StalkerStun : StalkerBaseState
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        stalkerRef.stalkerAnimator.SetBool("Stun", false);
         agent.speed = stalkerRef.moveSpeed;
     }
 }
