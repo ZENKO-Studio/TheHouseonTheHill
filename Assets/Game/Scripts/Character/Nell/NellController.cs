@@ -48,7 +48,7 @@ public class NellController : CharacterBase
     private bool bFalling;
 
     //This is the variable that can be changed to take control away from player and give back to player
-    public bool bPlayerHasControl = true;
+    bool bPlayerHasControl = true;
 
     #endregion
 
@@ -145,11 +145,6 @@ public class NellController : CharacterBase
     internal PhotoCapture photoCapture;
     private bool isBoardOpen;
 
-    //Movable Objects
-    internal MovableObject movingObj;    //Reference to object player is currently moving
-    internal bool bObjectAttached;       //Whether player reached the object
-    internal float approachThreshold = .2f; //How close the player should be to actual point
-
     #endregion
 
     #region Unity Specific Methods
@@ -189,17 +184,12 @@ public class NellController : CharacterBase
 
     private void Update()
     {
-        if (characterController != null)
+        if (characterController != null && bPlayerHasControl)
         {
-            if(movingObj != null && !bObjectAttached)
-            {
-                MoveToObj();
-            }
-            else if(bPlayerHasControl)
-            {
-                PlayerMovement();
-                SetAnimatorParams();
-            }
+            
+            PlayerMovement();
+            SetAnimatorParams();
+            
         }
     }
 
@@ -232,16 +222,16 @@ public class NellController : CharacterBase
 
     private void OnAnimatorMove()
     {
-
-        if(bGrounded)
+        if(bGrounded && bPlayerHasControl)
         {
-            
                 Vector3 velocity = nellsAnimator.deltaPosition;
                 velocity.y = ySpeed * Time.deltaTime;
 
-                characterController.Move(velocity);
-            
-            
+                characterController.Move(velocity);   
+        }
+        else
+        {
+            transform.position += nellsAnimator.deltaPosition;
         }
     }
 
@@ -275,7 +265,7 @@ public class NellController : CharacterBase
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
-        if (sprint)
+        if (sprint && Stamina > 0)
         {
             inputMag *= 2;
             soundRange = runSound;
@@ -317,58 +307,11 @@ public class NellController : CharacterBase
 
     }
 
-    private void MoveToObj()
-    {
-        if(movingObj != null && !bObjectAttached)
-        {
-            float distToObj = Vector3.Distance(transform.position, movingObj.closestSnapPoint.position);
-
-            if (distToObj > approachThreshold)
-            {
-                nellsAnimator.SetBool("IsMoving", true);
-                nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
-                
-                if(Vector3.Angle(transform.forward, movingObj.closestSnapPoint.forward) > 5)
-                {
-                    // Determine which direction to rotate towards
-                    Vector3 targetDirection = movingObj.closestSnapPoint.position - transform.position;
-
-                    // The step size is equal to speed times frame time.
-                    float singleStep = rotSpeed * Time.deltaTime;
-
-                    // Rotate the forward vector towards the target direction by one step
-                    Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
-
-                    // Calculate a rotation a step closer to the target and applies rotation to this object
-                    transform.rotation = Quaternion.LookRotation(newDirection);
-                }
-                else
-                {
-                    
-                    transform.rotation = Quaternion.Euler(movingObj.closestSnapPoint.position);
-                }
-            }
-            else
-            {
-                nellsAnimator.SetBool("IsMoving", false);
-                bObjectAttached = true;
-            }
-        }
-    }
-
-    private void MoveObj()
-    {
-
-    }
-
-    
-
     private void PlayerJump()
     {
         if(crouch) return;
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
-
 
         if (characterController.isGrounded)
         {
@@ -395,6 +338,12 @@ public class NellController : CharacterBase
                 bFalling = true;
             }
         }
+    }
+
+    public void SetPlayerHasControl(bool v)
+    {
+        bPlayerHasControl = v;
+        characterController.enabled = bPlayerHasControl;
     }
 
     private void SetAnimatorParams()
@@ -520,6 +469,9 @@ public class NellController : CharacterBase
 
     public void OnInteract(InputValue value)
     {
+        if (!bGrounded)
+            return;
+
         PlayerInteracted?.Invoke();
         //  Debug.Log($"{name} is Interacting");
         if (_itemInRange.Count == 0)
@@ -565,7 +517,8 @@ public class NellController : CharacterBase
 
     public void OnThrowSalt(InputValue value)
     {
-        saltChargeHandler.ThrowSalt();
+        if(bPlayerHasControl)
+            saltChargeHandler.ThrowSalt();
     }
 
     #endregion
