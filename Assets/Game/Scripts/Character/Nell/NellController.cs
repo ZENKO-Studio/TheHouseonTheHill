@@ -2,9 +2,12 @@
  *  This script handles movement and other stuff related to Nell (Player Controller particularly)
  **/
 using Cinemachine;
+using Game.Scripts.Interactable;
+using GameCreator.Runtime.Common.Audio;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static EventBus;
@@ -15,8 +18,6 @@ using static EventBus;
 [RequireComponent(typeof(SaltChargeHandler))]
 public class NellController : CharacterBase
 {
-    
-
     public CharacterController characterController;
     public Animator nellsAnimator;
     
@@ -47,7 +48,7 @@ public class NellController : CharacterBase
     private bool bFalling;
 
     //This is the variable that can be changed to take control away from player and give back to player
-    public bool bPlayerHasControl = true;
+    bool bPlayerHasControl = true;
 
     #endregion
 
@@ -129,6 +130,10 @@ public class NellController : CharacterBase
     //Temp #TODO Replace later with the Interactable Script
     private List<InventoryItem> _itemInRange = new List<InventoryItem>();
 
+    [HideInInspector]
+    public UnityEvent PlayerInteracted = new UnityEvent();
+
+
     private bool isInventoryOpen = false;
     private bool isFlashOn = false;
     private bool isCamMode = false;
@@ -139,7 +144,10 @@ public class NellController : CharacterBase
     //Reference to Photo Capture Component
     internal PhotoCapture photoCapture;
     private bool isBoardOpen;
+
     #endregion
+
+    #region Unity Specific Methods
 
     private void Awake()
     {
@@ -178,8 +186,10 @@ public class NellController : CharacterBase
     {
         if (characterController != null && bPlayerHasControl)
         {
+            
             PlayerMovement();
             SetAnimatorParams();
+            
         }
     }
 
@@ -193,6 +203,41 @@ public class NellController : CharacterBase
         CameraRotation();
         CameraZoom();
     }
+
+    private void OnFootstep(AnimationEvent animationEvent)
+    {
+        if (animationEvent.animatorClipInfo.weight > 0.5f)
+        {
+            if (FootstepAudioClips.Length > 0)
+            {
+                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
+            }
+            
+            var sound = new Sound(transform.position, soundRange);
+
+            Sounds.MakeSound(sound);
+        }
+    }
+
+    private void OnAnimatorMove()
+    {
+        if(bGrounded && bPlayerHasControl)
+        {
+                Vector3 velocity = nellsAnimator.deltaPosition;
+                velocity.y = ySpeed * Time.deltaTime;
+
+                characterController.Move(velocity);   
+        }
+        else
+        {
+            transform.position += nellsAnimator.deltaPosition;
+        }
+    }
+
+    #endregion
+
+    #region Player Specifics
 
     private void PlayerMovement()
     {
@@ -220,7 +265,7 @@ public class NellController : CharacterBase
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
-        if (sprint)
+        if (sprint && Stamina > 0)
         {
             inputMag *= 2;
             soundRange = runSound;
@@ -268,7 +313,6 @@ public class NellController : CharacterBase
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
-
         if (characterController.isGrounded)
         {
             characterController.stepOffset = ogStepOffset;
@@ -294,6 +338,12 @@ public class NellController : CharacterBase
                 bFalling = true;
             }
         }
+    }
+
+    public void SetPlayerHasControl(bool v)
+    {
+        bPlayerHasControl = v;
+        characterController.enabled = bPlayerHasControl;
     }
 
     private void SetAnimatorParams()
@@ -360,33 +410,6 @@ public class NellController : CharacterBase
         }
     }
 
-    private void OnFootstep(AnimationEvent animationEvent)
-    {
-        if (animationEvent.animatorClipInfo.weight > 0.5f)
-        {
-            if (FootstepAudioClips.Length > 0)
-            {
-                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
-            }
-            
-            var sound = new Sound(transform.position, soundRange);
-
-            Sounds.MakeSound(sound);
-        }
-    }
-
-    private void OnAnimatorMove()
-    {
-        if(bGrounded)
-        {
-            Vector3 velocity = nellsAnimator.deltaPosition;
-            velocity.y = ySpeed * Time.deltaTime;
-
-            characterController.Move(velocity);
-        }
-    }
-
     public void Teleport(Transform t)
     {
         characterController.enabled = false;
@@ -395,18 +418,20 @@ public class NellController : CharacterBase
     }
 
     //Set things that are in range and interactable
-    internal void SetInteractable(InventoryItem inventoryItem)
+    internal void SetInventoryItem(InventoryItem inventoryItem)
     {
         _itemInRange.Add(inventoryItem);
     }
     
-    internal void RemoveInteractable(InventoryItem inventoryItem)
+    internal void RemoveInventoryItem(InventoryItem inventoryItem)
     {
         if (_itemInRange.Contains(inventoryItem))
         {
             _itemInRange.Remove(inventoryItem);
         }
     }
+
+    #endregion
 
     #region Read Inputs
     public void OnMove(InputValue value)
@@ -444,6 +469,10 @@ public class NellController : CharacterBase
 
     public void OnInteract(InputValue value)
     {
+        if (!bGrounded)
+            return;
+
+        PlayerInteracted?.Invoke();
         //  Debug.Log($"{name} is Interacting");
         if (_itemInRange.Count == 0)
             return;
@@ -488,7 +517,8 @@ public class NellController : CharacterBase
 
     public void OnThrowSalt(InputValue value)
     {
-        saltChargeHandler.ThrowSalt();
+        if(bPlayerHasControl)
+            saltChargeHandler.ThrowSalt();
     }
 
     #endregion
