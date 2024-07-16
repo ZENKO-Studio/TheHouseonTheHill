@@ -7,61 +7,38 @@ using Random = UnityEngine.Random;
 
 public class Dial : MonoBehaviour
 {
+    public float rotationSpeed = 10f;
+    public float rayDistance;
+    public LayerMask layer;
 
-    [Header("Settings")] 
-    [SerializeField] private float animDuration;
-
-    private bool isRotating = false;
-    private int currentIndex;
-
-    [Header("Events")] [SerializeField] private UnityEvent<Dial> onDialRotated;
-
-    private void Start()
+    private void Update()
     {
-        currentIndex = Random.Range(0, 26);
-        transform.localRotation = Quaternion.Euler(currentIndex * -36,0,0);
+        if (Input.GetMouseButton(0))
+        {
+            RotateDial();
+        }
     }
 
-    public void Rotating()
+    private void RotateDial()
     {
-        if(isRotating) return;
+        Ray ray = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
 
-        isRotating = true;
+        if (Physics.Raycast(ray, out hit, rayDistance, layer))
+        {
+            if (!hit.collider.CompareTag("RotatableDial")) return;
+            
+            // If the ray hits an object, log the name of the object
+            Debug.Log("Hit object: " + hit.collider.gameObject.name);
+            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
+            // You can also access other information about the hit object, like its position
+            Debug.Log("Hit position: " + hit.point);
 
-        currentIndex++;
-
-        if (currentIndex >= 26)
-            currentIndex = 0;
-
-
+        }
     }
 
-    private void RotationCompleteCallBack()
+    public void Rotate()
     {
-        
-        onDialRotated?.Invoke(this);
-        
+        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
     }
-
-    public int GetNumber()
-    {
-
-        return currentIndex;
-    }
-
-    public void Lock()
-    {
-
-        isRotating = true;
-
-    }
-
-    public void Unlock()
-    {
-
-        isRotating = false;
-
-
-    }
-
 }
