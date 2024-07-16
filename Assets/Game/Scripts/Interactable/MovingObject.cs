@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class MovingTable : MonoBehaviour
+public class MovingObject : MonoBehaviour
 {
     private bool bInteracting;
     private NellController playerController;
