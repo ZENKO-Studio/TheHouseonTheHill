@@ -2,22 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class AnimSequenceTrigger : MonoBehaviour
 {
-    Animator animator;
+    [SerializeField] Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        if (!animator)
+            Debug.LogError($"{name} requires an animation sequence to trigger");
+
+        animator.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (animator != null)
         {
-            animator.SetTrigger("PlaySeq");
+            animator.enabled = true;
         }
     }
 }
