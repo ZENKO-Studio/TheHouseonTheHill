@@ -10,20 +10,23 @@ public class StalkerAttackState : StalkerBaseState
     {
         //Do what needs to be done
         currentTime = 0f;
+
+        stalkerRef.stalkerAnimator.SetBool("Attack", true);
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if(stalkerRef.bPlayerSensed)
         {
-            currentTime += Time.deltaTime;
-            if (currentTime >= stalkerRef.attackFrequency)
-            {
-                stalkerRef.Attack();
-                currentTime = 0f;
-            }
+            //This part is replaced by making Attack an animation event
+            //currentTime += Time.deltaTime;
+            //if (currentTime >= stalkerRef.attackFrequency)
+            //{
+            //    stalkerRef.Attack();
+            //    currentTime = 0f;
+            //}
 
-            if(Vector3.Distance(stalkerTransform.position, stalkerRef.playerTransform.position) > stalkerRef.attackRange)
+            if(!stalkerRef.CanAttackPlayer())
             {
                 fsm.ChangeState(StalkerFSM.ChasePlayerState);
             }
@@ -32,5 +35,10 @@ public class StalkerAttackState : StalkerBaseState
         {
             fsm.ChangeState(StalkerFSM.InvestigateState);
         }
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        stalkerRef.stalkerAnimator.SetBool("Attack", false);
     }
 }

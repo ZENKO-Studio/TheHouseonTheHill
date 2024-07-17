@@ -78,6 +78,7 @@ PlayerSettings:
   androidMinimumWindowWidth: 400
   androidMinimumWindowHeight: 300
   androidFullscreenMode: 1
+  androidAutoRotationBehavior: 1
   androidApplicationEntry: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
@@ -770,7 +771,7 @@ PlayerSettings:
   scriptingDefineSymbols:
     Android: PROBUILDER_EXPERIMENTAL_FEATURES;TMP_PRESENT;USE_NAVMESH;USE_CINEMACHINE;USE_NEW_INPUT;USE_TWINE;USE_TWINE
     Server: PROBUILDER_EXPERIMENTAL_FEATURES
-    Standalone: PROBUILDER_EXPERIMENTAL_FEATURES;TMP_PRESENT;USE_NAVMESH;USE_CINEMACHINE;USE_NEW_INPUT;USE_TWINE;USE_TWINE
+    Standalone: PROBUILDER_EXPERIMENTAL_FEATURES;TMP_PRESENT;USE_NAVMESH;USE_CINEMACHINE;USE_NEW_INPUT;USE_TWINE;DREAMTECK_SPLINES
     WebGL: PROBUILDER_EXPERIMENTAL_FEATURES;USE_TWINE;USE_TWINE
   additionalCompilerArguments: {}
   platformArchitecture: {}
@@ -814,6 +815,7 @@ PlayerSettings:
   metroSplashScreenBackgroundColor: {r: 0.12941177, g: 0.17254902, b: 0.21568628,
     a: 1}
   metroSplashScreenUseBackgroundColor: 0
+  syncCapabilities: 0
   platformCapabilities: {}
   metroTargetDeviceFamilies: {}
   metroFTAName: 
