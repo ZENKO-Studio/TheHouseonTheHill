@@ -10,6 +10,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.VFX;
 using static EventBus;
 
 [RequireComponent(typeof(PlayerInput))]
@@ -43,6 +44,7 @@ public class NellController : CharacterBase
     private float defaultCenter;
 
     //Some variables for Animation Control
+    private bool bMoving;
     private bool bJumping;
     private bool bGrounded;
     private bool bFalling;
@@ -104,8 +106,18 @@ public class NellController : CharacterBase
 
     [Tooltip("Reference to the Main Camera")]
     [SerializeField] private Transform mainCamTransform;
+
+    private bool bPendingOrientationUpdate = false;
+
+    //The transform that the player will be oriented to (Will be changed on Camera Change)
+    private Transform orientationTransform;
+    private GameObject orientationObject;
+
+    [Tooltip("To Force player to use Third Person")]
+    [SerializeField] private bool bForceUseThirdPerson;
+
     #endregion
-    
+
     #region Input Values
     [Header("Player Input Values")]
     public Vector2 moveInput;
@@ -145,6 +157,9 @@ public class NellController : CharacterBase
     internal PhotoCapture photoCapture;
     private bool isBoardOpen;
 
+    //Reference to VisualEffect
+    VisualEffect bloodFx;
+    
     #endregion
 
     #region Unity Specific Methods
@@ -155,6 +170,9 @@ public class NellController : CharacterBase
         nellsAnimator = GetComponent<Animator>();
         photoCapture = GetComponent<PhotoCapture>();
         saltChargeHandler = GetComponent<SaltChargeHandler>();
+
+        bloodFx = GetComponentInChildren<VisualEffect>();
+        
 
         defaultHeight = characterController.height;
         defaultCenter = characterController.center.y;
@@ -169,39 +187,56 @@ public class NellController : CharacterBase
 
         GameManager.Instance.PlayerSpawned(this);
 
+        bloodFx.Stop();
+
         //Ensuring its set
         mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
+
+        orientationObject = new GameObject();
+        orientationTransform = orientationObject.transform;
+        orientationTransform.rotation = mainCamTransform.rotation;
+
+        if(bForceUseThirdPerson)
+        {
+            orientationTransform = camTarget.transform;
+        }
     }
 
     public override void TakeDamage(float damage)
     {
         base.TakeDamage(damage);
 
+        if(bloodFx)
+            bloodFx.Play();
+
         //#TODO: Remove later just for trial purpose
         if (health <= 0)
-            SceneManager.LoadScene(0);
+            OnCharacterDead?.Invoke();
     }
 
     private void Update()
     {
         if (characterController != null && bPlayerHasControl)
         {
-            
             PlayerMovement();
             SetAnimatorParams();
-            
+        }
+
+        if(bPendingOrientationUpdate)
+        {
+            UpdateOrientation();
         }
     }
 
     private void LateUpdate()
     {
         //#TODO Add condition to check if using third person (Something that can be added in Game Manager)
-        //Current conditions to figure out if 3rd person or fixed cam
-        if (GameManager.Instance.ActiveCam() != null || GameManager.Instance.bUsingStaticCam)
-            return;
-
-        CameraRotation();
-        CameraZoom();
+       
+        if(bForceUseThirdPerson)
+        {
+            CameraRotation();
+            CameraZoom();
+        }
     }
 
     private void OnFootstep(AnimationEvent animationEvent)
@@ -246,22 +281,7 @@ public class NellController : CharacterBase
 
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
 
-        //Check for Game Managers Active Camera
-        if(GameManager.Instance.bUsingStaticCam)
-        {
-            //Use the Main Camera as it is repositioned at Virtual Camera
-            movDir = Quaternion.AngleAxis(mainCamTransform.rotation.eulerAngles.y, Vector3.up) * movDir;
-        }
-        else if(GameManager.Instance.ActiveCam() != null)
-        {
-            //Use the active cams Yaw to adjust movement direction
-            movDir = Quaternion.AngleAxis(GameManager.Instance.ActiveCam().rotation.eulerAngles.y, Vector3.up) * movDir;
-        }
-        else
-        {
-            //Use Third Person Cams Yaw to adjust movement direction
-            movDir = Quaternion.AngleAxis(camTarget.transform.rotation.eulerAngles.y, Vector3.up) * movDir;
-        }
+        movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
@@ -281,8 +301,8 @@ public class NellController : CharacterBase
 
         if (movDir != Vector3.zero)
         {
-            nellsAnimator.SetBool("IsMoving", true);
-
+            bMoving = true;
+            
             if (sprint && Stamina > 0)
                 DepleteStamina();
 
@@ -291,7 +311,7 @@ public class NellController : CharacterBase
         }
         else
         {
-             nellsAnimator.SetBool("IsMoving", false);
+            bMoving = false;
              if(GetStamina() < 100)
                 GenerateStamina();
         }
@@ -340,6 +360,35 @@ public class NellController : CharacterBase
         }
     }
 
+    public void UpdateOrientation()
+    {
+        //If Orientation is overriden by some external transform
+        if(GameManager.Instance.OverriddenOrientation() != null)
+        {
+            orientationTransform = GameManager.Instance.OverriddenOrientation();
+            return;
+        }
+
+        //If Character is forced in 3rd Person
+        if (bForceUseThirdPerson)
+        {
+            orientationTransform = camTarget.transform;
+            return;
+        }
+
+        //This is when 
+        if (bMoving)
+        {
+            bPendingOrientationUpdate = true;
+            return;
+        }
+    
+        orientationTransform = orientationObject.transform;
+        orientationTransform.rotation = mainCamTransform.rotation;
+        bPendingOrientationUpdate = false;
+        
+    }
+
     public void SetPlayerHasControl(bool v)
     {
         bPlayerHasControl = v;
@@ -348,6 +397,7 @@ public class NellController : CharacterBase
 
     private void SetAnimatorParams()
     {
+        nellsAnimator.SetBool("IsMoving", bMoving);
         nellsAnimator.SetBool("IsJumping", bJumping);
         nellsAnimator.SetBool("IsGrounded", bGrounded);
         nellsAnimator.SetBool("IsFalling", bFalling);
