@@ -216,15 +216,15 @@ public class NellController : CharacterBase
 
     private void Update()
     {
+        if (bPendingOrientationUpdate)
+        {
+            UpdateOrientation();
+        }
+
         if (characterController != null && bPlayerHasControl)
         {
             PlayerMovement();
             SetAnimatorParams();
-        }
-
-        if(bPendingOrientationUpdate)
-        {
-            UpdateOrientation();
         }
     }
 
@@ -237,6 +237,9 @@ public class NellController : CharacterBase
             CameraRotation();
             CameraZoom();
         }
+
+        if(!bPendingOrientationUpdate && orientationTransform == orientationObject.transform)
+            orientationTransform.rotation = mainCamTransform.rotation;
     }
 
     private void OnFootstep(AnimationEvent animationEvent)
