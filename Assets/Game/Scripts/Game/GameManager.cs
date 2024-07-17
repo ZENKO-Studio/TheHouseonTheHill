@@ -16,7 +16,6 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
-
     //Should be set on game start or manually in the scene
     public NellController playerRef;
 
@@ -24,10 +23,8 @@ public class GameManager : Singleton<GameManager>
 
     #region Cam View and Player Movement Orientation
     //Can be used for movable objects since it requires some transform to base direction off
-    [Tooltip("Should be set when camera switches (Set it to null when using Third Person Camera)")]
-    Transform activeCamTransform = null;
-    
-    public bool bUsingStaticCam;
+    [Tooltip("Should be set when orientation needs to be overridden (Set it to null when using Third Person Camera)")]
+    Transform overridenOrientation = null;
     
     #endregion
 
@@ -86,15 +83,16 @@ public class GameManager : Singleton<GameManager>
     }
 
     //Get Active Camera
-    public Transform ActiveCam()
+    public Transform OverriddenOrientation()
     {
-        return activeCamTransform; 
+        return overridenOrientation; 
     }
 
-    //Call this method when switching camera
-    public void SetActiveCamTransform(Transform activeCamTransform)
+    //Call this method when overriding player orientation
+    public void OverrideOrientation(Transform overridenTransform)
     {
-        this.activeCamTransform = activeCamTransform;
+        this.overridenOrientation = overridenTransform;
+        playerRef.UpdateOrientation();
     }
 
     private void OnApplicationFocus(bool focus)
