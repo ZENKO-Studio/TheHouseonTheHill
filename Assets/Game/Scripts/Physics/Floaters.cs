@@ -13,7 +13,7 @@ using UnityEngine.Rendering.HighDefinition;
  */
 
 
-[RequireComponent(typeof(Rigidbody)]
+[RequireComponent(typeof(Rigidbody))]
     
 public class Floaters : MonoBehaviour
 {
