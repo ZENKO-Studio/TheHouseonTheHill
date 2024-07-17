@@ -28,6 +28,11 @@ public class Stalker : EnemyBase, IHear
 
     [SerializeField] int currIndex = 0;
 
+    public Material stalkerMaterial;
+
+    public Color emissionColor = Color.yellow;
+    public float glowIntensity = 1.0f;
+
     protected override void Start()
     {
         stalkerAgent = GetComponent<NavMeshAgent>();
@@ -35,6 +40,9 @@ public class Stalker : EnemyBase, IHear
         stalkerAgent.speed = moveSpeed;
         fsm = GetComponent<StalkerFSM>();
         stalkerAnimator = GetComponent<Animator>();
+        
+        stalkerMaterial = GetComponentInChildren<Renderer>().material;  
+
     }
 
     private void Update()
