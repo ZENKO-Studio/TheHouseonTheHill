@@ -12,35 +12,47 @@ public class Dial : MonoBehaviour
     public LayerMask layer;
     public string targetTag = "RotatableDial"; // Tag to identify specific dials
 
+    private float _rotation;
+
+    private void Start()
+    {
+        transform.localEulerAngles = new Vector3(_rotation, -90, -90);
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RotateDial();
+            RotateDialButSlightlyDifferently();
         }
     }
 
-    private void RotateDial()
+
+
+    private void RotateDialButSlightlyDifferently()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, rayDistance, layer))
+        if (Physics.Raycast(ray, out var hit, rayDistance, layer))
         {
             // Check if the hit object has the specified tag
-            if (hit.collider.gameObject.CompareTag(targetTag))
+            if (hit.collider.gameObject == gameObject)
             {
-                // If the ray hits an object with the correct tag, log the name of the object
-                Debug.Log("Hit object: " + hit.collider.gameObject.name);
-                hit.collider.gameObject.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-                // You can also access other information about the hit object, like its position
-                Debug.Log("Hit position: " + hit.point);
+                _rotation += 360f / 26;
+                // Normalize the angle to stay within 0 to 360 degrees
+                _rotation = _rotation % 360;
+                // Update the rotation of the dial
+                transform.localEulerAngles = new Vector3(_rotation, -90, -90);
+
+                // Map the rotation to the range 0-25
+                int letterIndex = Mathf.FloorToInt(_rotation / 360f * 26);
+                char letter = (char)('A' + letterIndex);
+
+                Debug.Log("Dial rotated to letter: " + letter);
             }
         }
     }
 
-    public void Rotate()
-    {
-        transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-    }
+
+
 }
