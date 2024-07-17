@@ -74,10 +74,11 @@ public class MovableObject : MonoBehaviour
             playerController.nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
 
 
-            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) < 0.1f)
+            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) < 0.25f)
             {
                 playerController.nellsAnimator.SetBool("IsMoving", false);
                 playerController.nellsAnimator.SetFloat("InputMagnitude", 0f, 0.05f, Time.deltaTime);
+                playerController.transform.position = closestSnapPoint.transform.position;
                 playerController.transform.rotation = closestSnapPoint.transform.rotation;
                 bWalkingTowards = false;
                 AttachObject();
@@ -89,12 +90,14 @@ public class MovableObject : MonoBehaviour
     {
         if (!bMovingObject) return;
 
-        if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) > 0.1f)
+        if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) > 0.25f)
         {
+            playerController.transform.position = Vector3.Lerp(playerController.transform.position, closestSnapPoint.position, Time.deltaTime * .5f);
             playerController.transform.rotation = Quaternion.Slerp( playerController.transform.rotation, closestSnapPoint.transform.rotation, Time.deltaTime * .5f);
         }
         else
         {
+            playerController.transform.position = closestSnapPoint.transform.position;
             playerController.transform.rotation = closestSnapPoint.transform.rotation;
             bWalkingTowards = false;
         }
