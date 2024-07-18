@@ -21,7 +21,7 @@ public class CinemaMachineSwitcher : MonoBehaviour
     {
         onEnter.Invoke();
         //Set this to false when you want to switch back to 3rd Person
-        GameManager.Instance.bUsingStaticCam = true;
+        GameManager.Instance.playerRef.UpdateOrientation();
     }
 
 }
