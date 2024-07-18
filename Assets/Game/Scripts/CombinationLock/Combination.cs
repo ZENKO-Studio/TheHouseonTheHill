@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.Interactable;
 using UnityEngine;
 
 public class Combination : MonoBehaviour
@@ -8,6 +9,7 @@ public class Combination : MonoBehaviour
     public string correctCombination; // Correct combination
     private char[] currentCombination;
     private Animator animate;
+    public OpenThings _OpenThings;
 
     private void Start()
     {
@@ -36,7 +38,8 @@ public class Combination : MonoBehaviour
         if (new string(currentCombination) == correctCombination)
         {
             Debug.Log("Combination is correct!");
-            animate.SetTrigger("Solved");
+           animate.SetTrigger("Solved");
+          // _OpenThings.OpenDoor();
             // Trigger success event or actions here
         }
     }
