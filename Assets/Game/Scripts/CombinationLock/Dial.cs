@@ -12,6 +12,8 @@ public class Dial : MonoBehaviour
     public LayerMask layer;
     public string targetTag = "RotatableDial"; // Tag to identify specific dials
 
+    public UnityEvent<char> OnDialRotated; 
+    
     private float _rotation;
 
     private void Start()
@@ -48,7 +50,8 @@ public class Dial : MonoBehaviour
                 int letterIndex = Mathf.FloorToInt(_rotation / 360f * 26);
                 char letter = (char)('A' + letterIndex);
 
-                Debug.Log("Dial rotated to letter: " + letter);
+                //Debug.Log("Dial rotated to letter: " + letter);
+                OnDialRotated?.Invoke(letter); 
             }
         }
     }

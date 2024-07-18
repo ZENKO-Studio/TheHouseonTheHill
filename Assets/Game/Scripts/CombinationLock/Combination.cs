@@ -4,22 +4,40 @@ using UnityEngine;
 
 public class Combination : MonoBehaviour
 {
-    public List<Dial> dials; // List of Dial script
-    public string targetCombination;
+    public Dial[] dials; // Array of dials
+    public string correctCombination; // Correct combination
+    private char[] currentCombination;
+    private Animator animate;
 
-    void Start()
+    private void Start()
     {
-  
-        SetCombination(targetCombination);
+
+        animate = GetComponent<Animator>();
+        
+        currentCombination = new char[dials.Length];
+        
+        
+        for (int i = 0; i < dials.Length; i++)
+        {
+            int index = i; // Local copy to avoid closure issues
+            dials[i].OnDialRotated.AddListener((letter) => UpdateCombination(index, letter));
+        }
     }
 
-    public void SetCombination(string combination)
+    private void UpdateCombination(int index, char letter)
     {
-        for (int i = 0; i < combination.Length && i < dials.Count; i++)
+        currentCombination[index] = letter;
+        Debug.Log("Current Combination: " + new string(currentCombination));
+        CheckCombination();
+    }
+
+    private void CheckCombination()
+    {
+        if (new string(currentCombination) == correctCombination)
         {
-            int letterIndex = combination[i] - 'A'; // Convert letter to index (A=0, B=1, ..., Z=25)
-            float targetAngle = 360f / 26 * letterIndex; // Calculate the angle
-            
+            Debug.Log("Combination is correct!");
+            animate.SetTrigger("Solved");
+            // Trigger success event or actions here
         }
     }
 }
