@@ -22,17 +22,17 @@ public class Floaters : MonoBehaviour
     public Rigidbody rb;
 
     //Depth at which objects Experince bouancy
-    [SerializeField,Range(0,10)]public float depthBefSub;
+    [SerializeField,Range(1,50)]public float depthBefSub;
     //Amount of buoyant force applied
-    [SerializeField, Range(0, 10)] public float displacementAmt;
+    [SerializeField, Range(1, 75)] public float displacementAmt;
    //Number of points applying buoyant force
     public int floaters;
 
 
     //Drag coefficient in water
-    [SerializeField, Range(0, 100)] public float waterDrag;
+    [SerializeField, Range(1, 25)] public float waterDrag;
     //Angular Drag coefficient in water
-    [SerializeField, Range(0, 10)] public float waterAngularDrag;
+    [SerializeField, Range(1, 25)] public float waterAngularDrag;
     //Reference to the water surface management component
     public WaterSurface water;
 
