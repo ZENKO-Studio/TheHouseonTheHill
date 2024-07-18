@@ -23,7 +23,7 @@ public class StalkerStun : StalkerBaseState
             stalkerRef.stalkerMaterial.EnableKeyword("_EMISSION");
 
             // Set the emission color and intensity
-            stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * stalkerRef.glowIntensity);
+            stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * stalkerRef.intensityMultiplier.Evaluate(0));
         }
     }
 
@@ -31,8 +31,10 @@ public class StalkerStun : StalkerBaseState
     {
         currentTime += Time.deltaTime;
 
-        float emission = Mathf.PingPong(Time.time, stalkerRef.glowIntensity);
-        stalkerRef.stalkerMaterial.SetFloat("_EmissionIntensity", emission);
+        float emission = stalkerRef.maxGlowIntensity * stalkerRef.intensityMultiplier.Evaluate(currentTime % 1);
+
+        // Set the emission color and intensity
+        stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * emission);
 
         if (currentTime > stalkerRef.stunTime) 
         {
@@ -54,7 +56,8 @@ public class StalkerStun : StalkerBaseState
 
         if (stalkerRef.stalkerMaterial != null)
         {
-            stalkerRef.stalkerMaterial.SetFloat("_EmissionIntensity", 0f);
+            // Set the emission color and intensity
+            stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * stalkerRef.intensityMultiplier.Evaluate(0));
             stalkerRef.stalkerMaterial.DisableKeyword("_EMISSION");
         }
     }
