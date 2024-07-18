@@ -13,7 +13,11 @@ public class DirectionChanger : MonoBehaviour
 
         if(other.CompareTag("Player"))
         {
+<<<<<<< HEAD
             GameManager.Instance.SetActiveCamTransform(transform);
+=======
+            GameManager.Instance.OverrideOrientation(transform);
+>>>>>>> Developing
         }
     }
 
@@ -21,7 +25,11 @@ public class DirectionChanger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+<<<<<<< HEAD
             GameManager.Instance.SetActiveCamTransform(null);
+=======
+            GameManager.Instance.OverrideOrientation(null);
+>>>>>>> Developing
         }
     }
 }

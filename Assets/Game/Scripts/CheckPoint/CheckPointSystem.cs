@@ -24,11 +24,23 @@ public class CheckPointSystem : Singleton<CheckPointSystem>
         _lastCheckpoint = savePoint;
     }
 
+<<<<<<< HEAD
     public void ForceGrabValues()
     {
         // TODO: Really bad, @alvin fix ASAP
         player = FindObjectOfType<NellController>();
         savingIcon = FindObjectOfType<SaveCheckPointIcon>();
+=======
+    public void SetPlayer(NellController nell) {
+        player = nell;
+    }
+
+    public void ForceGrabValues()
+    {
+        // TODO: Really bad, @alvin fix ASAP
+        player = FindFirstObjectByType<NellController>();
+        savingIcon = FindFirstObjectByType<SaveCheckPointIcon>();
+>>>>>>> Developing
     }
 
 

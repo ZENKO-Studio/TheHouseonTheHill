@@ -13,7 +13,11 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   serializedVersion: 9
+=======
+  serializedVersion: 10
+>>>>>>> Developing
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,7 +48,10 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
+<<<<<<< HEAD
   m_GIWorkflowMode: 1
+=======
+>>>>>>> Developing
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +74,12 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+<<<<<<< HEAD
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
+=======
+>>>>>>> Developing
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -737,11 +747,152 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 1029554373557479611, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037881434804264001, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037881434804264001, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095087234124343326, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1095087234124343326, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1244532963731993858, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1555658637381323237, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959349732653879616, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959349732653879616, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2207211171572755714, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395394457171011869, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2395394457171011869, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670620532048689748, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3545860153289861970, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947791653246267425, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3947791653246267425, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032695856881489139, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+>>>>>>> Developing
     - target: {fileID: 4605329419150111657, guid: 0263e771fea8870448147b4cc61d20fc,
         type: 3}
       propertyPath: m_Name
       value: LevelSanctuary
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 4620633797638944358, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4749887028454055056, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4883438385086932784, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580344245958067664, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580344245958067664, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625514308574561562, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625514308574561562, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076035552379238100, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8349708247358617877, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8684448813677601188, guid: 0263e771fea8870448147b4cc61d20fc,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+>>>>>>> Developing
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1203,6 +1354,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &974539291 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2248219504592813829, guid: ce12ad7568071374b9b7f24ca8582eb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1716976564944358651}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &974539295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 974539291}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.239001, y: 2.8872578, z: 0.111950055}
+  m_Center: {x: 1.1195006, y: 1.4436289, z: 0.05597598}
+>>>>>>> Developing
 --- !u!1 &1097368290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1626,158 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aec628f046553624a9c802e874f6dbe0, type: 3}
+<<<<<<< HEAD
+=======
+--- !u!1001 &1249045393
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953650530593961361, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953619279141900455, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_Name
+      value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804548745729930891, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6804548745729930891, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591800803348987084, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8591800803348987084, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9009240192724519110, guid: 612d4cf55a5b242479e82e1a5fc94820,
+        type: 3}
+      propertyPath: MenuRoot
+      value: 
+      objectReference: {fileID: 1249045394}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 612d4cf55a5b242479e82e1a5fc94820, type: 3}
+--- !u!1 &1249045394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 310030983035559771, guid: 612d4cf55a5b242479e82e1a5fc94820,
+    type: 3}
+  m_PrefabInstance: {fileID: 1249045393}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> Developing
 --- !u!1001 &1273033710
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1535,7 +1868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8682312221093650183, guid: e50b2084d145d1046a6c9f2edb10ddb1,
         type: 3}
+<<<<<<< HEAD
       propertyPath: condition.acceptedTags.Array.data[0]
+=======
+      propertyPath: 'condition.acceptedTags.Array.data[0]'
+>>>>>>> Developing
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1626,7 +1963,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7975354359797916299, guid: e4a20b8e360437348ac852fe04fab16a,
         type: 3}
+<<<<<<< HEAD
       propertyPath: m_Materials.Array.data[0]
+=======
+      propertyPath: 'm_Materials.Array.data[0]'
+>>>>>>> Developing
       value: 
       objectReference: {fileID: 2100000, guid: edbf4e789f724ca4f9c1b6fbe313aa25, type: 2}
     - target: {fileID: 919132149155446097, guid: e4a20b8e360437348ac852fe04fab16a,
@@ -1703,6 +2044,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -1751,6 +2097,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &1487068907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2248219504592813829, guid: ce12ad7568071374b9b7f24ca8582eb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1170739728649326622}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1487068911
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487068907}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.239001, y: 2.8872578, z: 0.111950055}
+  m_Center: {x: 1.1195005, y: 1.4436289, z: 0.05597455}
+>>>>>>> Developing
 --- !u!1001 &1528461822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1882,6 +2258,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 5133362521341387890, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+>>>>>>> Developing
     - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
         type: 3}
       propertyPath: playerRef
@@ -1970,6 +2354,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 30e6dcff2adf7d84683ae0d72cd2fba6, type: 3}
+<<<<<<< HEAD
+=======
+  m_Resource: {fileID: 8300000, guid: 30e6dcff2adf7d84683ae0d72cd2fba6, type: 3}
+>>>>>>> Developing
   m_PlayOnAwake: 1
   m_Volume: 0.021
   m_Pitch: 1
@@ -2066,6 +2454,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a9b95577c6b23ec429637f26bcdcae26, type: 3}
+<<<<<<< HEAD
+=======
+  m_Resource: {fileID: 8300000, guid: a9b95577c6b23ec429637f26bcdcae26, type: 3}
+>>>>>>> Developing
   m_PlayOnAwake: 1
   m_Volume: 0.025
   m_Pitch: 1
@@ -2162,6 +2554,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8f3ea34d6c1b5b44d914461c9b23786b, type: 3}
+<<<<<<< HEAD
+=======
+  m_Resource: {fileID: 8300000, guid: 8f3ea34d6c1b5b44d914461c9b23786b, type: 3}
+>>>>>>> Developing
   m_PlayOnAwake: 1
   m_Volume: 0.148
   m_Pitch: 1
@@ -2258,6 +2654,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5b4d7c166101e004596e9449d4e0df4c, type: 3}
+<<<<<<< HEAD
+=======
+  m_Resource: {fileID: 8300000, guid: 5b4d7c166101e004596e9449d4e0df4c, type: 3}
+>>>>>>> Developing
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2343,6 +2743,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< HEAD
+=======
+--- !u!1 &1865592136 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6917322067963288708, guid: ce12ad7568071374b9b7f24ca8582eb4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1170739728649326622}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> Developing
 --- !u!1001 &1905037641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2526,6 +2935,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
+=======
+    - target: {fileID: 223865260316967610, guid: edddd90acc57b8c48987d14a14175922,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+>>>>>>> Developing
     - target: {fileID: 341270538187984220, guid: edddd90acc57b8c48987d14a14175922,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2772,6 +3189,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -2859,6 +3281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f6fd535518f5540b4bcc3099582f77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   surfaceType: 2
   geometryType: 0
   mesh: {fileID: 0}
@@ -2891,11 +3314,32 @@ MonoBehaviour:
   ripplesFadeToggle: 1
   ripplesFadeStart: 50
   ripplesFadeDistance: 200
+=======
+  m_Version: 2
+  decalLayerMask: 1
+  lightLayerMask: 1
+  largeBand0FadeToggle: 1
+  largeBand1FadeToggle: 1
+  ripplesFadeToggle: 1
+  surfaceType: 2
+  geometryType: 0
+  meshRenderers: []
+  timeMultiplier: 0.8
+  scriptInteractions: 0
+  cpuEvaluateRipples: 0
+>>>>>>> Developing
   customMaterial: {fileID: 0}
   startSmoothness: 0.95
   endSmoothness: 0.85
   smoothnessFadeStart: 100
   smoothnessFadeDistance: 500
+<<<<<<< HEAD
+=======
+  tessellation: 1
+  maxTessellationFactor: 3
+  tessellationFactorFadeStart: 150
+  tessellationFactorFadeRange: 1850
+>>>>>>> Developing
   refractionColor: {r: 0.2, g: 0.55, b: 0.55, a: 1}
   maxRefractionDistance: 0.35
   absorptionDistance: 5
@@ -2905,12 +3349,17 @@ MonoBehaviour:
   displacementScattering: 0
   directLightTipScattering: 0.2
   directLightBodyScattering: 0.2
+<<<<<<< HEAD
+=======
+  maximumHeightOverride: 0
+>>>>>>> Developing
   caustics: 1
   causticsIntensity: 0.5
   causticsPlaneBlendDistance: 2
   causticsResolution: 256
   causticsBand: 0
   virtualPlaneDistance: 4
+<<<<<<< HEAD
   foam: 0
   simulationFoamAmount: 0.3
   simulationFoamDrag: 0
@@ -2919,6 +3368,55 @@ MonoBehaviour:
   foamMaskExtent: {x: 100, y: 100}
   foamMaskOffset: {x: 0, y: 0}
   windFoamCurve:
+=======
+  causticsTilingFactor: 1
+  causticsDirectionalShadow: 0
+  causticsDirectionalShadowDimmer: 0.25
+  renderingLayerMask: 257
+  debugMode: 0
+  waterMaskDebugMode: 0
+  waterCurrentDebugMode: 0
+  currentDebugMultiplier: 1
+  waterFoamDebugMode: 0
+  underWater: 1
+  volumeBounds: {fileID: 746219550649281071}
+  volumeDepth: 50
+  volumeHeight: 0
+  volumePrority: 0
+  absorptionDistanceMultiplier: 1
+  underWaterAmbientProbeContribution: 1
+  underWaterScatteringColorMode: 0
+  underWaterScatteringColor: {r: 0, g: 0.27, b: 0.23, a: 1}
+  underWaterRefraction: 0
+  largeCurrentSpeedValue: 0
+  largeCurrentMap: {fileID: 0}
+  largeCurrentRegionExtent: {x: 100, y: 100}
+  largeCurrentRegionOffset: {x: 0, y: 0}
+  largeCurrentMapInfluence: 1
+  ripplesCurrentSpeedValue: 0
+  ripplesCurrentMap: {fileID: 0}
+  ripplesCurrentRegionExtent: {x: 100, y: 100}
+  ripplesCurrentRegionOffset: {x: 0, y: 0}
+  ripplesCurrentMapInfluence: 1
+  deformation: 0
+  deformationRes: 512
+  deformationAreaSize: {x: 200, y: 200}
+  deformationAreaOffset: {x: 0, y: 0}
+  foam: 0
+  foamResolution: 512
+  foamAreaSize: {x: 200, y: 200}
+  foamAreaOffset: {x: 0, y: 0}
+  foamPersistenceMultiplier: 0.5
+  foamColor: {r: 1, g: 1, b: 1, a: 1}
+  foamTextureTiling: 0.2
+  foamSmoothness: 0.3
+  simulationFoam: 1
+  simulationFoamAmount: 0.3
+  simulationFoamMask: {fileID: 0}
+  simulationFoamMaskExtent: {x: 100, y: 100}
+  simulationFoamMaskOffset: {x: 0, y: 0}
+  simulationFoamWindCurve:
+>>>>>>> Developing
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
@@ -2960,6 +3458,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< HEAD
   foamTexture: {fileID: 0}
   foamTextureTiling: 0.2
   waterMask: {fileID: 0}
@@ -2973,6 +3472,32 @@ MonoBehaviour:
   volumePrority: 0
   transitionSize: 0.2
   absorbtionDistanceMultiplier: 1
+=======
+  repetitionSize: 500
+  largeOrientationValue: 0
+  largeWindSpeed: 30
+  largeChaos: 0.8
+  largeBand0Multiplier: 1
+  largeBand0FadeMode: 2
+  largeBand0FadeStart: 1500
+  largeBand0FadeDistance: 3000
+  largeBand1Multiplier: 1
+  largeBand1FadeMode: 2
+  largeBand1FadeStart: 300
+  largeBand1FadeDistance: 800
+  ripples: 1
+  ripplesMotionMode: 0
+  ripplesOrientationValue: 0
+  ripplesWindSpeed: 5
+  ripplesChaos: 1
+  ripplesFadeMode: 2
+  ripplesFadeStart: 50
+  ripplesFadeDistance: 200
+  waterMask: {fileID: 0}
+  waterMaskRemap: {x: 0, y: 1}
+  waterMaskExtent: {x: 100, y: 100}
+  waterMaskOffset: {x: 0, y: 0}
+>>>>>>> Developing
 --- !u!23 &73967560004940780
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2990,6 +3515,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3268,6 +3798,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -3368,6 +3903,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 100000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -3399,11 +3940,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -3424,6 +3984,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -3475,9 +4046,12 @@ MonoBehaviour:
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!4 &254026662692720532
 Transform:
   m_ObjectHideFlags: 0
@@ -3511,6 +4085,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -3574,6 +4153,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -3686,6 +4270,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3795,6 +4384,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3828,9 +4422,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6989104841180749772}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -4860,6 +5459,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -5201,6 +5805,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -5547,6 +6156,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -5674,6 +6288,10 @@ GameObject:
   - component: {fileID: 7628415315064187653}
   - component: {fileID: 7628415315064187655}
   - component: {fileID: 7628415315064187654}
+<<<<<<< HEAD
+=======
+  - component: {fileID: 7628415315064187656}
+>>>>>>> Developing
   m_Layer: 0
   m_Name: Nell (1)
   m_TagString: Player
@@ -5771,6 +6389,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5813,6 +6436,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5855,6 +6483,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -5907,9 +6540,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3765182846300535733}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 0
+>>>>>>> Developing
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 14915.938
   m_Range: 10
@@ -6183,6 +6821,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -6214,11 +6858,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -6239,6 +6902,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -6285,14 +6959,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!4 &1003854812166111329
 Transform:
   m_ObjectHideFlags: 0
@@ -6735,6 +7416,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6777,6 +7463,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6865,6 +7556,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7012,7 +7708,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
+<<<<<<< HEAD
     m_AddedComponents: []
+=======
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6917322067963288708, guid: ce12ad7568071374b9b7f24ca8582eb4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1170739728649326624}
+    - targetCorrespondingSourceObject: {fileID: 2248219504592813829, guid: ce12ad7568071374b9b7f24ca8582eb4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1487068911}
+>>>>>>> Developing
   m_SourcePrefab: {fileID: 100100000, guid: ce12ad7568071374b9b7f24ca8582eb4, type: 3}
 --- !u!4 &1170739728649326623 stripped
 Transform:
@@ -7020,6 +7728,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1170739728649326622}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
+=======
+--- !u!65 &1170739728649326624
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865592136}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+>>>>>>> Developing
 --- !u!1001 &1172764725309615582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7280,6 +8012,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -7322,6 +8059,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -7483,6 +8225,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7780,6 +8527,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7970,6 +8722,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8012,6 +8769,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -8133,6 +8895,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8356,6 +9123,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -8447,6 +9219,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -8480,9 +9257,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5986104681073988562}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -8640,6 +9422,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -8719,6 +9506,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -8820,7 +9612,15 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
+<<<<<<< HEAD
     m_AddedComponents: []
+=======
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2248219504592813829, guid: ce12ad7568071374b9b7f24ca8582eb4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 974539295}
+>>>>>>> Developing
   m_SourcePrefab: {fileID: 100100000, guid: ce12ad7568071374b9b7f24ca8582eb4, type: 3}
 --- !u!4 &1716976564944358652 stripped
 Transform:
@@ -8902,6 +9702,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -9509,6 +10314,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10002,6 +10812,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -10157,6 +10972,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10330,9 +11150,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3778510068507598570}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -10459,6 +11284,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -10575,6 +11405,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -10718,6 +11553,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10797,6 +11637,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -11735,6 +12580,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -11987,9 +12837,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6947549239244262041}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -12145,12 +13000,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1077208558564935056, guid: 9b6e18a9441f2f44782017d227376608,
         type: 3}
+<<<<<<< HEAD
       propertyPath: patrolPoints.Array.data[0]
+=======
+      propertyPath: 'patrolPoints.Array.data[0]'
+>>>>>>> Developing
       value: 
       objectReference: {fileID: 318689211052838736}
     - target: {fileID: 1077208558564935056, guid: 9b6e18a9441f2f44782017d227376608,
         type: 3}
+<<<<<<< HEAD
       propertyPath: patrolPoints.Array.data[1]
+=======
+      propertyPath: 'patrolPoints.Array.data[1]'
+>>>>>>> Developing
       value: 
       objectReference: {fileID: 3077014031046929013}
     - target: {fileID: 1885731611363696947, guid: 9b6e18a9441f2f44782017d227376608,
@@ -12482,6 +13345,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12628,6 +13496,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12686,6 +13559,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -12749,6 +13627,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -12791,6 +13674,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -13036,6 +13924,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -13173,6 +14066,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13219,7 +14117,11 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &3056400753558786696
 Animator:
+<<<<<<< HEAD
   serializedVersion: 5
+=======
+  serializedVersion: 7
+>>>>>>> Developing
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -13233,6 +14135,10 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+<<<<<<< HEAD
+=======
+  m_AnimatePhysics: 0
+>>>>>>> Developing
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -13421,6 +14327,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13620,9 +14531,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730025143757246358}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 1
+>>>>>>> Developing
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 100000
   m_Range: 10
@@ -14330,6 +15246,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -14509,6 +15430,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -14697,6 +15623,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -14769,6 +15700,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -14977,6 +15913,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -15195,6 +16136,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -15269,6 +16215,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -15641,6 +16592,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -15864,6 +16820,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -15906,6 +16867,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -16116,6 +17082,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 4000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -16147,11 +17119,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -16172,6 +17163,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -16218,14 +17220,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!4 &4013861978179552870
 Transform:
   m_ObjectHideFlags: 0
@@ -16630,6 +17639,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -16661,11 +17676,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -16686,6 +17720,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -16732,14 +17777,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!4 &4163720719515887773
 Transform:
   m_ObjectHideFlags: 0
@@ -17001,6 +18053,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -17049,9 +18106,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5998694657365537292}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.8053876, g: 1, b: 0, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -17111,9 +18173,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13095834730128064}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -17173,9 +18240,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7577150547444073076}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -17286,6 +18358,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -17424,9 +18501,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8865277975092640768}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -17495,6 +18577,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -17649,6 +18736,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -17873,6 +18965,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -18175,6 +19272,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -18555,6 +19657,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -18839,6 +19946,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -18870,11 +19983,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -18895,6 +20027,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -18941,14 +20084,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!65 &4764936968311781317
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19460,6 +20610,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -19519,6 +20674,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -20033,6 +21193,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -20160,6 +21325,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -20235,6 +21405,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -20541,6 +21716,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -20583,6 +21763,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21123,6 +22308,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21199,6 +22389,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -21845,6 +23040,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22503,6 +23703,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -22596,6 +23801,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22746,6 +23956,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -22783,6 +23998,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -22814,11 +24035,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -22839,6 +24079,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -22885,14 +24136,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!108 &5933237748885313905
 Light:
   m_ObjectHideFlags: 0
@@ -22901,9 +24159,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972398746673879391}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.8053876, g: 1, b: 0, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -23089,6 +24352,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -23140,10 +24408,20 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   characterController: {fileID: 0}
+<<<<<<< HEAD
   bEnableMovement: 1
   rotSpeed: 300
   jumpSpeed: 4
   crouchHeight: 1.28
+=======
+  nellsAnimator: {fileID: 0}
+  bEnableMovement: 1
+  rotSpeed: 300
+  jumpSpeed: 4
+  forwardJumpForce: 3
+  crouchHeight: 1.28
+  bPlayerHasControl: 1
+>>>>>>> Developing
   crouchSound: 0
   walkSound: 5
   runSound: 8
@@ -23176,6 +24454,10 @@ MonoBehaviour:
   zoom: 0
   cursorLocked: 1
   cursorInputForLook: 1
+<<<<<<< HEAD
+=======
+  saltChargeHandler: {fileID: 0}
+>>>>>>> Developing
   flashlight: {fileID: 8079963334932099573}
 --- !u!1 &5986104681073988562
 GameObject:
@@ -23842,6 +25124,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -23947,6 +25234,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -23978,11 +25271,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -24003,6 +25315,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -24049,14 +25372,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!114 &6212358381859765341
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -24139,6 +25469,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -24265,6 +25600,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -24296,11 +25637,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -24321,6 +25681,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -24367,14 +25738,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!114 &6288841227382570630
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -24417,6 +25795,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -24448,11 +25832,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -24473,6 +25876,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -24519,14 +25933,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!4 &6313777986738930099
 Transform:
   m_ObjectHideFlags: 0
@@ -24880,6 +26301,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -25004,6 +26430,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -25160,6 +26591,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 494743a834c5cb340bc4dfb9434f29c7, type: 3}
+<<<<<<< HEAD
+=======
+  m_Resource: {fileID: 8300000, guid: 494743a834c5cb340bc4dfb9434f29c7, type: 3}
+>>>>>>> Developing
   m_PlayOnAwake: 1
   m_Volume: 0.099
   m_Pitch: 1
@@ -25262,6 +26697,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -25467,6 +26907,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -25509,6 +26954,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -25749,6 +27199,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -25814,6 +27269,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -26027,9 +27487,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4972369335787023979}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -26161,6 +27626,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -26247,6 +27717,11 @@ MonoBehaviour:
   stopNaNs: 0
   taaSharpenStrength: 0.5
   TAAQuality: 1
+<<<<<<< HEAD
+=======
+  taaSharpenMode: 0
+  taaRingingReduction: 0
+>>>>>>> Developing
   taaHistorySharpening: 0.35
   taaAntiFlicker: 0.5
   taaMotionVectorRejection: 0
@@ -26297,6 +27772,10 @@ MonoBehaviour:
     sssQualityMode: 0
     sssQualityLevel: 0
     sssCustomSampleBudget: 20
+<<<<<<< HEAD
+=======
+    sssCustomDownsampleSteps: 0
+>>>>>>> Developing
     msaaMode: 1
     materialQuality: 0
   renderingPathCustomFrameSettingsOverrideMask:
@@ -26522,6 +28001,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -26577,6 +28061,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -27051,6 +28540,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -27207,6 +28701,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -27238,11 +28738,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -27263,6 +28782,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -27309,14 +28839,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!81 &7168907166382610275
 AudioListener:
   m_ObjectHideFlags: 0
@@ -27421,6 +28958,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -27481,6 +29023,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -27579,6 +29126,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -27700,6 +29252,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -27789,6 +29346,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -28574,7 +30136,11 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &7628415315064187652
 Animator:
+<<<<<<< HEAD
   serializedVersion: 5
+=======
+  serializedVersion: 7
+>>>>>>> Developing
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -28588,6 +30154,10 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+<<<<<<< HEAD
+=======
+  m_AnimatePhysics: 0
+>>>>>>> Developing
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -28689,6 +30259,29 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   usablesInRange: []
+<<<<<<< HEAD
+=======
+--- !u!114 &7628415315064187656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 904424113113329199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67c2d7def85efe1438f6ec8ce3425f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSaltCharges: 5
+  throwFreq: 3
+  saltSpawnPosition: {fileID: 0}
+  saltParticles: {fileID: 0}
+  throwDistance: 5
+  OnSaltChanged:
+    m_PersistentCalls:
+      m_Calls: []
+>>>>>>> Developing
 --- !u!23 &7633548312730975910
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28706,6 +30299,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -28764,6 +30362,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -29246,6 +30849,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -29277,11 +30886,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -29302,6 +30930,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -29348,14 +30987,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!33 &7812083901816201444
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -30392,6 +32038,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -30426,7 +32077,11 @@ Transform:
   m_GameObject: {fileID: 1778739588966921383}
   serializedVersion: 2
   m_LocalRotation: {x: -0.00034675168, y: 0.7071077, z: -0.00034675075, w: 0.7071057}
+<<<<<<< HEAD
   m_LocalPosition: {x: -5.628, y: 0.149, z: 15.288}
+=======
+  m_LocalPosition: {x: -5.3, y: 0.149, z: 15.288}
+>>>>>>> Developing
   m_LocalScale: {x: 4.3935375, y: 3.176174, z: 1.2693923}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30483,6 +32138,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -31522,6 +33182,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -31564,6 +33229,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -31793,6 +33463,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -32111,6 +33786,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -32263,6 +33943,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -32402,6 +34087,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -32538,6 +34228,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -32580,6 +34275,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -32647,6 +34347,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -32678,11 +34384,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -32703,6 +34428,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -32749,14 +34485,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!33 &9035559722122718345
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -32893,9 +34636,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6292842097859887037}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 2
+>>>>>>> Developing
   m_Color: {r: 0.09055714, g: 0.15254672, b: 0.3490566, a: 1}
   m_Intensity: 635.70166
   m_Range: 10
@@ -32959,6 +34707,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 7988.463
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -32990,11 +34744,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -33015,6 +34788,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -33061,14 +34845,21 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
+=======
+>>>>>>> Developing
 --- !u!137 &9085817280267550172
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -33086,6 +34877,11 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -33142,6 +34938,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -33549,6 +35350,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -33634,3 +35440,7 @@ SceneRoots:
   - {fileID: 422058420}
   - {fileID: 1097368293}
   - {fileID: 1123359329}
+<<<<<<< HEAD
+=======
+  - {fileID: 1249045393}
+>>>>>>> Developing

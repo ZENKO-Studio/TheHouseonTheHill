@@ -177,7 +177,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7519436429383739768}
   - component: {fileID: 9216513369014771678}
+<<<<<<< HEAD
   - component: {fileID: 2982561429652550398}
+=======
+  - component: {fileID: -8872357917957379191}
+>>>>>>> Developing
   m_Layer: 0
   m_Name: Newspaper Clip
   m_TagString: Untagged
@@ -223,7 +227,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &2982561429652550398
+=======
+--- !u!114 &-8872357917957379191
+>>>>>>> Developing
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,6 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3564006568650915543}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 1515a2dc25331cb4cbfad380e3fa0152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -240,6 +249,19 @@ MonoBehaviour:
   itemPreview: {fileID: 3564006568650915543}
   itemDescription: The Newspapoer Article of...
   interactPopup: {fileID: 1492583344684685929}
+=======
+  m_Script: {fileID: 11500000, guid: 023e0caafb860a144b2787ca3d52ac28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: NewsPaper
+  itemIcon: {fileID: 21300000, guid: d04a9dc11e3bf3047807ed7a81481673, type: 3}
+  itemDescription: Piece of Newspaper Article
+  itemPreview: {fileID: 3564006568650915543}
+  boardItemPreview: {fileID: 0}
+  interactPopup: {fileID: 1492583344684685929}
+  itemId: 4
+  itemType: 2
+>>>>>>> Developing
   bInteractable: 1
 --- !u!1001 &6311626498655278153
 PrefabInstance:

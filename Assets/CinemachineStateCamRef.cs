@@ -22,7 +22,11 @@ public class CinemachineStateCamRef : Singleton<CinemachineStateCamRef>
     {
         activeCamTransform = stateDrivenCamera.LiveChild.VirtualCameraGameObject.transform;
         Debug.Log($"Active Cam {activeCamTransform.name}");
+<<<<<<< HEAD
         GameManager.Instance.SetActiveCamTransform( activeCamTransform );
+=======
+        GameManager.Instance.OverrideOrientation( activeCamTransform );
+>>>>>>> Developing
     }
 
 }

@@ -77,4 +77,19 @@ public class EventBus : MonoBehaviour
             IsOpen = isOpen;
         }
     }
+<<<<<<< HEAD
+=======
+    
+    public class ToggleBoardEvent
+    {
+        public bool IsOpen { get; private set; }
+
+        public ToggleBoardEvent(bool isOpen)
+        {
+            IsOpen = isOpen;
+        }
+    }
+
+    
+>>>>>>> Developing
 }

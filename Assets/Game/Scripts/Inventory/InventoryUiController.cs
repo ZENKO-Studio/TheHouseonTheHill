@@ -89,6 +89,11 @@ public class InventoryUiController : MonoBehaviour
 
     private void InspectItem(InventoryItem item)
     {
+<<<<<<< HEAD
+=======
+        //InventoryHandler.Instance.RemoveItem(item); This can be uncomented to debug removal
+
+>>>>>>> Developing
         // Remove previously previewed items from preview
         for (int i = 0; i < itemPreviewParent.childCount; i++)
         {
@@ -96,11 +101,18 @@ public class InventoryUiController : MonoBehaviour
                 Destroy(itemPreviewParent.GetChild(i).gameObject);
         }
 
+<<<<<<< HEAD
         EventBus.Publish(new ItemInspectedEvent(item));
 
         // Display item details in the inspection panel
         itemNameText.text = item.itemName;
         //itemIconImage.sprite = item.itemIcon;
+=======
+        //EventBus.Publish(new ItemInspectedEvent(item));
+
+        // Display item details in the inspection panel
+        itemNameText.text = item.itemName;
+>>>>>>> Developing
         itemDescriptionText.text = item.itemDescription;
 
         if (item.itemPreview != null)

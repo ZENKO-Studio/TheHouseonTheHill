@@ -58,6 +58,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -93,7 +98,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7236176285530551627}
   - component: {fileID: 16980119764643909}
+<<<<<<< HEAD
   - component: {fileID: 3622964062827506864}
+=======
+  - component: {fileID: 6678105726167252806}
+>>>>>>> Developing
   m_Layer: 0
   m_Name: Key1
   m_TagString: Untagged
@@ -139,7 +148,11 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &3622964062827506864
+=======
+--- !u!114 &6678105726167252806
+>>>>>>> Developing
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,6 +161,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9118442230616637743}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 94298cde67112714bb290f35907b2de3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -159,6 +173,20 @@ MonoBehaviour:
   bInteractable: 1
   bShouldBeRemoved: 0
   keyID: 1
+=======
+  m_Script: {fileID: 11500000, guid: 023e0caafb860a144b2787ca3d52ac28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemName: Key
+  itemIcon: {fileID: 0}
+  itemDescription: Unlocks Door
+  itemPreview: {fileID: 9118442230616637743}
+  boardItemPreview: {fileID: 0}
+  interactPopup: {fileID: 7229651810804753779}
+  itemId: 1
+  itemType: 1
+  bInteractable: 1
+>>>>>>> Developing
 --- !u!1001 &2843245245009029971
 PrefabInstance:
   m_ObjectHideFlags: 0

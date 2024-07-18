@@ -1,130 +1,122 @@
-using System.Collections;
+/**@Sami 
+ * This handles all the stuff in the board
+ * Has a List of all the board items and Slot Handlers 
+ * It will check whether the item place in slots are valid and can enable / disable active slots
+ */
+
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static EventBus;
 
-public class TheBoardController : MonoBehaviour
+public class TheBoardController : Singleton<TheBoardController>
 {
     InventoryHandler _inventory;
 
     [SerializeField] Transform _buttonArea; //Referenc to the Panel where buttons will be
 
-    public GameObject itemButtonPrefab; // Reference to the ItemButton prefab
+    [SerializeField] GameObject boardUI;
 
-    private bool bDragging = false;
+    [SerializeField] GameObject boardItemPrefab;
 
-    [SerializeField] Camera boardCam;
-        
-    private void Start()
+    List<SlotHandler> slotHandlers = new List<SlotHandler>();//This will be group of slots
+
+    //When dragging and dropping, which item is actively being dragged
+    internal static BoardItem itemBeingDragged;
+
+    //This to be made scriptable as this will be used to save the board state
+    public List<InventoryItem> boardItems;
+
+    private void OnToggleBoard(ToggleBoardEvent toggleEvent)
     {
-       
+        if(toggleEvent.IsOpen)
+        {
+            PopulateBoardItemBtns();
+        }
+        else
+        {
+            RemoveAllBtns();
+        }
+
+        boardUI.SetActive(toggleEvent.IsOpen);
     }
 
+<<<<<<< HEAD
     private void OnEnable()
     { 
          _inventory = InventoryHandler.Instance;
      
         PopulateKeyItems();
+=======
+>>>>>>> Developing
 
-        EventBus.Subscribe<ItemAddedEvent>(OnItemAdded);
-        EventBus.Subscribe<ItemRemovedEvent>(OnItemRemoved);
+    private void OnEnable()
+    {
+        EventBus.Subscribe<ToggleBoardEvent>(OnToggleBoard);
+        boardUI.SetActive(false); // Ensure the inventory is initially hidden
+
+        _inventory = InventoryHandler.Instance;
+     
+        //Get all the slot handlers for the Board
+        slotHandlers = GetComponentsInChildren<SlotHandler>().ToList<SlotHandler>();
+        
+        //EventBus.Subscribe<ItemAddedEvent>(OnItemAdded);
+        //EventBus.Subscribe<ItemRemovedEvent>(OnItemRemoved);
     }
 
     private void OnDisable()
-    {   
-        EventBus.Unsubscribe<ItemAddedEvent>(OnItemAdded);
-        EventBus.Unsubscribe<ItemRemovedEvent>(OnItemRemoved);
+    {
+        RemoveAllBtns();
+        EventBus.Unsubscribe<ToggleBoardEvent>(OnToggleBoard);
+
+        //EventBus.Unsubscribe<ItemAddedEvent>(OnItemAdded);
+        //EventBus.Unsubscribe<ItemRemovedEvent>(OnItemRemoved);
     }
 
+    private void RemoveAllBtns()
+    {
+        // Loop through all children of the transform
+        for (int i = _buttonArea.childCount - 1; i >= 0; i--)
+        {
+            // Get the child at the current index
+            Transform child = _buttonArea.GetChild(i);
+            // Destroy the child game object
+            Destroy(child.gameObject);
+        }
+    }
 
     //Called In Start
-    void PopulateKeyItems()
+    void PopulateBoardItemBtns()
     {
+<<<<<<< HEAD
         //Delete all Item Buttons
         //foreach (var item in _inventory.items)
         //{
         //    if(item is KeyItem) 
         //        CreateItemButton(item);
         //}
-    }
-
-    private void CreateItemButton(InventoryItem item)
-    {
-        GameObject buttonObject = Instantiate(itemButtonPrefab);
-        buttonObject.transform.SetParent(_buttonArea, false);
-
-        Button button = buttonObject.GetComponent<Button>();
-        EventTrigger t = button.gameObject.AddComponent<EventTrigger>();
-        var pointerDown = new EventTrigger.Entry();
-        pointerDown.eventID = EventTriggerType.PointerDown;
-        pointerDown.callback.AddListener( (X) => DragItem(item, buttonObject.transform.GetSiblingIndex()));
-        t.triggers.Add(pointerDown);
-
-        Image buttonImage = buttonObject.GetComponentInChildren<Image>();
-        buttonImage.sprite = item.itemIcon;
-    }
-
-    private void RemoveItemButton(InventoryItem item)
-    {
-        Destroy(_buttonArea.GetChild(selectedIndex).gameObject);
-    }
-
-    private GameObject g;
-
-    int selectedIndex = -1;
-    InventoryItem selectedItem;
-
-    private void DragItem(InventoryItem item, int btnInd)
-    {
-        Debug.Log("Item clicked: " + item.itemName);
-        bDragging = true;
-        g = Instantiate(item.itemPreview);
-        g.transform.rotation = Quaternion.identity;
-        g.transform.localScale *= 100f;
-        g.SetActive(true);
-        selectedItem = item;
-        selectedIndex = btnInd;
-    }
-
-
-    private void Update()
-    {
-        if(Input.GetMouseButtonUp(0) && bDragging)
+=======
+        foreach(var v in _inventory.documents)
         {
-            bDragging = false;
-            _inventory.RemoveItem(selectedItem);
+            if(!boardItems.Contains(v.Key))
+                SetBoardItems(v.Key);
         }
-
-        if(bDragging)
+        
+        foreach(var v in _inventory.photos)
         {
-            if(g != null)
-            {
-                Ray r = boardCam.ScreenPointToRay(Input.mousePosition);
-                if(Physics.Raycast(r, out RaycastHit hitInfo))
-                {
-                    if(hitInfo.collider.tag == "TheBoard" || hitInfo.collider.tag == "Slot")
-                    {
-                        g.transform.position = hitInfo.point;
-                        g.transform.rotation = Quaternion.LookRotation(hitInfo.normal);
-                    }
-                }
-            }
+            if (!boardItems.Contains(v.Key))
+                SetBoardItems(v.Key);
         }
+>>>>>>> Developing
     }
 
-    private void OnItemAdded(ItemAddedEvent addedEvent)
+    internal void SetBoardItems(InventoryItem i)
     {
-        Debug.Log("Item added: " + addedEvent.Item.itemName);
-        CreateItemButton(addedEvent.Item);
-    }
+        GameObject g = Instantiate(boardItemPrefab, _buttonArea);
+        g.GetComponent<Image>().sprite = i.itemIcon;
 
-    private void OnItemRemoved(ItemRemovedEvent removedEvent)
-    {
-        Debug.Log("Item removed: " + removedEvent.Item.itemName);
-        RemoveItemButton(removedEvent.Item);
+        BoardItem b = g.GetComponent<BoardItem>();
+        b.inventoryItem = i;
     }
 }

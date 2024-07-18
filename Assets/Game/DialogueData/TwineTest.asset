@@ -57,7 +57,61 @@ MonoBehaviour:
     spritePortrait: {fileID: 0}
     alternatePortraits: []
     spritePortraits: []
+<<<<<<< HEAD
   items: []
+=======
+  items:
+  - id: 1
+    fields:
+    - title: Name
+      value: Find Key
+      type: 0
+      typeString: 
+    - title: Pictures
+      value: '[]'
+      type: 3
+      typeString: CustomFieldType_Files
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Success Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Failure Description
+      value: 
+      type: 0
+      typeString: 
+    - title: State
+      value: active
+      type: 0
+      typeString: 
+    - title: Is Item
+      value: False
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Trackable
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Track
+      value: True
+      type: 2
+      typeString: CustomFieldType_Boolean
+    - title: Entry Count
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 1 State
+      value: active
+      type: 0
+      typeString: 
+    - title: Entry 1
+      value: '[var=Key]/1 Key'
+      type: 0
+      typeString: 
+>>>>>>> Developing
   locations: []
   variables:
   - id: 1
@@ -74,6 +128,23 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
+<<<<<<< HEAD
+=======
+  - id: 2
+    fields:
+    - title: Name
+      value: Key
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+>>>>>>> Developing
   conversations:
   - id: 1
     fields:
@@ -4567,8 +4638,13 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
+<<<<<<< HEAD
     canvasScrollPosition: {x: 6379.5806, y: 646.6472}
     canvasZoom: 1.1199995
+=======
+    canvasScrollPosition: {x: 6247.897, y: 789.63055}
+    canvasZoom: 0.84999967
+>>>>>>> Developing
   - id: 3
     fields:
     - title: Title

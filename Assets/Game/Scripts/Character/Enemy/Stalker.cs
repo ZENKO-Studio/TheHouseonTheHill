@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem.EnhancedTouch;
 
 [RequireComponent (typeof(StalkerFSM))]
 public class Stalker : EnemyBase, IHear
@@ -11,6 +12,8 @@ public class Stalker : EnemyBase, IHear
 
     StalkerFSM fsm;
     public NavMeshAgent stalkerAgent;
+
+    public Animator stalkerAnimator;
 
     public bool bPlayerSensed = false;
     public bool bSoundHeard = false;
@@ -30,6 +33,13 @@ public class Stalker : EnemyBase, IHear
         stalkerAgent = GetComponent<NavMeshAgent>();
         stalkerAgent.stoppingDistance = attackRange;
         stalkerAgent.speed = moveSpeed;
+        fsm = GetComponent<StalkerFSM>();
+        stalkerAnimator = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        stalkerAnimator.SetFloat("MoveSpeed", stalkerAgent.velocity.magnitude);
     }
 
     #region Attacking Player
@@ -42,11 +52,22 @@ public class Stalker : EnemyBase, IHear
             fsm.ChangeState(StalkerFSM.ChasePlayerState);
     }
 
+    public bool CanAttackPlayer()
+    {
+        return Vector3.Distance(transform.position, playerTransform.position) <= attackRange;
+    }
+
+    //Tobe called from animations
+    private void OnAttack(AnimationEvent animationEvent)
+    {
+        Attack();
+    }
+
     public override void Attack()
     {
         Debug.Log($"{gameObject.name} Attacking with damage of {damageToDeal * damageMultiplier}");
 
-        if(playerTransform != null) 
+        if(playerTransform != null && CanAttackPlayer()) 
         {
             //#TODO: Check if stalker is in FOV of player and adjust the damage multiplier
 
@@ -108,12 +129,16 @@ public class Stalker : EnemyBase, IHear
     #endregion
 
     #region Getting Stunned
-    private void OnTriggerEnter(Collider other)
+    public void GetStunned()
     {
-        if(other.tag == "Salt")
+        if(fsm == null)
         {
-            fsm.ChangeState(StalkerFSM.StunState);
+            Debug.Log("FSM Null");
+            return;
         }
+
+        fsm.ChangeState(StalkerFSM.StunState);
+        
     }
     #endregion
 }

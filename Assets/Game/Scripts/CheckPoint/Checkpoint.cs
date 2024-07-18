@@ -25,11 +25,14 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     private void Update()
     {
         StartCoroutine(CheckForInteraction());
     }
 
+=======
+>>>>>>> Developing
     private void OnValidate()
     {
         _trigger = GetComponent<BoxCollider>();
@@ -43,6 +46,7 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
     private IEnumerator CheckForInteraction()
     {
         while (true)
@@ -57,6 +61,8 @@ public class Checkpoint : MonoBehaviour
         }
     }
 
+=======
+>>>>>>> Developing
     public void Spawn(NellController player)
     {
         Debug.Log($"Spawning {player} at {name}");

@@ -13,7 +13,11 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
+<<<<<<< HEAD
   serializedVersion: 9
+=======
+  serializedVersion: 10
+>>>>>>> Developing
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,7 +48,10 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
+<<<<<<< HEAD
   m_GIWorkflowMode: 1
+=======
+>>>>>>> Developing
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +74,12 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+<<<<<<< HEAD
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
+=======
+>>>>>>> Developing
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -191,6 +201,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &69126809
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +616,8 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+=======
+>>>>>>> Developing
 --- !u!1001 &189287203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -731,6 +744,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -779,6 +797,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1569202071}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &363807283
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,6 +887,8 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+=======
+>>>>>>> Developing
 --- !u!1001 &529579787
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -938,7 +959,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8441410809986320597, guid: b396c978f10643146b043ba4c2bc22eb,
         type: 3}
+<<<<<<< HEAD
       propertyPath: dstLocations.Array.data[0]
+=======
+      propertyPath: 'dstLocations.Array.data[0]'
+>>>>>>> Developing
       value: 
       objectReference: {fileID: 1402577881}
     m_RemovedComponents: []
@@ -946,6 +971,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b396c978f10643146b043ba4c2bc22eb, type: 3}
+<<<<<<< HEAD
 --- !u!1 &807749652
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1131,8 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 819919207}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> Developing
 --- !u!1001 &906942186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1116,7 +1144,11 @@ PrefabInstance:
     - target: {fileID: 74089560121596276, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: 4.47
+=======
+      value: 2.26
+>>>>>>> Developing
       objectReference: {fileID: 0}
     - target: {fileID: 74089560121596276, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
@@ -1126,7 +1158,11 @@ PrefabInstance:
     - target: {fileID: 74089560121596276, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.z
+<<<<<<< HEAD
       value: 1.02
+=======
+      value: 0.51
+>>>>>>> Developing
       objectReference: {fileID: 0}
     - target: {fileID: 74089560121596276, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
@@ -1176,7 +1212,11 @@ PrefabInstance:
     - target: {fileID: 6452442835996562688, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: 0.50000036
+=======
+      value: 0.5
+>>>>>>> Developing
       objectReference: {fileID: 0}
     - target: {fileID: 6452442835996562688, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
@@ -1186,13 +1226,18 @@ PrefabInstance:
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
       value: 0.50000036
+=======
+      value: 0.5
+>>>>>>> Developing
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -3
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1887,6 +1932,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1256095762}
   m_PrefabAsset: {fileID: 0}
+=======
+    - target: {fileID: 8164501985100605110, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: CameraDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8990930805704619571, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: m_Version
+      value: 12
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 742223827033686990, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2103817340}
+  m_SourcePrefab: {fileID: 100100000, guid: 7bbef856541a0644194f0f55e70475c6, type: 3}
+>>>>>>> Developing
 --- !u!1 &1308163149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,6 +1984,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1382545372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1993,12 +2060,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1382545372}
   m_CullTransparentMesh: 1
+=======
+>>>>>>> Developing
 --- !u!4 &1402577881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3166172850213600456, guid: 9fa9e934d3a6f844c916bb9e3684756e,
     type: 3}
   m_PrefabInstance: {fileID: 4662233073050011374}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1 &1409109395
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,6 +2442,8 @@ Mesh:
     offset: 0
     size: 0
     path: 
+=======
+>>>>>>> Developing
 --- !u!1 &1550596186
 GameObject:
   m_ObjectHideFlags: 0
@@ -2398,9 +2470,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550596186}
   m_Enabled: 1
+<<<<<<< HEAD
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
+=======
+  serializedVersion: 11
+  m_Type: 1
+>>>>>>> Developing
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 100000
   m_Range: 10
@@ -2479,6 +2556,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  m_PointlightHDType: 0
+  m_SpotLightShape: 0
+  m_AreaLightShape: 0
+>>>>>>> Developing
   m_Intensity: 100000
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
@@ -2510,11 +2593,30 @@ MonoBehaviour:
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
   m_AngularDiameter: 0.5
+<<<<<<< HEAD
   m_FlareSize: 2
   m_FlareTint: {r: 1, g: 1, b: 1, a: 1}
   m_FlareFalloff: 4
   m_SurfaceTexture: {fileID: 0}
   m_SurfaceTint: {r: 1, g: 1, b: 1, a: 1}
+=======
+  diameterMultiplerMode: 0
+  diameterMultiplier: 1
+  diameterOverride: 0.5
+  celestialBodyShadingSource: 1
+  sunLightOverride: {fileID: 0}
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunIntensity: 130000
+  moonPhase: 0.2
+  moonPhaseRotation: 0
+  earthshine: 1
+  flareSize: 2
+  flareTint: {r: 1, g: 1, b: 1, a: 1}
+  flareFalloff: 4
+  flareMultiplier: 1
+  surfaceTexture: {fileID: 0}
+  surfaceTint: {r: 1, g: 1, b: 1, a: 1}
+>>>>>>> Developing
   m_Distance: 1.5e+11
   m_UseRayTracedShadows: 0
   m_NumRayTracingSamples: 4
@@ -2535,6 +2637,17 @@ MonoBehaviour:
   m_BlockerSampleCount: 24
   m_FilterSampleCount: 16
   m_MinFilterSize: 0.1
+<<<<<<< HEAD
+=======
+  m_DirLightPCSSBlockerSampleCount: 24
+  m_DirLightPCSSFilterSampleCount: 16
+  m_DirLightPCSSMaxPenumbraSize: 0.56
+  m_DirLightPCSSMaxSamplingDistance: 0.5
+  m_DirLightPCSSMinFilterSizeTexels: 1.5
+  m_DirLightPCSSMinFilterMaxAngularDiameter: 10
+  m_DirLightPCSSBlockerSearchAngularDiameter: 12
+  m_DirLightPCSSBlockerSamplingClumpExponent: 2
+>>>>>>> Developing
   m_KernelSize: 5
   m_LightAngle: 1
   m_MaxDepthBias: 0.001
@@ -2581,11 +2694,16 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
+<<<<<<< HEAD
   m_Version: 11
+=======
+  m_Version: 12
+>>>>>>> Developing
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
   m_ObsoleteContactShadows: 0
+<<<<<<< HEAD
   m_PointlightHDType: 0
   m_SpotLightShape: 0
   m_AreaLightShape: 0
@@ -2754,6 +2872,8 @@ Mesh:
     offset: 0
     size: 0
     path: 
+=======
+>>>>>>> Developing
 --- !u!1 &1569202070
 GameObject:
   m_ObjectHideFlags: 0
@@ -2859,6 +2979,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+<<<<<<< HEAD
+=======
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+>>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -2892,6 +3017,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580965731}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
 --- !u!1 &1589842370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3337,6 +3463,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: edddd90acc57b8c48987d14a14175922, type: 3}
+=======
+>>>>>>> Developing
 --- !u!1 &1942244865
 GameObject:
   m_ObjectHideFlags: 0
@@ -3370,6 +3498,32 @@ Transform:
   - {fileID: 1402577881}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+=======
+--- !u!1 &2103817331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 742223827033686990, guid: 7bbef856541a0644194f0f55e70475c6,
+    type: 3}
+  m_PrefabInstance: {fileID: 906942186}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2103817340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103817331}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6069e6162ad801548a1d8481ee0e59a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ikActive: 1
+  trackObj: {fileID: 0}
+  lookObj: {fileID: 0}
+  ikWeight: 0
+  ikGoal: 0
+>>>>>>> Developing
 --- !u!1001 &3369580840932679533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3584,11 +3738,16 @@ SceneRoots:
   - {fileID: 3369580840932679533}
   - {fileID: 189287203}
   - {fileID: 46429699}
+<<<<<<< HEAD
   - {fileID: 1028147399}
   - {fileID: 1308163150}
   - {fileID: 5312943029274924702}
   - {fileID: 1589842375}
   - {fileID: 111678619}
   - {fileID: 1780256921}
+=======
+  - {fileID: 1308163150}
+  - {fileID: 5312943029274924702}
+>>>>>>> Developing
   - {fileID: 529579787}
   - {fileID: 906942186}
