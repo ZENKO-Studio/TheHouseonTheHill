@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class StalkerStun : StalkerBaseState
 {
@@ -11,13 +12,31 @@ public class StalkerStun : StalkerBaseState
         currentTime = 0f;
         agent.speed = 0f;
         stalkerRef.stalkerAnimator.SetBool("Stun", true);
+
+        if(stalkerRef.stalkerMaterial == null)
+        {
+            Debug.LogError($"{stalkerRef.name} didnt set the Material Property!");
+        }
+        else
+        {
+            // Enable emission keyword
+            stalkerRef.stalkerMaterial.EnableKeyword("_EMISSION");
+
+            // Set the emission color and intensity
+            stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * stalkerRef.intensityMultiplier.Evaluate(0));
+        }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         currentTime += Time.deltaTime;
 
-        if(currentTime > stalkerRef.stunTime) 
+        float emission = stalkerRef.maxGlowIntensity * stalkerRef.intensityMultiplier.Evaluate(currentTime % 1);
+
+        // Set the emission color and intensity
+        stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * emission);
+
+        if (currentTime > stalkerRef.stunTime) 
         {
             if (stalkerRef.bPlayerSensed)
             {
@@ -34,5 +53,12 @@ public class StalkerStun : StalkerBaseState
     {
         stalkerRef.stalkerAnimator.SetBool("Stun", false);
         agent.speed = stalkerRef.moveSpeed;
+
+        if (stalkerRef.stalkerMaterial != null)
+        {
+            // Set the emission color and intensity
+            stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * stalkerRef.intensityMultiplier.Evaluate(0));
+            stalkerRef.stalkerMaterial.DisableKeyword("_EMISSION");
+        }
     }
 }
