@@ -10,7 +10,8 @@ public class MovableObject : MonoBehaviour
     [SerializeField] Transform snapPoint1;
     [SerializeField] Transform snapPoint2;
 
-    [SerializeField] GameObject btnPrompt;
+    [SerializeField] GameObject btnPush;
+    [SerializeField] GameObject btnInteract;
 
     bool bWalkingTowards = false;
     bool bMovingObject = false; 
@@ -33,8 +34,8 @@ public class MovableObject : MonoBehaviour
     {
         if (other.TryGetComponent<NellController>(out playerController))
         {
-            if(btnPrompt)
-                btnPrompt.SetActive(true);
+            if(btnInteract)
+                btnInteract.SetActive(true);
 
             playerController.PlayerInteracted.AddListener(Interact);
         }
@@ -74,10 +75,11 @@ public class MovableObject : MonoBehaviour
             playerController.nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
 
 
-            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) < 0.1f)
+            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) < 0.25f)
             {
                 playerController.nellsAnimator.SetBool("IsMoving", false);
                 playerController.nellsAnimator.SetFloat("InputMagnitude", 0f, 0.05f, Time.deltaTime);
+                playerController.transform.position = closestSnapPoint.transform.position;
                 playerController.transform.rotation = closestSnapPoint.transform.rotation;
                 bWalkingTowards = false;
                 AttachObject();
@@ -89,12 +91,14 @@ public class MovableObject : MonoBehaviour
     {
         if (!bMovingObject) return;
 
-        if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) > 0.1f)
+        if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) > 0.25f)
         {
+            playerController.transform.position = Vector3.Lerp(playerController.transform.position, closestSnapPoint.position, Time.deltaTime * .5f);
             playerController.transform.rotation = Quaternion.Slerp( playerController.transform.rotation, closestSnapPoint.transform.rotation, Time.deltaTime * .5f);
         }
         else
         {
+            playerController.transform.position = closestSnapPoint.transform.position;
             playerController.transform.rotation = closestSnapPoint.transform.rotation;
             bWalkingTowards = false;
         }
@@ -103,9 +107,11 @@ public class MovableObject : MonoBehaviour
     //After the 
     private void AttachObject()
     {
+        btnInteract.SetActive(false);
         playerController.nellsAnimator.SetBool("PushObject", true);
         transform.parent = playerController.transform;
         bMovingObject = true;
+        btnPush.SetActive(true);
     }
 
     private void MoveObject()
@@ -120,19 +126,21 @@ public class MovableObject : MonoBehaviour
     private void RemoveObject()
     {
         //Disconect Player
+        btnInteract.SetActive(true);
         playerController.nellsAnimator.SetBool("PushObject", false);
         playerController.SetPlayerHasControl(true);
         transform.parent = null;
         bWalkingTowards = false;
         bMovingObject = false;
+        btnPush.SetActive(false);
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent<NellController>(out playerController))
         {
-            if (btnPrompt)
-                btnPrompt.SetActive(false);
+            if (btnInteract)
+                btnInteract.SetActive(false);
 
             playerController.PlayerInteracted.RemoveListener(Interact);
         }

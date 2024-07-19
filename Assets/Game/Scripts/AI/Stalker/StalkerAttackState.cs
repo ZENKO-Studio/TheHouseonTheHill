@@ -25,6 +25,7 @@ public class StalkerAttackState : StalkerBaseState
             //    stalkerRef.Attack();
             //    currentTime = 0f;
             //}
+            stalkerRef.transform.LookAt(stalkerRef.playerTransform.position, Vector3.up);
 
             if(!stalkerRef.CanAttackPlayer())
             {
