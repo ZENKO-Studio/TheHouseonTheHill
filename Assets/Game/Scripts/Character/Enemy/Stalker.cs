@@ -31,7 +31,8 @@ public class Stalker : EnemyBase, IHear
     public Material stalkerMaterial;
 
     public Color emissionColor = Color.yellow;
-    public float glowIntensity = 1.0f;
+    public float maxGlowIntensity = 50.0f;
+    public AnimationCurve intensityMultiplier;
 
     protected override void Start()
     {
