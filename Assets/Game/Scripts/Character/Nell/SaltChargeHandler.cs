@@ -11,7 +11,7 @@ public class SaltChargeHandler : MonoBehaviour
     [Tooltip("How frequently can nell throw salt (Cooldown for Salt use)")]
     [SerializeField] int throwFreq = 3;
 
-    int currentSaltCharges = 4;
+    int currentSaltCharges = 0;
 
 
     [SerializeField]
@@ -37,7 +37,7 @@ public class SaltChargeHandler : MonoBehaviour
     private void Awake()
     {
         nellController = GetComponent<NellController>();
-
+        currentSaltCharges = maxSaltCharges;    //Temporary; later can be 0
         ResetSaltAbility();
     }
 

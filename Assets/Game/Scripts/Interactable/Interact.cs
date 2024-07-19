@@ -42,7 +42,7 @@ namespace Game.Scripts.Interactable
             _playerInput = GetComponent<PlayerInput>();
             _player = GetComponent<CharacterBase>();
             SubscribeToEvents();
-//            interactImage.gameObject.SetActive(false);
+            interactImage.gameObject.SetActive(false);
 
             foreach (var button in interactionButtons)
             {

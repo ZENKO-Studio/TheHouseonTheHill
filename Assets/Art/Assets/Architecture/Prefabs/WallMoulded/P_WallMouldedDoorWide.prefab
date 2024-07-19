@@ -60,6 +60,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -134,6 +136,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  interactAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 308d2b7e-9e3b-4f74-be52-659564ff9a8a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   priority: 0
 --- !u!1 &914462695892764264
 GameObject:
@@ -188,8 +199,8 @@ MonoBehaviour:
   useRotation: 1
   useGlobalRotation: 0
   rotationAxis: {x: 0, y: 1, z: 0}
-  openRotationDeg: 0
-  closeRotationDeg: 95
+  openRotationDeg: -133.35
+  closeRotationDeg: 0
   duration: 1
   openThreshold: 0.5
   startState: 2
@@ -203,8 +214,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 90617043545655442}
-  - component: {fileID: 692286345501949679}
-  - component: {fileID: 4755938662021157688}
   m_Layer: 0
   m_Name: P_WallMouldedDoorWide
   m_TagString: Untagged
@@ -230,58 +239,6 @@ Transform:
   - {fileID: 4108310740513817770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &692286345501949679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587458779182227079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0928beee878d34fabb152844d29b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gate: {fileID: 7265748415100841536}
-  usePosition: 1
-  useGlobalPosition: 0
-  openPosition: {x: 0, y: 0, z: 0}
-  closePosition: {x: 0, y: 0, z: 0}
-  useRotation: 0
-  useGlobalRotation: 0
-  rotationAxis: {x: 0, y: 1, z: 0}
-  openRotationDeg: -120.511
-  closeRotationDeg: 0
-  duration: 1
-  openThreshold: 0.5
-  startState: 0
-  scriptOverride: 0
---- !u!114 &4755938662021157688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2587458779182227079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0928beee878d34fabb152844d29b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gate: {fileID: 5103798878747606029}
-  usePosition: 1
-  useGlobalPosition: 0
-  openPosition: {x: 0, y: 0, z: 0}
-  closePosition: {x: 0, y: 0, z: 0}
-  useRotation: 1
-  useGlobalRotation: 0
-  rotationAxis: {x: 0, y: 1, z: 0}
-  openRotationDeg: -67.11
-  closeRotationDeg: -180
-  duration: 1
-  openThreshold: 0.5
-  startState: 0
-  scriptOverride: 0
 --- !u!1 &5352226807211735623
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +292,7 @@ MonoBehaviour:
   useRotation: 1
   useGlobalRotation: 0
   rotationAxis: {x: 0, y: 1, z: 0}
-  openRotationDeg: 0
+  openRotationDeg: 95
   closeRotationDeg: 0
   duration: 1
   openThreshold: 0.5
@@ -400,6 +357,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -509,6 +468,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -583,4 +544,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  interactAction:
+    m_Name: 
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: eb984eea-735a-4a27-a717-39fe32496163
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
   priority: 0
