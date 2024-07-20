@@ -59,6 +59,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -142,6 +144,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -244,6 +248,43 @@ MonoBehaviour:
   itemId: 4
   itemType: 2
   bInteractable: 1
+  bShouldGlow: 1
+  objectMaterial: {fileID: 0}
+  emissionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  maxGlowIntensity: 50
+  intensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.0052212738
+      outSlope: -0.0052212738
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.90284544
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.008685844
+      outSlope: -0.008685844
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.8111894
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &6311626498655278153
 PrefabInstance:
   m_ObjectHideFlags: 0
