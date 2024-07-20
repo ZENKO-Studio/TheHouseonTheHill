@@ -22,6 +22,14 @@ public class NellController : CharacterBase
     public CharacterController characterController;
     public Animator nellsAnimator;
     
+    #region Brandon region
+    
+    public Transform holdPosition; // Position where the item will be held
+    private GameObject heldItem;
+    
+    #endregion
+    
+    
     #region Character Control Values
     [Header("Character Controls")]
     
@@ -225,6 +233,18 @@ public class NellController : CharacterBase
         {
             PlayerMovement();
             SetAnimatorParams();
+        }
+
+        if (Input.GetMouseButtonDown(1)) // Left mouse button
+        {
+            if (heldItem == null)
+            {
+                TryPickupItem();
+            }
+            else
+            {
+                TryCombineItem();
+            }
         }
     }
 
@@ -484,6 +504,65 @@ public class NellController : CharacterBase
         }
     }
 
+     #region Brandon Stuff
+
+    
+
+ 
+    void TryPickupItem()
+    {
+        Input.GetMouseButtonDown(1);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 2f))
+        {
+            if (hit.collider.CompareTag("Item"))
+            {
+                heldItem = hit.collider.gameObject;
+                heldItem.transform.SetParent(holdPosition);
+                heldItem.transform.localPosition = Vector3.zero;
+                heldItem.GetComponent<Rigidbody>().isKinematic = true;
+            }
+        }
+    }
+    
+    void TryCombineItem()
+    {
+        Input.GetMouseButtonDown(1);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 2f))
+        {
+            if (hit.collider.CompareTag("Item") && hit.collider.gameObject != heldItem)
+            {
+                Item otherItem = hit.collider.GetComponent<Item>();
+                Item currentItem = heldItem.GetComponent<Item>();
+
+                if (otherItem.itemType == currentItem.itemType)
+                {
+                    CombineItems(heldItem, hit.collider.gameObject);
+                }
+            }
+        }
+    }
+    
+    void CombineItems(GameObject item1, GameObject item2)
+    {
+        // Implement your combination logic here
+        Debug.Log("Items combined: " + item1.name + " + " + item2.name);
+
+        // Example: Destroy both items and create a new one
+        Destroy(item1);
+        Destroy(item2);
+
+        GameObject combinedItem = Instantiate(Resources.Load("CombinedItemPrefab") as GameObject);
+        combinedItem.transform.position = holdPosition.position;
+        heldItem = combinedItem;
+        heldItem.transform.SetParent(holdPosition);
+        heldItem.transform.localPosition = Vector3.zero;
+        heldItem.GetComponent<Rigidbody>().isKinematic = true;
+    }
+        #endregion
     #endregion
 
     #region Read Inputs
