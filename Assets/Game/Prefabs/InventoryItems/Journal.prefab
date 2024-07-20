@@ -74,9 +74,46 @@ MonoBehaviour:
   itemPreview: {fileID: 5423817666892968398}
   boardItemPreview: {fileID: 0}
   interactPopup: {fileID: 5177010585649824730}
-  itemId: 2
+  itemId: 0
   itemType: 2
   bInteractable: 1
+  bShouldGlow: 1
+  objectMaterial: {fileID: 0}
+  emissionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  maxGlowIntensity: 50
+  intensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.0052212738
+      outSlope: -0.0052212738
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.90284544
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.008685844
+      outSlope: -0.008685844
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.8111894
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &5690222129332093826
 GameObject:
   m_ObjectHideFlags: 0
