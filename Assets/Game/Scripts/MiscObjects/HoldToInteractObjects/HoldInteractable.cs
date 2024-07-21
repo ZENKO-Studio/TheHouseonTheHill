@@ -34,7 +34,7 @@ public class HoldInteractable : MonoBehaviour
         }
     }
 
-    protected void OnTriggerStay(Collider other)
+    protected virtual void OnTriggerStay(Collider other)
     {
         if(playerRef && !bInteractionComplete)
         {
@@ -42,7 +42,7 @@ public class HoldInteractable : MonoBehaviour
             if(playerRef.bInteracting && sliderRef != null)
             {
                 interactedTime += Time.deltaTime;
-                sliderRef.value = interactDuration / interactedTime;
+                sliderRef.value = interactedTime / interactDuration;
             }
             else if(sliderRef != null)
             {
