@@ -11,11 +11,11 @@ public class OneSidedInteract : MonoBehaviour, IInteractable
     [SerializeField] private InputAction interactAction;
     [SerializeField] private int priority;
 
-    private OpenThings openThings;
+    public OpenThings openThings;
 
     private void Start()
     {
-        openThings = GetComponent<OpenThings>();
+        openThings = GetComponentInParent<OpenThings>();
         if (openThings == null)
         {
             Debug.LogError("OpenThings component not found on the GameObject.");
