@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -21,7 +22,7 @@ public class SaltChargeHandler : MonoBehaviour
     GameObject saltParticles;
 
     [Range(0f, 10f)]
-    [SerializeField] float throwDistance = 5f;
+    [SerializeField] float saltRange = 5f;
 
     bool bCanThrowSalt = false;
 
@@ -60,18 +61,21 @@ public class SaltChargeHandler : MonoBehaviour
     {
         if (saltParticles != null)
             saltParts = Instantiate(saltParticles, saltSpawnPosition.position, saltSpawnPosition.rotation); 
-        
-        if (Physics.SphereCast(new Ray(saltSpawnPosition.position, saltSpawnPosition.forward), .5f, out RaycastHit hitInfo, throwDistance))
+       
+        // Perform the OverlapSphere check
+        Collider[] hitColliders = Physics.OverlapSphere(saltSpawnPosition.position, saltRange);
+
+        // Iterate through the colliders and check for the tag
+        foreach (Collider hitCollider in hitColliders)
         {
-            // Code to execute if the sphere cast hits something
-            if(hitInfo.collider.CompareTag("Enemy"))
+            if (hitCollider.CompareTag("Enemy"))
             {
-                Stalker stalker = hitInfo.collider.GetComponent<Stalker>();
+                Stalker stalker = hitCollider.GetComponent<Stalker>();
                 if (stalker)
                     stalker.GetStunned();
             }
         }
-        
+
     }
 
     private void ResetSaltAbility()
