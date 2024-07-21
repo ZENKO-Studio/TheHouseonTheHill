@@ -92,8 +92,8 @@ public class SaltChargeHandler : MonoBehaviour
     }
 
     //When the salt is picked up
-    public void AddSalt()
+    public void AddSalt(int quantity = 1)
     {
-        CurrentSaltCharges = CurrentSaltCharges == maxSaltCharges ? CurrentSaltCharges + 1 : maxSaltCharges;
+        CurrentSaltCharges = (CurrentSaltCharges + quantity) > maxSaltCharges ? CurrentSaltCharges + quantity : maxSaltCharges;
     }
 }
