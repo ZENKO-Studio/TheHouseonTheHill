@@ -14,8 +14,12 @@ public class MovableObject : MonoBehaviour
     [SerializeField] GameObject btnInteract;
 
     bool bWalkingTowards = false;
-    bool bMovingObject = false; 
-    
+    bool bMovingObject = false;
+    bool bCanInteract = true;
+
+    [SerializeField]
+    bool bShouldMoveOnce = true;
+
     [Range(0f, 10f)]
     public float moveDist = 3f;
     
@@ -32,6 +36,9 @@ public class MovableObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!bCanInteract)
+            return;
+
         if (other.TryGetComponent<NellController>(out playerController))
         {
             if(btnInteract)
@@ -133,6 +140,11 @@ public class MovableObject : MonoBehaviour
         bWalkingTowards = false;
         bMovingObject = false;
         btnPush.SetActive(false);
+
+        if(bShouldMoveOnce)
+        {
+            btnInteract.SetActive(false);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -148,6 +160,9 @@ public class MovableObject : MonoBehaviour
 
     public void Interact()
     {
+        if (!bCanInteract)
+            return;
+
         if(bWalkingTowards ||  bMovingObject)
         {
             RemoveObject();
@@ -160,5 +175,7 @@ public class MovableObject : MonoBehaviour
             bWalkingTowards = true;
         }
         
+        if(bShouldMoveOnce)
+            bCanInteract = false;
     }
 }

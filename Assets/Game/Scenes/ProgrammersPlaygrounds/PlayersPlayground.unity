@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.02889743, g: 0.018721433, b: 0.01397902, a: 1}
+  m_IndirectSpecularColor: {r: 0.028914023, g: 0.018722804, b: 0.013975682, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1017,11 +1017,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 245459213}
     m_Modifications:
-    - target: {fileID: -3073928239571222186, guid: 27e97b82355e0fd4a885fb99bc5aa2c6,
-        type: 3}
-      propertyPath: itemId
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5423817666892968398, guid: 27e97b82355e0fd4a885fb99bc5aa2c6,
         type: 3}
       propertyPath: m_Name
@@ -2650,7 +2645,7 @@ MonoBehaviour:
   throwFreq: 3
   saltSpawnPosition: {fileID: 0}
   saltParticles: {fileID: 0}
-  throwDistance: 5
+  saltRange: 5
   OnSaltChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4454,6 +4449,16 @@ PrefabInstance:
       propertyPath: bForceUseThirdPerson
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4403056968411369649, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: saltRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6452442835996562688, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6452442835996562688, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -4461,8 +4466,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
       propertyPath: m_LocalPosition.z
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6854631458508774965, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8164501985100605110, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
@@ -5151,11 +5171,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Photograph
-      objectReference: {fileID: 0}
-    - target: {fileID: 6120736175372656284, guid: 54a13a962f1e3cc47a9de054d1c79982,
-        type: 3}
-      propertyPath: itemId
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7866401463700219914, guid: 54a13a962f1e3cc47a9de054d1c79982,
         type: 3}

@@ -509,6 +509,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Nell
       objectReference: {fileID: 0}
+    - target: {fileID: 3815765468934456070, guid: 7bbef856541a0644194f0f55e70475c6,
+        type: 3}
+      propertyPath: bForceUseThirdPerson
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6452442835996562688, guid: 7bbef856541a0644194f0f55e70475c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1024,6 +1029,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3814599668689711081, guid: 3b40de40b15ae434abe9a46db9d4eeaf,
+        type: 3}
+      propertyPath: moveDist
+      value: 1.27
+      objectReference: {fileID: 0}
     - target: {fileID: 5975409130141095418, guid: 3b40de40b15ae434abe9a46db9d4eeaf,
         type: 3}
       propertyPath: m_Name
