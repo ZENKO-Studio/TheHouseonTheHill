@@ -133,6 +133,7 @@ public class NellController : CharacterBase
     public bool jump;
     public bool sprint;
     public bool crouch;
+    public bool bInteracting;
     public float zoom;
 
     public bool cursorLocked = true;
@@ -614,6 +615,14 @@ public class NellController : CharacterBase
             _itemInRange[_itemInRange.Count - 1].Interact();
             _itemInRange.RemoveAt(_itemInRange.Count - 1);
         }
+    }
+
+    public void OnInteractHold(InputValue value)
+    {
+        if (!bGrounded)
+            return;
+
+        bInteracting = value.isPressed;
     }
 
     public void OnCamZoom(InputValue value)
