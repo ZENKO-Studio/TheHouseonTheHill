@@ -18,7 +18,7 @@ public class CharacterBase : MonoBehaviour
 {
     protected bool bIsPlayer;
 
-    public float MovementSpeed = 5.0f;
+    //public float MovementSpeed = 5.0f;
     public bool IsPlayerCharacter() { return bIsPlayer; }
 
     [Header("Character Health and Stamina")]

@@ -78,13 +78,13 @@ public class MovableObject : MonoBehaviour
             Quaternion rot = Quaternion.LookRotation(targetDir);
             playerController.transform.rotation = Quaternion.Slerp(playerController.transform.rotation, rot, .05f);
 
-            playerController.nellsAnimator.SetBool("IsMoving", true);
+            playerController.bMoving = true;
             playerController.nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
 
 
             if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) < 0.25f)
             {
-                playerController.nellsAnimator.SetBool("IsMoving", false);
+                playerController.bMoving = false;
                 playerController.nellsAnimator.SetFloat("InputMagnitude", 0f, 0.05f, Time.deltaTime);
                 playerController.transform.position = closestSnapPoint.transform.position;
                 playerController.transform.rotation = closestSnapPoint.transform.rotation;
