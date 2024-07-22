@@ -6,6 +6,10 @@ public class Generator : HoldInteractable
 {
     [SerializeField] List<GameObject> lights;
 
+    [SerializeField] int soundRange = 10;
+
+    int c = 1;
+
     protected override void Start()
     {
         base.Start();
@@ -14,6 +18,19 @@ public class Generator : HoldInteractable
         foreach (GameObject light in lights)
         {
             light.SetActive(false);
+        }
+    }
+
+    protected override void OnTriggerStay(Collider other)
+    {
+        base.OnTriggerStay(other);
+    
+        //Every One Second Make Sound
+        if(interactedTime > c)
+        {
+            var sound = new Sound(transform.position, soundRange);
+            Sounds.MakeSound(sound);
+            c++;
         }
     }
 
