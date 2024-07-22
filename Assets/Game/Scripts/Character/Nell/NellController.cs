@@ -52,7 +52,7 @@ public class NellController : CharacterBase
     private float defaultCenter;
 
     //Some variables for Animation Control
-    private bool bMoving;
+    internal bool bMoving;
     private bool bJumping;
     private bool bGrounded;
     private bool bFalling;

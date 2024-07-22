@@ -27,6 +27,9 @@ public class HoldInteractable : MonoBehaviour
 
     protected void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player"))
+            return;
+
         if(!bInteractionComplete)
         {
             other.gameObject.TryGetComponent<NellController>(out playerRef);
@@ -36,7 +39,10 @@ public class HoldInteractable : MonoBehaviour
 
     protected virtual void OnTriggerStay(Collider other)
     {
-        if(playerRef && !bInteractionComplete)
+        if (!other.CompareTag("Player"))
+            return;
+
+        if (playerRef && !bInteractionComplete)
         {
             
             if(playerRef.bInteracting && sliderRef != null)
@@ -59,6 +65,9 @@ public class HoldInteractable : MonoBehaviour
 
     protected void OnTriggerExit(Collider other)
     {
+        if (!other.CompareTag("Player"))
+            return;
+
         interactedTime = 0f;
         sliderRef.value = interactedTime;
         interactablePopup?.SetActive(false);

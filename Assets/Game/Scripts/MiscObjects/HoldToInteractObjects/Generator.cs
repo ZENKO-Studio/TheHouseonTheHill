@@ -8,6 +8,8 @@ public class Generator : HoldInteractable
 
     [SerializeField] int soundRange = 10;
 
+    int c = 1;
+
     protected override void Start()
     {
         base.Start();
@@ -24,11 +26,11 @@ public class Generator : HoldInteractable
         base.OnTriggerStay(other);
     
         //Every One Second Make Sound
-        if(interactedTime > 0 && interactedTime % 1 == 0)
+        if(interactedTime > c)
         {
             var sound = new Sound(transform.position, soundRange);
-
             Sounds.MakeSound(sound);
+            c++;
         }
     }
 
