@@ -52,7 +52,7 @@ public class NellController : CharacterBase
     private float defaultCenter;
 
     //Some variables for Animation Control
-    private bool bMoving;
+    internal bool bMoving;
     private bool bJumping;
     private bool bGrounded;
     private bool bFalling;
@@ -133,6 +133,7 @@ public class NellController : CharacterBase
     public bool jump;
     public bool sprint;
     public bool crouch;
+    public bool bInteracting;
     public float zoom;
 
     public bool cursorLocked = true;
@@ -167,6 +168,8 @@ public class NellController : CharacterBase
 
     //Reference to VisualEffect
     VisualEffect bloodFx;
+
+    bool bPendingDisableControl = false;
     
     #endregion
 
@@ -232,8 +235,9 @@ public class NellController : CharacterBase
         if (characterController != null && bPlayerHasControl)
         {
             PlayerMovement();
-            SetAnimatorParams();
         }
+
+        SetAnimatorParams();
 
         if (Input.GetMouseButtonDown(1)) // Left mouse button
         {
@@ -363,6 +367,14 @@ public class NellController : CharacterBase
             bGrounded = true;
             bJumping = false;
             bFalling = false;
+
+            if(bPendingDisableControl)
+            {
+                SetPlayerHasControl(false);
+                bPendingDisableControl = false;
+                return;
+            }
+
             if (jump)
             {
                 ySpeed = jumpSpeed;
@@ -414,6 +426,18 @@ public class NellController : CharacterBase
 
     public void SetPlayerHasControl(bool v)
     {
+        //If player is in air let him land
+        if(!bGrounded && v == false)
+        {
+            bPendingDisableControl = true;
+            return;
+        }
+
+        if (v == false)
+        {
+            bMoving = false;
+        }
+
         bPlayerHasControl = v;
         characterController.enabled = bPlayerHasControl;
     }
@@ -614,6 +638,14 @@ public class NellController : CharacterBase
             _itemInRange[_itemInRange.Count - 1].Interact();
             _itemInRange.RemoveAt(_itemInRange.Count - 1);
         }
+    }
+
+    public void OnInteractHold(InputValue value)
+    {
+        if (!bGrounded)
+            return;
+
+        bInteracting = value.isPressed;
     }
 
     public void OnCamZoom(InputValue value)

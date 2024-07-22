@@ -16,10 +16,6 @@ public class EvilDollController : MonoBehaviour
         // Get the NavMeshAgent and Animator components
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        
-        // Ensure the NavMeshAgent does not control movement
-        agent.updatePosition = false;
-        agent.updateRotation = false;
     }
 
     void Update()
@@ -30,29 +26,14 @@ public class EvilDollController : MonoBehaviour
             agent.SetDestination(target.position);
         }
 
-        // Get the desired velocity in local space
-        Vector3 localDesiredVelocity = transform.InverseTransformDirection(agent.desiredVelocity);
+        // Set blend tree parameter based on agent's speed
+        animator.SetFloat("Speed", agent.velocity.magnitude);
 
-        // Set blend tree parameters
-        animator.SetFloat("Speed", localDesiredVelocity.z);
-        animator.SetFloat("Turn", localDesiredVelocity.x);
-
-        // Move the agent using root motion
-        if (agent.remainingDistance > agent.stoppingDistance)
+        // Rotate the character to face the movement direction
+        if (agent.velocity.sqrMagnitude > Mathf.Epsilon)
         {
-            agent.nextPosition = transform.position;
+            Quaternion targetRotation = Quaternion.LookRotation(agent.velocity.normalized);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
         }
-        else
-        {
-            animator.SetFloat("Speed", 0);
-            animator.SetFloat("Turn", 0);
-        }
-    }
-
-    void OnAnimatorMove()
-    {
-        // Apply root motion
-        transform.position = animator.rootPosition;
-        transform.rotation = animator.rootRotation;
     }
 }

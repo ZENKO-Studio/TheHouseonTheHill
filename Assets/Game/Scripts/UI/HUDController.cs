@@ -25,6 +25,9 @@ public class HUDController : MonoBehaviour
     NellController nellController;
     Flashlight flashlight;
 
+    [SerializeField] Transform dialoguePanel;
+    [SerializeField] TMP_Text dialogueText;
+
     // Start is called before the first frame update
     void OnEnable()
     {
@@ -36,6 +39,7 @@ public class HUDController : MonoBehaviour
     private void HandlePlayerSpawn()
     {
         nellController = GameManager.Instance.playerRef;
+        GameManager.Instance.playerHud = this;
 
         if (nellController != null)
         {
@@ -101,5 +105,20 @@ public class HUDController : MonoBehaviour
             flashlight.OnFlashLightToggle.RemoveListener(UpdateFlashlightIcon);
 
         GameManager.Instance.OnPlayerSpawned.RemoveListener(HandlePlayerSpawn);
+    }
+
+    public void UpdateDialogueText(string text, int disableTime = 5)
+    {
+        dialoguePanel.gameObject.SetActive(true);
+        dialogueText.text = text;   
+       
+        Invoke(nameof(DisableDialoguePanel), disableTime);
+        
+    }
+
+    void DisableDialoguePanel()
+    {
+        dialogueText.text = String.Empty;
+        dialoguePanel.gameObject.SetActive(false);
     }
 }
