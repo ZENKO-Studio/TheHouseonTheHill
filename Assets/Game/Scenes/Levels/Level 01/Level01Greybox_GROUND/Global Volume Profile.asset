@@ -169,7 +169,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 1.8668972
+    m_Value: 0.91037536
   compensation:
     m_OverrideState: 1
     m_Value: 2.31
@@ -180,15 +180,15 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 14
   curveMap:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -10
-        value: -10
+        time: 0.125
+        value: -10.99057
         inSlope: 0
-        outSlope: 1
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
         time: 20
         value: 20
         inSlope: 1
-        outSlope: 0
+        outSlope: 1
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
@@ -206,23 +206,23 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   limitMinCurveMap:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -10
-        value: -12
+        time: 0
+        value: 0
         inSlope: 0
-        outSlope: 1
+        outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 20
-        value: 18
-        inSlope: 1
+        time: 1
+        value: 1
+        inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
