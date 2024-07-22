@@ -38,9 +38,16 @@ public class StalkerChasePlayer : StalkerBaseState
 
             Vector3 nextPos = stalkerTransform.position + (stalkerTransform.forward * speed * Time.deltaTime);
 
-            //stalkerTransform.position = nextPos;
+            Vector3 displacement = nextPos - agent.transform.position;
 
-            agent.velocity = (nextPos - agent.transform.position) / Time.deltaTime;
+            if (displacement != Vector3.zero)
+            {
+                agent.velocity = displacement / Time.deltaTime;
+            }
+            else
+            {
+                agent.velocity = Vector3.zero;
+            }
 
             float angle = Vector3.Angle(stalkerTransform.forward, agent.desiredVelocity);
 

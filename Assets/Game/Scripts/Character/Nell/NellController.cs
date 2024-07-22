@@ -42,6 +42,9 @@ public class NellController : CharacterBase
     [Tooltip("How much the character should move forward when moving and jumping")]
     [SerializeField] float forwardJumpForce = 3f;
 
+    [Tooltip("How much the character should move forward when swimming")]
+    [SerializeField] float swimSpeed = 2f;
+
     float ogStepOffset;
     float ySpeed = 0f;
 
@@ -59,6 +62,10 @@ public class NellController : CharacterBase
 
     //This is the variable that can be changed to take control away from player and give back to player
     bool bPlayerHasControl = true;
+
+    //For Under water region
+    internal bool bSwimming;
+
 
     #endregion
 
@@ -234,7 +241,14 @@ public class NellController : CharacterBase
 
         if (characterController != null && bPlayerHasControl)
         {
-            PlayerMovement();
+            if (bSwimming)
+            {
+                PlayerSwim();
+            }
+            else
+            {
+                PlayerMovement();
+            }
         }
 
         SetAnimatorParams();
@@ -262,7 +276,7 @@ public class NellController : CharacterBase
             CameraZoom();
         }
 
-        if(!bPendingOrientationUpdate && orientationTransform == orientationObject.transform)
+        if(!bPendingOrientationUpdate && orientationTransform == orientationObject.transform && bPlayerHasControl)
             orientationTransform.rotation = mainCamTransform.rotation;
     }
 
@@ -284,12 +298,15 @@ public class NellController : CharacterBase
 
     private void OnAnimatorMove()
     {
-        if(bGrounded && bPlayerHasControl)
+        if(bPlayerHasControl)
         {
+            if(bGrounded && !bSwimming)
+            {
                 Vector3 velocity = nellsAnimator.deltaPosition;
                 velocity.y = ySpeed * Time.deltaTime;
 
                 characterController.Move(velocity);   
+            }
         }
         else
         {
@@ -350,13 +367,14 @@ public class NellController : CharacterBase
             velocity.y = ySpeed;
 
             characterController.Move(velocity * Time.deltaTime);
+
         }
 
     }
 
     private void PlayerJump()
     {
-        if(crouch) return;
+        if(crouch || bSwimming) return;
 
         ySpeed += Physics.gravity.y * Time.deltaTime;
 
@@ -388,11 +406,35 @@ public class NellController : CharacterBase
             characterController.stepOffset = 0;
             bGrounded = false;
 
-            if((bJumping && ySpeed < 0) || ySpeed < -2)
+            if((bJumping && ySpeed < 0) || ySpeed < -4)
             {
                 bFalling = true;
             }
         }
+    }
+
+    private void PlayerSwim()
+    {
+        if (!bEnableMovement)
+            return;
+
+        Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
+
+        movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
+
+        float inputMag = Mathf.Clamp01(movDir.magnitude);
+
+        Vector3 velocity = movDir * inputMag * swimSpeed;
+        velocity.y = ySpeed;
+
+        characterController.Move(velocity * Time.deltaTime);
+
+        if (movDir != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
+        }
+
     }
 
     public void UpdateOrientation()
@@ -448,6 +490,7 @@ public class NellController : CharacterBase
         nellsAnimator.SetBool("IsJumping", bJumping);
         nellsAnimator.SetBool("IsGrounded", bGrounded);
         nellsAnimator.SetBool("IsFalling", bFalling);
+        nellsAnimator.SetBool("IsSwimming", bSwimming);
     }
 
     private const float _threshold = 0.01f;
@@ -489,6 +532,9 @@ public class NellController : CharacterBase
 
     private void Crouch()
     {
+        if (bSwimming)
+            return;
+
         nellsAnimator.SetBool("IsCrouching", crouch);
 
         if (crouch)
@@ -605,7 +651,7 @@ public class NellController : CharacterBase
 
     public void OnJump(InputValue value)
     {
-        if(!crouch)
+        if(!crouch && !bSwimming)
             jump = value.isPressed;
     }
 

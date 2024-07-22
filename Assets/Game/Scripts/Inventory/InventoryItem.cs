@@ -29,7 +29,7 @@ public class InventoryItem : MonoBehaviour
 
     protected InventoryHandler inventoryHandler;    //Just a local reference of Inventory System (just to avoid writing the whole thing)
 
-    #region Golwing Part
+    #region Glowing Part
 
     [SerializeField] bool bShouldGlow = false;
 
@@ -117,6 +117,7 @@ public class InventoryItem : MonoBehaviour
     public virtual void Interact()
     {
         inventoryHandler.AddItem(this);
+        GameManager.Instance.playerHud.UpdateDialogueText($"{itemName} added to inventory");
 
         PostInteract();
     }
