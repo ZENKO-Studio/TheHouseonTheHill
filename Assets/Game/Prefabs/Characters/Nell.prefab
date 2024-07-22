@@ -473,8 +473,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4496020360722962213}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.7821956, z: 0, w: 0.6230329}
-  m_LocalPosition: {x: 3.1807032, y: 1.75, z: 1.2428817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 1.75, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -730,7 +730,7 @@ Transform:
   m_GameObject: {fileID: 8311689536160239675}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.145, z: 0.976}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1220,6 +1220,7 @@ MonoBehaviour:
       m_Calls: []
   characterController: {fileID: 0}
   nellsAnimator: {fileID: 0}
+  holdPosition: {fileID: 0}
   bEnableMovement: 1
   rotSpeed: 300
   jumpSpeed: 4
@@ -1255,6 +1256,7 @@ MonoBehaviour:
   jump: 0
   sprint: 0
   crouch: 0
+  bInteracting: 0
   zoom: 0
   cursorLocked: 1
   cursorInputForLook: 1
@@ -1348,7 +1350,7 @@ MonoBehaviour:
   saltSpawnPosition: {fileID: 6479327372558991422}
   saltParticles: {fileID: 4627466016778062978, guid: 52ec9d16bca12a847af5488d1762176a,
     type: 3}
-  throwDistance: 5
+  saltRange: 5
   OnSaltChanged:
     m_PersistentCalls:
       m_Calls: []
