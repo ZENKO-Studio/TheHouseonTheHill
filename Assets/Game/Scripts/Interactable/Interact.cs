@@ -137,7 +137,7 @@ namespace Game.Scripts.Interactable
                 }
                 if (interactableObject != gameObject)
                 {
-                    interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
+              //      interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
                 }
                 interactImage.sprite = GetInteractionButtonFromString(bindingDisplayString);
                 interactImage.gameObject.SetActive(true); // Show the text

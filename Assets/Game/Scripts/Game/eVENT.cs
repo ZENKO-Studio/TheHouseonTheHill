@@ -11,8 +11,8 @@ public class eVENT : MonoBehaviour
 
    private void Update()
    {
-      if (gameObject.CompareTag("RotatableDial"))
-      {
+      
+      
          // Check if the left mouse button was clicked
          if (Input.GetMouseButtonDown(0))
          {
@@ -26,7 +26,7 @@ public class eVENT : MonoBehaviour
                OnClick();
             }
          }
-      }
+      
    }
 
    private void OnClick()
