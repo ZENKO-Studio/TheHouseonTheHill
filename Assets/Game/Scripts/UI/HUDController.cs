@@ -109,8 +109,6 @@ public class HUDController : MonoBehaviour
 
     public void UpdateDialogueText(string text, int disableTime = 5)
     {
-        CancelInvoke(nameof(DisableDialoguePanel));
-
         dialoguePanel.gameObject.SetActive(true);
         dialogueText.text = text;   
        
