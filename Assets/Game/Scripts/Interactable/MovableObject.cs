@@ -75,14 +75,9 @@ public class MovableObject : MonoBehaviour
                 0f,
                 closestSnapPoint.position.z - playerController.transform.position.z);
 
-            Quaternion rot = Quaternion.LookRotation(targetDir);
-            playerController.transform.rotation = Quaternion.Slerp(playerController.transform.rotation, rot, .05f);
+           
 
-            playerController.bMoving = true;
-            playerController.nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
-
-
-            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) < 0.25f)
+            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) <= 0.5f)
             {
                 playerController.bMoving = false;
                 playerController.nellsAnimator.SetFloat("InputMagnitude", 0f, 0.05f, Time.deltaTime);
@@ -90,6 +85,15 @@ public class MovableObject : MonoBehaviour
                 playerController.transform.rotation = closestSnapPoint.transform.rotation;
                 bWalkingTowards = false;
                 AttachObject();
+            }
+            else
+            {
+                Quaternion rot = Quaternion.LookRotation(targetDir);
+                playerController.transform.rotation = Quaternion.Slerp(playerController.transform.rotation, rot, .05f);
+
+                playerController.bMoving = true;
+                playerController.nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
+
             }
         }
     }
