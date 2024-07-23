@@ -147,10 +147,10 @@ AnimatorStateMachine:
     m_Position: {x: 590, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7002570835218027921}
-    m_Position: {x: 600, y: 630, z: 0}
+    m_Position: {x: 600, y: 810, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4884018079434178368}
-    m_Position: {x: 600, y: 700, z: 0}
+    m_Position: {x: 600, y: 870, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7381621598963854190}
     m_Position: {x: 840, y: 80, z: 0}
@@ -229,6 +229,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8823556175247084199}
     m_Position: {x: 590, y: 520, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -5082220599249343549}
+    m_Position: {x: 600, y: 610, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 7958619208805781637}
+    m_Position: {x: 600, y: 710, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -325,6 +331,32 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cave01State02
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-5082220599249343549
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Elevation01State01
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1154,6 +1186,32 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cave01State03
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &7958619208805781637
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FloodedRoom01State01
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
