@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.PackageManager;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class SaltChargeHandler : MonoBehaviour
 {
-    [Range(3, 10)]
+    [Range(0, 10)]
+    [SerializeField] int initialSaltCharges = 0;
+    
+    [Range(0, 10)]
     [SerializeField] int maxSaltCharges = 5;
 
     [Tooltip("How frequently can nell throw salt (Cooldown for Salt use)")]
@@ -38,7 +38,7 @@ public class SaltChargeHandler : MonoBehaviour
     private void Awake()
     {
         nellController = GetComponent<NellController>();
-        currentSaltCharges = maxSaltCharges;    //Temporary; later can be 0
+       
         ResetSaltAbility();
     }
 
@@ -95,5 +95,6 @@ public class SaltChargeHandler : MonoBehaviour
     public void AddSalt(int quantity = 1)
     {
         CurrentSaltCharges = (CurrentSaltCharges + quantity) > maxSaltCharges ? CurrentSaltCharges + quantity : maxSaltCharges;
+        ResetSaltAbility();
     }
 }
