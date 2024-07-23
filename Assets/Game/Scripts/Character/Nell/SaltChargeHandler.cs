@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class SaltChargeHandler : MonoBehaviour
 {
-    [Range(3, 10)]
+    [Range(0, 10)]
+    [SerializeField] int initialSaltCharges = 0;
+    
+    [Range(0, 10)]
     [SerializeField] int maxSaltCharges = 5;
 
     [Tooltip("How frequently can nell throw salt (Cooldown for Salt use)")]
     [SerializeField] int throwFreq = 3;
 
-    int currentSaltCharges = 4;
+    int currentSaltCharges = 0;
 
 
     [SerializeField]
@@ -21,7 +22,7 @@ public class SaltChargeHandler : MonoBehaviour
     GameObject saltParticles;
 
     [Range(0f, 10f)]
-    [SerializeField] float throwDistance = 5f;
+    [SerializeField] float saltRange = 5f;
 
     bool bCanThrowSalt = false;
 
@@ -37,7 +38,7 @@ public class SaltChargeHandler : MonoBehaviour
     private void Awake()
     {
         nellController = GetComponent<NellController>();
-
+       
         ResetSaltAbility();
     }
 
@@ -60,18 +61,21 @@ public class SaltChargeHandler : MonoBehaviour
     {
         if (saltParticles != null)
             saltParts = Instantiate(saltParticles, saltSpawnPosition.position, saltSpawnPosition.rotation); 
-        
-        if (Physics.SphereCast(new Ray(saltSpawnPosition.position, saltSpawnPosition.forward), .5f, out RaycastHit hitInfo, throwDistance))
+       
+        // Perform the OverlapSphere check
+        Collider[] hitColliders = Physics.OverlapSphere(saltSpawnPosition.position, saltRange);
+
+        // Iterate through the colliders and check for the tag
+        foreach (Collider hitCollider in hitColliders)
         {
-            // Code to execute if the sphere cast hits something
-            if(hitInfo.collider.CompareTag("Enemy"))
+            if (hitCollider.CompareTag("Enemy"))
             {
-                Stalker stalker = hitInfo.collider.GetComponent<Stalker>();
+                Stalker stalker = hitCollider.GetComponent<Stalker>();
                 if (stalker)
                     stalker.GetStunned();
             }
         }
-        
+
     }
 
     private void ResetSaltAbility()
@@ -88,8 +92,9 @@ public class SaltChargeHandler : MonoBehaviour
     }
 
     //When the salt is picked up
-    public void AddSalt()
+    public void AddSalt(int quantity = 1)
     {
-        CurrentSaltCharges = CurrentSaltCharges == maxSaltCharges ? CurrentSaltCharges + 1 : maxSaltCharges;
+        CurrentSaltCharges = (CurrentSaltCharges + quantity) > maxSaltCharges ? CurrentSaltCharges + quantity : maxSaltCharges;
+        ResetSaltAbility();
     }
 }

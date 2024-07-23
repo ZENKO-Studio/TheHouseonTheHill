@@ -68,7 +68,14 @@ namespace Game.Scripts.Interactable
             }
         }
 
+        public bool IsPlayerInFront(Transform playerTransform)
+        {
+            Vector3 doorToPlayer = playerTransform.position - gate.position;
+            Vector3 doorForward = gate.forward;
+            Debug.DrawRay(gate.position,gate.forward);
 
+            return Vector3.Dot(doorForward, doorToPlayer) > 0;
+        }
         private void ApplyPosition(Vector3 pos)
         {
             if (!usePosition) return;
@@ -159,5 +166,7 @@ namespace Game.Scripts.Interactable
             ApplyPosition(Vector3.LerpUnclamped(closePosition, openPosition, _openness));
             ApplyRotation(Mathf.LerpUnclamped(closeRotationDeg, openRotationDeg, _openness));
         }
+        
+        
     }
 }

@@ -1,0 +1,61 @@
+{
+  "uuid": "780FC313-46C0-4E6A-85E7-56769822AEE5",
+  "name": "Level01Beta",
+  "creator": "Twine",
+  "creatorVersion": "2.8.1",
+  "schemaName": "Twine to JSON",
+  "schemaVersion": "0.0.6",
+  "createdAtMs": 1721703121631,
+  "passages": [
+    {
+      "name": "Init",
+      "tags": "",
+      "id": "1",
+      "text": "Alright... What was I do again? Right. Looking for the library.\n[[Continue -> Library]]",
+      "links": [
+        {
+          "linkText": "Continue",
+          "passageName": "Library",
+          "original": "[[Continue -> Library]]"
+        }
+      ],
+      "cleanText": "Alright... What was I do again? Right. Looking for the library."
+    },
+    {
+      "name": " Library",
+      "tags": "",
+      "id": "2",
+      "text": "Finally found the library. It's... definitely impressive. Mr Crain seemed to have had a very large Shakespeare collection...\n\n\n[[Continue -> Correct lever pull]]",
+      "links": [
+        {
+          "linkText": "Continue",
+          "passageName": "Correct lever pull",
+          "original": "[[Continue -> Correct lever pull]]"
+        }
+      ],
+      "cleanText": "Finally found the library. It's... definitely impressive. Mr Crain seemed to have had a very large Shakespeare collection..."
+    },
+    {
+      "name": " Correct lever pull",
+      "tags": "",
+      "id": "3",
+      "text": "What was that?\n\n[[Continue -> Pick up of journal entry]]",
+      "links": [
+        {
+          "linkText": "Continue",
+          "passageName": "Pick up of journal entry",
+          "original": "[[Continue -> Pick up of journal entry]]"
+        }
+      ],
+      "cleanText": "What was that?"
+    },
+    {
+      "name": " Pick up of journal entry",
+      "tags": "",
+      "id": "4",
+      "text": "Weird. Looks like it's a diary entry written by Hugh's... first wife? I think? I'll put it in my backpack if I want to look at it later.",
+      "links": [],
+      "cleanText": "Weird. Looks like it's a diary entry written by Hugh's... first wife? I think? I'll put it in my backpack if I want to look at it later."
+    }
+  ]
+}

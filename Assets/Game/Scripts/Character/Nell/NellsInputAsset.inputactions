@@ -60,6 +60,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "InteractHold",
+                    "type": "PassThrough",
+                    "id": "6566491e-52d8-447b-850c-53cf7f6cffc9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "CamZoom",
                     "type": "PassThrough",
                     "id": "60fb7b0a-9a85-434b-b066-730086b41e46",
@@ -78,8 +87,6 @@
                     "initialStateCheck": false
                 },
                 {
-<<<<<<< HEAD
-=======
                     "name": "Board",
                     "type": "Button",
                     "id": "20cd6733-59c4-4f7d-958a-073406699448",
@@ -89,7 +96,6 @@
                     "initialStateCheck": false
                 },
                 {
->>>>>>> Developing
                     "name": "PauseGame",
                     "type": "Button",
                     "id": "21699bea-0980-425c-912a-1fa87b98b15e",
@@ -115,8 +121,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-<<<<<<< HEAD
-=======
                 },
                 {
                     "name": "ThrowSalt",
@@ -126,7 +130,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
->>>>>>> Developing
                 }
             ],
             "bindings": [
@@ -382,8 +385,6 @@
                     "action": "CamMode",
                     "isComposite": false,
                     "isPartOfComposite": false
-<<<<<<< HEAD
-=======
                 },
                 {
                     "name": "",
@@ -406,7 +407,17 @@
                     "action": "ThrowSalt",
                     "isComposite": false,
                     "isPartOfComposite": false
->>>>>>> Developing
+                },
+                {
+                    "name": "",
+                    "id": "455e5e2c-2999-40ce-aeaf-0c1b1519d3d0",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "InteractHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

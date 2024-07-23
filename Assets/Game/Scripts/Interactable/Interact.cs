@@ -42,11 +42,7 @@ namespace Game.Scripts.Interactable
             _playerInput = GetComponent<PlayerInput>();
             _player = GetComponent<CharacterBase>();
             SubscribeToEvents();
-<<<<<<< HEAD
             interactImage.gameObject.SetActive(false);
-=======
-//            interactImage.gameObject.SetActive(false);
->>>>>>> Developing
 
             foreach (var button in interactionButtons)
             {
@@ -141,7 +137,7 @@ namespace Game.Scripts.Interactable
                 }
                 if (interactableObject != gameObject)
                 {
-                    interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
+              //      interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
                 }
                 interactImage.sprite = GetInteractionButtonFromString(bindingDisplayString);
                 interactImage.gameObject.SetActive(true); // Show the text
@@ -151,11 +147,7 @@ namespace Game.Scripts.Interactable
             {
                 _overrideInteractable = false;
                 _currentInteractable = null;
-<<<<<<< HEAD
-                interactImage.gameObject.SetActive(false); // Show the text
-=======
               //  interactImage.gameObject.SetActive(false); // Show the text
->>>>>>> Developing
             }
         }
 

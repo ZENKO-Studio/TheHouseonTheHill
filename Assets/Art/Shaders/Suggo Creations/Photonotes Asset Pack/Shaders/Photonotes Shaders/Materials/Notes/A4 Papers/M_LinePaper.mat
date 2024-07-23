@@ -51,15 +51,15 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - MaskMap_Dirty:
-        m_Texture: {fileID: 2800000, guid: 993d144187731234f928c520fda991e4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3b710e56283ecda4b9ca3a291eed1f5e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorClean:
-        m_Texture: {fileID: 2800000, guid: d3458c2a83641cd45aa74267ad4a34d3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 89a8a830fa4037f4ebbefd3be9b4a527, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseColorDirty:
-        m_Texture: {fileID: 2800000, guid: 528078ecc86ea7b43ad5c69dcc90fb38, type: 3}
+        m_Texture: {fileID: 2800000, guid: 37aa0448f005781458e8a585671e759c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -99,7 +99,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskMapDirty:
-        m_Texture: {fileID: 2800000, guid: bfe97bd229c400148b628041997be614, type: 3}
+        m_Texture: {fileID: 2800000, guid: 040e0344918ed9b44af4eb7083671141, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -119,7 +119,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoteTex:
-        m_Texture: {fileID: 2800000, guid: 7984f6b220fdfd74cad50d227e90f1c2, type: 3}
+        m_Texture: {fileID: 2800000, guid: c09b6a6d744c8f541a290f3fadde1814, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -209,20 +209,25 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 2
     - _DstBlend: 0
-    - _DustAmount: 0
+    - _DstBlend2: 0
+    - _DustAmount: 2
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnvironmentReflections: 1
+    - _ExcludeFromTUAndAA: 0
     - _FireLineWidth: 0.325
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Metallic: 0
     - _NormalStrength: 1
-    - _NoteTexOpacity: 0.85
+    - _NoteTexOpacity: 1
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _Parallax: 0.005
+    - _PerPixelSorting: 0
     - _PhotoOpacity: 0.85
     - _QueueOffset: 0
     - _RayTracing: 0
@@ -249,6 +254,7 @@ Material:
     - _SupportDecals: 1
     - _Surface: 0
     - _SurfaceType: 0
+    - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -271,12 +277,13 @@ Material:
     - _FireColor: {r: 2.9960785, g: 0.2509804, b: 0, a: 1}
     - _NoteOffset: {r: -0.01, g: -0.2, b: 0, a: 0}
     - _NoteScaling: {r: 1, g: 1.25, b: 0, a: 0}
-    - _NoteTexOffset: {r: 0, g: -0.08, b: 0, a: 0}
-    - _NoteTexScaling: {r: 1, g: 1.27, b: 0, a: 0}
+    - _NoteTexOffset: {r: -0.05, g: -0.08, b: 0, a: 0}
+    - _NoteTexScaling: {r: 1, g: 1.1, b: 0, a: 0}
     - _PhotoOffset: {r: 0, g: 0, b: 0, a: 0}
     - _PhotoScaling: {r: 1, g: 1, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &1992937271720916239
 MonoBehaviour:
   m_ObjectHideFlags: 11
