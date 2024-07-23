@@ -11,17 +11,20 @@ public class eVENT : MonoBehaviour
 
    private void Update()
    {
-      // Check if the left mouse button was clicked
-      if (Input.GetMouseButtonDown(0))
+      if (gameObject.CompareTag("RotatableDial"))
       {
-         // Cast a ray from the camera to the mouse position
-         Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-         RaycastHit hit;
-
-         // Check if the ray hits this game object
-         if (Physics.Raycast(ray, out hit) && hit.collider == GetComponent<Collider>())
+         // Check if the left mouse button was clicked
+         if (Input.GetMouseButtonDown(0))
          {
-            OnClick();
+            // Cast a ray from the camera to the mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            RaycastHit hit;
+
+            // Check if the ray hits this game object
+            if (Physics.Raycast(ray, out hit) && hit.collider == GetComponent<Collider>())
+            {
+               OnClick();
+            }
          }
       }
    }
