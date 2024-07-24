@@ -1,0 +1,66 @@
+{
+  "passages": [
+    {
+      "text": "Alright... What was I do again? Right. Looking for the library.\n[[Continue -> Library]]",
+      "links": [
+        {
+          "name": "Continue ",
+          "link": " Library",
+          "pid": "2"
+        }
+      ],
+      "name": "Init",
+      "pid": "1",
+      "position": {
+        "x": "800",
+        "y": "325"
+      }
+    },
+    {
+      "text": "Finally found the library. It's... definitely impressive. Mr Crain seemed to have had a very large Shakespeare collection...\n\n\n[[Continue -> Correct lever pull]]",
+      "links": [
+        {
+          "name": "Continue ",
+          "link": " Correct lever pull",
+          "pid": "3"
+        }
+      ],
+      "name": " Library",
+      "pid": "2",
+      "position": {
+        "x": "950",
+        "y": "325"
+      }
+    },
+    {
+      "text": "What was that?\n\n[[Continue -> Pick up of journal entry]]",
+      "links": [
+        {
+          "name": "Continue ",
+          "link": " Pick up of journal entry",
+          "pid": "4"
+        }
+      ],
+      "name": " Correct lever pull",
+      "pid": "3",
+      "position": {
+        "x": "950",
+        "y": "475"
+      }
+    },
+    {
+      "text": "Weird. Looks like it's a diary entry written by Hugh's... first wife? I think? I'll put it in my backpack if I want to look at it later.",
+      "name": " Pick up of journal entry",
+      "pid": "4",
+      "position": {
+        "x": "800",
+        "y": "475"
+      }
+    }
+  ],
+  "name": "Level01Beta",
+  "startnode": "1",
+  "creator": "Twine",
+  "creator-version": "2.8.1",
+  "ifid": "780FC313-46C0-4E6A-85E7-56769822AEE5"
+}
