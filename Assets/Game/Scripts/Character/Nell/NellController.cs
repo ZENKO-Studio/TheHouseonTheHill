@@ -276,8 +276,8 @@ public class NellController : CharacterBase
             CameraZoom();
         }
 
-        // if(!bPendingOrientationUpdate && orientationTransform == orientationObject.transform && bPlayerHasControl)
-        //     orientationTransform.rotation = mainCamTransform.rotation;
+        if (!bPendingOrientationUpdate && orientationTransform == orientationObject.transform && bPlayerHasControl)
+            orientationTransform.rotation = mainCamTransform.rotation;
     }
 
     private void OnFootstep(AnimationEvent animationEvent)
@@ -325,7 +325,7 @@ public class NellController : CharacterBase
 
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
 
-        // movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
+        movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
 
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
@@ -459,11 +459,11 @@ public class NellController : CharacterBase
             bPendingOrientationUpdate = true;
             return;
         }
-    
-       // // orientationTransform = orientationObject.transform;
-       //  orientationTransform.rotation = mainCamTransform.rotation;
-       //  bPendingOrientationUpdate = false;
-        
+
+        orientationTransform = orientationObject.transform;
+        orientationTransform.rotation = mainCamTransform.rotation;
+        bPendingOrientationUpdate = false;
+
     }
 
     public void SetPlayerHasControl(bool v)
