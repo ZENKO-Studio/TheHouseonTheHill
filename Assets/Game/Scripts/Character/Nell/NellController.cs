@@ -323,10 +323,26 @@ public class NellController : CharacterBase
         if (!bEnableMovement)
             return;
 
+        #region Brandon Fixing samis way of orienting player
+
+        
+
+        
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
+        var primaryCamera = Camera.main;
+        //movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
+        var cameraForward = primaryCamera.transform.forward;
+        var cameraRight = primaryCamera.transform.right;
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+            
+        var forwardRelativeInput = moveInput.y * cameraForward;
+        var rightRelativeInput = moveInput.x * cameraRight;
 
-        // movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
-
+        #endregion
+         movDir = forwardRelativeInput + rightRelativeInput;
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
         if (sprint && Stamina > 0)
@@ -439,6 +455,13 @@ public class NellController : CharacterBase
 
     public void UpdateOrientation()
     {
+        if (true)
+        {
+            return;
+        }
+
+        #region Brandon Found this breaks things
+        
         //If Orientation is overriden by some external transform
         if(GameManager.Instance.OverriddenOrientation() != null)
         {
@@ -460,10 +483,10 @@ public class NellController : CharacterBase
             return;
         }
     
-       // // orientationTransform = orientationObject.transform;
-       //  orientationTransform.rotation = mainCamTransform.rotation;
-       //  bPendingOrientationUpdate = false;
-        
+        orientationTransform = orientationObject.transform;
+        orientationTransform.rotation = mainCamTransform.rotation;
+        bPendingOrientationUpdate = false;
+        #endregion
     }
 
     public void SetPlayerHasControl(bool v)
