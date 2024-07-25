@@ -9,6 +9,9 @@ public class CinemaMachineSwitcher : MonoBehaviour
     [Header("Callbacks")]
     public UnityEvent onEnter;
 
+    [Tooltip("If this is set to true it will automatically switch orientation even if player is moving")]
+    [SerializeField] bool instantlySwitchOrientation = false; 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out CharacterBase player))
@@ -20,8 +23,7 @@ public class CinemaMachineSwitcher : MonoBehaviour
     private void OnEnter()
     {
         onEnter.Invoke();
-        //Set this to false when you want to switch back to 3rd Person
-        GameManager.Instance.playerRef.UpdateOrientation();
+        GameManager.Instance.playerRef.UpdateOrientation(instantlySwitchOrientation);
     }
 
 }

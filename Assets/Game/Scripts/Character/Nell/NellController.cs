@@ -236,7 +236,7 @@ public class NellController : CharacterBase
     {
         if (bPendingOrientationUpdate)
         {
-            UpdateOrientation();
+            UpdateOrientation(false);
         }
 
         if (characterController != null && bPlayerHasControl)
@@ -437,7 +437,7 @@ public class NellController : CharacterBase
 
     }
 
-    public void UpdateOrientation()
+    public void UpdateOrientation(bool instantlySwitchOrientation = false)
     {
         //If Orientation is overriden by some external transform
         if(GameManager.Instance.OverriddenOrientation() != null)
@@ -454,7 +454,7 @@ public class NellController : CharacterBase
         }
 
         //This is when 
-        if (bMoving)
+        if (bMoving && !instantlySwitchOrientation)
         {
             bPendingOrientationUpdate = true;
             return;
