@@ -1,7 +1,14 @@
 fileFormatVersion: 2
-guid: 6a987db90277a804ca12763b4edaac0d
+guid: 230981ba37d082f40b4448544f0b597c
+AssetOrigin:
+  serializedVersion: 1
+  productId: 50405
+  packageName: Low Poly Chess Pack
+  packageVersion: 1.2
+  assetPath: Assets/BrokenVector/LowpolyChessPack/Models/Black Knight.dae
+  uploadId: 253857
 ModelImporter:
-  serializedVersion: 21202
+  serializedVersion: 22200
   internalIDToNameTable:
   - first:
       1: 100000
@@ -10,9 +17,6 @@ ModelImporter:
       4: 400000
     second: //RootNode
   - first:
-      21: 2100000
-    second: Paper
-  - first:
       23: 2300000
     second: //RootNode
   - first:
@@ -20,26 +24,17 @@ ModelImporter:
     second: //RootNode
   - first:
       43: 4300000
-    second: Stool_square
-  externalObjects:
+    second: Black_Knight_mesh
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal_Polished
-    second: {fileID: 2100000, guid: 53ce828af18d0eb46b8e8ede9ab92220, type: 2}
+      64: 6400000
+    second: //RootNode
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Metal_Rusty
-    second: {fileID: 2100000, guid: 57c5c45402f367749a31d5f99048f829, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood_Basic
-    second: {fileID: 2100000, guid: 2cb987137b739894682ccea9106cd69b, type: 2}
+      95: 9500000
+    second: //RootNode
+  externalObjects: {}
   materials:
-    materialImportMode: 1
-    materialName: 1
+    materialImportMode: 0
+    materialName: 0
     materialSearch: 1
     materialLocation: 0
   animations:
@@ -49,8 +44,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -68,11 +61,12 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.05
     meshCompression: 0
     addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
+    importPhysicalCameras: 0
     importVisibility: 0
     importBlendShapes: 0
     importCameras: 0
@@ -91,7 +85,7 @@ ModelImporter:
     minBoneWeight: 0.001
     optimizeBones: 1
     meshOptimizationFlags: -1
-    indexFormat: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
@@ -100,12 +94,13 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
-    normalCalculationMode: 4
-    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
@@ -121,25 +116,20 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.05
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 1
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 143535
-  packageName: Ultimate Low Poly Dungeon
-  packageVersion: 2.0
-  assetPath: Assets/BrokenVector/LowPolyDungeon/Models/Furniture/Stool_square.fbx
-  uploadId: 481753
