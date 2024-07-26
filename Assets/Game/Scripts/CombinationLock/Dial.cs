@@ -33,6 +33,7 @@ public class Dial : MonoBehaviour
 
     private void RotateDialButSlightlyDifferently()
     {
+        Input.GetMouseButtonDown(0);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out var hit, rayDistance, layer))

@@ -1,0 +1,120 @@
+mdl 1.3;
+
+using state import *;
+
+import adobe::mtl::*;
+import adobe::util::*;
+import ::tex::gamma_mode;
+import ::state::normal;
+
+export material WoodTableUp_Mat(*)
+  = adobe::mtl::standard(
+    opacity : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableUp_opacity.png", ::tex::gamma_linear) ),
+    baseColor : adobe::util::color_texture( texture_2d("VintageBasin/WoodTableUp_baseColor.png", ::tex::gamma_srgb) ),
+    translucence : float(0.0),
+    glow : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableUp_glow.png", ::tex::gamma_linear) ),
+    indexOfRefraction : float(1.45),
+    density : float(0.0),
+    roughness : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableUp_roughness.png", ::tex::gamma_linear) ),
+    normal : adobe::util::normal_texture( texture_2d("VintageBasin/WoodTableUp_normal.png", ::tex::gamma_linear) ),
+    interiorColor : color(1.0, 1.0, 1.0),
+    metallic : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableUp_metallic.png", ::tex::gamma_linear) ),
+    height : float(0.5),
+    heightScale : float(1.0)
+    );
+
+export material WoodColumns_Mat(*)
+  = adobe::mtl::standard(
+    opacity : adobe::util::float_texture( texture_2d("VintageBasin/WoodColumns_opacity.png", ::tex::gamma_linear) ),
+    baseColor : adobe::util::color_texture( texture_2d("VintageBasin/WoodColumns_baseColor.png", ::tex::gamma_srgb) ),
+    translucence : float(0.0),
+    glow : adobe::util::float_texture( texture_2d("VintageBasin/WoodColumns_glow.png", ::tex::gamma_linear) ),
+    indexOfRefraction : float(1.45),
+    density : float(0.0),
+    roughness : adobe::util::float_texture( texture_2d("VintageBasin/WoodColumns_roughness.png", ::tex::gamma_linear) ),
+    normal : adobe::util::normal_texture( texture_2d("VintageBasin/WoodColumns_normal.png", ::tex::gamma_linear) ),
+    interiorColor : color(1.0, 1.0, 1.0),
+    metallic : adobe::util::float_texture( texture_2d("VintageBasin/WoodColumns_metallic.png", ::tex::gamma_linear) ),
+    height : float(0.5),
+    heightScale : float(1.0)
+    );
+
+export material MirrorGlass_Mat(*)
+  = adobe::mtl::standard(
+    opacity : adobe::util::float_texture( texture_2d("VintageBasin/MirrorGlass_opacity.png", ::tex::gamma_linear) ),
+    baseColor : adobe::util::color_texture( texture_2d("VintageBasin/MirrorGlass_baseColor.png", ::tex::gamma_srgb) ),
+    translucence : float(0.0),
+    glow : adobe::util::float_texture( texture_2d("VintageBasin/MirrorGlass_glow.png", ::tex::gamma_linear) ),
+    indexOfRefraction : float(1.45),
+    density : float(0.0),
+    roughness : adobe::util::float_texture( texture_2d("VintageBasin/MirrorGlass_roughness.png", ::tex::gamma_linear) ),
+    normal : adobe::util::normal_texture( texture_2d("VintageBasin/MirrorGlass_normal.png", ::tex::gamma_linear) ),
+    interiorColor : color(1.0, 1.0, 1.0),
+    metallic : adobe::util::float_texture( texture_2d("VintageBasin/MirrorGlass_metallic.png", ::tex::gamma_linear) ),
+    height : float(0.5),
+    heightScale : float(1.0)
+    );
+
+export material PorcelainVase_Mat(*)
+  = adobe::mtl::standard(
+    opacity : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainVase_opacity.png", ::tex::gamma_linear) ),
+    baseColor : adobe::util::color_texture( texture_2d("VintageBasin/PorcelainVase_baseColor.png", ::tex::gamma_srgb) ),
+    translucence : float(0.0),
+    glow : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainVase_glow.png", ::tex::gamma_linear) ),
+    indexOfRefraction : float(1.45),
+    density : float(0.0),
+    roughness : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainVase_roughness.png", ::tex::gamma_linear) ),
+    normal : adobe::util::normal_texture( texture_2d("VintageBasin/PorcelainVase_normal.png", ::tex::gamma_linear) ),
+    interiorColor : color(1.0, 1.0, 1.0),
+    metallic : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainVase_metallic.png", ::tex::gamma_linear) ),
+    height : float(0.5),
+    heightScale : float(1.0)
+    );
+
+export material MirrorFrameWood_Mat(*)
+  = adobe::mtl::standard(
+    opacity : adobe::util::float_texture( texture_2d("VintageBasin/MirrorFrameWood_opacity.png", ::tex::gamma_linear) ),
+    baseColor : adobe::util::color_texture( texture_2d("VintageBasin/MirrorFrameWood_baseColor.png", ::tex::gamma_srgb) ),
+    translucence : float(0.0),
+    glow : adobe::util::float_texture( texture_2d("VintageBasin/MirrorFrameWood_glow.png", ::tex::gamma_linear) ),
+    indexOfRefraction : float(1.45),
+    density : float(0.0),
+    roughness : adobe::util::float_texture( texture_2d("VintageBasin/MirrorFrameWood_roughness.png", ::tex::gamma_linear) ),
+    normal : adobe::util::normal_texture( texture_2d("VintageBasin/MirrorFrameWood_normal.png", ::tex::gamma_linear) ),
+    interiorColor : color(1.0, 1.0, 1.0),
+    metallic : adobe::util::float_texture( texture_2d("VintageBasin/MirrorFrameWood_metallic.png", ::tex::gamma_linear) ),
+    height : float(0.5),
+    heightScale : float(1.0)
+    );
+
+export material PorcelainPlate_Mat(*)
+  = adobe::mtl::standard(
+    opacity : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainPlate_opacity.png", ::tex::gamma_linear) ),
+    baseColor : adobe::util::color_texture( texture_2d("VintageBasin/PorcelainPlate_baseColor.png", ::tex::gamma_srgb) ),
+    translucence : float(0.0),
+    glow : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainPlate_glow.png", ::tex::gamma_linear) ),
+    indexOfRefraction : float(1.45),
+    density : float(0.0),
+    roughness : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainPlate_roughness.png", ::tex::gamma_linear) ),
+    normal : adobe::util::normal_texture( texture_2d("VintageBasin/PorcelainPlate_normal.png", ::tex::gamma_linear) ),
+    interiorColor : color(1.0, 1.0, 1.0),
+    metallic : adobe::util::float_texture( texture_2d("VintageBasin/PorcelainPlate_metallic.png", ::tex::gamma_linear) ),
+    height : float(0.5),
+    heightScale : float(1.0)
+    );
+
+export material WoodTableDown_Mat(*)
+  = adobe::mtl::standard(
+    opacity : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableDown_opacity.png", ::tex::gamma_linear) ),
+    baseColor : adobe::util::color_texture( texture_2d("VintageBasin/WoodTableDown_baseColor.png", ::tex::gamma_srgb) ),
+    translucence : float(0.0),
+    glow : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableDown_glow.png", ::tex::gamma_linear) ),
+    indexOfRefraction : float(1.45),
+    density : float(0.0),
+    roughness : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableDown_roughness.png", ::tex::gamma_linear) ),
+    normal : adobe::util::normal_texture( texture_2d("VintageBasin/WoodTableDown_normal.png", ::tex::gamma_linear) ),
+    interiorColor : color(1.0, 1.0, 1.0),
+    metallic : adobe::util::float_texture( texture_2d("VintageBasin/WoodTableDown_metallic.png", ::tex::gamma_linear) ),
+    height : float(0.5),
+    heightScale : float(1.0)
+    );

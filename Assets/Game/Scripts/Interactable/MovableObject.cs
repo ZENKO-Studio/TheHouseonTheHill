@@ -14,8 +14,12 @@ public class MovableObject : MonoBehaviour
     [SerializeField] GameObject btnInteract;
 
     bool bWalkingTowards = false;
-    bool bMovingObject = false; 
-    
+    bool bMovingObject = false;
+    bool bCanInteract = true;
+
+    [SerializeField]
+    bool bShouldMoveOnce = true;
+
     [Range(0f, 10f)]
     public float moveDist = 3f;
     
@@ -32,6 +36,9 @@ public class MovableObject : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!bCanInteract)
+            return;
+
         if (other.TryGetComponent<NellController>(out playerController))
         {
             if(btnInteract)
@@ -68,21 +75,25 @@ public class MovableObject : MonoBehaviour
                 0f,
                 closestSnapPoint.position.z - playerController.transform.position.z);
 
-            Quaternion rot = Quaternion.LookRotation(targetDir);
-            playerController.transform.rotation = Quaternion.Slerp(playerController.transform.rotation, rot, .05f);
+           
 
-            playerController.nellsAnimator.SetBool("IsMoving", true);
-            playerController.nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
-
-
-            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) < 0.25f)
+            if (Vector3.Distance(playerController.transform.position, closestSnapPoint.transform.position) <= 0.5f)
             {
-                playerController.nellsAnimator.SetBool("IsMoving", false);
+                playerController.bMoving = false;
                 playerController.nellsAnimator.SetFloat("InputMagnitude", 0f, 0.05f, Time.deltaTime);
                 playerController.transform.position = closestSnapPoint.transform.position;
                 playerController.transform.rotation = closestSnapPoint.transform.rotation;
                 bWalkingTowards = false;
                 AttachObject();
+            }
+            else
+            {
+                Quaternion rot = Quaternion.LookRotation(targetDir);
+                playerController.transform.rotation = Quaternion.Slerp(playerController.transform.rotation, rot, .05f);
+
+                playerController.bMoving = true;
+                playerController.nellsAnimator.SetFloat("InputMagnitude", 1f, 0.05f, Time.deltaTime);
+
             }
         }
     }
@@ -133,6 +144,11 @@ public class MovableObject : MonoBehaviour
         bWalkingTowards = false;
         bMovingObject = false;
         btnPush.SetActive(false);
+
+        if(bShouldMoveOnce)
+        {
+            btnInteract.SetActive(false);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -148,6 +164,9 @@ public class MovableObject : MonoBehaviour
 
     public void Interact()
     {
+        if (!bCanInteract)
+            return;
+
         if(bWalkingTowards ||  bMovingObject)
         {
             RemoveObject();
@@ -160,5 +179,7 @@ public class MovableObject : MonoBehaviour
             bWalkingTowards = true;
         }
         
+        if(bShouldMoveOnce)
+            bCanInteract = false;
     }
 }

@@ -29,6 +29,8 @@ public class GameManager : Singleton<GameManager>
     //Should be set on game start or manually in the scene
     public NellController playerRef;
 
+    public HUDController playerHud;
+
     public UnityEvent OnPlayerSpawned = new UnityEvent();
 
     #region Cam View and Player Movement Orientation
