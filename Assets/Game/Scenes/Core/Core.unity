@@ -796,7 +796,7 @@ Transform:
   m_GameObject: {fileID: 1491781128}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1703.5074, y: 3315.4656, z: -2204.4385}
+  m_LocalPosition: {x: -1704, y: 3316, z: -2204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1233,7 +1233,7 @@ Transform:
   m_GameObject: {fileID: 1821110829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11034370, y: 21473924, z: -14277214}
+  m_LocalPosition: {x: -17545354, y: 34144360, z: -22698698}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1569,6 +1569,12 @@ PrefabInstance:
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: NellPrefab
+      value: 
+      objectReference: {fileID: 1426049473240878108, guid: 4d72ef719b82e124ebb063ed67a82476,
+        type: 3}
     - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
         type: 3}
       propertyPath: bUsingStaticCam

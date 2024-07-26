@@ -284,7 +284,7 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
         // In build scenes and enabled
         else if (buildScene.scene.enabled)
         {
-            iconContent = EditorGUIUtility.IconContent("d_winbtn_mac_max");
+//            iconContent = EditorGUIUtility.IconContent("d_winbtn_mac_max");
             labelContent.text = "BuildIndex: " + buildScene.buildIndex;
             labelContent.tooltip = "This scene is in build settings and ENABLED.\nIt will be included in builds." + readOnlyWarning;
         }
