@@ -1,15 +1,7 @@
 fileFormatVersion: 2
 guid: 8b2b5d25e007a614c9ffc279796585b9
-AssetOrigin:
-  serializedVersion: 1
-  productId: 262558
-  packageName: 'Horror Atmospheric Modular [HepKumaha]'
-  packageVersion: 0.1
-  assetPath: Assets/HORROR ATMOSPHERIC MODULAR HepKumaha/image texture, mat, mesh/DAMAGED
-    GOODS 10.fbx
-  uploadId: 633049
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 21300
   internalIDToNameTable: []
   externalObjects:
   - first:
@@ -39,6 +31,8 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 1
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -56,12 +50,11 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1.4
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importPhysicalCameras: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -89,7 +82,6 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -111,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1.4
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
@@ -122,9 +114,16 @@ ModelImporter:
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  importBlendShapeDeformPercent: 0
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 262558
+  packageName: 'Horror Atmospheric Modular [HepKumaha]'
+  packageVersion: 0.1
+  assetPath: Assets/Art/Assets/Furniture/HORROR ATMOSPHERIC MODULAR HepKumaha/image
+    texture, mat, mesh/DAMAGED GOODS 10.fbx
+  uploadId: 633049
