@@ -44,7 +44,7 @@ public class OptionsMenu : Menu
         sizeFitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
         // Create and set up the volume slider
-        CreateSlider(layoutGroupGO, "VolumeSlider", "Volume", SetVolume);
+ 
 
         // Create and set up the resolution dropdown
         CreateDropdown(layoutGroupGO, "ResolutionDropdown", "Resolution", SetResolution);
