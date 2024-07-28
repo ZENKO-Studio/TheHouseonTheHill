@@ -173,14 +173,18 @@ MonoBehaviour:
     sceneBounds:
       m_Keys:
       - 0b8b34b502b879049b24dba19fc94490
+      - 5646800948fd64f4abc3501ff2bec843
       m_Values:
+      - m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 81, y: 81, z: 81}
       - m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 81, y: 81, z: 81}
     hasProbeVolumes:
       m_Keys:
       - 0b8b34b502b879049b24dba19fc94490
       - 317213dbe06064742af40d064a61a1b0
-      m_Values: 0100
+      - 5646800948fd64f4abc3501ff2bec843
+      m_Values: 010001
   m_Version: 10
   m_ShaderStrippingSetting:
     m_Version: 0
