@@ -1,3 +1,9 @@
+/**
+ * Brandon & Sami
+ * This is used to switch Cameras in the level
+ * Has options for the type of transitions which can be further expanded
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
