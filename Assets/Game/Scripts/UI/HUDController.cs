@@ -132,8 +132,10 @@ public class HUDController : MonoBehaviour
 
     internal void PlayBlinkAnim(CinemaMachineSwitcher s)
     {
+        Debug.Log("PlayingBlinkAnimCalled");
         if (blinkAnimator)
         {
+            Debug.Log("PlayingBlinkAnimCalled and BlinkAnimator not null");
             blinkAnimator.SetTrigger("Blink");
             cinemaMachineSwitcher = s;
         }
@@ -141,6 +143,8 @@ public class HUDController : MonoBehaviour
 
     public void OnBlink(AnimationEvent animationEvent)
     {
+        Debug.Log("OnBlinkCalled");
+
         if (cinemaMachineSwitcher != null)
             cinemaMachineSwitcher.Blink();
 

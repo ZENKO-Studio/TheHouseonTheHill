@@ -9,6 +9,12 @@ public class CinemaMachineSwitcher : MonoBehaviour
     [Header("Callbacks")]
     public UnityEvent onEnter;
 
+    [SerializeField]
+    internal bool bTriggerable = true;
+
+    [Tooltip("This is the reference to counterpart trigger (e.g. switch back trigger of one camera and vice versa)")]
+    [SerializeField] CinemaMachineSwitcher relatedTrigger;
+
     [Tooltip("If this is set to true it will automatically switch orientation even if player is moving")]
     [SerializeField] bool instantlySwitchOrientation = false; 
     
@@ -17,8 +23,11 @@ public class CinemaMachineSwitcher : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out CharacterBase player))
+        if(other.CompareTag("Player") && bTriggerable)
         {
+            bTriggerable = false;
+            relatedTrigger.bTriggerable = true;
+            Debug.Log("PlayerDetected");
             OnEnter();
         }
     }
@@ -27,6 +36,7 @@ public class CinemaMachineSwitcher : MonoBehaviour
     {
         if(playTransitionAnimation)
         {
+            Debug.Log("PlayingTransitionAnim");
             GameManager.Instance.playerHud.PlayBlinkAnim(this);
         }
         else
@@ -39,7 +49,7 @@ public class CinemaMachineSwitcher : MonoBehaviour
     public void Blink()
     {
         onEnter.Invoke();
-        GameManager.Instance.playerRef.UpdateOrientation(instantlySwitchOrientation);
+        GameManager.Instance.playerRef.UpdateOrientation();
     }
 }
 
