@@ -1188,7 +1188,7 @@ CharacterController:
   m_Height: 1.65
   m_Radius: 0.3
   m_SlopeLimit: 30
-  m_StepOffset: 0.3
+  m_StepOffset: 0.5
   m_SkinWidth: 0.05
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.875, z: 0}
@@ -1204,7 +1204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0acf9f2c4c793c74f8d712b2be7c86ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
   health: 100
   stamina: 100
   staminaDepletionRate: 10
@@ -1225,6 +1224,7 @@ MonoBehaviour:
   rotSpeed: 300
   jumpSpeed: 4
   forwardJumpForce: 3
+  swimSpeed: 2
   crouchHeight: 1.28
   crouchSound: 0
   walkSound: 0
@@ -1345,6 +1345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c2d7def85efe1438f6ec8ce3425f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSaltCharges: 0
   maxSaltCharges: 5
   throwFreq: 3
   saltSpawnPosition: {fileID: 6479327372558991422}
