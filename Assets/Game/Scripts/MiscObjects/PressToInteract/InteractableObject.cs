@@ -1,14 +1,8 @@
-using Game.Scripts.Interactable;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class SaltPickup : MonoBehaviour
+public class InteractableObject : MonoBehaviour
 {
     public GameObject interactPopup; //Popup to show when Player is Close
-
-    [Tooltip("How much salt should this pickup add")]
-    [SerializeField] int quanitity = 1;
 
     #region Golwing Part
 
@@ -32,9 +26,9 @@ public class SaltPickup : MonoBehaviour
         }
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             GameManager.Instance.playerRef.PlayerInteracted.AddListener(Interact);
 
@@ -54,9 +48,9 @@ public class SaltPickup : MonoBehaviour
         }
     }
 
-    protected void OnTriggerStay(Collider other)
+    protected virtual void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && bShouldGlow)
+        if (other.CompareTag("Player") && bShouldGlow)
         {
             float emission = maxGlowIntensity * intensityMultiplier.Evaluate(Time.time % 1);
 
@@ -66,11 +60,11 @@ public class SaltPickup : MonoBehaviour
         }
 
     }
-    protected void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            GameManager.Instance.playerRef.PlayerInteracted.AddListener(Interact);
+            GameManager.Instance.playerRef.PlayerInteracted.RemoveListener(Interact);
 
             if (interactPopup != null)
             {
@@ -90,9 +84,6 @@ public class SaltPickup : MonoBehaviour
 
     public virtual void Interact()
     {
-        GameManager.Instance.playerRef.saltChargeHandler.AddSalt(quanitity);
-
-        Destroy(gameObject);
     }
 
 }
