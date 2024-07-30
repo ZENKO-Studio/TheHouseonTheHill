@@ -264,6 +264,8 @@ MonoBehaviour:
   LoadingScreenClassifier: {fileID: 11400000, guid: 80d42f7673c5a064fbe5f0bdbcb34774,
     type: 2}
   HUDMenuClassifier: {fileID: 11400000, guid: 5f69df953a4219248b0607553951aeae, type: 2}
+  OptionisMenuClassifier: {fileID: 11400000, guid: efc2f77f2bf77c1449394f46647b69c7,
+    type: 2}
 --- !u!1 &860122894
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,7 +1034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1821110830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,7 +1235,7 @@ Transform:
   m_GameObject: {fileID: 1821110829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17545354, y: 34144360, z: -22698698}
+  m_LocalPosition: {x: -17671450, y: 34389744, z: -22861794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
