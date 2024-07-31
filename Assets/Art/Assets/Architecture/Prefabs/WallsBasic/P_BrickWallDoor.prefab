@@ -60,6 +60,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -562029390912876055, guid: 201a6e2cb4ad9f742a52da4e313923ef,
         type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -562029390912876055, guid: 201a6e2cb4ad9f742a52da4e313923ef,
+        type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f086e7b360473f444942e8622a0bb940, type: 2}
@@ -67,6 +72,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_BrickWallDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1635574816639542815, guid: 201a6e2cb4ad9f742a52da4e313923ef,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 2844160179765449727, guid: 201a6e2cb4ad9f742a52da4e313923ef,
         type: 3}
