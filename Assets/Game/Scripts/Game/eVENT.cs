@@ -33,7 +33,7 @@ public class eVENT : MonoBehaviour
    {
       onClick.Invoke();
       // Set this to false when you want to switch back to 3rd Person
-      GameManager.Instance.playerRef.UpdateOrientation();
+     // GameManager.Instance.playerRef.UpdateOrientation();
    }
 
 }

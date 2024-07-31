@@ -291,7 +291,7 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
         // In build scenes and disabled
         else
         {
-            iconContent = EditorGUIUtility.IconContent("d_winbtn_mac_min");
+//            iconContent = EditorGUIUtility.IconContent("d_winbtn_mac_min");
             labelContent.text = "BuildIndex: " + buildScene.buildIndex;
             labelContent.tooltip = "This scene is in build settings and DISABLED.\nIt will be NOT included in builds.";
         }

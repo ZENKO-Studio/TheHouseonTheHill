@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,10 +20,29 @@ public class CinemaMachineSwitcher : MonoBehaviour
     [SerializeField] bool instantlySwitchOrientation = false; 
     
     [Tooltip("Uncheck this if you want the transition animation to not play on this very trigger")]
-    [SerializeField] bool playTransitionAnimation = true; 
+    [SerializeField] bool playTransitionAnimation = true;
+
+    [SerializeField] public bool avalibleRelatedTrigger = true;
+
+
+    private void Start()
+    {
+        relatedTrigger = relatedTrigger.GetComponent<CinemaMachineSwitcher>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+
+        if (other.CompareTag("Player") && relatedTrigger == null)
+        {
+            bTriggerable = false;
+            OnEnter();
+            
+
+        }
+
+        //if(relatedTrigger == null)return;
+        
         if(other.CompareTag("Player") && bTriggerable)
         {
             bTriggerable = false;
