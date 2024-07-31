@@ -60,6 +60,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 893705463121e314781e4ba9e2ca403b,
         type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 893705463121e314781e4ba9e2ca403b,
+        type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: -6490431609080171541, guid: f0812ed040b04424fb0d09d43bcbf325,
@@ -68,6 +73,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PF_UpEntranceDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 893705463121e314781e4ba9e2ca403b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
