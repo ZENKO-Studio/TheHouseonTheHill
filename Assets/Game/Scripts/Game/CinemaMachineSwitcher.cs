@@ -27,7 +27,7 @@ public class CinemaMachineSwitcher : MonoBehaviour
 
     private void Start()
     {
-        relatedTrigger = relatedTrigger.GetComponent<CinemaMachineSwitcher>();
+      //  relatedTrigger = relatedTrigger.GetComponent<CinemaMachineSwitcher>();
     }
 
     private void OnTriggerEnter(Collider other)
