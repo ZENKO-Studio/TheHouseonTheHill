@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.Interactable;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class ButtonSwitcherCinema : MonoBehaviour
+public class ButtonSwitcherCinema : MonoBehaviour , IInteractable
 {
 
     public UnityEvent onEnter;
-    
-    [SerializeField] private InputAction Action;
+
+    public UnityEvent onInteract;
 
     private Animator Animator;
 
@@ -20,27 +21,20 @@ public class ButtonSwitcherCinema : MonoBehaviour
         
     }
 
-    private void OnEnable()
-    {
-        Action.Enable();
-    }
-
-    private void OnDisable()
-    {
-        Action.Disable();
-    }
-
-    private void Start()
-    {
-        Action.performed += _ => OnEnter();
-    }
-
-   public InputAction interactAction => Action;
-
+  
    private void OnEnter()
     {
         onEnter.Invoke();
         //Set this to false when you want to switch back to 3rd Person
         GameManager.Instance.playerRef.UpdateOrientation();
     }
-}
+
+    [SerializeField] private InputAction interactAction;
+    [SerializeField] private int priority;
+
+    public InputAction Action => interactAction;
+    public void Interact(CharacterBase player)
+    {
+        onInteract?.Invoke();
+    }
+    public int Priority => priority;}
