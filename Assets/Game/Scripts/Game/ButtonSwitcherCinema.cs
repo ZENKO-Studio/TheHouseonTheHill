@@ -17,6 +17,7 @@ public class ButtonSwitcherCinema : MonoBehaviour
     private void Awake()
     {
         Animator = GetComponent<Animator>();
+        
     }
 
     private void OnEnable()
@@ -34,7 +35,7 @@ public class ButtonSwitcherCinema : MonoBehaviour
         Action.performed += _ => OnEnter();
     }
 
-   
+   public InputAction interactAction => Action;
 
    private void OnEnter()
     {
