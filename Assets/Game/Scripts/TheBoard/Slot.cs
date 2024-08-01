@@ -45,7 +45,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         slotItem = boardItem;
         slotItem.transform.parent = transform;
         slotItem.transform.localPosition = Vector2.zero;
-        TheBoardController.Instance.boardItems.Add(slotItem.inventoryItem);
+        //TheBoardController.Instance.boardItems.Add(slotItem.inventoryItem);
 
         Validate();
     }
