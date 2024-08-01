@@ -6,8 +6,12 @@ public class PuzzleUIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Canvas canvas;
 
     //Reference to the Collected Inventory Item
+    public int no = 1;
+
     public InventoryItem inventoryItem;
     RectTransform rectTransform;
+
+    Transform initialParent;
 
     internal PuzzleUISlot assignedSlot = null;
 
@@ -24,10 +28,12 @@ public class PuzzleUIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         rectTransform = GetComponent<RectTransform>();
 
+        initialParent = transform.parent;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        transform.parent = canvas.transform;
 
         PuzzleUIController.itemBeingDragged = this;
 
@@ -49,10 +55,17 @@ public class PuzzleUIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
         else
         {
-            GetComponent<CanvasGroup>().blocksRaycasts = true;
-            rectTransform.anchoredPosition = initPos;
+            ResetPuzzlePiece();
         }
+
+        PuzzleUIController.itemBeingDragged = null;
 
     }
 
+    public void ResetPuzzlePiece()
+    {
+        GetComponent<CanvasGroup>().blocksRaycasts = true;
+        rectTransform.parent = initialParent;
+        rectTransform.anchoredPosition = initPos;
+    }
 }
