@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.02887163, g: 0.01870449, b: 0.013969095, a: 1}
+  m_IndirectSpecularColor: {r: 0.028914023, g: 0.018722804, b: 0.013975741, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2641,6 +2641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67c2d7def85efe1438f6ec8ce3425f44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSaltCharges: 0
   maxSaltCharges: 5
   throwFreq: 3
   saltSpawnPosition: {fileID: 0}
@@ -2846,6 +2847,7 @@ MonoBehaviour:
   rotSpeed: 300
   jumpSpeed: 4
   forwardJumpForce: 3
+  swimSpeed: 2
   crouchHeight: 1.28
   crouchSound: 0
   walkSound: 5
@@ -7200,7 +7202,7 @@ PrefabInstance:
     - target: {fileID: 6743339645903532223, guid: 5017cbea04840f443a140c0614038a73,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8100769841896580916, guid: 5017cbea04840f443a140c0614038a73,
         type: 3}
