@@ -130,6 +130,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &-7308573281499702685
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBalcony
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-7043249729876206654
 AnimatorState:
   serializedVersion: 6
@@ -346,6 +372,32 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Lounge
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+--- !u!1102 &-2702749485797297182
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: NewStart
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -605,19 +657,19 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -3742544081065794358}
-    m_Position: {x: 351.16113, y: 68.5844, z: 0}
+    m_Position: {x: 350, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1671212781862354902}
-    m_Position: {x: 350, y: 130, z: 0}
+    m_Position: {x: 340, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1265725159495695809}
-    m_Position: {x: 350, y: 0, z: 0}
+    m_Position: {x: 340, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4713034276854047630}
-    m_Position: {x: 350, y: 200, z: 0}
+    m_Position: {x: 340, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7905004265338778890}
-    m_Position: {x: 350, y: 270, z: 0}
+    m_Position: {x: 340, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 586877285055006652}
     m_Position: {x: 590, y: 0, z: 0}
@@ -668,7 +720,7 @@ AnimatorStateMachine:
     m_Position: {x: 1300, y: 0, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4256687011739985371}
-    m_Position: {x: 1300, y: 70, z: 0}
+    m_Position: {x: 340, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1704665701431786359}
     m_Position: {x: 1300, y: 130, z: 0}
@@ -686,13 +738,19 @@ AnimatorStateMachine:
     m_Position: {x: 1530, y: 70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5731910982873485133}
-    m_Position: {x: 1540, y: 130, z: 0}
+    m_Position: {x: 340, y: 130, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6118175739990740504}
     m_Position: {x: 1540, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 232029453677766636}
-    m_Position: {x: 1530, y: 270, z: 0}
+    m_Position: {x: 340, y: 260, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -2702749485797297182}
+    m_Position: {x: 350, y: -170, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7308573281499702685}
+    m_Position: {x: 1540, y: 140, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -702,7 +760,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 70, y: -70, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: -3742544081065794358}
+  m_DefaultState: {fileID: -2702749485797297182}
 --- !u!1102 &1671212781862354902
 AnimatorState:
   serializedVersion: 6
