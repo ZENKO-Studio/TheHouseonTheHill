@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Interactable;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Combination : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Combination : MonoBehaviour
     private char[] currentCombination;
     private Animator animate;
     public OpenThings _OpenThings;
+
+    public UnityEvent onEnter;
 
     private void Start()
     {
@@ -39,8 +42,17 @@ public class Combination : MonoBehaviour
         {
             Debug.Log("Combination is correct!");
            animate.SetTrigger("Solved");
-          // _OpenThings.OpenDoor();
+           _OpenThings.OpenDoor();
+        
+           OnEnter();
+           Destroy(gameObject);
+           
             // Trigger success event or actions here
         }
+    }
+
+    private void OnEnter()
+    {
+        onEnter?.Invoke();
     }
 }
