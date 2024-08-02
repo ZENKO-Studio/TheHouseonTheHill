@@ -124,7 +124,7 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6315331963279810936}
+      - m_Target: {fileID: 979373643802534536}
         m_TargetAssemblyTypeName: Game.Scripts.Interactable.OpenThings, Assembly-CSharp
         m_MethodName: ToggleDoor
         m_Mode: 1
@@ -315,6 +315,7 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 0
   scriptOverride: 0
+  _dot: 0
 --- !u!1 &6338896676480426275
 GameObject:
   m_ObjectHideFlags: 0
@@ -520,6 +521,7 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 2
   scriptOverride: 0
+  _dot: 0
 --- !u!1 &8004689973400039256
 GameObject:
   m_ObjectHideFlags: 0
