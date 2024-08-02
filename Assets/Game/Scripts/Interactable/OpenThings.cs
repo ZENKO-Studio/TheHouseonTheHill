@@ -38,8 +38,11 @@ namespace Game.Scripts.Interactable
         [SerializeField, Range(0, 1)] private float openThreshold = 0.5f;
         [SerializeField] private StartState startState = StartState.None;
 
+        
+        
         [SerializeField] private bool scriptOverride;
-
+        [SerializeField] private float _dot;
+        
 
         public bool IsOpen => _openness > openThreshold;
         public float Openness => _openness;
@@ -71,7 +74,7 @@ namespace Game.Scripts.Interactable
         public bool IsPlayerInFront(Transform playerTransform)
         {
             Vector3 doorToPlayer = playerTransform.position - gate.position;
-            Vector3 doorForward = gate.forward;
+            Vector3 doorForward = gate.InverseTransformDirection(transform.right);
             Debug.DrawRay(gate.position,gate.forward);
 
             return Vector3.Dot(doorForward, doorToPlayer) > 0;

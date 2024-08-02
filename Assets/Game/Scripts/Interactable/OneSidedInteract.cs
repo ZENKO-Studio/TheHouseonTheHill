@@ -28,6 +28,7 @@ public class OneSidedInteract : MonoBehaviour, IInteractable
     {
         if (openThings != null && openThings.IsPlayerInFront(player.transform))
         {
+          //e  Gizmos.DrawRay(player.transform.position , openThings.transform.position);
             onInteract?.Invoke();
         }
         else
