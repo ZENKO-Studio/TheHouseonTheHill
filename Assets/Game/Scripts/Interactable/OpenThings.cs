@@ -82,10 +82,10 @@ namespace Game.Scripts.Interactable
         public bool IsPlayerInFrontVAR(Transform playerTransform)
         {
             Vector3 doorToPlayer = playerTransform.position - gate.position;
-            Vector3 doorForward = gate.InverseTransformDirection(transform.forward);
-            Debug.DrawRay(gate.position,gate.forward);
+            Vector3 doorForward = gate.InverseTransformDirection(transform.right);
+            Debug.DrawRay(gate.position, gate.forward);
 
-            return Vector3.Dot(doorForward, doorToPlayer) > 0;
+            return Vector3.Dot(doorForward, doorToPlayer) <= 0;
         }
         private void ApplyPosition(Vector3 pos)
         {
