@@ -38,7 +38,9 @@ public class SaltChargeHandler : MonoBehaviour
     private void Awake()
     {
         nellController = GetComponent<NellController>();
-       
+
+        currentSaltCharges = initialSaltCharges;
+
         ResetSaltAbility();
     }
 

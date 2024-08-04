@@ -28,6 +28,10 @@ public class HUDController : MonoBehaviour
     NellController nellController;
     Flashlight flashlight;
 
+    [Header("Blink Thing")]
+    [SerializeField] Animator blinkAnimator;
+
+    [Header("Dialogue")]
     [SerializeField] Transform dialoguePanel;
     [SerializeField] TMP_Text dialogueText;
 
@@ -156,8 +160,8 @@ public class HUDController : MonoBehaviour
         CancelInvoke(nameof(DisableDialoguePanel));
 
         dialoguePanel.gameObject.SetActive(true);
-        dialogueText.text = text;   
-       
+        dialogueText.text = text;
+
         Invoke(nameof(DisableDialoguePanel), disableTime);
         
     }
@@ -166,5 +170,28 @@ public class HUDController : MonoBehaviour
     {
         dialogueText.text = String.Empty;
         dialoguePanel.gameObject.SetActive(false);
+    }
+
+    CinemaMachineSwitcher cinemaMachineSwitcher = null;
+
+    internal void PlayBlinkAnim(CinemaMachineSwitcher s)
+    {
+        Debug.Log("PlayingBlinkAnimCalled");
+        if (blinkAnimator)
+        {
+            Debug.Log("PlayingBlinkAnimCalled and BlinkAnimator not null");
+            blinkAnimator.SetTrigger("Blink");
+            cinemaMachineSwitcher = s;
+        }
+    }
+
+    public void OnBlink(AnimationEvent animationEvent)
+    {
+        Debug.Log("OnBlinkCalled");
+
+        if (cinemaMachineSwitcher != null)
+            cinemaMachineSwitcher.Blink();
+
+        cinemaMachineSwitcher = null;
     }
 }

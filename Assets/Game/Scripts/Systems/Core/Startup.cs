@@ -9,11 +9,21 @@ public class Startup : MonoBehaviour
     public SceneReference ActiveScene;
     public MenuClassifier MainMenuClassifier;
 
+    
     void Start()
     {
         Scene uiScene = SceneManager.GetSceneByPath(UIScene);
         if (uiScene.isLoaded == false)
         {
+            Camera mainCamera = Camera.main;
+            if (mainCamera != null)
+            {
+                mainCamera.gameObject.SetActive(false);
+            }
+            else
+            {
+                Debug.LogWarning("Main camera not found");
+            }
             StartCoroutine(BootUISequence());
             return;
         }

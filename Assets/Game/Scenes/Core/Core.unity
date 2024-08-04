@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -264,6 +264,8 @@ MonoBehaviour:
   LoadingScreenClassifier: {fileID: 11400000, guid: 80d42f7673c5a064fbe5f0bdbcb34774,
     type: 2}
   HUDMenuClassifier: {fileID: 11400000, guid: 5f69df953a4219248b0607553951aeae, type: 2}
+  OptionisMenuClassifier: {fileID: 11400000, guid: efc2f77f2bf77c1449394f46647b69c7,
+    type: 2}
 --- !u!1 &860122894
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +798,7 @@ Transform:
   m_GameObject: {fileID: 1491781128}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1703.5074, y: 3315.4656, z: -2204.4385}
+  m_LocalPosition: {x: -1704, y: 3316, z: -2204}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1032,7 +1034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1821110830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1233,11 +1235,7 @@ Transform:
   m_GameObject: {fileID: 1821110829}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-<<<<<<< HEAD
-  m_LocalPosition: {x: -756377.6, y: 1472068.8, z: -978803.7}
-=======
-  m_LocalPosition: {x: -11034370, y: 21473924, z: -14277214}
->>>>>>> Developing
+  m_LocalPosition: {x: -17671450, y: 34389744, z: -22861794}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1278,8 +1276,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< HEAD
-=======
 --- !u!1001 &1990605855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1363,7 +1359,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68fc52be80ea92a45800d611500d15c3, type: 3}
->>>>>>> Developing
 --- !u!1 &1995386213
 GameObject:
   m_ObjectHideFlags: 0
@@ -1576,14 +1571,17 @@ PrefabInstance:
       propertyPath: playerRef
       value: 
       objectReference: {fileID: 0}
-<<<<<<< HEAD
-=======
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: NellPrefab
+      value: 
+      objectReference: {fileID: 1426049473240878108, guid: 4d72ef719b82e124ebb063ed67a82476,
+        type: 3}
     - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
         type: 3}
       propertyPath: bUsingStaticCam
       value: 1
       objectReference: {fileID: 0}
->>>>>>> Developing
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

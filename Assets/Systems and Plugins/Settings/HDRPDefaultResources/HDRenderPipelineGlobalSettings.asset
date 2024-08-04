@@ -178,43 +178,35 @@ MonoBehaviour:
       m_Keys:
       - 0b8b34b502b879049b24dba19fc94490
       - 68ab5459bccd9e147807d6550c61ac81
+      - cd4491be06044414f83e3d8e33a97c9c
       - 9872b90c94d9d6349923bb89e978fe65
       m_Values:
-      - {fileID: 11400000, guid: 32c561b0bccfca84d9476263752c6fb4, type: 2}
+      - {fileID: 11400000, guid: d05cc51a901ac1944a348aa58e3883e8, type: 2}
       - {fileID: 11400000, guid: d24ed67292013a640978964fd8dd36b9, type: 2}
+      - {fileID: 11400000, guid: 657061527414f9b449404b2118ff338c, type: 2}
       - {fileID: 11400000, guid: cedd5ad7a2f2eec4dbf8bcf6c94f0629, type: 2}
     bakingSets:
     - {fileID: 11400000, guid: 32c561b0bccfca84d9476263752c6fb4, type: 2}
     - {fileID: 11400000, guid: d24ed67292013a640978964fd8dd36b9, type: 2}
+    - {fileID: 11400000, guid: d05cc51a901ac1944a348aa58e3883e8, type: 2}
+    - {fileID: 11400000, guid: 657061527414f9b449404b2118ff338c, type: 2}
     - {fileID: 11400000, guid: cedd5ad7a2f2eec4dbf8bcf6c94f0629, type: 2}
     sceneBounds:
       m_Keys:
-      - 9872b90c94d9d6349923bb89e978fe65
-      - 5bb84e4964d1b5840a369e87b7ceaff0
-      - 68ab5459bccd9e147807d6550c61ac81
-      - 0b8b34b502b879049b24dba19fc94490
+      - cd4491be06044414f83e3d8e33a97c9c
       m_Values:
       - m_Center: {x: 0, y: 0, z: 0}
         m_Extent: {x: 81, y: 81, z: 81}
-      - m_Center: {x: NaN, y: NaN, z: NaN}
-        m_Extent: {x: NaN, y: NaN, z: NaN}
-      - m_Center: {x: 0, y: 40.5, z: 0}
-        m_Extent: {x: 81, y: 40.5, z: 81}
-      - m_Center: {x: 0, y: 0, z: 40.5}
-        m_Extent: {x: 81, y: 81, z: 40.5}
     hasProbeVolumes:
       m_Keys:
-      - 9872b90c94d9d6349923bb89e978fe65
-      - 5bb84e4964d1b5840a369e87b7ceaff0
-      - 68ab5459bccd9e147807d6550c61ac81
-      - 0b8b34b502b879049b24dba19fc94490
-      m_Values: 01010101
+      - cd4491be06044414f83e3d8e33a97c9c
+      m_Values: 01
   m_Version: 10
   m_ShaderStrippingSetting:
     m_Version: 0
     m_ExportShaderVariants: 1
     m_ShaderVariantLogLevel: 0
-    m_StripRuntimeDebugShaders: 0
+    m_StripRuntimeDebugShaders: 1
   m_ShaderVariantLogLevel: 0
   m_SupportRuntimeDebugDisplay: 0
   m_ExportShaderVariants: 1

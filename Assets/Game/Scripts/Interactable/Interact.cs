@@ -137,7 +137,7 @@ namespace Game.Scripts.Interactable
                 }
                 if (interactableObject != gameObject)
                 {
-              //      interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
+                    interactImage.transform.position = Camera.main.WorldToScreenPoint(interactableObject.transform.position);
                 }
                 interactImage.sprite = GetInteractionButtonFromString(bindingDisplayString);
                 interactImage.gameObject.SetActive(true); // Show the text
@@ -147,7 +147,7 @@ namespace Game.Scripts.Interactable
             {
                 _overrideInteractable = false;
                 _currentInteractable = null;
-              //  interactImage.gameObject.SetActive(false); // Show the text
+                interactImage.gameObject.SetActive(false); // Show the text
             }
         }
 

@@ -59,6 +59,7 @@ public class NellController : CharacterBase
     private bool bJumping;
     private bool bGrounded;
     private bool bFalling;
+    private bool bCrouching;
 
     //This is the variable that can be changed to take control away from player and give back to player
     bool bPlayerHasControl = true;
@@ -323,10 +324,26 @@ public class NellController : CharacterBase
         if (!bEnableMovement)
             return;
 
+        #region Brandon Fixing samis way of orienting player
+
+        
+
+        
         Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
+        var primaryCamera = Camera.main;
+        //movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
+        var cameraForward = primaryCamera.transform.forward;
+        var cameraRight = primaryCamera.transform.right;
+        cameraForward.y = 0;
+        cameraRight.y = 0;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+            
+        var forwardRelativeInput = moveInput.y * cameraForward;
+        var rightRelativeInput = moveInput.x * cameraRight;
 
-        // movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
-
+        #endregion
+         movDir = forwardRelativeInput + rightRelativeInput;
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
         if (sprint && Stamina > 0)
@@ -439,6 +456,13 @@ public class NellController : CharacterBase
 
     public void UpdateOrientation()
     {
+        if (true)
+        {
+            return;
+        }
+
+        #region Brandon Found this breaks things
+        
         //If Orientation is overriden by some external transform
         if(GameManager.Instance.OverriddenOrientation() != null)
         {
@@ -460,10 +484,10 @@ public class NellController : CharacterBase
             return;
         }
     
-       // // orientationTransform = orientationObject.transform;
-       //  orientationTransform.rotation = mainCamTransform.rotation;
-       //  bPendingOrientationUpdate = false;
-        
+        orientationTransform = orientationObject.transform;
+        orientationTransform.rotation = mainCamTransform.rotation;
+        bPendingOrientationUpdate = false;
+        #endregion
     }
 
     public void SetPlayerHasControl(bool v)
@@ -535,10 +559,10 @@ public class NellController : CharacterBase
         if (bSwimming)
             return;
 
-        nellsAnimator.SetBool("IsCrouching", crouch);
 
-        if (crouch)
+        if (crouch && !bCrouching)
         {
+            bCrouching = true;
             characterController.center = new Vector3(0f, crouchCenter, 0f);
             characterController.height = crouchHeight;
             soundRange = crouchSound;
@@ -546,11 +570,25 @@ public class NellController : CharacterBase
         }
         else
         {
+            Ray frontRay = new Ray(transform.position + new Vector3(0, 0, 1f), Vector3.up);
+
+            Ray backRay = new Ray(transform.position + new Vector3(0, 0, -1f), Vector3.up);
+
+            if (Physics.Raycast(frontRay, 2f) || Physics.Raycast(backRay, 2f))
+            {
+                Debug.Log("Cant UnCrouch");
+                crouch = false;
+                return;
+            }
+
             characterController.center = new Vector3(0f, defaultCenter, 0f);
             characterController.height = defaultHeight;
             soundRange = walkSound;
             camTarget.transform.position += new Vector3(0, .5f, 0);
+            bCrouching = false;
         }
+
+        nellsAnimator.SetBool("IsCrouching", bCrouching);
     }
 
     public void Teleport(Transform t)
