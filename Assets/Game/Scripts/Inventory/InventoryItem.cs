@@ -1,25 +1,5 @@
-<<<<<<< HEAD
-using Game.Scripts.Interactable;
-using System.Collections;
-using System.Collections.Generic;
-=======
->>>>>>> Developing
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-<<<<<<< HEAD
-[RequireComponent(typeof(SphereCollider))]
-public abstract class InventoryItem : MonoBehaviour
-{
-    public string itemName; //Name of Item
-    public Sprite itemIcon; //Icon to show on button
-    public GameObject itemPreview; //Mesh to be shown on Inventory Cam
-    public string itemDescription; //Mesh to be shown on Inventory Cam
-    public GameObject interactPopup; //Popup to show when Player is Close
-    //public string interactDescription;    //Can be enabled to have dynamic messages (As of now assuming to be in Prefab UI Itself)
-
-
-=======
 public enum ItemType
 {
     UsableObj,
@@ -45,19 +25,33 @@ public class InventoryItem : MonoBehaviour
     public ItemType itemType;
 
 
->>>>>>> Developing
     public bool bInteractable = true; //Make it false when already interacted with
 
     protected InventoryHandler inventoryHandler;    //Just a local reference of Inventory System (just to avoid writing the whole thing)
-   
-<<<<<<< HEAD
-    private void Start()
-=======
+
+    #region Glowing Part
+
+    [SerializeField] bool bShouldGlow = false;
+
+    public Material objectMaterial;
+
+    public Color emissionColor = Color.yellow;
+    public float maxGlowIntensity = 50.0f;
+    public AnimationCurve intensityMultiplier;
+    #endregion
+
     protected virtual void Start()
->>>>>>> Developing
     {
         inventoryHandler = InventoryHandler.Instance;
         GetComponent<Collider>().isTrigger = true;
+
+        if(bShouldGlow)
+        {
+            objectMaterial = GetComponentInChildren<Renderer>().material;
+            Debug.Log($"{objectMaterial.name}");
+        }
+
+
 
         //No triggers for stuff that is not interactable
         if(!bInteractable) 
@@ -70,44 +64,62 @@ public class InventoryItem : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-<<<<<<< HEAD
-            GameManager.Instance.playerRef.SetInteractable(this);
-=======
             GameManager.Instance.playerRef.SetInventoryItem(this);
->>>>>>> Developing
             if (interactPopup != null)
             {
                 interactPopup.SetActive(true);
             }
+            if(bShouldGlow)
+            {
+                // Enable emission keyword
+                objectMaterial.EnableKeyword("_EMISSION");
+
+                // Set the emission color and intensity
+                objectMaterial.SetColor("_EmissiveColor", emissionColor * intensityMultiplier.Evaluate(0));
+            }
         }
     }
 
+    protected void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player" && bShouldGlow)
+        {
+            float emission = maxGlowIntensity * intensityMultiplier.Evaluate(Time.time % 1);
+
+            // Set the emission color and intensity
+            objectMaterial.SetColor("_EmissiveColor", emissionColor * emission);
+
+        }
+
+    }
     protected void OnTriggerExit(Collider other)
     {
 
         if (other.tag == "Player")
         {
-<<<<<<< HEAD
-            GameManager.Instance.playerRef.RemoveInteractable(this);
-=======
             GameManager.Instance.playerRef.RemoveInventoryItem(this);
->>>>>>> Developing
             if (interactPopup != null)
             {
                 interactPopup.SetActive(false);
+            }
+            if (bShouldGlow)
+            {
+                // Set the emission color and intensity
+                objectMaterial.SetColor("_EmissiveColor", emissionColor * intensityMultiplier.Evaluate(0));
+                
+                // Disable emission keyword
+                objectMaterial.DisableKeyword("_EMISSION");
+
             }
         }
     }
 
     public virtual void Interact()
     {
-<<<<<<< HEAD
-       
-=======
         inventoryHandler.AddItem(this);
+        GameManager.Instance.playerHud.UpdateDialogueText($"{itemName} added to inventory");
 
         PostInteract();
->>>>>>> Developing
     }
 
     //Disable Interactable after interacting

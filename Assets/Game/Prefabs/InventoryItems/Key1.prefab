@@ -58,11 +58,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-<<<<<<< HEAD
-=======
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
->>>>>>> Developing
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
@@ -98,11 +95,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7236176285530551627}
   - component: {fileID: 16980119764643909}
-<<<<<<< HEAD
-  - component: {fileID: 3622964062827506864}
-=======
   - component: {fileID: 6678105726167252806}
->>>>>>> Developing
   m_Layer: 0
   m_Name: Key1
   m_TagString: Untagged
@@ -148,11 +141,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.6
   m_Center: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
---- !u!114 &3622964062827506864
-=======
 --- !u!114 &6678105726167252806
->>>>>>> Developing
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -161,19 +150,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9118442230616637743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-<<<<<<< HEAD
-  m_Script: {fileID: 11500000, guid: 94298cde67112714bb290f35907b2de3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Key1
-  itemIcon: {fileID: 21300000, guid: 06f9de8d98961d842a7a9c49b4320b1c, type: 3}
-  itemPreview: {fileID: 9118442230616637743}
-  itemDescription: Unlocks Door 1
-  interactPopup: {fileID: 7229651810804753779}
-  bInteractable: 1
-  bShouldBeRemoved: 0
-  keyID: 1
-=======
   m_Script: {fileID: 11500000, guid: 023e0caafb860a144b2787ca3d52ac28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -183,10 +159,46 @@ MonoBehaviour:
   itemPreview: {fileID: 9118442230616637743}
   boardItemPreview: {fileID: 0}
   interactPopup: {fileID: 7229651810804753779}
-  itemId: 1
+  itemId: 5
   itemType: 1
   bInteractable: 1
->>>>>>> Developing
+  bShouldGlow: 1
+  objectMaterial: {fileID: 0}
+  emissionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  maxGlowIntensity: 50
+  intensityMultiplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: -0.0052212738
+      outSlope: -0.0052212738
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.90284544
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: -0.008685844
+      outSlope: -0.008685844
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.8111894
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &2843245245009029971
 PrefabInstance:
   m_ObjectHideFlags: 0
