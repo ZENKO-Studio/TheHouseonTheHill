@@ -1,0 +1,250 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5713917138269719677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_FireMedium_L 2
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_FireMedium_L 2
+  Guid:
+    Data1: -342919362
+    Data2: 1106129976
+    Data3: -751335003
+    Data4: 2036132678
+  Banks:
+  - {fileID: 3941046386852773293}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9983
+--- !u!114 &-4594837374694652441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX_FireMedium_L
+  m_EditorClassIdentifier: 
+  Path: event:/SFX_FireMedium_L
+  Guid:
+    Data1: -2076581591
+    Data2: 1167607805
+    Data3: -1789544059
+    Data4: -96767885
+  Banks:
+  - {fileID: 2498379043038426572}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9983
+--- !u!114 &-1588595355293104504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MastterLevel1test
+  m_EditorClassIdentifier: 
+  Path: event:/MastterLevel1test
+  Guid:
+    Data1: -2020072728
+    Data2: 1340205631
+    Data3: -602268236
+    Data4: -1251189103
+  Banks:
+  - {fileID: 3941046386852773293}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
+  m_Name: FMODStudioCache
+  m_EditorClassIdentifier: 
+  EditorBanks:
+  - {fileID: 6401887032090768026}
+  - {fileID: 2498379043038426572}
+  - {fileID: 3941046386852773293}
+  EditorEvents:
+  - {fileID: -4594837374694652441}
+  - {fileID: 4790681479773202022}
+  - {fileID: -5713917138269719677}
+  - {fileID: -1588595355293104504}
+  - {fileID: 7517981570716101775}
+  - {fileID: 1344243865154907971}
+  EditorParameters: []
+  MasterBanks:
+  - {fileID: 2498379043038426572}
+  StringsBanks:
+  - {fileID: 6401887032090768026}
+  cacheTime: 638577853233269075
+  cacheVersion: 131842
+--- !u!114 &1344243865154907971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/hill_house_exploration_demo
+  m_EditorClassIdentifier: 
+  Path: event:/hill_house_exploration_demo
+  Guid:
+    Data1: 661461042
+    Data2: 1268765947
+    Data3: 647947697
+    Data4: -101888155
+  Banks:
+  - {fileID: 2498379043038426572}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 208440
+--- !u!114 &2498379043038426572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Game/Audio/MasterLevel01.02FMOD/Desktop/Master.bank
+  Name: Desktop/Master
+  StudioPath: bank:/Master
+  lastModified: 638577853232176494
+  FileSizes: []
+  Exists: 1
+--- !u!114 &3941046386852773293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/TestBank.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Game/Audio/MasterLevel01.02FMOD/Desktop/TestBank.bank
+  Name: Desktop/TestBank
+  StudioPath: bank:/TestBank
+  lastModified: 638577848988925024
+  FileSizes: []
+  Exists: 1
+--- !u!114 &4790681479773202022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Assets/Game/Audio/Test
+  m_EditorClassIdentifier: 
+  Path: event:/Assets/Game/Audio/Test
+  Guid:
+    Data1: 1061963508
+    Data2: 1287302352
+    Data3: -260701016
+    Data4: 859327475
+  Banks:
+  - {fileID: 2498379043038426572}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9983
+--- !u!114 &6401887032090768026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Desktop/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Game/Audio/MasterLevel01.02FMOD/Desktop/Master.strings.bank
+  Name: Desktop/Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638577853233269075
+  FileSizes:
+  - Name: 
+    Value: 1078
+  Exists: 1
+--- !u!114 &7517981570716101775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Fire
+  m_EditorClassIdentifier: 
+  Path: event:/Fire
+  Guid:
+    Data1: 677248636
+    Data2: 1278827622
+    Data3: -205620078
+    Data4: -1128056791
+  Banks:
+  - {fileID: 2498379043038426572}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9983
