@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game.Scripts.Interactable;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class LockedInteractSceneChange : MonoBehaviour
+public class LockedInteractSceneChange : MonoBehaviour, IInteractable
 {
     [SerializeField] private int keyToUnlockInteger = 0;
     [SerializeField] private bool isLocked = true;
