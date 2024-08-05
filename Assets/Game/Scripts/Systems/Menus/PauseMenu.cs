@@ -63,6 +63,11 @@ public class PauseMenu : Menu
         MenuManager.Instance.HideMenu(menuClassifier);
     }
 
+    //public void OnSettingsMenu()
+    //{
+
+    //}
+
     public void OnApplicationQuit()
     {
         Application.Quit();
