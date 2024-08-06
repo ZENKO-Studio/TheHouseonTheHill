@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class OneSidedInteractactVareint : MonoBehaviour
+public class OneSidedInteractactVareint : MonoBehaviour, IInteractable
 {
     
     public UnityEvent onInteract;
