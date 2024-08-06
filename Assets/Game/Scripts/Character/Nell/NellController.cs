@@ -281,35 +281,21 @@ public class NellController : CharacterBase
         //     orientationTransform.rotation = mainCamTransform.rotation;
     }
 
-private void OnFootstep(AnimationEvent animationEvent)
-{
-
-    if (animationEvent.animatorClipInfo.weight > 0.5f)
+    private void OnFootstep(AnimationEvent animationEvent)
     {
+        if (animationEvent.animatorClipInfo.weight > 0.5f)
+        {
+            if (FootstepAudioClips.Length > 0)
+            {
+                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
+            }
+            
+            var sound = new Sound(transform.position, soundRange);
 
-        // Play the FMOD 'walk' event
-        FMOD.Studio.EventInstance walkEvent = FMODUnity.RuntimeManager.CreateInstance("event:/sfx/walk");
-        
-        // Set the 'surface' parameter to 2 for wood footsteps (TODO: figure out the actual surface we're on.)
-        // surface parameters:
-        // 0: leaves
-        // 1: snow
-        // 2: wood (small room)
-        // 3: wood (large room)
-        // 4: carpeted wood
-        walkEvent.setParameterByName("surface", 2f);
-        
-        walkEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
-        
-        // Start the footstep event
-        walkEvent.start();
-
-        walkEvent.release();
-
-        var sound = new Sound(transform.position, soundRange);
-        Sounds.MakeSound(sound);
+            Sounds.MakeSound(sound);
+        }
     }
-}
 
     private void OnAnimatorMove()
     {

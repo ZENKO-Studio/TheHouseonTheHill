@@ -391,7 +391,7 @@ MonoBehaviour:
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: Assets/Game/Audio/MasterLevel01FMOD/MasterLevel01FMOD.fspro
-  sourceBankPath: Assets/Game/Audio/ProductionAudioBanks_JackAndNik
+  sourceBankPath: Assets/Game/Audio/MasterLevel01.02FMOD
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -414,7 +414,8 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Desktop/Master
-  Banks: []
+  Banks:
+  - Desktop/TestBank
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
