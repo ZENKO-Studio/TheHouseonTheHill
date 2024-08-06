@@ -7,16 +7,18 @@ public class PuzzleUISlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 {
     [SerializeField] PuzzleUIController puzzleUIController;
 
+    [SerializeField] int reqPieceNo = -1;
+
     internal bool bValid;
 
-    PuzzleUIItem slotItem;
+    internal PuzzleUIItem slotItem;
 
     //This will have definations for required key items in the slot group
     PuzzleUIController puzzleController;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (PuzzleUIController.itemBeingDragged != null)
+        if (PuzzleUIController.itemBeingDragged != null && slotItem == null)
             PuzzleUIController.itemBeingDragged.assignedSlot = this;
     }
 
@@ -24,32 +26,43 @@ public class PuzzleUISlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (PuzzleUIController.itemBeingDragged != null)
             PuzzleUIController.itemBeingDragged.assignedSlot = null;
+
+        if(slotItem == PuzzleUIController.itemBeingDragged)
+            slotItem = null;
     }
 
     internal void PlaceItem(PuzzleUIItem puzzleItem)
     {
-        //Handle Existing Item
-        if (slotItem != null)
-        {
-            //Destroy Slot Item
-            Destroy(slotItem.gameObject);
-            bValid = false;
-        }
-
+        
         slotItem = puzzleItem;
         slotItem.transform.parent = transform;
         slotItem.transform.localPosition = Vector2.zero;
         //TheBoardController.Instance.boardItems.Add(slotItem.inventoryItem);
 
         Validate();
+
+        if(!bValid)
+            slotItem.GetComponent<CanvasGroup>().blocksRaycasts = true;
+        
     }
 
     internal void Validate()
     {
+        if(reqPieceNo == slotItem.no)
+        {
+            bValid = true;
+        }
+
         if (puzzleUIController != null)
         {
-            puzzleUIController.Validate();
+            //puzzleUIController.Validate();
         }
+    }
+
+    public void RemoveSlotItem()
+    {
+        slotItem.ResetPuzzlePiece();
+        slotItem = null;
     }
 
 }
