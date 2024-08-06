@@ -6,10 +6,8 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
 
-public class SetMenu : Menu
+public class SetMenu : MonoBehaviour
 {
-    public MenuClassifier previousMenuClassifier;
-    
     public TMP_Dropdown resolutionDropdown;
     public Slider contrastSlider;
     public Slider exposureSlider;
@@ -21,6 +19,8 @@ public class SetMenu : Menu
 
     void Start()
     {
+        MenuManager.Instance.AddMenuObject(gameObject, MenuType.OptionsMenu);
+
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
@@ -97,11 +97,7 @@ public class SetMenu : Menu
         AudioListener.volume = volume;
     }
     
-    public void OnReturnToPreviousMenu()
-    {
-        MenuManager.Instance.ShowMenu(previousMenuClassifier);
-        MenuManager.Instance.HideMenu(menuClassifier);
-    }
+    
 
     public void QuitGame()
     {

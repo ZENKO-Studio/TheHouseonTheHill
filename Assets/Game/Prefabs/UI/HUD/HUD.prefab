@@ -146,7 +146,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6968045937066899268}
-  - component: {fileID: 7405902239115714205}
   - component: {fileID: 5822581064983963691}
   - component: {fileID: 5948965742208440429}
   m_Layer: 5
@@ -188,26 +187,6 @@ RectTransform:
   m_AnchoredPosition: {x: 938, y: 898.6666}
   m_SizeDelta: {x: 640, y: 360}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7405902239115714205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 310030983035559771}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37bf62d9b50b0e745b0c04bb88ac5b74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuClassifier: {fileID: 11400000, guid: 5f69df953a4219248b0607553951aeae, type: 2}
-  startingMenuState: 1
-  resetPosition: 1
-  OnRefreshMenu:
-    m_PersistentCalls:
-      m_Calls: []
-  pauseMenuClassifier: {fileID: 11400000, guid: 1fdd91697b8a2455b8a0b9144df1b38b,
-    type: 2}
 --- !u!114 &5822581064983963691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +205,6 @@ MonoBehaviour:
   flashlightImage: {fileID: 8131883835654574680}
   flashOnSprite: {fileID: 21300000, guid: e12c9f3059e928d44a7a157b9e8d2bd8, type: 3}
   flashOffSprite: {fileID: 21300000, guid: 8e7f20c81d274f747990fd226ed97d53, type: 3}
-  hudMenu: {fileID: 0}
   blinkAnimator: {fileID: 0}
   dialoguePanel: {fileID: 9029942454563710385}
   dialogueText: {fileID: 1296797031531223313}
@@ -957,7 +935,6 @@ GameObject:
   - component: {fileID: 2120198710876977372}
   - component: {fileID: 7647579427017002704}
   - component: {fileID: 2041890357054426616}
-  - component: {fileID: 9009240192724519110}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -1048,19 +1025,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &9009240192724519110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3953619279141900455}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988a015b90939534e912bd92d414509e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MenuRoot: {fileID: 0}
 --- !u!1 &4060414450254931288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,7 +2354,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7405902239115714205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: HUDMenu, Assembly-CSharp
         m_MethodName: OnPauseGame
         m_Mode: 1

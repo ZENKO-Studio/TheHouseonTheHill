@@ -1,57 +1,111 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
+
+public enum MenuType
+{
+    MainMenu,
+    PauseMenu,
+    OptionsMenu,
+    HUDMenu,
+    SceneLoadMenu
+}
 
 public class MenuManager : Singleton<MenuManager>
 {
-    public MenuClassifier MainMenuClassifier;
-    public MenuClassifier LoadingScreenClassifier;
-    public MenuClassifier HUDMenuClassifier;
-    public MenuClassifier OptionisMenuClassifier;
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject optionsMenu;
+    [SerializeField] GameObject hudMenu;
+    [SerializeField] GameObject sceneLoadMenu;
 
-    private Dictionary<Guid, Menu> menuList = new Dictionary<Guid, Menu>();
-
-    public T GetMenu<T>(MenuClassifier menuClassifier) where T : Menu
+    internal void AddMenuObject(GameObject menuObject, MenuType menuType)
     {
-        Menu menu;
-        if (menuList.TryGetValue(menuClassifier.Id, out menu))
+        switch (menuType)
         {
-            return (T)menu;
-        }
-        return null;
-    }
-
-    public void AddMenu(Menu menu)
-    {
-        if (menuList.ContainsKey(menu.menuClassifier.Id))
-        {
-            Debug.Assert(false, $"{menu.name} menu is already registered using {menu.menuClassifier.name}");
-            return;
-        }
-        menuList.Add(menu.menuClassifier.Id, menu);
-    }
-
-    public void RemoveMenu(Menu menu)
-    {
-        menuList.Remove(menu.menuClassifier.Id);
-    }
-
-    public void ShowMenu(MenuClassifier classifier, string options = "")
-    {
-        Menu menu;
-        if (menuList.TryGetValue(classifier.Id, out menu))
-        {
-            menu.OnShowMenu(options);
+            case MenuType.MainMenu:
+                mainMenu = menuObject;
+                break;
+            case MenuType.PauseMenu:
+                pauseMenu = menuObject;
+                break;
+            case MenuType.OptionsMenu:
+                optionsMenu = menuObject;
+                break;
+            case MenuType.HUDMenu:
+                hudMenu = menuObject;
+                break;
+            case MenuType.SceneLoadMenu:
+                sceneLoadMenu = menuObject;
+                break;
         }
     }
 
-    public void HideMenu(MenuClassifier classifier, string options = "")
+    internal void RemoveMenuObject(MenuType menuType)
     {
-        Menu menu;
-        if (menuList.TryGetValue(classifier.Id, out menu))
+        switch (menuType)
         {
-            menu.OnHideMenu(options);
+            case MenuType.MainMenu:
+                mainMenu = null;
+                break;
+            case MenuType.PauseMenu:
+                pauseMenu = null;
+                break;
+            case MenuType.OptionsMenu:
+                optionsMenu = null;
+                break;
+            case MenuType.HUDMenu:
+                hudMenu = null;
+                break;
+            case MenuType.SceneLoadMenu:
+                sceneLoadMenu = null;
+                break;
+        }
+    }
+
+    internal void HideMenu(MenuType menuType)
+    {
+        switch (menuType)
+        {
+            case MenuType.MainMenu:
+                mainMenu.SetActive(false);
+                break;
+            case MenuType.PauseMenu:
+                pauseMenu.SetActive(false);
+                break;
+            case MenuType.OptionsMenu:
+                optionsMenu.SetActive(false);
+                break;
+            case MenuType.HUDMenu:
+                hudMenu.SetActive(false);
+                break;
+            case MenuType.SceneLoadMenu:
+                sceneLoadMenu.SetActive(false);
+                break;
+        }
+    }
+
+    internal void ShowMenu(MenuType menuType)
+    {
+        switch (menuType)
+        {
+            case MenuType.MainMenu:
+                mainMenu.SetActive(true);
+                break;
+            case MenuType.PauseMenu:
+                pauseMenu.SetActive(true);
+                break;
+            case MenuType.OptionsMenu:
+                optionsMenu.SetActive(true);
+                break;
+            case MenuType.HUDMenu:
+                hudMenu.SetActive(true);
+                break;
+            case MenuType.SceneLoadMenu:
+                sceneLoadMenu.SetActive(true);
+                break;
         }
     }
 }

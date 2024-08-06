@@ -1,50 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MainMenu : Menu
+public class MainMenu : MonoBehaviour
 {
-    public SceneReference Level;
-    public MenuClassifier hudClassifier;
-    public MenuClassifier optionsMenuClassifier; // Add a reference to the options menu classifier
-
-    // Method to load the level scene
-    public void OnLoadLevel()
+    private void Start()
     {
-        SceneLoader.Instance.LoadScene(Level);
-        MenuManager.Instance.HideMenu(menuClassifier);
-        MenuManager.Instance.ShowMenu(hudClassifier);
-
-        // Disable the main camera
-        DisableMainCamera();
+        MenuManager.Instance.AddMenuObject(gameObject, MenuType.MainMenu);
     }
 
-    // Method to return to the main menu
-    public void OnReturnToMainMenu()
+    public void OnStartButton()
     {
-        Time.timeScale = 1.0f;
-
-        MenuManager.Instance.ShowMenu(MenuManager.Instance.LoadingScreenClassifier);
-        MenuManager.Instance.HideMenu(MenuManager.Instance.HUDMenuClassifier);
-
-        SceneLoader.Instance.OnScenesUnLoadedEvent += AllScenesUnloaded;
-        SceneLoader.Instance.UnLoadAllLoadedScenes();
-    }
-
-    // Method called when all scenes are unloaded
-    private void AllScenesUnloaded()
-    {
-        SceneLoader.Instance.OnScenesUnLoadedEvent -= AllScenesUnloaded;
-
-        MenuManager.Instance.ShowMenu(MenuManager.Instance.MainMenuClassifier);
-        MenuManager.Instance.HideMenu(MenuManager.Instance.LoadingScreenClassifier);
-    }
-
-    // Method to open the options menu
-    public void OnOpenOptionsMenu()
-    {
-        MenuManager.Instance.ShowMenu(optionsMenuClassifier);
-        MenuManager.Instance.HideMenu(menuClassifier);
+        GameManager.Instance.StartGame();
+        gameObject.SetActive(false);
     }
 
     public void OnApplicationQuit()
@@ -55,17 +24,6 @@ public class MainMenu : Menu
 
     }
 
-    // Method to disable the main camera
-    private void DisableMainCamera()
-    {
-        Camera mainCamera = Camera.main;
-        if (mainCamera != null)
-        {
-            mainCamera.gameObject.SetActive(false);
-        }
-        else
-        {
-            Debug.LogWarning("Main camera not found");
-        }
-    }
+    
+
 }

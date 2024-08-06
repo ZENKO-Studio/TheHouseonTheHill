@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -15,6 +16,9 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] GameObject HUDPrefab;
 
     #endregion
+
+    [Tooltip("Set your first game level here, one to be loaded on start game")]
+    public SceneReference FirstGameLevel;
 
     //Should be set on game start or manually in the scene
     public NellController playerRef;
@@ -33,7 +37,7 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        
+        SceneLoader.Instance.ReloadMainMenu();
     }
 
     // Update is called once per frame
@@ -41,6 +45,47 @@ public class GameManager : Singleton<GameManager>
     {
         
     }
+
+    #region Core Game Functions
+    public void StartGame()
+    {
+        if (FirstGameLevel != null)
+        {
+            SceneLoader.Instance.LoadScene(FirstGameLevel);
+            StartCoroutine(nameof(SceneLoader.Instance.StartLoading));
+        }
+        else
+        {
+            Debug.LogError($"Game Manager Script on {name} needs valid scene reference to load");
+        }
+
+
+    }
+
+    public void PauseGame(bool bShowPauseScreen)
+    {
+        Time.timeScale = 0f;
+        if (bShowPauseScreen)
+        {
+            MenuManager.Instance.ShowMenu(MenuType.PauseMenu);
+        }
+
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+      
+        MenuManager.Instance.HideMenu(MenuType.PauseMenu);
+        
+    }
+
+    //Got to the Main Menu Screen 
+    public void EndGame()
+    {
+        SceneLoader.Instance.ReloadMainMenu();
+    }
+    #endregion
 
     //To be called when game scene is loaded
     void SetupCoreComponents()
