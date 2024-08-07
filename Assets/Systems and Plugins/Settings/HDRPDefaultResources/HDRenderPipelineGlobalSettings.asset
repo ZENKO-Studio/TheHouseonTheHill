@@ -178,36 +178,33 @@ MonoBehaviour:
       m_Keys:
       - 0b8b34b502b879049b24dba19fc94490
       - 68ab5459bccd9e147807d6550c61ac81
-      - 2def51f3484d15745af74e8de3ba3bfd
-      - 523e34a0932b30545b31a09d601ea866
       - cd4491be06044414f83e3d8e33a97c9c
-      - 5646800948fd64f4abc3501ff2bec843
       - 9872b90c94d9d6349923bb89e978fe65
       m_Values:
       - {fileID: 11400000, guid: d05cc51a901ac1944a348aa58e3883e8, type: 2}
       - {fileID: 11400000, guid: d24ed67292013a640978964fd8dd36b9, type: 2}
-      - {fileID: 11400000, guid: 52a90ed4dd36f8a41985f3d8a33aec30, type: 2}
-      - {fileID: 11400000, guid: 3c318f7b23cb9c44fb95218345490884, type: 2}
       - {fileID: 11400000, guid: 657061527414f9b449404b2118ff338c, type: 2}
-      - {fileID: 11400000, guid: 990fbb81ff240294ebb8ba52d72fe60d, type: 2}
       - {fileID: 11400000, guid: cedd5ad7a2f2eec4dbf8bcf6c94f0629, type: 2}
     bakingSets:
     - {fileID: 11400000, guid: 32c561b0bccfca84d9476263752c6fb4, type: 2}
     - {fileID: 11400000, guid: d24ed67292013a640978964fd8dd36b9, type: 2}
-    - {fileID: 11400000, guid: 7a7b8ca15ab15e247a3de7b6f003a869, type: 2}
-    - {fileID: 11400000, guid: 52a90ed4dd36f8a41985f3d8a33aec30, type: 2}
-    - {fileID: 11400000, guid: b7916d2351433874e9710c387a55673b, type: 2}
-    - {fileID: 11400000, guid: 3c318f7b23cb9c44fb95218345490884, type: 2}
     - {fileID: 11400000, guid: d05cc51a901ac1944a348aa58e3883e8, type: 2}
     - {fileID: 11400000, guid: 657061527414f9b449404b2118ff338c, type: 2}
-    - {fileID: 11400000, guid: 990fbb81ff240294ebb8ba52d72fe60d, type: 2}
     - {fileID: 11400000, guid: cedd5ad7a2f2eec4dbf8bcf6c94f0629, type: 2}
     sceneBounds:
-      m_Keys: []
-      m_Values: []
+      m_Keys:
+      - cd4491be06044414f83e3d8e33a97c9c
+      - 0b8b34b502b879049b24dba19fc94490
+      m_Values:
+      - m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 81, y: 81, z: 81}
+      - m_Center: {x: 0, y: 0, z: 0}
+        m_Extent: {x: 81, y: 81, z: 81}
     hasProbeVolumes:
-      m_Keys: []
-      m_Values: 
+      m_Keys:
+      - cd4491be06044414f83e3d8e33a97c9c
+      - 0b8b34b502b879049b24dba19fc94490
+      m_Values: 0101
   m_Version: 10
   m_ShaderStrippingSetting:
     m_Version: 0

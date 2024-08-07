@@ -32,7 +32,7 @@ public class Menu : MonoBehaviour
         {
             isOpen = value;
 
-            canvas.gameObject.SetActive(isOpen);
+            gameObject.SetActive(isOpen);
 
             if (isOpen == true)
             {
