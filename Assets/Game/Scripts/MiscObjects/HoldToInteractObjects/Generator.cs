@@ -84,7 +84,7 @@ public class Generator : HoldInteractable
 
     protected override void OnTriggerStay(Collider other)
     {
-        if (curState == GeneratorState.Unusable)
+        if (curState == GeneratorState.Unusable || !other.CompareTag("Player"))
             return;
 
         if (playerRef.bInteracting && curState == GeneratorState.Identified)
