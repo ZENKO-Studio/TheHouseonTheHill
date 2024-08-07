@@ -2,6 +2,7 @@
  * Handles all the stuff related to inventory
  **/
 
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using static EventBus;
@@ -120,6 +121,16 @@ public class InventoryHandler : Singleton<InventoryHandler>
         foreach (var key in keys) 
         {
             if(key.Key.itemId == id)
+                return true;
+        }
+        return false;
+    }
+
+    internal bool HasUsableItem(int itemId)
+    {
+        foreach (var usable in usables)
+        {
+            if (usable.Key.itemId == itemId)
                 return true;
         }
         return false;
