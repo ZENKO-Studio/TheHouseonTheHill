@@ -212,8 +212,8 @@ public class NellController : CharacterBase
         mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
 
         orientationObject = new GameObject();
+        orientationObject.transform.rotation = mainCamTransform.rotation;
         orientationTransform = orientationObject.transform;
-        orientationTransform.rotation = mainCamTransform.rotation;
 
         if(bForceUseThirdPerson)
         {
@@ -237,7 +237,7 @@ public class NellController : CharacterBase
     {
         if (bPendingOrientationUpdate)
         {
-            UpdateOrientation();
+            UpdateOrientation(false);
         }
 
         if (characterController != null && bPlayerHasControl)
@@ -277,8 +277,8 @@ public class NellController : CharacterBase
             CameraZoom();
         }
 
-        //if (!bPendingOrientationUpdate && orientationTransform == orientationObject.transform && bPlayerHasControl)
-        //    orientationTransform.rotation = mainCamTransform.rotation;
+        if (!bPendingOrientationUpdate && orientationTransform == orientationObject.transform && bPlayerHasControl)
+            orientationObject.transform.rotation = mainCamTransform.rotation;
     }
 
 private void OnFootstep(AnimationEvent animationEvent)
@@ -488,8 +488,6 @@ private void OnFootstep(AnimationEvent animationEvent)
         //    return;
         //}
 
-        #region Brandon Found this breaks things
-        
         //If Orientation is overriden by some external transform
         if(GameManager.Instance.OverriddenOrientation() != null)
         {
@@ -514,7 +512,7 @@ private void OnFootstep(AnimationEvent animationEvent)
         orientationObject.transform.rotation = mainCamTransform.rotation;
         orientationTransform = orientationObject.transform;
         bPendingOrientationUpdate = false;
-        #endregion
+        
     }
 
     public void SetPlayerHasControl(bool v)
