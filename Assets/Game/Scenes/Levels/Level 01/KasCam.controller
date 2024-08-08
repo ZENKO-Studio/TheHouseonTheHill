@@ -52,32 +52,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-7932978956014576345
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: StudyExtHall2
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &-7905004265338778890
 AnimatorState:
   serializedVersion: 6
@@ -494,32 +468,6 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-4810627296893613747
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: KitchHall2
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 0}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
 --- !u!1102 &-4774335845617616392
 AnimatorState:
   serializedVersion: 6
@@ -858,14 +806,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &-785934062774280280
+--- !u!1102 &-397032053386492739
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'FormalDining 2 '
+  m_Name: Library 2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -1392,19 +1340,13 @@ AnimatorStateMachine:
     m_Position: {x: 2670, y: -50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7571190053165319738}
-    m_Position: {x: 2670, y: 10, z: 0}
+    m_Position: {x: 2680, y: 30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -6629121166119670742}
-    m_Position: {x: 2670, y: 80, z: 0}
+    m_Position: {x: 2680, y: 120, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -7932978956014576345}
-    m_Position: {x: 2680, y: 140, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -4810627296893613747}
-    m_Position: {x: 2680, y: 220, z: 0}
-  - serializedVersion: 1
-    m_State: {fileID: -785934062774280280}
-    m_Position: {x: 2670, y: 280, z: 0}
+    m_State: {fileID: -397032053386492739}
+    m_Position: {x: 2660, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
