@@ -69,7 +69,7 @@ public class CinemaMachineSwitcher : MonoBehaviour
     public void Blink()
     {
         onEnter.Invoke();
-        GameManager.Instance.playerRef.UpdateOrientation();
+        GameManager.Instance.playerRef.UpdateOrientation(instantlySwitchOrientation);
     }
 }
 
