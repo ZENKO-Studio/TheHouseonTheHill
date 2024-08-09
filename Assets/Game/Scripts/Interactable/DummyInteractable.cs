@@ -11,6 +11,7 @@ namespace Game.Scripts.Interactable
     public class DummyInteractable : MonoBehaviour, IInteractable
     {
         public UnityEvent onInteract;
+        public UnityEvent AfterInteract;
         [SerializeField] private InputAction interactAction;
         [SerializeField] private int priority;
 
@@ -18,6 +19,7 @@ namespace Game.Scripts.Interactable
         public void Interact(CharacterBase player)
         {
             onInteract?.Invoke();
+            AfterInteract?.Invoke();
         }
         public int Priority => priority;
     }
