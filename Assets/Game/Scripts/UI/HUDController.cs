@@ -111,7 +111,7 @@ public class HUDController : MonoBehaviour
         GameManager.Instance.OnPlayerSpawned.RemoveListener(HandlePlayerSpawn);
     }
 
-    public void UpdateDialogueText(string text, int disableTime = 5)
+    public void UpdateDialogueText(string text, int disableTime = 2)
     {
         CancelInvoke(nameof(DisableDialoguePanel));
 
