@@ -26,20 +26,31 @@ public class Generator : HoldInteractable
     [Tooltip("Dialogue that will be played once when player enters the trigger have all the items")]
     [SerializeField] List<string> linesWhenUsable = new List<string>();
 
-    [SerializeField] List<GameObject> lights;
+    [Header("Activation Requrements")]
+
+    [Tooltip("Howmany switches are required to activate it")]
+    [SerializeField] int requiredSwitchActivation = 1;
+
+    int activatedSwitches = 0;
+
+    //[SerializeField] List<GameObject> lights;
 
     [Tooltip("Thsese ids will be checked to ensure item is present (Item Type Usables")] 
     [SerializeField] List<int> requiredItemIds = new List<int>();
+
+    [Header("Sound Generation")]
 
     [SerializeField] int soundRange = 10;
 
     int c = 1;
 
+    [Header("What should happen once activated")]
+    [Tooltip("Which Animation Sequence should be trigggered")]
+    [SerializeField] AnimSequenceTrigger sequenceToTrigger;
+
     protected override void Start()
     {
         base.Start();
-
-        
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -73,6 +84,9 @@ public class Generator : HoldInteractable
                     return;
             }
 
+            if (activatedSwitches < requiredSwitchActivation)
+                return;
+
             curState = GeneratorState.Usable;
 
         }
@@ -104,7 +118,14 @@ public class Generator : HoldInteractable
     protected override void OnInteractionComplete()
     {
         //Stuff that should happen after generator is activated
+        if (sequenceToTrigger != null)
+            sequenceToTrigger.TriggerSequence();
 
         base.OnInteractionComplete();
+    }
+
+    internal void ActivateSwitch()
+    {
+        activatedSwitches++;
     }
 }
