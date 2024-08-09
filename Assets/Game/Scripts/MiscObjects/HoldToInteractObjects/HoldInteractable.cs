@@ -25,7 +25,7 @@ public class HoldInteractable : MonoBehaviour
         interactablePopup.SetActive(false);
     }
 
-    protected void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player"))
             return;
@@ -63,7 +63,7 @@ public class HoldInteractable : MonoBehaviour
         }
     }
 
-    protected void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         if (!other.CompareTag("Player"))
             return;
