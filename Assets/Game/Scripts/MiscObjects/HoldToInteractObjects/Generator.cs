@@ -39,11 +39,7 @@ public class Generator : HoldInteractable
     {
         base.Start();
 
-        //Our Code
-        foreach (GameObject light in lights)
-        {
-            light.SetActive(false);
-        }
+        
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -107,11 +103,7 @@ public class Generator : HoldInteractable
 
     protected override void OnInteractionComplete()
     {
-        //Our Code
-        foreach (GameObject light in lights)
-        {
-            light.SetActive(true);
-        }
+        //Stuff that should happen after generator is activated
 
         base.OnInteractionComplete();
     }

@@ -393,19 +393,20 @@ private void OnFootstep(AnimationEvent animationEvent)
             
             if (sprint && Stamina > 0)
                 DepleteStamina();
-
+            
             Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
         }
         else
         {
             bMoving = false;
-             if(GetStamina() < 100)
-                GenerateStamina();
+             
         }
 
-        
-        if(!bGrounded)
+        if (GetStamina() < 100 && !sprint)
+            GenerateStamina();
+
+        if (!bGrounded)
         {
             Vector3 velocity = movDir * inputMag * forwardJumpForce;
             velocity.y = ySpeed;
