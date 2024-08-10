@@ -1,35 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class AnimSequenceTrigger : MonoBehaviour
 {
     [SerializeField] bool bShouldDisablePlayerControl = false;
 
-    [SerializeField] Animator animator;
+    [SerializeField] GameObject animationObject;
+
+    Animator sequenceAnimator;
+
+    PlayableDirector sequenceTimeline;
 
     bool bTriggered = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!animator)
+        if (!animationObject)
             Debug.LogError($"{name} requires an animation sequence to trigger");
 
-        animator.enabled = false;
+        if(animationObject.TryGetComponent<Animator>(out sequenceAnimator))
+            sequenceAnimator.enabled = false;
+        else if(animationObject.TryGetComponent<PlayableDirector>(out sequenceTimeline))
+            sequenceTimeline.enabled = false;
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (animator != null && !bTriggered)
+        TriggerSequence();
+    }
+
+    internal void TriggerSequence()
+    {
+        if (animationObject != null && !bTriggered)
         {
-            animator.enabled = true;
+            if (sequenceAnimator)
+            {
+                sequenceAnimator.enabled = true;
+            }
+            else if (sequenceTimeline)
+            {
+                sequenceTimeline.enabled = true;
+            }
             bTriggered = true;
-            if(bShouldDisablePlayerControl)
+            if (bShouldDisablePlayerControl)
             {
                 GameManager.Instance.playerRef.SetPlayerHasControl(false);
-                Invoke(nameof(ResetPlayerControl), animator.GetCurrentAnimatorStateInfo(0).length);//
+
+                if (sequenceAnimator)
+                {
+                    Invoke(nameof(ResetPlayerControl), sequenceAnimator.GetCurrentAnimatorStateInfo(0).length);//
+                }
+                else if (sequenceTimeline)
+                {
+                    Invoke(nameof(ResetPlayerControl), (float)sequenceTimeline.duration);//
+                }
             }
         }
     }
