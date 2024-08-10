@@ -260,8 +260,8 @@ MonoBehaviour:
       Value: 
       HasValue: 0
     SpeakerMode:
-      Value: 0
-      HasValue: 0
+      Value: 3
+      HasValue: 1
     VirtualChannelCount:
       Value: 0
       HasValue: 0
@@ -389,9 +389,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
   HasSourceProject: 0
-  HasPlatforms: 0
+  HasPlatforms: 1
   sourceProjectPath: Assets/Game/Audio/MasterLevel01FMOD/MasterLevel01FMOD.fspro
-  sourceBankPath: Assets/Game/Audio/ProductionAudioBanks_JackAndNik/Desktop
+  sourceBankPath: Assets/Game/Audio/ProductionAudioBanks_JackAndNik
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
