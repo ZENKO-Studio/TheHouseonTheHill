@@ -7,6 +7,9 @@ public class AnimSequenceTrigger : MonoBehaviour
 {
     [SerializeField] bool bShouldDisablePlayerControl = false;
 
+    [Tooltip("Set this to false if the animation should not play instantly on Trigger Enter")]
+    [SerializeField] bool bStartOnPlacedTrigger = true;
+
     [SerializeField] GameObject animationObject;
 
     Animator sequenceAnimator;
@@ -30,7 +33,8 @@ public class AnimSequenceTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        TriggerSequence();
+        if(other.CompareTag("Player") && bStartOnPlacedTrigger)
+            TriggerSequence();
     }
 
     internal void TriggerSequence()
