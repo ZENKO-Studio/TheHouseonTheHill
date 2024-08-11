@@ -55,6 +55,9 @@ public class Generator : HoldInteractable
 
     protected override void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player"))
+            return;
+
         base.OnTriggerEnter(other);
 
         if (curState == GeneratorState.Start)
