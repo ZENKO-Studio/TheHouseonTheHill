@@ -414,7 +414,9 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Desktop/Master
-  Banks: []
+  - ProductionAudioBanks_JackAndNik/Desktop/Master
+  Banks:
+  - Desktop/TestBank
   BanksToLoad:
   - Master
   - Master.strings
