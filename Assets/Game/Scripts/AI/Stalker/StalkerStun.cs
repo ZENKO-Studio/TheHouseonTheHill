@@ -25,6 +25,13 @@ public class StalkerStun : StalkerBaseState
             // Set the emission color and intensity
             stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * stalkerRef.intensityMultiplier.Evaluate(0));
         }
+
+        if (stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.clip = stalkerRef.stunnedSound;
+            stalkerRef.stalkerAudio.loop = false;
+            stalkerRef.stalkerAudio.Play();
+        }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -60,5 +67,12 @@ public class StalkerStun : StalkerBaseState
             stalkerRef.stalkerMaterial.SetColor("_EmissiveColor", stalkerRef.emissionColor * stalkerRef.intensityMultiplier.Evaluate(0));
             stalkerRef.stalkerMaterial.DisableKeyword("_EMISSION");
         }
-    }
+
+         
+        if (stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.Stop();
+        }
+    
+}
 }
