@@ -7,6 +7,8 @@ public class Flashlight : MonoBehaviour
     bool bIsOn = false;
     Light light;
 
+    AudioSource audioSource;
+ 
     float charging = 100f;
     [SerializeField] float depletionRate = 5f;
     [SerializeField] float chargeRate = 2f;
@@ -18,6 +20,7 @@ public class Flashlight : MonoBehaviour
     void Start()
     {
         light = GetComponent<Light>();
+        audioSource = GetComponent<AudioSource>();
         light.enabled = false;
     }
 
@@ -54,6 +57,8 @@ public class Flashlight : MonoBehaviour
 
         bIsOn = !bIsOn;
         light.enabled = bIsOn;
+
+        audioSource.Play();
 
         OnFlashLightToggle?.Invoke();
     }

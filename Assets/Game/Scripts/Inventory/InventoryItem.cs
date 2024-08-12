@@ -24,6 +24,8 @@ public class InventoryItem : MonoBehaviour
     public int itemId = -1; //To distinguish Item (Like Key ID / Document Id)
     public ItemType itemType;
 
+    public AudioClip itemPickupSound;
+
 
     public bool bInteractable = true; //Make it false when already interacted with
 
@@ -126,10 +128,15 @@ public class InventoryItem : MonoBehaviour
     protected void PostInteract()
     {
         bInteractable = false;
+
+        if(itemPickupSound != null)
+            AudioSource.PlayClipAtPoint(itemPickupSound, transform.position);
+        
         if (interactPopup != null)
         {
             interactPopup.SetActive(false);
         }
+        
         gameObject.SetActive(false);
     }
 }
