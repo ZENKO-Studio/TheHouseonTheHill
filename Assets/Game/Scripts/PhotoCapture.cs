@@ -7,6 +7,7 @@ public class PhotoCapture : MonoBehaviour
     //To take from the associated wall
     [HideInInspector] public GameObject capturablePhoto;
 
+  
     [Header("Flash Effect")]
     [SerializeField] private GameObject cameraFlash;
     [SerializeField] private float flashTime;
@@ -39,6 +40,7 @@ public class PhotoCapture : MonoBehaviour
         cameraFlash.SetActive(true);
         yield return new WaitForSeconds(flashTime);
         cameraFlash.SetActive(false);
+        
     }
 
     

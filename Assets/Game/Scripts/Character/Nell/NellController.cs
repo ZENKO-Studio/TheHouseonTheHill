@@ -212,8 +212,8 @@ public class NellController : CharacterBase
         mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
 
         orientationObject = new GameObject();
+        orientationObject.transform.rotation = mainCamTransform.rotation;
         orientationTransform = orientationObject.transform;
-        orientationTransform.rotation = mainCamTransform.rotation;
 
         if(bForceUseThirdPerson)
         {
@@ -237,7 +237,7 @@ public class NellController : CharacterBase
     {
         if (bPendingOrientationUpdate)
         {
-            UpdateOrientation();
+            UpdateOrientation(false);
         }
 
         if (characterController != null && bPlayerHasControl)
@@ -277,25 +277,39 @@ public class NellController : CharacterBase
             CameraZoom();
         }
 
-        // if(!bPendingOrientationUpdate && orientationTransform == orientationObject.transform && bPlayerHasControl)
-        //     orientationTransform.rotation = mainCamTransform.rotation;
+        if (!bPendingOrientationUpdate && orientationTransform == orientationObject.transform && bPlayerHasControl)
+            orientationObject.transform.rotation = mainCamTransform.rotation;
     }
 
-    private void OnFootstep(AnimationEvent animationEvent)
+private void OnFootstep(AnimationEvent animationEvent)
+{
+
+    if (animationEvent.animatorClipInfo.weight > 0.5f)
     {
-        if (animationEvent.animatorClipInfo.weight > 0.5f)
-        {
-            if (FootstepAudioClips.Length > 0)
-            {
-                var index = UnityEngine.Random.Range(0, FootstepAudioClips.Length);
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[index], transform.position, crouch ? FootstepAudioVolume / 2 : FootstepAudioVolume);
-            }
-            
-            var sound = new Sound(transform.position, soundRange);
 
-            Sounds.MakeSound(sound);
-        }
+        // Play the FMOD 'walk' event
+        FMOD.Studio.EventInstance walkEvent = FMODUnity.RuntimeManager.CreateInstance("event:/sfx/walk");
+        
+        // Set the 'surface' parameter to 2 for wood footsteps (TODO: figure out the actual surface we're on.)
+        // surface parameters:
+        // 0: leaves
+        // 1: snow
+        // 2: wood (small room)
+        // 3: wood (large room)
+        // 4: carpeted wood
+        walkEvent.setParameterByName("surface", 2f);
+        
+        walkEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
+        
+        // Start the footstep event
+        walkEvent.start();
+
+        walkEvent.release();
+
+        var sound = new Sound(transform.position, soundRange);
+        Sounds.MakeSound(sound);
     }
+}
 
     private void OnAnimatorMove()
     {
@@ -324,26 +338,39 @@ public class NellController : CharacterBase
         if (!bEnableMovement)
             return;
 
+        Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
+
         #region Brandon Fixing samis way of orienting player
 
-        
+        //var primaryCamera = Camera.main;
+        ////movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
+        //var cameraForward = primaryCamera.transform.forward;
+        //var cameraRight = primaryCamera.transform.right;
+        //cameraForward.y = 0;
+        //cameraRight.y = 0;
+        //cameraForward.Normalize();
+        //cameraRight.Normalize();
 
-        
-        Vector3 movDir = new Vector3(moveInput.x, 0, moveInput.y);
-        var primaryCamera = Camera.main;
-        //movDir = Quaternion.AngleAxis(orientationTransform.eulerAngles.y, Vector3.up) * movDir;
-        var cameraForward = primaryCamera.transform.forward;
-        var cameraRight = primaryCamera.transform.right;
-        cameraForward.y = 0;
-        cameraRight.y = 0;
-        cameraForward.Normalize();
-        cameraRight.Normalize();
-            
-        var forwardRelativeInput = moveInput.y * cameraForward;
-        var rightRelativeInput = moveInput.x * cameraRight;
+        //var forwardRelativeInput = moveInput.y * cameraForward;
+        //var rightRelativeInput = moveInput.x * cameraRight;
 
         #endregion
-         movDir = forwardRelativeInput + rightRelativeInput;
+
+        #region Sami Refixing things (just using an empty transform instead of main camera so that we have control of when to change orientation)
+
+        var orientationForward = orientationTransform.forward;
+        var orientationRight = orientationTransform.right;
+        orientationForward.y = 0;
+        orientationRight.y = 0;
+        orientationForward.Normalize();
+        orientationRight.Normalize();
+
+        var forwardRelativeInput = moveInput.y * orientationForward;
+        var rightRelativeInput = moveInput.x * orientationRight;
+
+        #endregion
+
+        movDir = forwardRelativeInput + rightRelativeInput;
         float inputMag = Mathf.Clamp01(movDir.magnitude);
 
         if (sprint && Stamina > 0)
@@ -366,19 +393,20 @@ public class NellController : CharacterBase
             
             if (sprint && Stamina > 0)
                 DepleteStamina();
-
+            
             Quaternion toRotation = Quaternion.LookRotation(movDir, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotSpeed * Time.deltaTime);
         }
         else
         {
             bMoving = false;
-             if(GetStamina() < 100)
-                GenerateStamina();
+             
         }
 
-        
-        if(!bGrounded)
+        if (GetStamina() < 100 && !sprint)
+            GenerateStamina();
+
+        if (!bGrounded)
         {
             Vector3 velocity = movDir * inputMag * forwardJumpForce;
             velocity.y = ySpeed;
@@ -454,15 +482,13 @@ public class NellController : CharacterBase
 
     }
 
-    public void UpdateOrientation()
+    public void UpdateOrientation(bool bInstantUpdate = true)
     {
-        if (true)
-        {
-            return;
-        }
+        //if (true)
+        //{
+        //    return;
+        //}
 
-        #region Brandon Found this breaks things
-        
         //If Orientation is overriden by some external transform
         if(GameManager.Instance.OverriddenOrientation() != null)
         {
@@ -478,16 +504,16 @@ public class NellController : CharacterBase
         }
 
         //This is when 
-        if (bMoving)
+        if (bMoving && !bInstantUpdate)
         {
             bPendingOrientationUpdate = true;
             return;
         }
     
+        orientationObject.transform.rotation = mainCamTransform.rotation;
         orientationTransform = orientationObject.transform;
-        orientationTransform.rotation = mainCamTransform.rotation;
         bPendingOrientationUpdate = false;
-        #endregion
+        
     }
 
     public void SetPlayerHasControl(bool v)

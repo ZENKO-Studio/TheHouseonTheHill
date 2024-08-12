@@ -164,12 +164,14 @@ namespace Game.Scripts.Interactable
         private void OverrideInteract(InputAction.CallbackContext context)
         {
             _currentInteractable?.Interact(_player);
+            _currentInteractable?.Interact(_player);
         }
 
         public void OnInteract(InputValue value)
         {
             if (_overrideInteractable) return;
 
+            _currentInteractable?.Interact(_player);
             _currentInteractable?.Interact(_player);
         }
 
