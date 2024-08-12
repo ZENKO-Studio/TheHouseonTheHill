@@ -389,9 +389,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
   HasSourceProject: 0
-  HasPlatforms: 1
+  HasPlatforms: 0
   sourceProjectPath: Assets/Game/Audio/MasterLevel01FMOD/MasterLevel01FMOD.fspro
-  sourceBankPath: Assets/Game/Audio/ProductionAudioBanks_JackAndNik
+  sourceBankPath: Assets/StreamingAssets/Desktop/ProductionAudioBanks_JackAndNik/Desktop
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -414,9 +414,7 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Desktop/Master
-  - ProductionAudioBanks_JackAndNik/Desktop/Master
-  Banks:
-  - Desktop/TestBank
+  Banks: []
   BanksToLoad:
   - Master
   - Master.strings
