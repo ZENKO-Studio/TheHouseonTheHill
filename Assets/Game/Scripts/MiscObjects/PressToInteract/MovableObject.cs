@@ -1,10 +1,13 @@
 using System;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class MovableObject : MonoBehaviour
 { 
     
     private NellController playerController;
+
+    private AudioSource audioSrc;
 
     //Two Snap Points for left and right side
     [SerializeField] Transform snapPoint1;
@@ -31,6 +34,7 @@ public class MovableObject : MonoBehaviour
 
     private void Start()
     {
+        audioSrc = GetComponent<AudioSource>();
         startPos = new Vector2(transform.position.x, transform.position.z);
     }
 
@@ -122,13 +126,21 @@ public class MovableObject : MonoBehaviour
         playerController.nellsAnimator.SetBool("PushObject", true);
         transform.parent = playerController.transform;
         bMovingObject = true;
+
+        //Start Playing pushing sound
+        audioSrc.Play();
+
         btnPush.SetActive(true);
     }
 
     private void MoveObject()
     {
         playerController.nellsAnimator.SetFloat("InputMagnitude", playerController.moveInput.y, 0.05f, Time.deltaTime);
-        if(Vector2.Distance(startPos, new Vector2(transform.position.x, transform.position.z)) > moveDist)
+
+        //Change the volume based on whether player moving or not
+        audioSrc.volume = playerController.moveInput.y;
+
+        if (Vector2.Distance(startPos, new Vector2(transform.position.x, transform.position.z)) > moveDist)
         {
             RemoveObject();
         }
@@ -137,6 +149,7 @@ public class MovableObject : MonoBehaviour
     private void RemoveObject()
     {
         //Disconect Player
+        audioSrc.Stop();
         btnInteract.SetActive(true);
         playerController.nellsAnimator.SetBool("PushObject", false);
         playerController.SetPlayerHasControl(true);
