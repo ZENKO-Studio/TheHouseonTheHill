@@ -12,6 +12,8 @@ public class SaltChargeHandler : MonoBehaviour
     [Tooltip("How frequently can nell throw salt (Cooldown for Salt use)")]
     [SerializeField] int throwFreq = 3;
 
+    [SerializeField] AudioClip saltThrowClip;
+
     int currentSaltCharges = 0;
 
 
@@ -62,7 +64,10 @@ public class SaltChargeHandler : MonoBehaviour
     public void SaltThrown(AnimationEvent animationEvent)
     {
         if (saltParticles != null)
-            saltParts = Instantiate(saltParticles, saltSpawnPosition.position, saltSpawnPosition.rotation); 
+            saltParts = Instantiate(saltParticles, saltSpawnPosition.position, saltSpawnPosition.rotation);
+
+        if (saltThrowClip)
+            AudioSource.PlayClipAtPoint(saltThrowClip, saltSpawnPosition.position, .5f);
        
         // Perform the OverlapSphere check
         Collider[] hitColliders = Physics.OverlapSphere(saltSpawnPosition.position, saltRange);

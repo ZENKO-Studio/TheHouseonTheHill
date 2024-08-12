@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class Generator : HoldInteractable
 {
     enum GeneratorState
@@ -44,6 +45,8 @@ public class Generator : HoldInteractable
 
     int c = 1;
 
+    AudioSource aSource;
+
     [Header("What should happen once activated")]
     [Tooltip("Which Animation Sequence should be trigggered")]
     [SerializeField] AnimSequenceTrigger sequenceToTrigger;
@@ -51,6 +54,8 @@ public class Generator : HoldInteractable
     protected override void Start()
     {
         base.Start();
+
+        aSource = GetComponent<AudioSource>();
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -79,6 +84,9 @@ public class Generator : HoldInteractable
 
     private void CheckIfUsable()
     {
+        if (activatedSwitches < requiredSwitchActivation)
+            return;
+
         if (requiredItemIds.Count > 0)
         {
             foreach (int itemId in requiredItemIds)
@@ -87,12 +95,8 @@ public class Generator : HoldInteractable
                     return;
             }
 
-            if (activatedSwitches < requiredSwitchActivation)
-                return;
-
-            curState = GeneratorState.Usable;
-
         }
+        curState = GeneratorState.Usable;
     }
 
     protected override void OnTriggerStay(Collider other)
@@ -108,6 +112,20 @@ public class Generator : HoldInteractable
         }
 
         base.OnTriggerStay(other);
+
+        //Make Sound when generator is being Activated
+        if(interactedTime > 0f)
+        {
+            if(!aSource.isPlaying)
+            {
+                aSource.Play();
+            }
+        }
+        else
+        {
+            if(aSource.isPlaying) 
+                aSource.Stop();
+        }
     
         //Every One Second Make Sound
         if(interactedTime > c)
@@ -123,6 +141,8 @@ public class Generator : HoldInteractable
         //Stuff that should happen after generator is activated
         if (sequenceToTrigger != null)
             sequenceToTrigger.TriggerSequence();
+
+        curState = GeneratorState.Used;
 
         base.OnInteractionComplete();
     }
