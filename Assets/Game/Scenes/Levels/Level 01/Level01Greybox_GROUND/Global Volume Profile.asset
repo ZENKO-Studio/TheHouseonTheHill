@@ -108,7 +108,7 @@ MonoBehaviour:
     m_Value: 0.109
   tint:
     m_OverrideState: 1
-    m_Value: {r: 1, g: 0, b: 0, a: 1}
+    m_Value: {r: 0, g: 0.7942071, b: 1, a: 1}
   dirtTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -356,7 +356,7 @@ MonoBehaviour:
     m_Value: 0
   skyIntensityMode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   exposure:
     m_OverrideState: 1
     m_Value: 1
@@ -365,13 +365,13 @@ MonoBehaviour:
     m_Value: 1
   upperHemisphereLuxValue:
     m_OverrideState: 1
-    m_Value: 0.051818125
+    m_Value: 0.30754364
   upperHemisphereLuxColor:
     m_OverrideState: 1
-    m_Value: {x: 0.5, y: 0.18839453, z: 0.10688523}
+    m_Value: {x: 0.5, y: 0.47730368, z: 0.47809237}
   desiredLuxValue:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.1
   updateMode:
     m_OverrideState: 0
     m_Value: 0
@@ -383,7 +383,7 @@ MonoBehaviour:
     m_Value: 0
   hdriSky:
     m_OverrideState: 1
-    m_Value: {fileID: 8900000, guid: 401923eadbc0549499e457b44c6efccf, type: 3}
+    m_Value: {fileID: 8900000, guid: ac73dbe6fd56c41949307071f5f6be09, type: 3}
   distortionMode:
     m_OverrideState: 0
     m_Value: 0
@@ -492,7 +492,7 @@ MonoBehaviour:
     m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.3584906, g: 0.12558025, b: 0.045656823, a: 1}
+    m_Value: {r: 0.094562136, g: 0.10721893, b: 0.16037738, a: 1}
   maxFogDistance:
     m_OverrideState: 0
     m_Value: 5000
