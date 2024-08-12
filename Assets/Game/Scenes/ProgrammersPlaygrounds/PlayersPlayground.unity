@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.028914023, g: 0.018722804, b: 0.013975741, a: 1}
+  m_IndirectSpecularColor: {r: 0.028905075, g: 0.018721761, b: 0.0139779765, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2644,6 +2644,7 @@ MonoBehaviour:
   initialSaltCharges: 0
   maxSaltCharges: 5
   throwFreq: 3
+  saltThrowClip: {fileID: 0}
   saltSpawnPosition: {fileID: 0}
   saltParticles: {fileID: 0}
   saltRange: 5
@@ -3452,7 +3453,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.096666664
+  m_VoxelSize: 0.26666668
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 96c04c2af984af943b46690358bfbbc3, type: 2}
   m_BuildHeightMesh: 0
@@ -7306,21 +7307,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Stalker
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260277967760015119, guid: 3032c7368e09e7b4da029ef06d40db0b,
-        type: 3}
-      propertyPath: moveSpeed
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260277967760015119, guid: 3032c7368e09e7b4da029ef06d40db0b,
-        type: 3}
-      propertyPath: chaseSpeed
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260277967760015119, guid: 3032c7368e09e7b4da029ef06d40db0b,
-        type: 3}
-      propertyPath: patrolPoints.Array.size
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8260277967760015119, guid: 3032c7368e09e7b4da029ef06d40db0b,
         type: 3}

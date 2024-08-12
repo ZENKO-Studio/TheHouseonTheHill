@@ -10,6 +10,13 @@ public class StalkerInvestigate : StalkerBaseState
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agent.SetDestination(lastPlayerPos);
+
+        if (stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.clip = stalkerRef.investigatingSound;
+            stalkerRef.stalkerAudio.loop = true;
+            stalkerRef.stalkerAudio.Play();
+        }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -55,6 +62,14 @@ public class StalkerInvestigate : StalkerBaseState
         {
             //Have some timer?
             fsm.ChangeState(StalkerFSM.PatrolState);
+        }
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.Stop();
         }
     }
 }
