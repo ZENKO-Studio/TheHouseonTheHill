@@ -13,6 +13,13 @@ public class StalkerPatrol : StalkerBaseState
     {
         if (!agent.isOnNavMesh) return;
 
+        if (stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.clip = stalkerRef.walkSound;
+            stalkerRef.stalkerAudio.loop = true;
+            stalkerRef.stalkerAudio.Play();
+        }
+
         currentDest = stalkerRef.GetNextWaypoint();
         if (currentDest != null)
         {
@@ -86,6 +93,14 @@ public class StalkerPatrol : StalkerBaseState
             {
                 Debug.LogWarning("No next waypoint found");
             }
+        }
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        if (stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.Stop();
         }
     }
 }
