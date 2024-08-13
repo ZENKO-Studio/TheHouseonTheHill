@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PuzzleUIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Canvas canvas;
+
+    [SerializeField] PuzzleUIController puzzleController;
 
     //Reference to the Collected Inventory Item
     public int no = 1;
@@ -29,6 +32,17 @@ public class PuzzleUIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         rectTransform = GetComponent<RectTransform>();
 
         initialParent = transform.parent;
+
+        puzzleController = GetComponentInParent<PuzzleUIController>();
+        puzzleController.OnPuzzleInit.AddListener(InitPiece);
+    }
+
+    private void InitPiece()
+    {
+        if(inventoryItem == null)
+            inventoryItem = InventoryHandler.Instance.GetUsable(no);
+
+        gameObject.SetActive(inventoryItem != null);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
