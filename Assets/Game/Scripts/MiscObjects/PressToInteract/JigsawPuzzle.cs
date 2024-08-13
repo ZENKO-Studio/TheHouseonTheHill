@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class JigsawPuzzle : InteractableObject
 {
     //The pieces that are already near the puzzle
-    [SerializeField] List<InventoryItem> initialPuzzlePieces = new List<InventoryItem>();
+    [SerializeField] List<GameObject> initialPuzzlePieces = new List<GameObject>();
+
+    internal List<PuzzleUIItem> placedItems = new List<PuzzleUIItem>();
 
     enum PuzzleState
     {
@@ -97,32 +100,46 @@ public class JigsawPuzzle : InteractableObject
             GiveInitialPieces();
         }
 
-        CheckIfUsable();
-
+        bAllPiecesAvailable = CheckIfUsable();
         //Check the state and display dialogues 
 
         if (puzzleUI != null)
         {
             puzzleUI.SetActive(true);
+            puzzleUI.GetComponent<PuzzleUIController>().puzzleRef = this;
         }
 
         if(bAllPiecesAvailable)
         {
-            //
+            GameManager.Instance.playerHud.UpdateDialogueText(linesWhenUsable[Random.Range(0, linesWhenUsable.Count)], 3);
         }
         else
         {
-            //Play Dialogue "Seems like some pieces are missing, I need to find them"
+            GameManager.Instance.playerHud.UpdateDialogueText(linesWhenUnusable[Random.Range(0, linesWhenUnusable.Count)], 3);
         }
     }
 
-    private void CheckIfUsable()
+    private bool CheckIfUsable()
     {
-        throw new System.NotImplementedException();
+        for(int i = 1; i <= 9; i++)
+        {
+            if (!InventoryHandler.Instance.HasUsableItem(i) && placedItems.Find(item => item.no == i) == null)
+                return false;
+        }
+
+        return true;
     }
 
+    //Give all the initial pieces to the player
     private void GiveInitialPieces()
     {
-        throw new System.NotImplementedException();
+        for (int i = 0; i < initialPuzzlePieces.Count; i++)
+        {
+            InventoryItem iItem = Instantiate(initialPuzzlePieces[0]).GetComponent<InventoryItem>();
+            InventoryHandler.Instance.AddItem(iItem);
+            iItem.bInteractable = false;
+            iItem.gameObject.SetActive(false);
+            initialPuzzlePieces.RemoveAt(0);
+        }
     }
 }
