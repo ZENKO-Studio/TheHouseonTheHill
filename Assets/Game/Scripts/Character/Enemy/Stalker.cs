@@ -18,6 +18,8 @@ public class Stalker : EnemyBase, IHear
     public bool bPlayerSensed = false;
     public bool bSoundHeard = false;
 
+    internal AudioSource stalkerAudio;
+
     [SerializeField]
     public List<Vector3> soundPoint = new List<Vector3>();
 
@@ -34,6 +36,17 @@ public class Stalker : EnemyBase, IHear
     public float maxGlowIntensity = 50.0f;
     public AnimationCurve intensityMultiplier;
 
+    [Header("Sounds")]
+    public List<AudioClip> attackSounds = new List<AudioClip>();
+
+    public AudioClip walkSound;
+    
+    public AudioClip investigatingSound;
+
+    public AudioClip stunnedSound;
+ 
+    internal bool activelyAttacking = false;
+
     protected override void Start()
     {
         stalkerAgent = GetComponent<NavMeshAgent>();
@@ -43,6 +56,8 @@ public class Stalker : EnemyBase, IHear
         stalkerAnimator = GetComponent<Animator>();
         
         stalkerMaterial = GetComponentInChildren<Renderer>().material;  
+
+        stalkerAudio = GetComponent<AudioSource>();
 
     }
 
@@ -72,9 +87,22 @@ public class Stalker : EnemyBase, IHear
         Attack();
     }
 
+    private void OnAttackEnd(AnimationEvent animationEvent)
+    {
+        activelyAttacking = false;
+    }
+
     public override void Attack()
     {
+        activelyAttacking = true;
+
         Debug.Log($"{gameObject.name} Attacking with damage of {damageToDeal * damageMultiplier}");
+
+        if (stalkerAudio != null && attackSounds.Count > 0)
+        {
+            stalkerAudio.clip = attackSounds[Random.Range(0, attackSounds.Count)];
+            stalkerAudio.Play();
+        }
 
         if(playerTransform != null && CanAttackPlayer()) 
         {
