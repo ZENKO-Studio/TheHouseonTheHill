@@ -53,8 +53,6 @@ public class InventoryItem : MonoBehaviour
             Debug.Log($"{objectMaterial.name}");
         }
 
-
-
         //No triggers for stuff that is not interactable
         if(!bInteractable) 
         { 
@@ -94,9 +92,9 @@ public class InventoryItem : MonoBehaviour
         }
 
     }
+
     protected void OnTriggerExit(Collider other)
     {
-
         if (other.tag == "Player")
         {
             GameManager.Instance.playerRef.RemoveInventoryItem(this);

@@ -11,7 +11,7 @@ public class InventoryHandler : Singleton<InventoryHandler>
 {
     [SerializeField] InventoryUiController inventoryUI;
 
-    //Just for Debugging Purpose, Will be removed later
+    ////Just for Debugging Purpose, Will be removed later
     public List<InventoryItem> items = new List<InventoryItem>();
 
     //4 Dictionaries with Item and Button (Since we have to add and remove both)
@@ -23,10 +23,10 @@ public class InventoryHandler : Singleton<InventoryHandler>
     private void OnEnable()
     {
         // Initialize the inventory with existing items
-        foreach (var item in items)
-        {
-            //CreateItemButton(item);
-        }
+        //foreach (var item in items)
+        //{
+        //    //CreateItemButton(item);
+        //}
 
         //EventBus.Subscribe<ItemInspectedEvent>(OnItemInspected);
         //EventBus.Subscribe<ItemAddedEvent>(OnItemAdded);
@@ -72,7 +72,7 @@ public class InventoryHandler : Singleton<InventoryHandler>
     public void RemoveItem(InventoryItem item)
     {
         GameObject g = null;
-        //Depending on Item Type Add to respective dictionary
+        //Depending on Item Type Remove from respective dictionary
         switch (item.itemType)
         {
             case ItemType.UsableObj:
@@ -134,5 +134,15 @@ public class InventoryHandler : Singleton<InventoryHandler>
                 return true;
         }
         return false;
+    }
+
+    internal InventoryItem GetUsable(int itemId)
+    {
+        foreach (var usable in usables)
+        {
+            if (usable.Key.itemId == itemId)
+                return usable.Key;
+        }
+        return null;
     }
 }
