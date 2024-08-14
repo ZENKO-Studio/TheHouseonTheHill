@@ -388,10 +388,18 @@ MonoBehaviour:
   m_Name: FMODStudioSettings
   m_EditorClassIdentifier: 
   switchSettingsMigration: 1
+<<<<<<< Updated upstream
   HasSourceProject: 0
   HasPlatforms: 0
   sourceProjectPath: Assets/Game/Audio/MasterLevel01FMOD/MasterLevel01FMOD.fspro
-  sourceBankPath: Assets/StreamingAssets/Desktop/ProductionAudioBanks_JackAndNik/Desktop
+  sourceBankPath: Assets/Game/Audio/ProductionAudioBanks_JackAndNik/Desktop
+=======
+  HasSourceProject: 1
+  HasPlatforms: 1
+  sourceProjectPath: ../../../Desktop/house on the hill audio assets/house on the
+    hill/house on the hill.fspro
+  sourceBankPath: ../../../Desktop/house on the hill audio assets/house on the hill/Build
+>>>>>>> Stashed changes
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
   ShowBankRefreshWindow: 1
@@ -413,7 +421,7 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Desktop/Master
+  - Master
   Banks: []
   BanksToLoad:
   - Master
@@ -897,11 +905,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: 2c5177b11d81d824dbb064f9ac8527da
   parentIdentifier: default
-  active: 0
+  active: 1
   Properties:
     LiveUpdate:
-      Value: 0
-      HasValue: 0
+      Value: 2
+      HasValue: 1
     LiveUpdatePort:
       Value: 0
       HasValue: 0
@@ -947,7 +955,7 @@ MonoBehaviour:
     CallbackHandler:
       Value: {fileID: 0}
       HasValue: 0
-  OutputTypeName: 
+  OutputTypeName: AUTODETECT
   threadAffinities:
     Value: []
     HasValue: 0

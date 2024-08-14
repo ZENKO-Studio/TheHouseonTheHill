@@ -1,3 +1,4 @@
+using DTT.Utils.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,8 +14,10 @@ public class PuzzleUISlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     internal PuzzleUIItem slotItem;
 
-    //This will have definations for required key items in the slot group
-    PuzzleUIController puzzleController;
+    private void Start()
+    {
+        puzzleUIController = GetComponentInParent<PuzzleUIController>();
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -37,7 +40,8 @@ public class PuzzleUISlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         slotItem = puzzleItem;
         slotItem.transform.parent = transform;
         slotItem.transform.localPosition = Vector2.zero;
-        //TheBoardController.Instance.boardItems.Add(slotItem.inventoryItem);
+        puzzleUIController.puzzleRef.placedItems.Add(slotItem);
+        InventoryHandler.Instance.RemoveItem(slotItem.inventoryItem);
 
         Validate();
 
@@ -55,12 +59,14 @@ public class PuzzleUISlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         if (puzzleUIController != null)
         {
-            //puzzleUIController.Validate();
+            puzzleUIController.Validate();
         }
     }
 
     public void RemoveSlotItem()
     {
+        puzzleUIController.puzzleRef.placedItems.Remove(slotItem);
+        InventoryHandler.Instance.AddItem(slotItem.inventoryItem);
         slotItem.ResetPuzzlePiece();
         slotItem = null;
     }
