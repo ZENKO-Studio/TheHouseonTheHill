@@ -17,7 +17,7 @@ public class HoldInteractable : MonoBehaviour
     [SerializeField] protected Slider sliderRef;
 
     [SerializeField] protected float resetSpeed = .1f;
- 
+
     protected bool bInteractionComplete = false;
 
     protected virtual void Start()
