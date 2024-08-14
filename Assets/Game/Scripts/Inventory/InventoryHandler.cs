@@ -71,6 +71,8 @@ public class InventoryHandler : Singleton<InventoryHandler>
 
     public void RemoveItem(InventoryItem item)
     {
+        if(!HasItem(item)) return;
+
         GameObject g = null;
         //Depending on Item Type Remove from respective dictionary
         switch (item.itemType)
@@ -110,6 +112,34 @@ public class InventoryHandler : Singleton<InventoryHandler>
 
         EventBus.Publish(new ItemRemovedEvent(item));
     }
+
+    private bool HasItem(InventoryItem item) 
+    {
+        switch (item.itemType)
+        {
+            case ItemType.UsableObj:
+                if (usables.ContainsKey(item))
+                    return true;
+                break;
+            case ItemType.Key:
+                if (keys.ContainsKey(item))
+                    return true;
+                break;
+            case ItemType.Document:
+                if (documents.ContainsKey(item))
+                    return true;
+                break;
+            case ItemType.Photo:
+                if (photos.ContainsKey(item))
+                    return true;
+                break;
+            default:
+                Debug.Log("Something went wrong...");
+                break;
+        }
+
+        return false;
+    } 
 
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)
     {

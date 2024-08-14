@@ -21,6 +21,8 @@ public class JigsawPuzzle : InteractableObject
 
     PuzzleState puzzleState = PuzzleState.Start;
 
+    PuzzleUIController uiController;
+
     //Whether player has all pieces
     bool bAllPiecesAvailable = false;
 
@@ -98,6 +100,7 @@ public class JigsawPuzzle : InteractableObject
         if(puzzleState == PuzzleState.Identified)
         {
             GiveInitialPieces();
+            puzzleState = PuzzleState.Unusable;
         }
 
         bAllPiecesAvailable = CheckIfUsable();
@@ -106,7 +109,9 @@ public class JigsawPuzzle : InteractableObject
         if (puzzleUI != null)
         {
             puzzleUI.SetActive(true);
-            puzzleUI.GetComponent<PuzzleUIController>().puzzleRef = this;
+            uiController = puzzleUI.GetComponentInChildren<PuzzleUIController>();
+            uiController.puzzleRef = this;
+            uiController.OnPuzzleInit?.Invoke();
         }
 
         if(bAllPiecesAvailable)

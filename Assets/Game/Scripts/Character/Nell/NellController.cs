@@ -2,14 +2,11 @@
  *  This script handles movement and other stuff related to Nell (Player Controller particularly)
  **/
 using Cinemachine;
-using Game.Scripts.Interactable;
-using GameCreator.Runtime.Common.Audio;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 using UnityEngine.VFX;
 using static EventBus;
 
@@ -79,8 +76,22 @@ public class NellController : CharacterBase
 
     float soundRange = 0f;
 
+    [Header("The volume of the sound and Audio Clips")]
+
+    [Tooltip("Check this if you want to use Audio Source and not FMOD")]
+    bool bUseAudioSourceMethod = false;
+
     public AudioClip[] FootstepAudioClips;
-    [Range(0, 1)] public float FootstepAudioVolume = 1f;
+    float FootstepAudioVolume = 1f;
+
+    [SerializeField][Tooltip("Volume when walking")] [Range(0, 1)] 
+    float normalVolume = .8f;
+    
+    [SerializeField][Tooltip("Volume when running")] [Range(0, 1)] 
+    float runningVolume = 1f;
+    
+    [SerializeField][Tooltip("Volume when croutch walking")] [Range(0, 1)] 
+    float crouchVolume = .5f;
 
     #endregion
 
@@ -281,35 +292,42 @@ public class NellController : CharacterBase
             orientationObject.transform.rotation = mainCamTransform.rotation;
     }
 
-private void OnFootstep(AnimationEvent animationEvent)
-{
-
-    if (animationEvent.animatorClipInfo.weight > 0.5f)
+    private void OnFootstep(AnimationEvent animationEvent)
     {
+        //The FMOD way of playing things
+        if (animationEvent.animatorClipInfo.weight > 0.5f && !bUseAudioSourceMethod)
+        {
 
-        // Play the FMOD 'walk' event
-        FMOD.Studio.EventInstance walkEvent = FMODUnity.RuntimeManager.CreateInstance("event:/sfx/walk");
-        
-        // Set the 'surface' parameter to 2 for wood footsteps (TODO: figure out the actual surface we're on.)
-        // surface parameters:
-        // 0: leaves
-        // 1: snow
-        // 2: wood (small room)
-        // 3: wood (large room)
-        // 4: carpeted wood
-        walkEvent.setParameterByName("surface", 2f);
-        
-        walkEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
-        
-        // Start the footstep event
-        walkEvent.start();
+            // Play the FMOD 'walk' event
+            FMOD.Studio.EventInstance walkEvent = FMODUnity.RuntimeManager.CreateInstance("event:/sfx/walk");
 
-        walkEvent.release();
+            // Set the 'surface' parameter to 2 for wood footsteps (TODO: figure out the actual surface we're on.)
+            // surface parameters:
+            // 0: leaves
+            // 1: snow
+            // 2: wood (small room)
+            // 3: wood (large room)
+            // 4: carpeted wood
+            walkEvent.setParameterByName("surface", 2f);
+
+            walkEvent.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position));
+
+            // Start the footstep event
+            walkEvent.start();
+
+            walkEvent.release();
+
+        }
+
+        if (bUseAudioSourceMethod)
+        {
+            AudioSource.PlayClipAtPoint(FootstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
+        }
 
         var sound = new Sound(transform.position, soundRange);
         Sounds.MakeSound(sound);
+    
     }
-}
 
     private void OnAnimatorMove()
     {
@@ -377,9 +395,11 @@ private void OnFootstep(AnimationEvent animationEvent)
         {
             inputMag *= 2;
             soundRange = runSound;
+            FootstepAudioVolume = runningVolume;
         }
         else
         {
+            FootstepAudioVolume = normalVolume;
             soundRange = walkSound;
         }
 
@@ -592,6 +612,7 @@ private void OnFootstep(AnimationEvent animationEvent)
             characterController.center = new Vector3(0f, crouchCenter, 0f);
             characterController.height = crouchHeight;
             soundRange = crouchSound;
+            FootstepAudioVolume = crouchVolume;
             camTarget.transform.position -= new Vector3(0, .5f, 0);
         }
         else
@@ -610,6 +631,7 @@ private void OnFootstep(AnimationEvent animationEvent)
             characterController.center = new Vector3(0f, defaultCenter, 0f);
             characterController.height = defaultHeight;
             soundRange = walkSound;
+            FootstepAudioVolume = normalVolume;
             camTarget.transform.position += new Vector3(0, .5f, 0);
             bCrouching = false;
         }
