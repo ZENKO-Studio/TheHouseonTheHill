@@ -11,10 +11,7 @@ public class PuzzleUIController : MonoBehaviour
 
     internal UnityEvent OnPuzzleInit = new UnityEvent();
 
-    private void OnEnable()
-    {
-        OnPuzzleInit?.Invoke();
-    }
+    internal bool bValid = false;
 
     public void ResetPuzzle()
     {
@@ -27,6 +24,12 @@ public class PuzzleUIController : MonoBehaviour
 
     internal void Validate()
     {
-        throw new NotImplementedException();
+        foreach(PuzzleUISlot slot in GetComponentsInChildren(typeof(PuzzleUISlot)))
+        {
+            if (!slot.bValid)
+                return;
+        }
+
+        bValid = true;
     }
 }

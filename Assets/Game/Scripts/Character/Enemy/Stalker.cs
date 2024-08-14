@@ -63,7 +63,7 @@ public class Stalker : EnemyBase, IHear
 
     private void Update()
     {
-        stalkerAnimator.SetFloat("MoveSpeed", stalkerAgent.velocity.magnitude);
+        stalkerAnimator.SetFloat("Speed", stalkerAgent.velocity.magnitude);
     }
 
     #region Attacking Player
