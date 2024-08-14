@@ -138,13 +138,14 @@ public class JigsawPuzzle : InteractableObject
     //Give all the initial pieces to the player
     private void GiveInitialPieces()
     {
-        for (int i = 0; i < initialPuzzlePieces.Count; i++)
+        foreach (var piece in initialPuzzlePieces)
         {
-            InventoryItem iItem = Instantiate(initialPuzzlePieces[0]).GetComponent<InventoryItem>();
+            InventoryItem iItem = Instantiate(piece).GetComponent<InventoryItem>();
             InventoryHandler.Instance.AddItem(iItem);
             iItem.bInteractable = false;
             iItem.gameObject.SetActive(false);
-            initialPuzzlePieces.RemoveAt(0);
         }
+
+        initialPuzzlePieces.Clear();
     }
 }
