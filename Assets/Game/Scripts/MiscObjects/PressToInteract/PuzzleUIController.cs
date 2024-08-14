@@ -2,10 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleUIController : MonoBehaviour
 {
     internal static PuzzleUIItem itemBeingDragged;
+    internal JigsawPuzzle puzzleRef;
+
+    internal UnityEvent OnPuzzleInit = new UnityEvent();
+
+    internal bool bValid = false;
 
     public void ResetPuzzle()
     {
@@ -18,6 +24,12 @@ public class PuzzleUIController : MonoBehaviour
 
     internal void Validate()
     {
-        throw new NotImplementedException();
+        foreach(PuzzleUISlot slot in GetComponentsInChildren(typeof(PuzzleUISlot)))
+        {
+            if (!slot.bValid)
+                return;
+        }
+
+        bValid = true;
     }
 }

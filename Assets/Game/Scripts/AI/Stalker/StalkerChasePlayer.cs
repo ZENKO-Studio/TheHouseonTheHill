@@ -13,6 +13,13 @@ public class StalkerChasePlayer : StalkerBaseState
         lastPlayerPos = stalkerRef.playerTransform.position;   
 
         agent.speed = stalkerRef.chaseSpeed;
+
+        if(stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.clip = stalkerRef.investigatingSound;
+            stalkerRef.stalkerAudio.loop = true;
+            stalkerRef.stalkerAudio.Play();
+        }
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -72,6 +79,11 @@ public class StalkerChasePlayer : StalkerBaseState
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (stalkerRef.stalkerAudio)
+        {
+            stalkerRef.stalkerAudio.Stop();
+        }
+
         agent.speed = stalkerRef.moveSpeed;
     }
 

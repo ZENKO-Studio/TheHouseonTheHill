@@ -11,7 +11,7 @@ public class InventoryHandler : Singleton<InventoryHandler>
 {
     [SerializeField] InventoryUiController inventoryUI;
 
-    //Just for Debugging Purpose, Will be removed later
+    ////Just for Debugging Purpose, Will be removed later
     public List<InventoryItem> items = new List<InventoryItem>();
 
     //4 Dictionaries with Item and Button (Since we have to add and remove both)
@@ -23,10 +23,10 @@ public class InventoryHandler : Singleton<InventoryHandler>
     private void OnEnable()
     {
         // Initialize the inventory with existing items
-        foreach (var item in items)
-        {
-            //CreateItemButton(item);
-        }
+        //foreach (var item in items)
+        //{
+        //    //CreateItemButton(item);
+        //}
 
         //EventBus.Subscribe<ItemInspectedEvent>(OnItemInspected);
         //EventBus.Subscribe<ItemAddedEvent>(OnItemAdded);
@@ -71,8 +71,10 @@ public class InventoryHandler : Singleton<InventoryHandler>
 
     public void RemoveItem(InventoryItem item)
     {
+        if(!HasItem(item)) return;
+
         GameObject g = null;
-        //Depending on Item Type Add to respective dictionary
+        //Depending on Item Type Remove from respective dictionary
         switch (item.itemType)
         {
             case ItemType.UsableObj:
@@ -111,6 +113,34 @@ public class InventoryHandler : Singleton<InventoryHandler>
         EventBus.Publish(new ItemRemovedEvent(item));
     }
 
+    private bool HasItem(InventoryItem item) 
+    {
+        switch (item.itemType)
+        {
+            case ItemType.UsableObj:
+                if (usables.ContainsKey(item))
+                    return true;
+                break;
+            case ItemType.Key:
+                if (keys.ContainsKey(item))
+                    return true;
+                break;
+            case ItemType.Document:
+                if (documents.ContainsKey(item))
+                    return true;
+                break;
+            case ItemType.Photo:
+                if (photos.ContainsKey(item))
+                    return true;
+                break;
+            default:
+                Debug.Log("Something went wrong...");
+                break;
+        }
+
+        return false;
+    } 
+
     private void OnItemInspected(ItemInspectedEvent inspectedEvent)
     {
         Debug.Log("Item inspected: " + inspectedEvent.Item.itemName);
@@ -134,5 +164,15 @@ public class InventoryHandler : Singleton<InventoryHandler>
                 return true;
         }
         return false;
+    }
+
+    internal InventoryItem GetUsable(int itemId)
+    {
+        foreach (var usable in usables)
+        {
+            if (usable.Key.itemId == itemId)
+                return usable.Key;
+        }
+        return null;
     }
 }

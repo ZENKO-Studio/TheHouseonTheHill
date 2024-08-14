@@ -14,6 +14,10 @@ public class HudDialogueTrigger : MonoBehaviour
     [Tooltip("What text should be shown")]
     [SerializeField] string displayText;
 
+    [Tooltip("The audio clip corresponding to the dialogue")]
+    [SerializeField] AudioClip clipToPlay;
+
+    
     private void Start()
     {
         GetComponent<BoxCollider>().isTrigger = true;
@@ -21,7 +25,16 @@ public class HudDialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!other.CompareTag("Player"))
+            return;
+
         GameManager.Instance.playerHud.UpdateDialogueText(displayText, duration);
+        
+        if(clipToPlay != null )
+        {
+            AudioSource.PlayClipAtPoint(clipToPlay, transform.position);
+        }
+
         if(bOneUse)
             GetComponent<BoxCollider>().enabled = false;
     }

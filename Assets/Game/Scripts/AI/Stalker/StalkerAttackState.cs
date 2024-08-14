@@ -12,30 +12,33 @@ public class StalkerAttackState : StalkerBaseState
         currentTime = 0f;
 
         stalkerRef.stalkerAnimator.SetBool("Attack", true);
+
+        if(stalkerRef.stalkerAudio)
+            stalkerRef.stalkerAudio.loop = false;
+
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(stalkerRef.bPlayerSensed)
+        if(stalkerRef.activelyAttacking)
         {
-            //This part is replaced by making Attack an animation event
-            //currentTime += Time.deltaTime;
-            //if (currentTime >= stalkerRef.attackFrequency)
-            //{
-            //    stalkerRef.Attack();
-            //    currentTime = 0f;
-            //}
             stalkerRef.transform.LookAt(stalkerRef.playerTransform.position, Vector3.up);
-
-            if(!stalkerRef.CanAttackPlayer())
-            {
-                fsm.ChangeState(StalkerFSM.ChasePlayerState);
-            }
         }
         else
         {
-            fsm.ChangeState(StalkerFSM.InvestigateState);
+            if (stalkerRef.bPlayerSensed)
+            {
+                if (!stalkerRef.CanAttackPlayer())
+                {
+                    fsm.ChangeState(StalkerFSM.ChasePlayerState);
+                }
+            }
+            else
+            {
+                fsm.ChangeState(StalkerFSM.InvestigateState);
+            }
         }
+        
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
