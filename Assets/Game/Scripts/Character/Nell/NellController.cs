@@ -63,6 +63,7 @@ public class NellController : CharacterBase
 
     //For Under water region
     internal bool bSwimming;
+    internal bool bInWater;
 
 
     #endregion
@@ -82,6 +83,9 @@ public class NellController : CharacterBase
     [SerializeField] bool bUseAudioSourceMethod = false;
 
     public AudioClip[] FootstepAudioClips;
+    
+    public AudioClip[] WaterstepAudioClips;
+    
     float FootstepAudioVolume = 1f;
 
     [SerializeField][Tooltip("Volume when walking")] [Range(0, 1)] 
@@ -321,7 +325,10 @@ public class NellController : CharacterBase
 
         if (bUseAudioSourceMethod)
         {
-            AudioSource.PlayClipAtPoint(FootstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
+            if(bInWater)
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
+            else
+                AudioSource.PlayClipAtPoint(WaterstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
         }
 
         var sound = new Sound(transform.position, soundRange);
