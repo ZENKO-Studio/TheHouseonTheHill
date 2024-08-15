@@ -8,53 +8,53 @@ using UnityEngine.UI;
 
 public class SetMenu : MonoBehaviour
 {
-    public TMP_Dropdown resolutionDropdown;
+    //public TMP_Dropdown resolutionDropdown;
     public Slider contrastSlider;
     public Slider exposureSlider;
     public Slider brightnessSlider;
     public Slider volumeSlider;
     public Volume volume;
 
-    private Resolution[] resolutions;
+    //private Resolution[] resolutions;
 
     void Start()
     {
         MenuManager.Instance.AddMenuObject(gameObject, MenuType.OptionsMenu);
 
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
+        //resolutions = Screen.resolutions;
+        //resolutionDropdown.ClearOptions();
 
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
+        //List<string> options = new List<string>();
+        //int currentResolutionIndex = 0;
 
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
+        //for (int i = 0; i < resolutions.Length; i++)
+        //{
+        //    string option = resolutions[i].width + " x " + resolutions[i].height;
+        //    options.Add(option);
 
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
+        //    if (resolutions[i].width == Screen.currentResolution.width &&
+        //        resolutions[i].height == Screen.currentResolution.height)
+        //    {
+        //        currentResolutionIndex = i;
+        //    }
+        //}
 
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        //resolutionDropdown.AddOptions(options);
+        //resolutionDropdown.value = currentResolutionIndex;
+        //resolutionDropdown.RefreshShownValue();
 
-        resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        //resolutionDropdown.onValueChanged.AddListener(SetResolution);
         contrastSlider.onValueChanged.AddListener(SetContrast);
         exposureSlider.onValueChanged.AddListener(SetExposure);
         brightnessSlider.onValueChanged.AddListener(SetBrightness);
         volumeSlider.onValueChanged.AddListener(SetVolume);
     }
 
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
+    //public void SetResolution(int resolutionIndex)
+    //{
+    //    Resolution resolution = resolutions[resolutionIndex];
+    //    Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    //}
 
     public void SetContrast(float contrast)
     {
