@@ -63,7 +63,7 @@ public class SceneLoader : Singleton<SceneLoader>
         {
             for (int i = c; i > 0; i--)
             {
-                Scene scene = SceneManager.GetSceneAt(i);
+                Scene scene = SceneManager.GetSceneAt(i - 1);
                 sceneLoadOperations.Add(SceneManager.UnloadSceneAsync(scene));
             }
         }

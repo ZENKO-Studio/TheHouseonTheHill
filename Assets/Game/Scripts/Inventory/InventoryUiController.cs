@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -36,17 +37,29 @@ public class InventoryUiController : MonoBehaviour
     private void OnEnable()
     {
         EventBus.Subscribe<ToggleInventoryEvent>(OnToggleInventory);
+        GameManager.Instance.OnGameResumed.AddListener(HandleGameResumed);
+        inventoryCanvas.SetActive(false); // Ensure the inventory is initially hidden
+    }
+
+    private void HandleGameResumed()
+    {
         inventoryCanvas.SetActive(false); // Ensure the inventory is initially hidden
     }
 
     private void OnDisable()
     {
         EventBus.Unsubscribe<ToggleInventoryEvent>(OnToggleInventory);
+        GameManager.Instance.OnGameResumed.RemoveListener(HandleGameResumed);
     }
     #endregion
 
     private void OnToggleInventory(ToggleInventoryEvent toggleEvent)
     {
+        if (toggleEvent.IsOpen)
+            GameManager.Instance.PauseGame(false);
+        else 
+            GameManager.Instance.ResumeGame();
+
         inventoryCanvas.SetActive( toggleEvent.IsOpen );
     }
 

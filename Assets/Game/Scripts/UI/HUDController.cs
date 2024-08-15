@@ -46,6 +46,16 @@ public class HUDController : MonoBehaviour
         nellController = GameManager.Instance.playerRef;
         GameManager.Instance.playerHud = this;
 
+        InitHUD();
+    }
+
+    private void OnEnable()
+    {
+        InitHUD();
+    }
+
+    private void InitHUD()
+    {
         if (nellController != null)
         {
             nellController.OnHealthChanged.AddListener(UpdateHealthbar);

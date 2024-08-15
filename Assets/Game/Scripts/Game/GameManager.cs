@@ -2,6 +2,15 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
+public enum GameState
+{
+    MainMenu,
+    CutscenePlaying,    //Optional
+    GameRunning,
+    GamePaused,
+    GameEnded
+}
+
 public class GameManager : Singleton<GameManager>
 {
     #region Core Gameplay Prefabs References
@@ -30,6 +39,11 @@ public class GameManager : Singleton<GameManager>
 
     public UnityEvent OnPlayerSpawned = new UnityEvent();
 
+    public UnityEvent OnGameResumed = new UnityEvent();
+
+    //When Game Starts
+    internal GameState currentGameState = GameState.MainMenu;
+
     #region Cam View and Player Movement Orientation
     //Can be used for movable objects since it requires some transform to base direction off
     [Tooltip("Should be set when orientation needs to be overridden (Set it to null when using Third Person Camera)")]
@@ -41,12 +55,6 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         SceneLoader.Instance.ReloadMainMenu();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     #region Core Game Functions
@@ -89,25 +97,33 @@ public class GameManager : Singleton<GameManager>
             }
         }
 
-        
+        GameManager.Instance.currentGameState = GameState.GameRunning;
     }
 
     public void PauseGame(bool bShowPauseScreen)
     {
         Time.timeScale = 0f;
+
         if (bShowPauseScreen)
         {
             MenuManager.Instance.ShowMenu(MenuType.PauseMenu);
         }
 
+        MenuManager.Instance.HideMenu(MenuType.HUDMenu);
+
+        currentGameState = GameState.GamePaused;
     }
 
     public void ResumeGame()
     {
+        OnGameResumed?.Invoke();
+
         Time.timeScale = 1f;
       
         MenuManager.Instance.HideMenu(MenuType.PauseMenu);
-        
+        MenuManager.Instance.ShowMenu(MenuType.HUDMenu);
+
+        currentGameState = GameState.GameRunning;
     }
 
     //Got to the Main Menu Screen 

@@ -26,7 +26,6 @@ public class NellController : CharacterBase
     
     #endregion
     
-    
     #region Character Control Values
     [Header("Character Controls")]
     
@@ -250,6 +249,7 @@ public class NellController : CharacterBase
 
     private void Update()
     {
+        
         if (bPendingOrientationUpdate)
         {
             UpdateOrientation(false);
@@ -822,6 +822,19 @@ public class NellController : CharacterBase
     {
         if(bPlayerHasControl)
             saltChargeHandler.ThrowSalt();
+    }
+
+    //When Escape Key is Pressed
+    public void OnPauseGame()
+    {
+        if(GameManager.Instance.currentGameState != GameState.GamePaused)
+        {
+            GameManager.Instance.PauseGame(true);
+        }
+        else if(GameManager.Instance.currentGameState == GameState.GamePaused)
+        {
+            GameManager.Instance.ResumeGame();
+        }
     }
 
     #endregion
