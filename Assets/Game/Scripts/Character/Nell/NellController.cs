@@ -79,7 +79,7 @@ public class NellController : CharacterBase
     [Header("The volume of the sound and Audio Clips")]
 
     [Tooltip("Check this if you want to use Audio Source and not FMOD")]
-    bool bUseAudioSourceMethod = false;
+    [SerializeField] bool bUseAudioSourceMethod = false;
 
     public AudioClip[] FootstepAudioClips;
     float FootstepAudioVolume = 1f;
