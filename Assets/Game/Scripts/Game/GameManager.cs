@@ -20,6 +20,9 @@ public class GameManager : Singleton<GameManager>
     [Tooltip("Set your first game level here, one to be loaded on start game")]
     public SceneReference FirstGameLevel;
 
+    [Tooltip("Set your second game level here, one to be loaded on level 2 btn")]
+    public SceneReference SecondGameLevel;
+
     //Should be set on game start or manually in the scene
     public NellController playerRef;
 
@@ -58,8 +61,35 @@ public class GameManager : Singleton<GameManager>
         {
             Debug.LogError($"Game Manager Script on {name} needs valid scene reference to load");
         }
+    }
 
+    public void StartLevel(int l)
+    {
+        if (l == 1)
+        {
+            if (FirstGameLevel != null)
+            {
+                SceneLoader.Instance.LoadScene(FirstGameLevel);
+            }
+            else
+            {
+                Debug.LogError($"Game Manager Script on {name} needs valid scene reference to load");
+            }
+        }
 
+        else if (l == 2)
+        {
+            if (SecondGameLevel != null)
+            {
+                SceneLoader.Instance.LoadScene(SecondGameLevel);
+            }
+            else
+            {
+                Debug.LogError($"Game Manager Script on {name} needs valid scene reference to load");
+            }
+        }
+
+        
     }
 
     public void PauseGame(bool bShowPauseScreen)

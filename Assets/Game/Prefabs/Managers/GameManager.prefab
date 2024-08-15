@@ -99,6 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2003811715572194096}
   - component: {fileID: 5950063916573972815}
+  - component: {fileID: 7527640517334310091}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -140,5 +141,33 @@ MonoBehaviour:
     type: 3}
   HUDPrefab: {fileID: 3953619279141900455, guid: 612d4cf55a5b242479e82e1a5fc94820,
     type: 3}
+  FirstGameLevel:
+    sceneAsset: {fileID: 102900000, guid: cd4491be06044414f83e3d8e33a97c9c, type: 3}
+    scenePath: Assets/Game/Scenes/Levels/Level 01/MasterHouseLevel01.1.unity
+    sceneName: MasterHouseLevel01.1
+  SecondGameLevel:
+    sceneAsset: {fileID: 102900000, guid: 98fea056a8c5986419088b48cc8b1df7, type: 3}
+    scenePath: Assets/Game/Scenes/Levels/Level 02/Level 02 G.unity
+    sceneName: Level 02 G
   playerRef: {fileID: 0}
-  bUsingStaticCam: 0
+  playerHud: {fileID: 0}
+  OnPlayerSpawned:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7527640517334310091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5133362521341387890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ef27265d0e61f94d8ab9d6cd492d7d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainMenu: {fileID: 0}
+  pauseMenu: {fileID: 0}
+  optionsMenu: {fileID: 0}
+  hudMenu: {fileID: 0}
+  sceneLoadMenu: {fileID: 0}

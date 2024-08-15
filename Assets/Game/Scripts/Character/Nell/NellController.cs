@@ -220,7 +220,7 @@ public class NellController : CharacterBase
         bloodFx.Stop();
 
         //Ensuring its set
-        mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
+        mainCamTransform = Camera.main.transform;
 
         orientationObject = new GameObject();
         orientationObject.transform.rotation = mainCamTransform.rotation;

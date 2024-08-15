@@ -10,11 +10,13 @@ public class MainMenu : MonoBehaviour
         MenuManager.Instance.AddMenuObject(gameObject, MenuType.MainMenu);
     }
 
-    public void OnStartButton()
+    public void OnStartButton(int i = 1)
     {
-        GameManager.Instance.StartGame();
+        GameManager.Instance.StartLevel(i);
         gameObject.SetActive(false);
     }
+
+
 
     public void OnApplicationQuit()
     {
