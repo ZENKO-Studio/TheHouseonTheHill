@@ -34,14 +34,14 @@ public class HUDController : MonoBehaviour
 
     void Start()
     {
-        MenuManager.Instance.AddMenuObject(transform.root.gameObject, MenuType.HUDMenu);
-        transform.root.gameObject.SetActive(false);
+        MenuManager.Instance.AddMenuObject(transform.parent.gameObject, MenuType.HUDMenu);
+        transform.parent.gameObject.SetActive(false);
         GameManager.Instance.OnPlayerSpawned.AddListener(HandlePlayerSpawn);
     }
 
     private void HandlePlayerSpawn()
     {
-        transform.root.gameObject.SetActive(true);
+        transform.parent.gameObject.SetActive(true);
 
         nellController = GameManager.Instance.playerRef;
         GameManager.Instance.playerHud = this;
