@@ -6,6 +6,14 @@ public class KeyPadTrigger : MonoBehaviour
 {
     [SerializeField] private GameObject keypadCanvas; // Reference to the Canvas GameObject
 
+    //public override void Interact()
+    //{
+    //    keypadCanvas.SetActive(true);
+    //}
+    //public void CloseUI()
+    //{
+    //    keypadCanvas.SetActive(false);
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player")) // Ensure the player has the tag "Player"
