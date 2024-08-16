@@ -168,6 +168,7 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 0
   scriptOverride: 0
+  _dot: 0
 --- !u!1 &1038895765622391083
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +305,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  AfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   interactAction:
     m_Name: Interact
     m_Type: 0
@@ -379,8 +383,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2448440255910543421, guid: 73a05cc59c60e64498c6e1d266647c66, type: 3}
-  - {fileID: -715332561504821385, guid: 73a05cc59c60e64498c6e1d266647c66, type: 3}
+  - {fileID: 2100000, guid: 182a939d8df9bc144b0237464b3989cb, type: 2}
+  - {fileID: 2100000, guid: 182a939d8df9bc144b0237464b3989cb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -511,6 +515,7 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 0
   scriptOverride: 0
+  _dot: 0
 --- !u!1 &3447156694243908115
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +652,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  AfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   interactAction:
     m_Name: Interact
     m_Type: 0
@@ -716,6 +724,7 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 2
   scriptOverride: 0
+  _dot: 0
 --- !u!1 &5569985865917336994
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,6 +784,7 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 0
   scriptOverride: 0
+  _dot: 0
 --- !u!1 &5667219446408073226
 GameObject:
   m_ObjectHideFlags: 0
@@ -785,7 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5145237972430113845}
   m_Layer: 0
-  m_Name: DecoysandLevers
+  m_Name: DecoysandLevers (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -948,6 +958,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  AfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   interactAction:
     m_Name: Interact
     m_Type: 0
@@ -1094,6 +1107,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  AfterInteract:
+    m_PersistentCalls:
+      m_Calls: []
   interactAction:
     m_Name: Interact
     m_Type: 0
@@ -1164,6 +1180,7 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 0
   scriptOverride: 0
+  _dot: 0
 --- !u!1 &9112540576382280241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,3 +1240,4 @@ MonoBehaviour:
   openThreshold: 0.5
   startState: 0
   scriptOverride: 0
+  _dot: 0
