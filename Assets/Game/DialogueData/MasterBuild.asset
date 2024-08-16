@@ -85,7 +85,7 @@ MonoBehaviour:
     - title: Name
       value: To Walk Alone
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Pictures
       value: '[]'
       type: 3
@@ -93,19 +93,19 @@ MonoBehaviour:
     - title: Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Success Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Failure Description
       value: 
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Is Item
       value: False
       type: 2
@@ -133,11 +133,11 @@ MonoBehaviour:
     - title: Entry 1 State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Entry 1
       value: Explore Hill House
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Entry 1 Formal Dining
       value: 0
       type: 1
@@ -157,11 +157,11 @@ MonoBehaviour:
     - title: Entry 2 State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Entry 2
       value: '[var=ExploringHillHouse]/5 Explored'
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Entry 2 Formal Dining
       value: 1
       type: 1
@@ -181,11 +181,11 @@ MonoBehaviour:
     - title: Entry 3
       value: '[var=Formal Dining]/1 Formal Dining'
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Entry 3 State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Entry 3 Formal Dining
       value: 0
       type: 1
@@ -202,38 +202,14 @@ MonoBehaviour:
       value: 0
       type: 1
       typeString: CustomFieldType_Number
-    - title: Entry 4
-      value: '[var=Library]/1 Library'
-      type: 0
-      typeString: 
-    - title: Entry 4 State
-      value: unassigned
-      type: 0
-      typeString: 
-    - title: Entry 4 Formal Dining
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 4 Library
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 4 Kitchen
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 4 Guest bedrooms
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
     - title: Entry 5
-      value: '[var=Kitchen]/1 Kitchen'
+      value: '[var=Guest Bedroom]/2 Guest Bed Rooms'
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
     - title: Entry 5 State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Entry 5 Formal Dining
       value: 0
       type: 1
@@ -250,14 +226,106 @@ MonoBehaviour:
       value: 0
       type: 1
       typeString: CustomFieldType_Number
-    - title: Entry 6
-      value: '[var=Guest Bedroom]/2 Guest Bed Rooms'
+    - title: Entry 7
+      value: Find Someplace to Stay
       type: 0
-      typeString: 
+      typeString: CustomFieldType_Text
+    - title: Entry 7 State
+      value: unassigned
+      type: 0
+      typeString: CustomFieldType_QuestState
+    - title: Entry 7 Formal Dining
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 7 Library
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 7 Kitchen
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 7 Guest bedrooms
+      value: 1
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 9 State
+      value: unassigned
+      type: 0
+      typeString: CustomFieldType_QuestState
+    - title: Entry 9
+      value: Light a fire
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Entry 9 Formal Dining
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 9 Library
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 9 Kitchen
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 9 Guest bedrooms
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: 
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: 
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: 
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Entry 4
+      value: '[var=CoolLibraries]/1 Libraries visited'
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Entry 4 State
+      value: unassigned
+      type: 0
+      typeString: CustomFieldType_QuestState
+    - title: Entry 4 Formal Dining
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 4 Library
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 4 Kitchen
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Entry 4 Guest bedrooms
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: 
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: 
+      value: 
+      type: 0
+      typeString: CustomFieldType_Text
+    - title: Entry 6
+      value: '[var=SpookyKitchen]/ 1 Kitchens Found'
+      type: 0
+      typeString: CustomFieldType_Text
     - title: Entry 6 State
       value: unassigned
       type: 0
-      typeString: 
+      typeString: CustomFieldType_QuestState
     - title: Entry 6 Formal Dining
       value: 0
       type: 1
@@ -275,7 +343,7 @@ MonoBehaviour:
       type: 1
       typeString: CustomFieldType_Number
     - title: Entry 8
-      value: '[var=Guest Bed 2]/1'
+      value: '[var=SleepBed2]/1 Guest Bed'
       type: 0
       typeString: 
     - title: Entry 8 State
@@ -298,95 +366,7 @@ MonoBehaviour:
       value: 0
       type: 1
       typeString: CustomFieldType_Number
-    - title: Entry 7
-      value: Find Someplace to Stay
-      type: 0
-      typeString: 
-    - title: Entry 7 State
-      value: unassigned
-      type: 0
-      typeString: 
-    - title: Entry 7 Formal Dining
-      value: 1
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 7 Library
-      value: 1
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 7 Kitchen
-      value: 1
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 7 Guest bedrooms
-      value: 1
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 9 State
-      value: unassigned
-      type: 0
-      typeString: 
-    - title: Entry 9
-      value: Light a fire
-      type: 0
-      typeString: 
-    - title: Entry 9 Formal Dining
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 9 Library
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 9 Kitchen
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Entry 9 Guest bedrooms
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-  locations:
-  - id: 1
-    fields:
-    - title: Name
-      value: Past  Dining
-      type: 0
-      typeString: 
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-  - id: 2
-    fields:
-    - title: Name
-      value: Library
-      type: 0
-      typeString: 
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-  - id: 3
-    fields:
-    - title: Name
-      value: Kitchen
-      type: 0
-      typeString: 
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-  - id: 4
-    fields:
-    - title: Name
-      value: Guest Bedroom
-      type: 0
-      typeString: 
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
+  locations: []
   variables:
   - id: 1
     fields:
@@ -430,52 +410,10 @@ MonoBehaviour:
       value: 
       type: 0
       typeString: 
-  - id: 4
-    fields:
-    - title: Name
-      value: Kitchen
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-  - id: 5
-    fields:
-    - title: Name
-      value: Library
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
   - id: 6
     fields:
     - title: Name
       value: Guest Bedroom
-      type: 0
-      typeString: 
-    - title: Initial Value
-      value: 0
-      type: 1
-      typeString: CustomFieldType_Number
-    - title: Description
-      value: 
-      type: 0
-      typeString: 
-  - id: 7
-    fields:
-    - title: Name
-      value: Guest Bed 2
       type: 0
       typeString: 
     - title: Initial Value
@@ -493,9 +431,51 @@ MonoBehaviour:
       type: 0
       typeString: 
     - title: Initial Value
-      value: -1
-      type: 6
-      typeString: CustomFieldType_Item
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 9
+    fields:
+    - title: Name
+      value: SpookyKitchen
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 10
+    fields:
+    - title: Name
+      value: CoolLibraries
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+  - id: 11
+    fields:
+    - title: Name
+      value: SleepBed2
+      type: 0
+      typeString: 
+    - title: Initial Value
+      value: 0
+      type: 1
+      typeString: CustomFieldType_Number
     - title: Description
       value: 
       type: 0
@@ -1209,7 +1189,10 @@ MonoBehaviour:
       userScript: 'Variable["ExploringHillHouse"] = Variable["ExploringHillHouse"]
         + 1;
 
-        Variable["Formal_Dining"] = Variable["Formal_Dining"] + 1'
+        Variable["Formal_Dining"] = Variable["Formal_Dining"] + 1;
+
+        SetQuestEntryState("To
+        Walk Alone", 3, "success")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1365,7 +1348,8 @@ MonoBehaviour:
       userScript: 'Variable["ExploringHillHouse"] = Variable["ExploringHillHouse"]
         + 1;
 
-        Variable["Library"] = Variable["Library"] + 1'
+
+        Variable["CoolLibraries"] = Variable["CoolLibraries"] + 1'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1527,7 +1511,11 @@ MonoBehaviour:
       userScript: 'Variable["ExploringHillHouse"] = Variable["ExploringHillHouse"]
         + 1;
 
-        Variable["Library"] = Variable["Library"] + 1'
+
+        Variable["SpookyKitchen"] = Variable["SpookyKitchen"] + 1;
+
+        SetQuestEntryState("To
+        Walk Alone", 6, "success")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1856,7 +1844,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 160
-        y: 80
+        y: 78.96907
         width: 160
         height: 30
     - id: 2
@@ -2295,7 +2283,7 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 161.17647
+        x: 159.53712
         y: 198.82352
         width: 160
         height: 30
@@ -2353,8 +2341,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 292.94116
-        y: 261.7647
+        x: 333.92474
+        y: 263.40405
         width: 160
         height: 30
     - id: 7
@@ -2404,8 +2392,7 @@ MonoBehaviour:
       conditionsString: 
       userScript: 'SetQuestEntryState("To Walk Alone", 1, "success");
 
-        SetQuestEntryState("To
-        Walk Alone", 7, "active")'
+'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2568,15 +2555,9 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks:
-      - originConversationID: 8
-        originDialogueID: 10
-        destinationConversationID: 9
-        destinationDialogueID: 0
-        isConnector: 0
-        priority: 2
+      outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestEntryState("To Walk Alone", 3, "active")
+      userScript: SetQuestEntryState("To Walk Alone", 7, "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2737,7 +2718,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: Variable["Guest_Bed_2"] == 1
+      conditionsString: CurrentQuestEntryState("To Walk Alone", 7) == "active"
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2975,8 +2956,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 3.529419, y: 150.16982}
-    canvasZoom: 0.8500001
+    canvasScrollPosition: {x: 0, y: 112.26452}
+    canvasZoom: 0.6400003
   - id: 10
     fields:
     - title: Title
@@ -3115,9 +3096,169 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 10
+        originDialogueID: 1
+        destinationConversationID: 9
+        destinationDialogueID: 0
+        isConnector: 0
+        priority: 2
       conditionsString: CurrentQuestEntryState("To Walk Alone", 7) == "active"
+      userScript: Variable["SleepBed2"] = Variable["SleepBed2"] + 1
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 79
+        width: 160
+        height: 30
+    entryGroups: []
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 1
+  - id: 11
+    fields:
+    - title: Title
+      value: FireWood
+      type: 0
+      typeString: 
+    - title: Description
+      value: 
+      type: 0
+      typeString: 
+    - title: Actor
+      value: 2
+      type: 5
+      typeString: CustomFieldType_Actor
+    - title: Conversant
+      value: -1
+      type: 5
+      typeString: CustomFieldType_Actor
+    overrideSettings:
+      useOverrides: 0
+      overrideSubtitleSettings: 0
+      showNPCSubtitlesDuringLine: 1
+      showNPCSubtitlesWithResponses: 1
+      showPCSubtitlesDuringLine: 0
+      skipPCSubtitleAfterResponseMenu: 0
+      subtitleCharsPerSecond: 30
+      minSubtitleSeconds: 2
+      continueButton: 0
+      overrideSequenceSettings: 0
+      defaultSequence: 
+      defaultPlayerSequence: 
+      defaultResponseMenuSequence: 
+      overrideInputSettings: 0
+      alwaysForceResponseMenu: 1
+      includeInvalidEntries: 0
+      responseTimeout: 0
+      emTagForOldResponses: 0
+      emTagForInvalidResponses: 0
+      cancelSubtitle:
+        key: 27
+        buttonName: 
+      cancelConversation:
+        key: 27
+        buttonName: 
+    nodeColor: 
+    dialogueEntries:
+    - id: 0
+      fields:
+      - title: Title
+        value: START
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: -1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: None()
+        type: 0
+        typeString: 
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 11
+        originDialogueID: 0
+        destinationConversationID: 11
+        destinationDialogueID: 1
+        isConnector: 0
+        priority: 2
+      conditionsString: 
       userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 160
+        y: 30
+        width: 160
+        height: 30
+    - id: 1
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Firewood. Looks like it's in good shape, too. Always helpful in a
+          snowstorm, I'll pick it up for later.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 11
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks: []
+      conditionsString: 
+      userScript: Variable["Firewood_"] = Variable["Firewood_"] + 1
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -3129,7 +3270,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasZoom: 0.94000006
   syncInfo:
     syncActors: 0
     syncItems: 0
