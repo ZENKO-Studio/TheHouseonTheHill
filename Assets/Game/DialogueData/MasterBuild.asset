@@ -1529,7 +1529,8 @@ MonoBehaviour:
       userScript: 'Variable["ExploringHillHouse"] = Variable["ExploringHillHouse"]
         + 1;
 
-        Variable["Library"] = Variable["Library"] + 1'
+
+        Variable["Kitchen"] = Variable["Kitchen"] + 1'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -1914,7 +1915,7 @@ MonoBehaviour:
         height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 0.97
+    canvasZoom: 0.8500001
   - id: 8
     fields:
     - title: Title
@@ -2792,7 +2793,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 9
+        originDialogueID: 2
+        destinationConversationID: 9
+        destinationDialogueID: 3
+        isConnector: 0
+        priority: 2
       conditionsString: Variable["Firewood_"] < 1
       userScript: 
       onExecute:
@@ -2827,7 +2834,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: Good thing there was some wood in the pantry.... im glad I grabbed
+        value: Good thing there was some wood in the pantry.... I'm glad I grabbed
           it.
         type: 0
         typeString: 
@@ -2982,8 +2989,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 8.993369}
-    canvasZoom: 0.8500001
+    canvasScrollPosition: {x: 0, y: 242.38388}
+    canvasZoom: 0.6100003
   - id: 10
     fields:
     - title: Title
@@ -3130,13 +3137,13 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 160
+        x: 161
         y: 80
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 0}
-    canvasZoom: 1
+    canvasScrollPosition: {x: 14.772705, y: 56.818176}
+    canvasZoom: 0.8800001
   syncInfo:
     syncActors: 0
     syncItems: 0
