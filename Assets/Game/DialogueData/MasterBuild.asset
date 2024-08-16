@@ -1343,7 +1343,13 @@ MonoBehaviour:
       delaySimStatus: 0
       falseConditionAction: Block
       conditionPriority: 2
-      outgoingLinks: []
+      outgoingLinks:
+      - originConversationID: 4
+        originDialogueID: 1
+        destinationConversationID: 8
+        destinationDialogueID: 0
+        isConnector: 0
+        priority: 2
       conditionsString: 
       userScript: 'Variable["ExploringHillHouse"] = Variable["ExploringHillHouse"]
         + 1;
@@ -2557,7 +2563,10 @@ MonoBehaviour:
       conditionPriority: 2
       outgoingLinks: []
       conditionsString: 
-      userScript: SetQuestEntryState("To Walk Alone", 7, "active")
+      userScript: 'SetQuestEntryState("To Walk Alone", 7, "active");
+
+        SetQuestEntryState("To
+        Walk Alone", 8, "active")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2956,8 +2965,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 0, y: 112.26452}
-    canvasZoom: 0.6400003
+    canvasScrollPosition: {x: 14.552229, y: 19.029835}
+    canvasZoom: 0.67000026
   - id: 10
     fields:
     - title: Title
@@ -3104,7 +3113,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: CurrentQuestEntryState("To Walk Alone", 7) == "active"
-      userScript: Variable["SleepBed2"] = Variable["SleepBed2"] + 1
+      userScript: 'Variable["SleepBed2"] = Variable["SleepBed2"] + 1;
+
+        SetQuestEntryState("To
+        Walk Alone", 7, "success");
+
+        SetQuestEntryState("To Walk Alone",
+        8, "success")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
