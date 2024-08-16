@@ -97,7 +97,17 @@ public class SetMenu : MonoBehaviour
         AudioListener.volume = volume;
     }
     
-    
+    public void OnBack()
+    {
+        if(GameManager.Instance.currentGameState == GameState.MainMenu)
+        {
+            MenuManager.Instance.ShowMenu(MenuType.MainMenu);
+        }
+        else
+        {
+            MenuManager.Instance.ShowMenu(MenuType.PauseMenu);
+        }
+    }
 
     public void QuitGame()
     {

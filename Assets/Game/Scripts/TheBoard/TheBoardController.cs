@@ -33,19 +33,27 @@ public class TheBoardController : Singleton<TheBoardController>
         if(toggleEvent.IsOpen)
         {
             PopulateBoardItemBtns();
+            GameManager.Instance.PauseGame(false);
+            
         }
         else
         {
             RemoveAllBtns();
+            GameManager.Instance.ResumeGame();
         }
 
         boardUI.SetActive(toggleEvent.IsOpen);
     }
 
+    private void HandleGameResume()
+    {
+        boardUI.SetActive(false); 
+    }
 
     private void OnEnable()
     {
         EventBus.Subscribe<ToggleBoardEvent>(OnToggleBoard);
+        GameManager.Instance.OnGameResumed.AddListener(HandleGameResume);
         boardUI.SetActive(false); // Ensure the inventory is initially hidden
 
         _inventory = InventoryHandler.Instance;
@@ -61,6 +69,7 @@ public class TheBoardController : Singleton<TheBoardController>
     {
         RemoveAllBtns();
         EventBus.Unsubscribe<ToggleBoardEvent>(OnToggleBoard);
+        GameManager.Instance.OnGameResumed.RemoveListener(HandleGameResume);
 
         //EventBus.Unsubscribe<ItemAddedEvent>(OnItemAdded);
         //EventBus.Unsubscribe<ItemRemovedEvent>(OnItemRemoved);

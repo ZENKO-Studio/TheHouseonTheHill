@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -39,8 +40,12 @@ public class GameManager : Singleton<GameManager>
 
     public UnityEvent OnPlayerSpawned = new UnityEvent();
 
+    public UnityEvent OnGamePaused = new UnityEvent();
+
     public UnityEvent OnGameResumed = new UnityEvent();
 
+    public UnityEvent OnRespawnPlayer = new UnityEvent();
+    
     //When Game Starts
     internal GameState currentGameState = GameState.MainMenu;
 
@@ -58,19 +63,8 @@ public class GameManager : Singleton<GameManager>
     }
 
     #region Core Game Functions
-    public void StartGame()
-    {
-        if (FirstGameLevel != null)
-        {
-            SceneLoader.Instance.LoadScene(FirstGameLevel);
-            StartCoroutine(nameof(SceneLoader.Instance.StartLoading));
-        }
-        else
-        {
-            Debug.LogError($"Game Manager Script on {name} needs valid scene reference to load");
-        }
-    }
-
+    
+    //#TODO? Modify to accomodate for multiple levels
     public void StartLevel(int l)
     {
         if (l == 1)
@@ -104,6 +98,8 @@ public class GameManager : Singleton<GameManager>
     {
         Time.timeScale = 0f;
 
+        OnGamePaused?.Invoke();
+        
         if (bShowPauseScreen)
         {
             MenuManager.Instance.ShowMenu(MenuType.PauseMenu);
@@ -111,19 +107,27 @@ public class GameManager : Singleton<GameManager>
 
         MenuManager.Instance.HideMenu(MenuType.HUDMenu);
 
+
         currentGameState = GameState.GamePaused;
     }
 
     public void ResumeGame()
     {
+        Time.timeScale = 1f;
+        
         OnGameResumed?.Invoke();
 
-        Time.timeScale = 1f;
-      
         MenuManager.Instance.HideMenu(MenuType.PauseMenu);
         MenuManager.Instance.ShowMenu(MenuType.HUDMenu);
 
         currentGameState = GameState.GameRunning;
+    }
+
+    public void HandlePlayerDeath()
+    {
+        PauseGame(false);
+        MenuManager.Instance.ShowMenu(MenuType.GameOveMenu);
+        currentGameState = GameState.GameEnded;
     }
 
     //Got to the Main Menu Screen 
@@ -197,6 +201,17 @@ public class GameManager : Singleton<GameManager>
     public void PlayerSpawned(NellController player)
     {
         playerRef = player;
+
+        playerRef.OnCharacterDead.AddListener(HandlePlayerDeath);
+
+        OnPlayerSpawned?.Invoke();
+    }
+
+    internal void RespawnPlayer()
+    {
+        OnRespawnPlayer?.Invoke();
+
+        currentGameState = GameState.GameRunning;
 
         OnPlayerSpawned?.Invoke();
     }

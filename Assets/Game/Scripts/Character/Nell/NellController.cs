@@ -219,6 +219,7 @@ public class NellController : CharacterBase
         ogStepOffset = characterController.stepOffset;
 
         GameManager.Instance.PlayerSpawned(this);
+        GameManager.Instance.OnRespawnPlayer.AddListener(ResetNell);
 
         bloodFx.Stop();
 
@@ -352,6 +353,11 @@ public class NellController : CharacterBase
         {
             transform.position += nellsAnimator.deltaPosition;
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnRespawnPlayer.RemoveListener(ResetNell);
     }
 
     #endregion
@@ -653,6 +659,12 @@ public class NellController : CharacterBase
         characterController.enabled = true;
     }
 
+    internal void ResetNell()
+    {
+        Health = 100f;
+        Stamina = 100f;
+    }
+
     //Set things that are in range and interactable
     internal void SetInventoryItem(InventoryItem inventoryItem)
     {
@@ -827,7 +839,7 @@ public class NellController : CharacterBase
     //When Escape Key is Pressed
     public void OnPauseGame()
     {
-        if(GameManager.Instance.currentGameState != GameState.GamePaused)
+        if(GameManager.Instance.currentGameState == GameState.GameRunning)
         {
             GameManager.Instance.PauseGame(true);
         }

@@ -8,6 +8,7 @@ public enum MenuType
 {
     MainMenu,
     PauseMenu,
+    GameOveMenu,
     OptionsMenu,
     HUDMenu,
     SceneLoadMenu
@@ -17,6 +18,7 @@ public class MenuManager : Singleton<MenuManager>
 {
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject optionsMenu;
     [SerializeField] GameObject hudMenu;
     [SerializeField] GameObject sceneLoadMenu;
@@ -30,6 +32,9 @@ public class MenuManager : Singleton<MenuManager>
                 break;
             case MenuType.PauseMenu:
                 pauseMenu = menuObject;
+                break;
+            case MenuType.GameOveMenu:
+                gameOverMenu = menuObject;
                 break;
             case MenuType.OptionsMenu:
                 optionsMenu = menuObject;
@@ -53,6 +58,9 @@ public class MenuManager : Singleton<MenuManager>
             case MenuType.PauseMenu:
                 pauseMenu = null;
                 break;
+            case MenuType.GameOveMenu:
+                gameOverMenu = null;
+                break;
             case MenuType.OptionsMenu:
                 optionsMenu = null;
                 break;
@@ -75,6 +83,9 @@ public class MenuManager : Singleton<MenuManager>
             case MenuType.PauseMenu:
                 pauseMenu.SetActive(false);
                 break;
+            case MenuType.GameOveMenu:
+                gameOverMenu.SetActive(false);
+                break;
             case MenuType.OptionsMenu:
                 optionsMenu.SetActive(false);
                 break;
@@ -96,6 +107,9 @@ public class MenuManager : Singleton<MenuManager>
                 break;
             case MenuType.PauseMenu:
                 pauseMenu.SetActive(true);
+                break;
+            case MenuType.GameOveMenu:
+                gameOverMenu.SetActive(true);
                 break;
             case MenuType.OptionsMenu:
                 optionsMenu.SetActive(true);

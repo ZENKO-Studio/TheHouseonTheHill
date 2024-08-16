@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : Singleton<SceneLoader>
 {
+    [SerializeField] private SceneReference mainMenuScene;
+
     //This is where all the load and unload operations will take place
     private List<AsyncOperation> sceneLoadOperations = new List<AsyncOperation>();
+
+    private List<SceneReference> loadedGameScenes = new List<SceneReference>();
+
 
     private bool bLoadInProgress = false;
 
@@ -17,6 +22,7 @@ public class SceneLoader : Singleton<SceneLoader>
         MenuManager.Instance.ShowMenu(MenuType.SceneLoadMenu);
 
         sceneLoadOperations.Add(SceneManager.LoadSceneAsync(sceneReference, LoadSceneMode.Additive));
+        loadedGameScenes.Add(sceneReference);
         
         if (!bLoadInProgress)
             StartCoroutine(nameof(StartLoading));
@@ -27,6 +33,7 @@ public class SceneLoader : Singleton<SceneLoader>
         MenuManager.Instance.ShowMenu(MenuType.SceneLoadMenu);
 
         sceneLoadOperations.Add(SceneManager.UnloadSceneAsync(sceneReference));
+        loadedGameScenes.Remove(sceneReference);
 
         if (!bLoadInProgress)
             StartCoroutine(nameof(StartLoading));
@@ -38,7 +45,7 @@ public class SceneLoader : Singleton<SceneLoader>
 
         float operationProgress = 0f;
 
-        for (int i = 0; i < sceneLoadOperations.Count; ++i)
+        for (int i = 0; i < sceneLoadOperations.Count; i++)
         {
             while(!sceneLoadOperations[i].isDone)
             {
@@ -48,6 +55,7 @@ public class SceneLoader : Singleton<SceneLoader>
             }
         }
 
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(loadedGameScenes[loadedGameScenes.Count - 1].SceneName));
         MenuManager.Instance.HideMenu(MenuType.SceneLoadMenu);
 
         LoadProgress = 0f;
@@ -58,21 +66,23 @@ public class SceneLoader : Singleton<SceneLoader>
     {
         MenuManager.Instance.ShowMenu(MenuType.SceneLoadMenu);
 
-        int c = SceneManager.sceneCount;
-        if(c > 1)
+        //Unload all the active game scenes (Game Levels)
+        foreach (SceneReference sceneReference in loadedGameScenes)
         {
-            for (int i = c; i > 0; i--)
-            {
-                Scene scene = SceneManager.GetSceneAt(i - 1);
-                sceneLoadOperations.Add(SceneManager.UnloadSceneAsync(scene));
-            }
+            sceneLoadOperations.Add(SceneManager.UnloadSceneAsync(sceneReference));
         }
+        sceneLoadOperations.Clear();
+        loadedGameScenes.Clear();
 
-        sceneLoadOperations.Add(SceneManager.LoadSceneAsync(1, LoadSceneMode.Additive));
+        sceneLoadOperations.Add(SceneManager.LoadSceneAsync(mainMenuScene, LoadSceneMode.Additive));
+        loadedGameScenes.Add(mainMenuScene);
+
+        Time.timeScale = 1f;
 
         if (!bLoadInProgress)
             StartCoroutine(nameof(StartLoading));
 
+        GameManager.Instance.currentGameState = GameState.MainMenu;
     }
 
 }
