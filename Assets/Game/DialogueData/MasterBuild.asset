@@ -1379,7 +1379,10 @@ MonoBehaviour:
         + 1;
 
 
-        Variable["CoolLibraries"] = Variable["CoolLibraries"] + 1'
+        Variable["CoolLibraries"] = Variable["CoolLibraries"] + 1;
+
+        SetQuestEntryState("To
+        Walk Alone", 4, "success")'
       onExecute:
         m_PersistentCalls:
           m_Calls: []
@@ -2084,7 +2087,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 389.3471
-        y: 45.067863
+        y: 43.42852
         width: 160
         height: 30
     - id: 2
@@ -2140,7 +2143,7 @@ MonoBehaviour:
       canvasRect:
         serializedVersion: 2
         x: 613.3162
-        y: 68.81058
+        y: 67.171234
         width: 160
         height: 30
     - id: 3
@@ -2168,12 +2171,7 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'Shit. I''d better get going.
 
-
-          Nell punches in the numbers
-          for the cab company.
-
-
-          Pick up, pick up, pick up...'
+'
         type: 0
         typeString: 
       - title: Sequence
@@ -2191,7 +2189,7 @@ MonoBehaviour:
       - originConversationID: 8
         originDialogueID: 3
         destinationConversationID: 8
-        destinationDialogueID: 4
+        destinationDialogueID: 11
         isConnector: 0
         priority: 2
       conditionsString: 
@@ -2201,8 +2199,8 @@ MonoBehaviour:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 629.52814
-        y: 141.4997
+        x: 819.69196
+        y: 82.48337
         width: 160
         height: 30
     - id: 4
@@ -2600,6 +2598,116 @@ MonoBehaviour:
         y: 339.05728
         width: 160
         height: 30
+    - id: 11
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Nell punches in the numbers for the cab company.
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 11
+        destinationConversationID: 8
+        destinationDialogueID: 12
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 660.67566
+        y: 134.12271
+        width: 160
+        height: 30
+    - id: 12
+      fields:
+      - title: Title
+        value: 
+        type: 0
+        typeString: 
+      - title: Description
+        value: 
+        type: 0
+        typeString: 
+      - title: Actor
+        value: 2
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Conversant
+        value: 1
+        type: 5
+        typeString: CustomFieldType_Actor
+      - title: Menu Text
+        value: 
+        type: 0
+        typeString: 
+      - title: Dialogue Text
+        value: Pick up, pick up, pick up...
+        type: 0
+        typeString: 
+      - title: Sequence
+        value: 
+        type: 0
+        typeString: 
+      conversationID: 8
+      isRoot: 0
+      isGroup: 0
+      nodeColor: 
+      delaySimStatus: 0
+      falseConditionAction: Block
+      conditionPriority: 2
+      outgoingLinks:
+      - originConversationID: 8
+        originDialogueID: 12
+        destinationConversationID: 8
+        destinationDialogueID: 4
+        isConnector: 0
+        priority: 2
+      conditionsString: 
+      userScript: 
+      onExecute:
+        m_PersistentCalls:
+          m_Calls: []
+      canvasRect:
+        serializedVersion: 2
+        x: 593.4626
+        y: 185.76205
+        width: 160
+        height: 30
     entryGroups: []
     canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.61000043
@@ -2751,7 +2859,7 @@ MonoBehaviour:
         destinationDialogueID: 4
         isConnector: 0
         priority: 2
-      conditionsString: CurrentQuestEntryState("To Walk Alone", 7) == "active"
+      conditionsString: 
       userScript: 
       onExecute:
         m_PersistentCalls:
@@ -2886,14 +2994,8 @@ MonoBehaviour:
       - title: Dialogue Text
         value: 'QUEST UPDATED
 
-
-
           To Walk Alone
 
-
-          Silence lay
-          steadily against the wood and stone of Hill House, and whatever walked
-          there, walked alone.
 
 '
         type: 0
@@ -2917,13 +3019,13 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: SetQuestEntryState("To Walk Alone", 9, "active")
       onExecute:
         m_PersistentCalls:
           m_Calls: []
       canvasRect:
         serializedVersion: 2
-        x: 152
+        x: 150.50746
         y: 177
         width: 160
         height: 30
@@ -2950,7 +3052,8 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 
+        value: Silence lay steadily against the wood and stone of Hill House, and
+          whatever walked there, walked alone.
         type: 0
         typeString: 
       - title: Sequence
@@ -2989,7 +3092,7 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 14.552229, y: 19.029835}
+    canvasScrollPosition: {x: 0, y: 0}
     canvasZoom: 0.67000026
   - id: 10
     fields:
