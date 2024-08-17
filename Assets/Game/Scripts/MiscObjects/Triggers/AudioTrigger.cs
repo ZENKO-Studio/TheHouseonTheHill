@@ -10,6 +10,9 @@ public class AudioTrigger : MonoBehaviour
 
     [Tooltip("The audio clip corresponding to the dialogue")]
     [SerializeField] AudioClip clipToPlay;
+    
+    [Tooltip("The audio clip volume for the dialogue")]
+    [SerializeField] [Range(0,1)] float volume;
 
     
     private void Start()
@@ -24,7 +27,7 @@ public class AudioTrigger : MonoBehaviour
 
         if(clipToPlay != null )
         {
-            AudioSource.PlayClipAtPoint(clipToPlay, transform.position);
+            AudioSource.PlayClipAtPoint(clipToPlay, transform.position, volume);
         }
 
         if(bOneUse)

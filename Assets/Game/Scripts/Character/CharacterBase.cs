@@ -78,7 +78,7 @@ public class CharacterBase : MonoBehaviour
     {
         Health -= damage;
 
-        if(health < 0)
+        if(health <= 0)
         {
             OnCharacterDead?.Invoke();
         }
