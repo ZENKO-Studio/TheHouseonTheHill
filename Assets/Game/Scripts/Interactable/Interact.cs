@@ -1,6 +1,8 @@
 // Alvin Philips
 // June 11th, 2024
+//MIT certified 
 // Player Interact script to handle all interactions.
+// revised by Brandon Bennie for further use and more sutablity to our needs
 
 using System;
 using System.Collections.Generic;
