@@ -1,4 +1,5 @@
 using System;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -90,6 +91,7 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 0f;
 
         OnGamePaused?.Invoke();
+        DialogueManager.Pause();
         
         if (bShowPauseScreen)
         {
@@ -107,7 +109,7 @@ public class GameManager : Singleton<GameManager>
         Time.timeScale = 1f;
         
         OnGameResumed?.Invoke();
-
+        DialogueManager.Unpause();
         MenuManager.Instance.HideMenu(MenuType.PauseMenu);
         MenuManager.Instance.ShowMenu(MenuType.HUDMenu);
 
@@ -203,6 +205,8 @@ public class GameManager : Singleton<GameManager>
     {
         OnRespawnPlayer?.Invoke();
 
+        DialogueManager.Unpause();
+        DialogueManager.conversationController.isActive.Equals(true);
         currentGameState = GameState.GameRunning;
 
         OnPlayerSpawned?.Invoke();
