@@ -47,18 +47,17 @@ public class InventoryCam : MonoBehaviour
 
             float yAngle = movX * camMoveSpeed * Time.unscaledDeltaTime;
 
-            float zoomAmount = GameManager.Instance.playerRef.zoom;
-
-            // Adjust the currentZoom based on input and speed
-            currentZoom += zoomAmount * zoomSpeed * Time.unscaledDeltaTime;
-
-            currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
-
             transform.rotation = Quaternion.Euler(-xAngle, transform.rotation.eulerAngles.y + yAngle, 0f);
 
-            invCam.localPosition = new Vector3(invCam.localPosition.x, invCam.localPosition.y, currentZoom);
-
-            //transform.Rotate(0, , 0);
         }
+
+        float zoomAmount = GameManager.Instance.playerRef.zoom;
+
+        // Adjust the currentZoom based on input and speed
+        currentZoom += zoomAmount * zoomSpeed * Time.unscaledDeltaTime;
+
+        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
+        
+        invCam.localPosition = new Vector3(invCam.localPosition.x, invCam.localPosition.y, currentZoom);
     }
 }
