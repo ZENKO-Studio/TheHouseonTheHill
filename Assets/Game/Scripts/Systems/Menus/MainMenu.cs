@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     public void OnStartButton(int i = 1)
     {
         GameManager.Instance.StartLevel(i);
-        gameObject.SetActive(false);
     }
 
 

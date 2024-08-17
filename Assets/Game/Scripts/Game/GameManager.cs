@@ -65,6 +65,8 @@ public class GameManager : Singleton<GameManager>
     //#TODO? Modify to accomodate for multiple levels
     public void StartLevel(int l)
     {
+        MenuManager.Instance.HideMenu(MenuType.MainMenu);
+
         if(currentLevel != null)
         {
             SceneLoader.Instance.UnloadScene(currentLevel);
@@ -123,6 +125,7 @@ public class GameManager : Singleton<GameManager>
     public void EndGame()
     {
         SceneLoader.Instance.ReloadMainMenu();
+        currentLevel = null;
     }
     #endregion
 
