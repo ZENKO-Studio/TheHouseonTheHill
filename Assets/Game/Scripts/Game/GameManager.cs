@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager>
 
     [Tooltip("Set your first game level here, one to be loaded on start game")]
     public SceneReference[] GameLevels;
-    private SceneReference currentLevel = null;
+    private int currentLevel = -1;
 
     //Should be set on game start or manually in the scene
     public NellController playerRef;
@@ -61,21 +61,38 @@ public class GameManager : Singleton<GameManager>
         SceneLoader.Instance.ReloadMainMenu();
     }
 
+    private void Update()
+    {
+        if (currentGameState == GameState.GameRunning)
+        {
+            if(Input.GetKeyUp(KeyCode.Alpha1))
+            {
+                StartLevel(1);
+            }if(Input.GetKeyUp(KeyCode.Alpha2))
+            {
+                StartLevel(2);
+            }if(Input.GetKeyUp(KeyCode.Alpha3))
+            {
+                StartLevel(3);
+            }
+        }
+    }
+
     #region Core Game Functions
-    
+
     //#TODO? Modify to accomodate for multiple levels
     public void StartLevel(int l)
     {
         MenuManager.Instance.HideMenu(MenuType.MainMenu);
 
-        if(currentLevel != null)
+        if(currentLevel > 0 && currentLevel <= 3)
         {
-            SceneLoader.Instance.UnloadScene(currentLevel);
+            SceneLoader.Instance.UnloadScene(GameLevels[currentLevel-1]);
         }
 
         if (GameLevels[l - 1] != null)
         {
-            currentLevel = GameLevels[l - 1];
+            currentLevel = l;
             SceneLoader.Instance.LoadScene(GameLevels[l - 1]);
         }
         else
@@ -127,7 +144,7 @@ public class GameManager : Singleton<GameManager>
     public void EndGame()
     {
         SceneLoader.Instance.ReloadMainMenu();
-        currentLevel = null;
+        currentLevel = -1;
     }
     #endregion
 
