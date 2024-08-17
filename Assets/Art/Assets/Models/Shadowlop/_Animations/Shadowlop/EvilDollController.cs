@@ -1,15 +1,15 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(Animator))]
-[RequireComponent(typeof(NavMeshAgent))]
+
 public class EvilDollController : MonoBehaviour
 {
     public Transform target; // The target the enemy will move towards
-    private NavMeshAgent agent;
-    private Animator animator;
+    public NavMeshAgent agent;
+    public Animator animator;
 
     void Start()
     {
@@ -19,6 +19,11 @@ public class EvilDollController : MonoBehaviour
     }
 
     void Update()
+    {
+
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         // Update the agent's destination
         if (target != null)
