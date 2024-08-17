@@ -1,11 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [Tooltip("This should be true for any slots not belonging to slot groups (Like Journals)")]
+    [SerializeField] bool bIsIndividualSlot = true;
+
+    [Tooltip("This is used for validation of individual slots")]
+    [SerializeField] int slotItemNo;
+
     internal bool bValid;
 
     BoardItem slotItem;
@@ -45,14 +53,22 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         slotItem = boardItem;
         slotItem.transform.parent = transform;
         slotItem.transform.localPosition = Vector2.zero;
-        //TheBoardController.Instance.boardItems.Add(slotItem.inventoryItem);
+        TheBoardController.Instance.boardItems.Add(slotItem.inventoryItem);
 
         Validate();
     }
 
     internal void Validate()
     {
-        if (slotHandler != null)
+        if (bIsIndividualSlot)
+        {
+            if (slotItem.inventoryItem.itemId == slotItemNo)
+                bValid = true;
+
+            return;
+        }
+
+        else if (slotHandler != null)
         {
             foreach (int docId in slotHandler.itemIds)
             {
@@ -61,7 +77,9 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
 
             slotHandler.Validate();
+            return;
         }
+
     }
 
 }

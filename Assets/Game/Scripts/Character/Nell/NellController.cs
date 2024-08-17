@@ -26,7 +26,6 @@ public class NellController : CharacterBase
     
     #endregion
     
-    
     #region Character Control Values
     [Header("Character Controls")]
     
@@ -220,11 +219,12 @@ public class NellController : CharacterBase
         ogStepOffset = characterController.stepOffset;
 
         GameManager.Instance.PlayerSpawned(this);
+        GameManager.Instance.OnRespawnPlayer.AddListener(ResetNell);
 
         bloodFx.Stop();
 
         //Ensuring its set
-        mainCamTransform = mainCamTransform == null ? Camera.main.transform : mainCamTransform;
+        mainCamTransform = Camera.main.transform;
 
         orientationObject = new GameObject();
         orientationObject.transform.rotation = mainCamTransform.rotation;
@@ -250,6 +250,7 @@ public class NellController : CharacterBase
 
     private void Update()
     {
+        
         if (bPendingOrientationUpdate)
         {
             UpdateOrientation(false);
@@ -326,9 +327,9 @@ public class NellController : CharacterBase
         if (bUseAudioSourceMethod)
         {
             if(bInWater)
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length - 1)], transform.position, FootstepAudioVolume);
             else
-                AudioSource.PlayClipAtPoint(WaterstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(WaterstepAudioClips[UnityEngine.Random.Range(0, WaterstepAudioClips.Length - 1)], transform.position, FootstepAudioVolume);
         }
 
         var sound = new Sound(transform.position, soundRange);
@@ -352,6 +353,11 @@ public class NellController : CharacterBase
         {
             transform.position += nellsAnimator.deltaPosition;
         }
+    }
+
+    private void OnDestroy()
+    {
+        GameManager.Instance.OnRespawnPlayer.RemoveListener(ResetNell);
     }
 
     #endregion
@@ -653,6 +659,12 @@ public class NellController : CharacterBase
         characterController.enabled = true;
     }
 
+    internal void ResetNell()
+    {
+        Health = 100f;
+        Stamina = 100f;
+    }
+
     //Set things that are in range and interactable
     internal void SetInventoryItem(InventoryItem inventoryItem)
     {
@@ -822,6 +834,19 @@ public class NellController : CharacterBase
     {
         if(bPlayerHasControl)
             saltChargeHandler.ThrowSalt();
+    }
+
+    //When Escape Key is Pressed
+    public void OnPauseGame()
+    {
+        if(GameManager.Instance.currentGameState == GameState.GameRunning)
+        {
+            GameManager.Instance.PauseGame(true);
+        }
+        else if(GameManager.Instance.currentGameState == GameState.GamePaused)
+        {
+            GameManager.Instance.ResumeGame();
+        }
     }
 
     #endregion

@@ -20,8 +20,6 @@ public class HUDController : MonoBehaviour
     [SerializeField] Sprite flashOnSprite;
     [SerializeField] Sprite flashOffSprite;
 
-    [SerializeField] HUDMenu hudMenu;
-
     NellController nellController;
     Flashlight flashlight;
 
@@ -33,18 +31,31 @@ public class HUDController : MonoBehaviour
     [SerializeField] TMP_Text dialogueText;
 
     // Start is called before the first frame update
-    void OnEnable()
-    {
-        GameManager.Instance.OnPlayerSpawned.AddListener(HandlePlayerSpawn);
 
-        //hudMenu.Invoke("HideHUD", 5f);
+    void Start()
+    {
+        MenuManager.Instance.AddMenuObject(transform.parent.gameObject, MenuType.HUDMenu);
+        transform.parent.gameObject.SetActive(false);
+        GameManager.Instance.OnPlayerSpawned.AddListener(HandlePlayerSpawn);
     }
 
     private void HandlePlayerSpawn()
     {
+        transform.parent.gameObject.SetActive(true);
+
         nellController = GameManager.Instance.playerRef;
         GameManager.Instance.playerHud = this;
 
+        InitHUD();
+    }
+
+    private void OnEnable()
+    {
+        InitHUD();
+    }
+
+    private void InitHUD()
+    {
         if (nellController != null)
         {
             nellController.OnHealthChanged.AddListener(UpdateHealthbar);
@@ -70,16 +81,12 @@ public class HUDController : MonoBehaviour
     {
         Debug.Log("UpdatingHealthBar");
         healthBar.value = GameManager.Instance.playerRef.GetHealth();
-        //hudMenu.ShowHUD();
-        //hudMenu.Invoke("HideHUD", 5f);
     }
     
     void UpdateStaminabar()
     {
         Debug.Log("UpdatingStaminaBar");
         staminaBar.value = GameManager.Instance.playerRef.GetStamina();
-        //hudMenu.ShowHUD();
-        //hudMenu.Invoke("HideHUD", 5f);
     }
 
     private void UpdateSaltCount()

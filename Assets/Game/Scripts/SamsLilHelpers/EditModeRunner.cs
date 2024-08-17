@@ -11,7 +11,6 @@ public class EditModeRunner : MonoBehaviour
     InventoryItem m_inventoryItem;
 
 
-
     [SerializeField] 
     List<Sprite> sprites = new List<Sprite>();
     
@@ -22,7 +21,7 @@ public class EditModeRunner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       GeneratePuzzlePieces();
+       //GeneratePuzzlePieces();
     }
 
     void GeneratePuzzlePieces()
