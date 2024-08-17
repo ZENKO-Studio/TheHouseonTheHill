@@ -482,28 +482,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
---- !u!1 &682843751 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5133362521341387890, guid: 8730ba4d878f13046b6cceb633fbd7e2,
-    type: 3}
-  m_PrefabInstance: {fileID: 1448775213}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &682843755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682843751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1adb1210f568045bbdcb7f9ac84e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mainMenuScene:
-    sceneAsset: {fileID: 102900000, guid: 3ae1375408b6ff04687fec5b700b1a26, type: 3}
-    scenePath: Assets/Game/Scenes/MainGame/GameUI.unity
-    sceneName: GameUI
 --- !u!1 &1045942498
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,11 +664,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5133362521341387890, guid: 8730ba4d878f13046b6cceb633fbd7e2,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 682843755}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8730ba4d878f13046b6cceb633fbd7e2, type: 3}
 --- !u!1 &1872455994
 GameObject:

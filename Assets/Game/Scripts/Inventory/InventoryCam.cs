@@ -26,7 +26,7 @@ public class InventoryCam : MonoBehaviour
     {
         invCam = transform.GetComponentInChildren<Camera>().transform;
 
-        currentZoom = invCam.localPosition.z;
+        //currentZoom = invCam.localPosition.z;
     }
 
     // Update is called once per frame
@@ -51,13 +51,13 @@ public class InventoryCam : MonoBehaviour
 
         }
 
-        float zoomAmount = GameManager.Instance.playerRef.zoom;
+        //float zoomAmount = GameManager.Instance.playerRef.zoom;
 
-        // Adjust the currentZoom based on input and speed
-        currentZoom += zoomAmount * zoomSpeed * Time.unscaledDeltaTime;
+        //// Adjust the currentZoom based on input and speed
+        //currentZoom += zoomAmount * zoomSpeed * Time.unscaledDeltaTime;
 
-        currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
+        //currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
         
-        invCam.localPosition = new Vector3(invCam.localPosition.x, invCam.localPosition.y, currentZoom);
+        //invCam.localPosition = new Vector3(invCam.localPosition.x, invCam.localPosition.y, currentZoom);
     }
 }

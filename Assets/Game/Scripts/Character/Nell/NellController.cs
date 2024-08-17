@@ -327,9 +327,9 @@ public class NellController : CharacterBase
         if (bUseAudioSourceMethod)
         {
             if(bInWater)
-                AudioSource.PlayClipAtPoint(FootstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(FootstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length - 1)], transform.position, FootstepAudioVolume);
             else
-                AudioSource.PlayClipAtPoint(WaterstepAudioClips[UnityEngine.Random.Range(0, FootstepAudioClips.Length)], transform.position, FootstepAudioVolume);
+                AudioSource.PlayClipAtPoint(WaterstepAudioClips[UnityEngine.Random.Range(0, WaterstepAudioClips.Length - 1)], transform.position, FootstepAudioVolume);
         }
 
         var sound = new Sound(transform.position, soundRange);
