@@ -72,6 +72,7 @@ public class GameManager : Singleton<GameManager>
 
         if (GameLevels[l - 1] != null)
         {
+            currentLevel = GameLevels[l - 1];
             SceneLoader.Instance.LoadScene(GameLevels[l - 1]);
         }
         else
