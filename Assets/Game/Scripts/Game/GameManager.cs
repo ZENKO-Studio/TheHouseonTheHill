@@ -48,6 +48,8 @@ public class GameManager : Singleton<GameManager>
     //When Game Starts
     internal GameState currentGameState = GameState.MainMenu;
 
+    internal bool loadInProgress = false;
+
     #region Cam View and Player Movement Orientation
     //Can be used for movable objects since it requires some transform to base direction off
     [Tooltip("Should be set when orientation needs to be overridden (Set it to null when using Third Person Camera)")]
@@ -83,6 +85,11 @@ public class GameManager : Singleton<GameManager>
     //#TODO? Modify to accomodate for multiple levels
     public void StartLevel(int l)
     {
+        if (loadInProgress)
+            return;
+
+        loadInProgress = true;
+        
         MenuManager.Instance.HideMenu(MenuType.MainMenu);
 
         if(currentLevel > 0 && currentLevel <= 3)
