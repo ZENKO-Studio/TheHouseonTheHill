@@ -14,7 +14,7 @@ public class LockedInteractSceneChange : MonoBehaviour, IInteractable
 
     public UnityEvent onInteract;
     public UnityEvent onUnlock;
-    public string SceneName;
+    public int SceneName = 0;
     [SerializeField] private InputAction interactAction;
     [SerializeField] private int priority;
 
@@ -28,7 +28,7 @@ public class LockedInteractSceneChange : MonoBehaviour, IInteractable
             Debug.Log("FS");
             isLocked = false;
             onInteract?.Invoke();
-            SceneManager.LoadScene(SceneName);
+            GameManager.Instance.StartLevel(SceneName);
 
         }
     }
