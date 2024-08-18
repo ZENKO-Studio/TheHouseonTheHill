@@ -60,6 +60,7 @@ public class SceneLoader : Singleton<SceneLoader>
 
         LoadProgress = 0f;
         bLoadInProgress = false;
+        GameManager.Instance.loadInProgress = false;
     }
 
     public void ReloadMainMenu()
