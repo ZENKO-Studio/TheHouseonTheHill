@@ -9,6 +9,7 @@ public class DestroyColliders : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
         if (colliderToDestroy != null)
         {
             Destroy(colliderToDestroy.gameObject);
