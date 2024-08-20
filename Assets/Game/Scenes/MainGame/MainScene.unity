@@ -656,6 +656,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.data[3].sceneName
+      value: CutSCENE
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.data[3].scenePath
+      value: Assets/Game/Scenes/Levels/CutSCENE.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.data[3].sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 89fbdcb1c4942c1458b416493ccba662,
+        type: 3}
     - target: {fileID: 7527640517334310091, guid: 8730ba4d878f13046b6cceb633fbd7e2,
         type: 3}
       propertyPath: sceneLoadMenu
