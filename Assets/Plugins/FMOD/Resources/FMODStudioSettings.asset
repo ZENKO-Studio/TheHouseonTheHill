@@ -390,7 +390,7 @@ MonoBehaviour:
   switchSettingsMigration: 1
   HasSourceProject: 0
   HasPlatforms: 0
-  sourceProjectPath: Assets/Game/Audio/MasterLevel01FMOD/MasterLevel01FMOD.fspro
+  sourceProjectPath: Assets/Game/Audio/ProductionAudioBanks_JackAndNik/iNTRO/iNTRO.fspro
   sourceBankPath: Assets/Game/Audio/ProductionAudioBanks_JackAndNik
   sourceBankPathUnformatted: 
   BankRefreshCooldown: 5
@@ -414,6 +414,8 @@ MonoBehaviour:
   Plugins: []
   MasterBanks:
   - Desktop/Master
+  - Desktop/Desktop/Master
+  - iNTRO/Build/Desktop/Master
   Banks: []
   BanksToLoad: []
   LiveUpdatePort: 9264
