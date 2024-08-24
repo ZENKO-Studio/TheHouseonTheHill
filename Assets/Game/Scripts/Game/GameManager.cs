@@ -65,19 +65,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if (currentGameState == GameState.GameRunning)
-        {
-            if(Input.GetKeyUp(KeyCode.Alpha1))
-            {
-                StartLevel(1);
-            }if(Input.GetKeyUp(KeyCode.Alpha2))
-            {
-                StartLevel(2);
-            }if(Input.GetKeyUp(KeyCode.Alpha3))
-            {
-                StartLevel(3);
-            }
-        }
+       
     }
 
     #region Core Game Functions
