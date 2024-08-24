@@ -19,6 +19,25 @@ public class LockedInteractSceneChange : MonoBehaviour, IInteractable
     [SerializeField] private InputAction interactAction;
     [SerializeField] private int priority;
 
+    #region StoleFromSami
+
+    
+
+    
+    [Header("Audio and Dialogue")]
+    [SerializeField] bool PlayDoorSound = false;
+    [SerializeField] bool PlayDialogueLines = false;
+
+    [SerializeField] AudioClip lockedDoorSound; 
+
+    [SerializeField] AudioClip unlockedDoorSound; 
+
+    [Tooltip("Dialogue that will be played once when player enters the trigger and do not have required items")]
+    [SerializeField] List<string> linesWhenLocked = new List<string>();
+
+    [Tooltip("Dialogue that will be played once when player enters the trigger have all the items")]
+    [SerializeField] List<string> linesWhenUnlocked = new List<string>();
+    #endregion
     public InputAction Action => interactAction;
 
     public void Interact(CharacterBase player)
@@ -37,8 +56,22 @@ public class LockedInteractSceneChange : MonoBehaviour, IInteractable
                 InventoryHandler.Instance.RemoveItem(keyItem);
             }
 
-            GameManager.Instance.StartLevel(SceneName);
+            if (PlayDoorSound)
+                AudioSource.PlayClipAtPoint(unlockedDoorSound, transform.position);
+                    
+            if (PlayDialogueLines)
+                GameManager.Instance.playerHud.UpdateDialogueText(linesWhenUnlocked[Random.Range(0, linesWhenUnlocked.Count)], 2);
         }
+        else
+        {
+            if (PlayDoorSound)
+                AudioSource.PlayClipAtPoint(lockedDoorSound, transform.position);
+
+            if (PlayDialogueLines)
+                GameManager.Instance.playerHud.UpdateDialogueText(linesWhenLocked[Random.Range(0, linesWhenLocked.Count)], 2);
+        }
+        GameManager.Instance.StartLevel(SceneName);
+        
     }
 
     public int Priority => priority;
