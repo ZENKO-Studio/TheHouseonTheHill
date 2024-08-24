@@ -28,6 +28,10 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
+
+    [Tooltip("Set this to true if you want to test scenes individually")]
+    [SerializeField] bool bSingleSceneMode = false;
+
     [Tooltip("Set your first game level here, one to be loaded on start game")]
     public SceneReference[] GameLevels;
     private int currentLevel = -1;
@@ -60,6 +64,9 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
+        if (bSingleSceneMode)
+            return;
+
         SceneLoader.Instance.ReloadMainMenu();
     }
 
@@ -112,6 +119,9 @@ public class GameManager : Singleton<GameManager>
 
     public void PauseGame(bool bShowPauseScreen)
     {
+        if (bSingleSceneMode)
+            return;
+
         Time.timeScale = 0f;
 
         OnGamePaused?.Invoke();
@@ -130,6 +140,9 @@ public class GameManager : Singleton<GameManager>
 
     public void ResumeGame()
     {
+        if (bSingleSceneMode)
+            return;
+
         Time.timeScale = 1f;
         
         OnGameResumed?.Invoke();
@@ -142,6 +155,9 @@ public class GameManager : Singleton<GameManager>
 
     public void HandlePlayerDeath()
     {
+        if (bSingleSceneMode)
+            return;
+
         PauseGame(false);
         MenuManager.Instance.ShowMenu(MenuType.GameOveMenu);
         currentGameState = GameState.GameEnded;
@@ -220,13 +236,19 @@ public class GameManager : Singleton<GameManager>
     {
         playerRef = player;
 
-        playerRef.OnCharacterDead.AddListener(HandlePlayerDeath);
-
         OnPlayerSpawned?.Invoke();
+
+        if (bSingleSceneMode)
+            return;
+
+        playerRef.OnCharacterDead.AddListener(HandlePlayerDeath);
     }
 
     internal void RespawnPlayer()
     {
+        if (bSingleSceneMode)
+            return;
+
         OnRespawnPlayer?.Invoke();
 
         DialogueManager.Unpause();
