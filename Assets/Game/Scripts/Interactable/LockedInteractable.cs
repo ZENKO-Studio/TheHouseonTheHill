@@ -1,6 +1,7 @@
 using Game.Scripts.Interactable;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -42,6 +43,13 @@ namespace Game.Scripts.Interactable
                 Debug.Log("FS");
                 isLocked = false;
                 onInteract?.Invoke();
+
+                InventoryItem keyItem = InventoryHandler.Instance.keys
+                    .FirstOrDefault(k => k.Key.itemId == keyToUnlockInteger).Key;
+                if (keyItem != null)
+                {
+                    InventoryHandler.Instance.RemoveItem(keyItem);
+                }
 
                 #region Sami`s Addition! One if bracket is in here so dont worry!
                 if (bPlayDoorSound)
