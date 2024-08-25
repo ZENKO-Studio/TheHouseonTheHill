@@ -656,6 +656,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.data[3].sceneName
+      value: CutSCENE
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.data[3].scenePath
+      value: Assets/Game/Scenes/Levels/CutSCENE.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5950063916573972815, guid: 8730ba4d878f13046b6cceb633fbd7e2,
+        type: 3}
+      propertyPath: GameLevels.Array.data[3].sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: 89fbdcb1c4942c1458b416493ccba662,
+        type: 3}
     - target: {fileID: 7527640517334310091, guid: 8730ba4d878f13046b6cceb633fbd7e2,
         type: 3}
       propertyPath: sceneLoadMenu
@@ -762,7 +783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1926896542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -892,7 +913,7 @@ RectTransform:
   m_Father: {fileID: 1045942499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1007,7 +1028,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0.82634497, a: 1}
+  m_Color: {r: 0, g: 0.860477, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

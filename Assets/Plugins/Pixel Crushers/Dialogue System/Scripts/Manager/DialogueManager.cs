@@ -1,5 +1,6 @@
 // Copyright (c) Pixel Crushers. All rights reserved.
 
+using System;
 using UnityEngine;
 
 namespace PixelCrushers.DialogueSystem
@@ -258,6 +259,10 @@ namespace PixelCrushers.DialogueSystem
         public static ConversationView ConversationView { get { return conversationView; } }
         public static DialogueDebug.DebugLevel DebugLevel { get { return debugLevel; } set { debugLevel = value; } }
         public static bool AllowLuaExceptions { get { return allowLuaExceptions; } set { allowLuaExceptions = value; } }
+
+        //public static System.Action<Quest, QuestState> OnQuestStateChange { get; set; }
+        //public static Action<QuestEntryArgs> OnQuestEntryStateChange { get; set; }
+
         /// @endcond
 
         /// <summary>
