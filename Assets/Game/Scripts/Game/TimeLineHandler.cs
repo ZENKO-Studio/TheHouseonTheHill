@@ -2,29 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 public class TimeLineHandler : MonoBehaviour
 {
-    public PlayableDirector timelineDirector;
-    public int levelToStart;
+    public VideoPlayer videoPlayer;  // Reference to the VideoPlayer
+    public int levelToStart;  // Index of the level to load
 
     void Start()
     {
-        // Subscribe to the stopped event
-        timelineDirector.stopped += OnTimelineStopped;
+        // Subscribe to the VideoPlayer's loopPointReached event
+        videoPlayer.loopPointReached += OnVideoEnd;
     }
 
-    void OnTimelineStopped(PlayableDirector director)
+    void OnVideoEnd(VideoPlayer vp)
     {
-        if (director == timelineDirector)
-        {
-            GameManager.Instance.StartLevel(levelToStart);
-        }
+        // Change to the next scene when the video ends
+        GameManager.Instance.StartLevel(levelToStart);
     }
 
     void OnDestroy()
     {
-        // Unsubscribe when destroyed
-        timelineDirector.stopped -= OnTimelineStopped;
+        // Unsubscribe when the object is destroyed
+        videoPlayer.loopPointReached -= OnVideoEnd;
     }
 }
