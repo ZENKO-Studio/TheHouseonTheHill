@@ -8,7 +8,8 @@ using UnityEngine.Video;
 public class TimeLineHandler : MonoBehaviour
 {
     public VideoPlayer videoPlayer;  // Reference to the VideoPlayer
-    public int levelToStart;  // Index of the level to load
+    public int levelToStart; 
+    public Canvas canvas; // Index of the level to load
 
     void Start()
     {
@@ -18,6 +19,10 @@ public class TimeLineHandler : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
+        if (canvas != null)
+        {
+            canvas.gameObject.SetActive(false);  // Disable the canvas
+        }
         // Change to the next scene when the video ends
         GameManager.Instance.StartLevel(levelToStart);
     }
