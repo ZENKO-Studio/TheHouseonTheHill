@@ -6,7 +6,8 @@ using UnityEngine.Playables;
 using UnityEngine.Video;
 
 public class ButtonHold : MonoBehaviour
-{   [SerializeField] private InputAction holdAction;
+{  
+    [SerializeField] private InputAction holdAction;
     public int SceneNumber = 1;
     public float holdDuration = 2f;
     private float holdTimer = 0f;
@@ -32,7 +33,7 @@ public class ButtonHold : MonoBehaviour
         holdAction.canceled -= OnButtonRelease;
     }
 
-    private void OnButtonHold(InputAction.CallbackContext context)
+    public void OnButtonHold(InputAction.CallbackContext context)
     {
         if (holdCoroutine == null)  // Start the hold process only if it hasn't been started
         {
@@ -87,5 +88,4 @@ public class ButtonHold : MonoBehaviour
             videoPlayer.Stop();  // Stops the video if a VideoPlayer is attached
         }
     }
-  
 }
