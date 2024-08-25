@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1960134733207476434}
   - component: {fileID: 8077539951534171151}
   - component: {fileID: 824091779633885356}
-  - component: {fileID: 4808621148360063793}
   - component: {fileID: 8821662011245652461}
   m_Layer: 0
   m_Name: LogKey
@@ -110,76 +109,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.82
   m_Center: {x: -0.22549191, y: 2.51, z: 0.000000046164274}
---- !u!114 &4808621148360063793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1267605974155945812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 023e0caafb860a144b2787ca3d52ac28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemName: Fire wood
-  itemIcon: {fileID: 21300000, guid: 2f66a42988d25a746b39460a436eb678, type: 3}
-  itemDescription: used for a fire
-  itemPreview: {fileID: 9118442230616637743, guid: dbd65e546e6a5a5488960dd75921d6a0,
-    type: 3}
-  boardItemPreview: {fileID: 1267605974155945812}
-  interactPopup: {fileID: 7229651810804753779, guid: dbd65e546e6a5a5488960dd75921d6a0,
-    type: 3}
-  itemId: 1
-  itemType: 1
-  itemPickupSound: {fileID: 0}
-  bInteractable: 1
-  bShouldGlow: 1
-  objectMaterial: {fileID: 0}
-  emissionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  maxGlowIntensity: 696969
-  intensityMultiplier:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.7664424
-      value: -0.015071273
-      inSlope: 2.991299
-      outSlope: 2.991299
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: -0.41758728
-      value: 2.4022217
-      inSlope: -0.0052212738
-      outSlope: -0.0052212738
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.90284544
-    - serializedVersion: 3
-      time: 0.4279893
-      value: 2.448194
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1.012497
-      value: 1.5
-      inSlope: -0.008685844
-      outSlope: -0.008685844
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.8111894
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!114 &8821662011245652461
 MonoBehaviour:
   m_ObjectHideFlags: 0
