@@ -1,5 +1,17 @@
+using System;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+
+public enum GameState
+{
+    MainMenu,
+    CutscenePlaying,    //Optional
+    GameRunning,
+    GamePaused,
+    GameEnded
+}
 
 public class GameManager : Singleton<GameManager>
 {
@@ -16,12 +28,31 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
+
+    [Tooltip("Set this to true if you want to test scenes individually")]
+    [SerializeField] bool bSingleSceneMode = false;
+
+    [Tooltip("Set your first game level here, one to be loaded on start game")]
+    public SceneReference[] GameLevels;
+    private int currentLevel = -1;
+
     //Should be set on game start or manually in the scene
     public NellController playerRef;
 
     public HUDController playerHud;
 
     public UnityEvent OnPlayerSpawned = new UnityEvent();
+
+    public UnityEvent OnGamePaused = new UnityEvent();
+
+    public UnityEvent OnGameResumed = new UnityEvent();
+
+    public UnityEvent OnRespawnPlayer = new UnityEvent();
+    
+    //When Game Starts
+    internal GameState currentGameState = GameState.MainMenu;
+
+    internal bool loadInProgress = false;
 
     #region Cam View and Player Movement Orientation
     //Can be used for movable objects since it requires some transform to base direction off
@@ -33,14 +64,100 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (bSingleSceneMode)
+            return;
+
+        SceneLoader.Instance.ReloadMainMenu();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+       
     }
+
+    #region Core Game Functions
+
+    //#TODO? Modify to accomodate for multiple levels
+    public void StartLevel(int l)
+    {
+        if (loadInProgress)
+            return;
+
+        loadInProgress = true;
+        
+        MenuManager.Instance.HideMenu(MenuType.MainMenu);
+
+        if(currentLevel > 0 && currentLevel <= 3)
+        {
+            SceneLoader.Instance.UnloadScene(GameLevels[currentLevel-1]);
+        }
+
+        if (GameLevels[l - 1] != null)
+        {
+            currentLevel = l;
+            SceneLoader.Instance.LoadScene(GameLevels[l - 1]);
+        }
+        else
+        {
+            Debug.LogError($"Game Manager Script on {name} needs valid scene reference to load");
+        }
+        
+        GameManager.Instance.currentGameState = GameState.GameRunning;
+    }
+
+    public void PauseGame(bool bShowPauseScreen)
+    {
+        if (bSingleSceneMode)
+            return;
+
+        Time.timeScale = 0f;
+
+        OnGamePaused?.Invoke();
+        DialogueManager.Pause();
+        
+        if (bShowPauseScreen)
+        {
+            MenuManager.Instance.ShowMenu(MenuType.PauseMenu);
+        }
+
+        MenuManager.Instance.HideMenu(MenuType.HUDMenu);
+
+
+        currentGameState = GameState.GamePaused;
+    }
+
+    public void ResumeGame()
+    {
+        if (bSingleSceneMode)
+            return;
+
+        Time.timeScale = 1f;
+        
+        OnGameResumed?.Invoke();
+        DialogueManager.Unpause();
+        MenuManager.Instance.HideMenu(MenuType.PauseMenu);
+        MenuManager.Instance.ShowMenu(MenuType.HUDMenu);
+
+        currentGameState = GameState.GameRunning;
+    }
+
+    public void HandlePlayerDeath()
+    {
+        if (bSingleSceneMode)
+            return;
+
+        PauseGame(false);
+        MenuManager.Instance.ShowMenu(MenuType.GameOveMenu);
+        currentGameState = GameState.GameEnded;
+    }
+
+    //Got to the Main Menu Screen 
+    public void EndGame()
+    {
+        SceneLoader.Instance.ReloadMainMenu();
+        currentLevel = -1;
+    }
+    #endregion
 
     //To be called when game scene is loaded
     void SetupCoreComponents()
@@ -106,6 +223,25 @@ public class GameManager : Singleton<GameManager>
     public void PlayerSpawned(NellController player)
     {
         playerRef = player;
+
+        OnPlayerSpawned?.Invoke();
+
+        if (bSingleSceneMode)
+            return;
+
+        playerRef.OnCharacterDead.AddListener(HandlePlayerDeath);
+    }
+
+    internal void RespawnPlayer()
+    {
+        if (bSingleSceneMode)
+            return;
+
+        OnRespawnPlayer?.Invoke();
+
+        DialogueManager.Unpause();
+        DialogueManager.conversationController.isActive.Equals(true);
+        currentGameState = GameState.GameRunning;
 
         OnPlayerSpawned?.Invoke();
     }

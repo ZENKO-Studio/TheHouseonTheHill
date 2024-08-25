@@ -8,65 +8,23 @@ using UnityEngine.SceneManagement;
 using UnityEngine.TextCore.Text;
 using static UnityEngine.InputSystem.InputAction;
 
-public class PauseMenu : Menu
-{   
-    // Add this line to reference the level scen
-    private Players pauseInputAction;
-
-    private Camera Main;
-
-    protected override void Awake()
+public class PauseMenu : MonoBehaviour
+{
+    private void Start()
     {
-        base.Awake();
-        Main = Camera.main;
-        pauseInputAction = new Players();
+        MenuManager.Instance.AddMenuObject(gameObject, MenuType.PauseMenu);
+        gameObject.SetActive(false); // Ensure the Pause is initially hidden
     }
 
-    private void OnEnable()
+    public void OnResumeBtn()
     {
-        pauseInputAction.PlayerMap.Enable();
-        pauseInputAction.PlayerMap.Pause.Enable();
-        pauseInputAction.PlayerMap.Pause.performed += OnPauseGamePerformed;
+        GameManager.Instance.ResumeGame();
     }
 
-
-    public void OnReturnToMainMenu()
+    public void OnMainMenuBtn()
     {
-        MenuManager.Instance.GetMenu<MainMenu>(MenuManager.Instance.MainMenuClassifier)?.OnReturnToMainMenu();
-        MenuManager.Instance.HideMenu(menuClassifier);
-
-        Main.gameObject.SetActive(true);
+        GameManager.Instance.EndGame();
     }
-
-    private void OnPauseGamePerformed(InputAction.CallbackContext context)
-    {
-        Debug.Log("i am sami's best friend");
-        if (Time.timeScale == 1.0f)
-        {
-            OnPauseGame();
-        }
-        else
-        {
-            OnContinueGame();
-        }
-    }
-
-    public void OnPauseGame()
-    {
-        Time.timeScale = 0.0f;
-        MenuManager.Instance.ShowMenu(menuClassifier);
-    }
-
-    public void OnContinueGame()
-    {
-        Time.timeScale = 1.0f;
-        MenuManager.Instance.HideMenu(menuClassifier);
-    }
-
-    //public void OnSettingsMenu()
-    //{
-
-    //}
 
     public void OnApplicationQuit()
     {

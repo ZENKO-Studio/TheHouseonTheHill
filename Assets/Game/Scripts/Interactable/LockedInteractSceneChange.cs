@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Interactable;
+using PixelCrushers.DialogueSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -13,23 +14,28 @@ public class LockedInteractSceneChange : MonoBehaviour, IInteractable
 
     public UnityEvent onInteract;
     public UnityEvent onUnlock;
-    public string SceneName;
+    public int SceneName = 0;
     [SerializeField] private InputAction interactAction;
     [SerializeField] private int priority;
 
     public InputAction Action => interactAction;
+
     public void Interact(CharacterBase player)
     {
-          
+
         if (InventoryHandler.Instance.HasKey(keyToUnlockInteger))
         {
             Debug.Log("FS");
             isLocked = false;
             onInteract?.Invoke();
-            SceneManager.LoadScene(SceneName);
-            
+            GameManager.Instance.StartLevel(SceneName);
+
         }
     }
+
     public int Priority => priority;
+
+    
+    
 }
 

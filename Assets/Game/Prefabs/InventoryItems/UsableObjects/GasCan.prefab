@@ -241,13 +241,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemName: Gas Can
-  itemIcon: {fileID: 21300000, guid: 39c889fd482558543a3040de05a300f7, type: 3}
-  itemDescription: Can be used in generator to power it up
+  itemIcon: {fileID: 21300000, guid: fcf048fbde2e11040bde2aeeec08c910, type: 3}
+  itemDescription: A can of gas. Could be used to power a machine...
   itemPreview: {fileID: 8532282807381031079}
   boardItemPreview: {fileID: 0}
   interactPopup: {fileID: 5822510168434786837}
   itemId: 1
   itemType: 0
+  itemPickupSound: {fileID: 0}
   bInteractable: 1
   bShouldGlow: 1
   objectMaterial: {fileID: 0}

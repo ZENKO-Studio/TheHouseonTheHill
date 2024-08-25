@@ -12,7 +12,23 @@ public class InventoryCam : MonoBehaviour
     
     private float xAngle = 0;
     private float yAngle = 0;
-    
+
+    [Header("Camera Settings for Inventory")]
+    [SerializeField] Transform invCam;
+
+    public float zoomSpeed = 10f;      // Speed at which the camera zooms
+    public float minZoom = 1f;         // Minimum distance (zoom in limit)
+    public float maxZoom = 50f;        // Maximum distance (zoom out limit)
+
+    private float currentZoom;
+
+    private void Start()
+    {
+        invCam = transform.GetComponentInChildren<Camera>().transform;
+
+        //currentZoom = invCam.localPosition.z;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -23,8 +39,8 @@ public class InventoryCam : MonoBehaviour
 
         if(Input.GetMouseButton(0))
         {
-            float movX = Input.GetAxis("Mouse X");
-            float movY = Input.GetAxis("Mouse Y");
+            float movX = GameManager.Instance.playerRef.lookInput.x;
+            float movY = GameManager.Instance.playerRef.lookInput.y;
 
             xAngle += movY * camMoveSpeed * Time.unscaledDeltaTime;
             xAngle = Mathf.Clamp(xAngle, lowerLimit, upperLimit);
@@ -32,7 +48,16 @@ public class InventoryCam : MonoBehaviour
             float yAngle = movX * camMoveSpeed * Time.unscaledDeltaTime;
 
             transform.rotation = Quaternion.Euler(-xAngle, transform.rotation.eulerAngles.y + yAngle, 0f);
-            //transform.Rotate(0, , 0);
+
         }
+
+        //float zoomAmount = GameManager.Instance.playerRef.zoom;
+
+        //// Adjust the currentZoom based on input and speed
+        //currentZoom += zoomAmount * zoomSpeed * Time.unscaledDeltaTime;
+
+        //currentZoom = Mathf.Clamp(currentZoom, minZoom, maxZoom);
+        
+        //invCam.localPosition = new Vector3(invCam.localPosition.x, invCam.localPosition.y, currentZoom);
     }
 }

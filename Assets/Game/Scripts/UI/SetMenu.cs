@@ -6,55 +6,55 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.UI;
 
-public class SetMenu : Menu
+public class SetMenu : MonoBehaviour
 {
-    public MenuClassifier previousMenuClassifier;
-    
-    public TMP_Dropdown resolutionDropdown;
+    //public TMP_Dropdown resolutionDropdown;
     public Slider contrastSlider;
     public Slider exposureSlider;
     public Slider brightnessSlider;
     public Slider volumeSlider;
     public Volume volume;
 
-    private Resolution[] resolutions;
+    //private Resolution[] resolutions;
 
     void Start()
     {
-        resolutions = Screen.resolutions;
-        resolutionDropdown.ClearOptions();
+        MenuManager.Instance.AddMenuObject(gameObject, MenuType.OptionsMenu);
 
-        List<string> options = new List<string>();
-        int currentResolutionIndex = 0;
+        //resolutions = Screen.resolutions;
+        //resolutionDropdown.ClearOptions();
 
-        for (int i = 0; i < resolutions.Length; i++)
-        {
-            string option = resolutions[i].width + " x " + resolutions[i].height;
-            options.Add(option);
+        //List<string> options = new List<string>();
+        //int currentResolutionIndex = 0;
 
-            if (resolutions[i].width == Screen.currentResolution.width &&
-                resolutions[i].height == Screen.currentResolution.height)
-            {
-                currentResolutionIndex = i;
-            }
-        }
+        //for (int i = 0; i < resolutions.Length; i++)
+        //{
+        //    string option = resolutions[i].width + " x " + resolutions[i].height;
+        //    options.Add(option);
 
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
-        resolutionDropdown.RefreshShownValue();
+        //    if (resolutions[i].width == Screen.currentResolution.width &&
+        //        resolutions[i].height == Screen.currentResolution.height)
+        //    {
+        //        currentResolutionIndex = i;
+        //    }
+        //}
 
-        resolutionDropdown.onValueChanged.AddListener(SetResolution);
+        //resolutionDropdown.AddOptions(options);
+        //resolutionDropdown.value = currentResolutionIndex;
+        //resolutionDropdown.RefreshShownValue();
+
+        //resolutionDropdown.onValueChanged.AddListener(SetResolution);
         contrastSlider.onValueChanged.AddListener(SetContrast);
         exposureSlider.onValueChanged.AddListener(SetExposure);
         brightnessSlider.onValueChanged.AddListener(SetBrightness);
         volumeSlider.onValueChanged.AddListener(SetVolume);
     }
 
-    public void SetResolution(int resolutionIndex)
-    {
-        Resolution resolution = resolutions[resolutionIndex];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-    }
+    //public void SetResolution(int resolutionIndex)
+    //{
+    //    Resolution resolution = resolutions[resolutionIndex];
+    //    Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    //}
 
     public void SetContrast(float contrast)
     {
@@ -97,10 +97,16 @@ public class SetMenu : Menu
         AudioListener.volume = volume;
     }
     
-    public void OnReturnToPreviousMenu()
+    public void OnBack()
     {
-        MenuManager.Instance.ShowMenu(previousMenuClassifier);
-        MenuManager.Instance.HideMenu(menuClassifier);
+        if(GameManager.Instance.currentGameState == GameState.MainMenu)
+        {
+            MenuManager.Instance.ShowMenu(MenuType.MainMenu);
+        }
+        else
+        {
+            MenuManager.Instance.ShowMenu(MenuType.PauseMenu);
+        }
     }
 
     public void QuitGame()
