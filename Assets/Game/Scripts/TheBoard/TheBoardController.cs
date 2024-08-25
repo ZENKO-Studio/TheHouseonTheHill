@@ -102,7 +102,7 @@ public class TheBoardController : Singleton<TheBoardController>
                 SetBoardItems(v.Key);
         }
     }
-
+    
     internal void SetBoardItems(InventoryItem i)
     {
         GameObject g = Instantiate(boardItemPrefab, _buttonArea);

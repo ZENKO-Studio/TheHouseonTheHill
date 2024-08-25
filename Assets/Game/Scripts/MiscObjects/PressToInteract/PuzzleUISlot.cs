@@ -38,8 +38,8 @@ public class PuzzleUISlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         
         slotItem = puzzleItem;
-        slotItem.transform.parent = transform;
-        slotItem.transform.localPosition = Vector2.zero;
+        slotItem.transform.parent.parent = transform;
+        slotItem.transform.parent.localPosition = Vector2.zero;
         puzzleUIController.puzzleRef.placedItems.Add(slotItem);
         InventoryHandler.Instance.RemoveItem(slotItem.inventoryItem);
 

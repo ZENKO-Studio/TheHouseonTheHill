@@ -29,9 +29,9 @@ public class PuzzleUIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         if (canvas == null)
             print("Canvas Null");
 
-        rectTransform = GetComponent<RectTransform>();
+        rectTransform = GetComponentInParent<RectTransform>();
 
-        initialParent = transform.parent;
+        initialParent = transform.parent.parent;
 
         puzzleController = GetComponentInParent<PuzzleUIController>();
         puzzleController.OnPuzzleInit.AddListener(InitPiece);
@@ -47,7 +47,7 @@ public class PuzzleUIItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        transform.parent = canvas.transform;
+        transform.parent.parent = canvas.transform;
 
         PuzzleUIController.itemBeingDragged = this;
 
