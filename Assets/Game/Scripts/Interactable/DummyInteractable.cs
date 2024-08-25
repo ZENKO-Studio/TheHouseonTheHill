@@ -27,11 +27,13 @@ namespace Game.Scripts.Interactable
         public void Interact(CharacterBase player)
         {
             onInteract?.Invoke();
-            AfterInteract?.Invoke();
+          
             if (PlayDoorSound)
                 AudioSource.PlayClipAtPoint(dummyInteract, transform.position);
             else
                 Debug.Log("Player is not in front of the door.");
+            
+            AfterInteract?.Invoke();
         }
         
         public int Priority => priority;
