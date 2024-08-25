@@ -3,22 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Playables;
+using UnityEngine.Video;
 
 public class ButtonHold : MonoBehaviour
-{    [SerializeField] private InputAction holdAction;
+{  
+    [SerializeField] private InputAction holdAction;
     public int SceneNumber = 1;
     public float holdDuration = 2f;
     private float holdTimer = 0f;
     private bool isHolding = false;
-    public PlayableDirector timeLine;
+    public VideoPlayer videoPlayer;
+    public Canvas canvas;  // Reference to the Canvas that should be disabled
+
+    private Coroutine holdCoroutine;
 
     public InputAction Action => holdAction;
 
     void OnEnable()
     {
         holdAction.Enable();
-        holdAction.performed += OnButtonHold;
-        holdAction.canceled += OnButtonRelease;
+        holdAction.performed += OnButtonHold;  // Subscribe to when the button is pressed
+        holdAction.canceled += OnButtonRelease; // Subscribe to when the button is released
     }
 
     void OnDisable()
@@ -28,25 +33,30 @@ public class ButtonHold : MonoBehaviour
         holdAction.canceled -= OnButtonRelease;
     }
 
-    private void OnButtonHold(InputAction.CallbackContext context)
+    public void OnButtonHold(InputAction.CallbackContext context)
     {
-        // Start counting the hold time only if the button is held down
-        if (holdAction.ReadValue<float>() > 0 && !isHolding)
+        if (holdCoroutine == null)  // Start the hold process only if it hasn't been started
         {
-            StartCoroutine(HoldButton());
+            holdCoroutine = StartCoroutine(HoldButton());
         }
     }
 
     private void OnButtonRelease(InputAction.CallbackContext context)
     {
-        // Reset timer and holding state when button is released
-        StopCoroutine(HoldButton());
-        holdTimer = 0f;
+        if (holdCoroutine != null)
+        {
+            StopCoroutine(holdCoroutine);
+            holdCoroutine = null;
+        }
+
+        holdTimer = 0f;  // Reset the timer
         isHolding = false;
     }
 
     private IEnumerator HoldButton()
     {
+        holdTimer = 0f;
+
         while (holdTimer < holdDuration)
         {
             holdTimer += Time.deltaTime;
@@ -58,16 +68,24 @@ public class ButtonHold : MonoBehaviour
             isHolding = true;
             OnHoldComplete();
         }
+
+        holdCoroutine = null; // Reset the coroutine reference after completion
     }
 
-    void OnHoldComplete()
+    private void OnHoldComplete()
     {
-      
+        // Disable the canvas before starting the level
+        if (canvas != null)
+        {
+            canvas.gameObject.SetActive(false);  // Disable the canvas
+        }
         
+        // Whatever logic you want to trigger after holding for the duration
         GameManager.Instance.StartLevel(SceneNumber);
-        timeLine.Stop();
         
+        if (videoPlayer != null)
+        {
+            videoPlayer.Stop();  // Stops the video if a VideoPlayer is attached
+        }
     }
-
-  
 }
