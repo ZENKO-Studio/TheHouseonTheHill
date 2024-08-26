@@ -600,7 +600,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Actor
-        value: -1
+        value: 2
         type: 5
         typeString: CustomFieldType_Actor
       - title: Conversant
@@ -816,8 +816,8 @@ MonoBehaviour:
         width: 160
         height: 30
     entryGroups: []
-    canvasScrollPosition: {x: 1.3157959, y: 169.73685}
-    canvasZoom: 0.7600001
+    canvasScrollPosition: {x: 0, y: 0}
+    canvasZoom: 0.90999997
   - id: 2
     fields:
     - title: Title
@@ -2207,13 +2207,13 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: 'Shit. I''d better get going.
+        value: 'Shoot. I''d better get going.
 
 '
         type: 0
         typeString: 
       - title: Sequence
-        value: AudioWait(sub-quests/HOTH_SQ1_EXPLOREHILLHOUSE_4)
+        value: 
         type: 0
         typeString: 
       conversationID: 8
@@ -2916,7 +2916,7 @@ MonoBehaviour:
         isConnector: 0
         priority: 2
       conditionsString: 
-      userScript: 
+      userScript: SetQuestEntryState("To Walk Alone", 5, "success")
       onExecute:
         m_PersistentCalls:
           m_Calls: []

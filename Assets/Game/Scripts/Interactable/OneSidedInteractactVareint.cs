@@ -13,6 +13,27 @@ public class OneSidedInteractactVareint : MonoBehaviour, IInteractable
     [SerializeField] private int priority;
 
     public OpenThings openThings;
+    
+    #region StoleFromSami
+
+    
+
+    
+    [Header("Audio and Dialogue")]
+    [SerializeField] bool PlayDoorSound = false;
+    [SerializeField] bool PlayDialogueLines = false;
+
+    [SerializeField] AudioClip lockedDoorSound; 
+
+    [SerializeField] AudioClip unlockedDoorSound; 
+
+    [Tooltip("Dialogue that will be played once when player enters the trigger and do not have required items")]
+    [SerializeField] List<string> linesWhenLocked = new List<string>();
+
+    [Tooltip("Dialogue that will be played once when player enters the trigger have all the items")]
+    [SerializeField] List<string> linesWhenUnlocked = new List<string>();
+    #endregion
+
 
     private void Start()
     {
@@ -31,10 +52,21 @@ public class OneSidedInteractactVareint : MonoBehaviour, IInteractable
         {
           //e  Gizmos.DrawRay(player.transform.position , openThings.transform.position);
             onInteract?.Invoke();
+            if (PlayDoorSound)
+                AudioSource.PlayClipAtPoint(unlockedDoorSound, transform.position);
+                    
+            if (PlayDialogueLines)
+                GameManager.Instance.playerHud.UpdateDialogueText(linesWhenUnlocked[Random.Range(0, linesWhenUnlocked.Count)], 2);
         }
         else
         {
-            Debug.Log("Player is not in front of the door.");
+            if (PlayDoorSound)
+                AudioSource.PlayClipAtPoint(lockedDoorSound, transform.position);
+
+            if (PlayDialogueLines)
+                GameManager.Instance.playerHud.UpdateDialogueText(linesWhenLocked[Random.Range(0, linesWhenLocked.Count)], 2);
+            else
+                Debug.Log("Player is not in front of the door.");
         }
     }
 
